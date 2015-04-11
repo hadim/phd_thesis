@@ -1,6 +1,6 @@
 # Thesis source code
 
-Thesis is written in Markdown and converted in latex + pdf with pandoc. Template largely inspired from https://github.com/chiakaivalya/thesis-markdown-pandoc.
+My PhD thesis is written in Markdown and converted in Latex + pdf with Pandoc. The original template is largely inspired from https://github.com/chiakaivalya/thesis-markdown-pandoc.
 
 ## How to build
 
