@@ -10,7 +10,7 @@ phd:
 	       -V papersize:a4paper \
 	       -V classoption:openright \
 	       --chapters \
-	       --bibliography=bib/papers.bib \
-	       --csl="bib/csl/nature.csl" \
+	       --bibliography=bib/library.bib \
+	       --csl="bib/cell.csl" \
 	       $(MD_FILES) \
 	       -o "thesis.pdf"
