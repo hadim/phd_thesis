@@ -29,3 +29,10 @@ phdlog:
 	              --csl="bib/cell.csl" \
 	              $(MD_FILES) \
 	              -o "thesis.pdf" --verbose
+
+docx:
+	$(PANDOC_BIN) --chapters \
+	              --bibliography=bib/library.bib \
+	              --csl="bib/cell.csl" \
+	              $(MD_FILES) \
+	              -o "thesis.docx" --verbose -t docx
