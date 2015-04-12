@@ -10,6 +10,7 @@ phd:
 	              -V documentclass:book \
 	              -V papersize:a4paper \
 	              -V classoption:openright \
+	              -V classoption:oneside \
 	              --chapters \
 	              --bibliography=bib/library.bib \
 	              --csl="bib/cell.csl" \
@@ -24,6 +25,7 @@ phdlog:
 	              -V documentclass:book \
 	              -V papersize:a4paper \
 	              -V classoption:openright \
+	              -V classoption:oneside \
 	              --chapters \
 	              --bibliography=bib/library.bib \
 	              --csl="bib/cell.csl" \
@@ -54,6 +56,7 @@ latex:
 	              -V documentclass:book \
 	              -V papersize:a4paper \
 	              -V classoption:openright \
+	              -V classoption:oneside \
 	              --chapters \
 	              --bibliography=bib/library.bib \
 	              --csl="bib/cell.csl" \

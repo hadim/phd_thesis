@@ -1,3 +1,9 @@
-\frontmatter 
-\chapter{Summary} 
- Insert summary here
+\frontmatter
+
+# Summary
+
+Insert summary here
+
+# Résumé
+
+Résumé en fr.
