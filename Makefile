@@ -32,7 +32,7 @@ endef
 
 pdf: build-bib
 	$(PANDOC_BIN) $(TEX_OPTIONS) $(PANDOC_OPTIONS) $(SRC_FILES) \
-	              -o "thesis.pdf" --verbose | grep "makePDF"
+	              -o "thesis.pdf" --verbose | grep makePDF
 
 log: build-bib
 	$(PANDOC_BIN) $(TEX_OPTIONS) $(PANDOC_OPTIONS) $(SRC_FILES) \

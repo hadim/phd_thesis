@@ -1,0 +1,3 @@
+\listoffigures
+
+\listoftables
