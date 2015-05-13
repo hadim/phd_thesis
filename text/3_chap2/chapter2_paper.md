@@ -57,13 +57,13 @@ I had to insert figures that took up the entire page (like in journal publicatio
 ### Third result
 In case you do call an FPfigure earlier, you will not be able to use markdown's standard figure insert method further down, but need to use LaTeX.
 
-\begin{figure}[h!]
+\begin{figure}[h]
 \centering
 \includegraphics{figures/FigureY.pdf}
 \caption{\textbf{This figure is about Y} (A) First subfigure. (B) Second subfigure.}
 \end{figure}
 
-![**This is Y.** (A) First subfigure. (B) Second subfigure.](figures/FigureY.pdf)
+![**This is Y.** (A) First subfigure. (B) Second subfigure.](figures/mitosis_Walczak.png)
 
 ## Discussion
 Write your discussion here.
