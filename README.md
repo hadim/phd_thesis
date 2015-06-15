@@ -5,7 +5,7 @@ My PhD thesis is written in Markdown and converted in Latex + pdf with Pandoc. T
 ## How to build
 
 ```sh
-make phd
+make pdf
 ```
 
 ## Author
