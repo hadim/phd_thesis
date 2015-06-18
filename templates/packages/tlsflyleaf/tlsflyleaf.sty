@@ -1,0 +1,916 @@
+%% This is file `tlsflyleaf.sty',
+%% Copyright 2013 Tristan GREGOIRE
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is T. GREGOIRE
+%
+%
+% Version history
+%  v1.7:
+%        - Adding missing MITT speciality (SIAO)
+%  v1.6:
+%        - Establishment naming updated (UT2)
+%  v1.5:
+%        - Spell fix
+%  v1.4:
+%        - Remove packages: babel, inputenc and fontenc
+%  v1.3:
+%        - Add sentence if no member of jury are defined and njudge=0
+%  v1.2:
+%        - Add new ED2 option -> double mention for a second speciality (ED like option)
+%        - Coorection cotutelle bug
+%  v1.1:
+%        - Update cotutelle layout
+%        - Only fancy mode kept => fancy option removed
+%  v1.0:
+%        - Add 2 new options: ED and Ets to fix the syntaxe for respectively docschool and establishment
+%  v0.9:
+%        - Add new command \establishment
+%        - Use \title instead of \FRtitle
+%  v0.8:
+%        - Add auto aggrement with number (boss and referee by adding 's' if number greater than 1)
+%        - Add a fancy flyleaf load with the 'fancy' option
+%        - Automatic position of the background figure (doesn't depend on the paper size)
+%        - Rename \makepdg to \makeflyleaf
+%        - Rename \pdg to \makepdg
+%        - Use standard \author command instead of \writer
+%          Default value set with \author{names} command
+%        - Rename \umr command to \lab
+%        - Option `emptysheetbefore' and `emptypageafter' added
+%        - Option `draft' removed
+%
+
+\NeedsTeXFormat{LaTeX2e}          % Require recent version of LaTeX >= 2011
+\ProvidesClass{tlsflyleaf}[2013/03/22 Page de Garde de l'Universite de Toulouse]
+
+\RequirePackage{xkeyval}          % Allow key=value option for the package
+
+% ============================================================
+% OPTION
+%emptysheetbefore => Insert two white pages (one sheet) before the flyleaf
+\newif\if@emptysheetbefore\@emptysheetbeforefalse
+\DeclareOptionX{emptysheetbefore}[none]{\@emptysheetbeforetrue}
+%emptypageafter => insert one page after the flyleaf
+\newif\if@emptypageafter\@emptypageafterfalse
+\DeclareOptionX{emptypageafter}[none]{\@emptypageaftertrue}
+%draft => Remove flyleaf page
+\newif\if@draft\@draftfalse
+\DeclareOptionX{draft}[none]{\@drafttrue}
+
+%% KEY=VALUE OPTION
+% Establishment
+\def\establishment#1{\gdef\@establishment{#1}}
+\define@choicekey+{etsname}{Ets}[\val\nr]
+  {UT1, UT2, UT2-ENSA, UT3, INP, INP-ENSM, INSA, INSA-ENSM, ISAE}{%
+  \ifcase\nr\relax
+    \establishment{l'Universit\'e Toulouse 1 Capitole (UT1 Capitole)}
+  \or
+    \establishment{l'Universit\'e Toulouse - Jean Jaur\`es}
+  \or
+    \establishment{l'UT2 Le Mirail conjointement avec l'\'Ecole Nationale Sup\'erieur d'Architecture de Toulouse}
+  \or
+    \establishment{l'Universit\'e Toulouse 3 Paul Sabatier (UT3 Paul Sabatier)}
+  \or
+    \establishment{l'Institut National Polytechnique de Toulouse (INP Toulouse)}
+  \or
+    \establishment{l'INP Toulouse conjointement avec l'\'Ecole Nationale Sup\'erieure des Mines d'Albi-Carmaux}
+  \or
+    \establishment{l'Institut National des Sciences Appliqu\'ees de Toulouse (INSA de Toulouse)}
+  \or
+    \establishment{l'INSA de Toulouse conjointement avec l'\'Ecole Nationale Sup\'erieure des Mines d'Albi-Carmaux}
+  \or
+    \establishment{l'Institut Sup\'erieur de l'A\'eronautique et de l'Espace (ISAE)}
+  \fi
+ }
+ {\PackageError{tlsflyleaf}{'\CurrentOption' option inconnue}}
+\DeclareOptionX{Ets}{\setkeys{etsname}{Ets=#1}}
+
+% Docschool and speciality
+\def\docschool#1{\def\@docschool{#1}}
+\define@choicekey+{edname}{ED}[\val\nr]
+    {AA, ALLPHA-Al, ALLPHA-An, ALLPHA-Ar, ALLPHA-AtA, ALLPHA-AtSp, ALLPHA-AtSc, ALLPHA-AtP, ALLPHA-C, ALLPHA-D, ALLPHA-Es, ALLPHA-Ea, ALLPHA-I, ALLPHA-LC, ALLPHA-LM, ALLPHA-M, ALLPHA-Ph, ALLPHA-Po, ALLPHA-R, ALLPHA-S, ALLPHA-T, BSB-Anth, BSB-BioC, BSB-BioD, BSB-BioS, BSB-BiosV, BSB-BiotB, BSB-BiotC, BSB-GC, BSB-GM, BSB-Immu, BSB-Micr, BSB-Neur, BSB-Phar, BSB-Phys, CLESCO-A, CLESCO-D, CLESCO-E, CLESCO-L, CLESCO-Npsy, CLESCO-Nsc, CLESCO-NscCC, CLESCO-PM, CLESCO-Psy, CLESCO-Psyp, CLESCO-SE, CLESCO-SL, GEET-Comp, GEET-Elec, GEET-Genie, GEET-Plasma, GEET-MicNano, GEET-Pho, GEET-RadImg, MEGEP-DyF, MEGEP-Energ, MEGEP-GC, MEGEP-GPE, MEGEP-GMeca, MITT-MathEp, MITT-MathA, MITT-MathF, MITT-STICIA, MITT-STICRT, MITT-STICSL, MITT-ImgInf, MITT-SIAO, MPSE-Sci, SDM-CMacro, SDM-CMol, SDM-COrg, SDM-CBio, SDM-Nano, SDM-PTh, SDM-PCOR, SDM-PMat, SDM-SAgro, SDM-SGen, SDU2E-Ast, SDU2E-Eco, SDU2E-Hy, SDU2E-Oc, SDU2E-Sc, SEVAB-Ag, SEVAB-De, SEVAB-Eco, SEVAB-Ing, SEVAB-Int, SEVAB-PaTox, SG-C, SG-F, SG-G, SG-M, SG-St, SG-Sys, SJP-D, SJP-ScP, TESC-Ant, TESC-Arc, TESC-Eco, TESC-EcoS, TESC-EtH, TESC-EtRG, TESC-EtRSG, TESC-EtRSD, TESC-EtRSE, TESC-EtRS, TESC-EtA, TESC-Geo, TESC-Hist, TESC-HistA, TESC-Pre, TESC-ScA, TESC-Soc, EDSYS-A, EDSYS-ASPR, EDSYS-GenInd, EDSYS-Info, EDSYS-Robo, EDSYS-SystEmb}
+  {%
+    \ifcase\nr\relax
+      \docschool{AA : voir dossier renouvellement}
+    \or
+      \docschool{ALLPH@ : Allemand}
+    \or
+      \docschool{ALLPH@ : Anglais}
+    \or
+      \docschool{ALLPH@ : Arabe}
+    \or
+      \docschool{ALLPH@ : Arts appliqu\'es}
+    \or
+      \docschool{ALLPH@ : Arts du spectacle}
+    \or
+      \docschool{ALLPH@ : Arts et Sciences des Arts}
+    \or
+      \docschool{ALLPH@ : Arts plastiques}
+    \or
+      \docschool{ALLPH@ : Cin\'ema}
+    \or
+      \docschool{ALLPH@ : Didactique des langues}
+    \or
+      \docschool{ALLPH@ : Espagnol}
+    \or
+      \docschool{ALLPH@ : \'Etudes audiovisuelles}
+    \or
+      \docschool{ALLPH@ : Italien}
+    \or
+      \docschool{ALLPH@ : Lettres classiques}
+    \or
+      \docschool{ALLPH@ : Lettres modernes}
+    \or
+      \docschool{ALLPH@ : Musique}
+    \or
+      \docschool{ALLPH@ : Philosophie}
+    \or
+      \docschool{ALLPH@ : Portugais}
+    \or
+      \docschool{ALLPH@ : Russe}
+    \or
+      \docschool{ALLPH@ : Sciences de l'information et de la communication}
+    \or
+      \docschool{ALLPH@ : Traductologie}
+    \or
+      \docschool{BSB : Anthropobiologie}
+    \or
+      \docschool{BSB : Biologie cellulaire}
+    \or
+      \docschool{BSB : Biologie du d\'eveloppement}
+    \or
+      \docschool{BSB : Biologie structurale et fonctionnelle}
+    \or
+      \docschool{BSB : Biosciences v\'eg\'etales}
+    \or
+      \docschool{BSB : Biotechnologies, Bio\'ethique}
+    \or
+      \docschool{BSB : Biotechnologies, Canc\'erologie}
+    \or
+      \docschool{BSB : G\`enes, cellules et d\'eveloppement}
+    \or
+      \docschool{BSB : G\'en\'etique mol\'eculaire}
+    \or
+      \docschool{BSB : Immunologie}
+    \or
+      \docschool{BSB : Microbiologie}
+    \or
+      \docschool{BSB : Neurosciences}
+    \or
+      \docschool{BSB : Pharmacologie}
+    \or
+      \docschool{BSB : Physiopathologie}
+    \or
+      \docschool{CLESCO : Acoustique, Science du langage}
+    \or
+      \docschool{CLESCO : Didactique des disciplines scientifiques}
+    \or
+      \docschool{CLESCO : Ergonomie}
+    \or
+      \docschool{CLESCO : Linguistique anglaise}
+    \or
+      \docschool{CLESCO : Neuropsychologie}
+    \or
+      \docschool{CLESCO : Neurosciences}
+    \or
+      \docschool{CLESCO : Neurosciences, comportement et cognition}
+    \or
+      \docschool{CLESCO : Performance motrice, adaptation et sports}
+    \or
+      \docschool{CLESCO : Psychologie}
+    \or
+      \docschool{CLESCO : Psychopathologie}
+    \or
+      \docschool{CLESCO : Sciences de l'\'education}
+    \or
+      \docschool{CLESCO : Sciences du langage}
+    \or
+      \docschool{GEET : Composants et Syst\`emes de gestion de l'\'Energie}
+    \or
+      \docschool{GEET : \'Electromagn\'etisme et Syst\`emes Haute Fr\'equence}
+    \or
+      \docschool{GEET : G\'enie Electrique}
+    \or
+      \docschool{GEET : Ing\'enierie des PLASMAS}
+    \or
+      \docschool{GEET : Micro et Nanosyst\`emes}
+    \or
+      \docschool{GEET : Photonique et Syst\`emes Opto\'electroniques}
+    \or
+      \docschool{GEET : Radio-physique et Imagerie M\'edicale}
+    \or
+      \docschool{MEGEP : Dynamique des fluides}
+    \or
+      \docschool{MEGEP : \'Energ\'etique et transferts}
+    \or
+      \docschool{MEGEP : G\'enie civil}
+    \or
+      \docschool{MEGEP : G\'enie des proc\'ed\'es et de l'Environnement}
+    \or
+      \docschool{MEGEP : G\'enie m\'ecanique, m\'ecanique des mat\'eriaux}
+    \or
+      \docschool{MITT : Domaine Math\'ematiques : \'Epid\'emiologie}
+    \or
+      \docschool{MITT : Domaine Math\'ematiques : Math\'ematiques appliqu\'ees}
+    \or
+      \docschool{MITT : Domaine Math\'ematiques : Math\'ematiques fondamentales}
+    \or
+      \docschool{MITT : Domaine STIC : Intelligence Artificielle}
+    \or
+      \docschool{MITT : Domaine STIC : R\'eseaux, T\'el\'ecoms, Syst\`emes et Architecture}
+    \or
+      \docschool{MITT : Domaine STIC : Suret\'e de logiciel et calcul de haute performance}
+    \or
+      \docschool{MITT : Image, Information, Hyperm\'edia}
+    \or
+      \docschool{MITT : Signal, Image, Acoustique et Optimisation}
+    \or
+      \docschool{MPSE : Sciences \'Economiques}
+    \or
+      \docschool{SDM : Chimie macromol\'eculaire et supramol\'eculaire - CO044}
+    \or
+      \docschool{SDM : Chimie mol\'eculaire - CO 046}
+    \or
+      \docschool{SDM : Chimie organom\'etallique de coordination - CO 043}
+    \or
+      \docschool{SDM : Chimie, Biologie, Sant\'e - CO 042}
+    \or
+      \docschool{SDM : Nano-physique, nano-composants, nano-mesures - COP 00}
+    \or
+      \docschool{SDM : Physicochimie th\'eorique - COP 01}
+    \or
+      \docschool{SDM : Physique - COR 02}
+    \or
+      \docschool{SDM : Physique de la mati\`ere - CO090}
+    \or
+      \docschool{SDM : Sciences des agroressources - CO019}
+    \or
+      \docschool{SDM : Sciences et g\'enie des mat\'eriaux - CO034}
+    \or
+      \docschool{SDU2E : Astrophysique, Sciences de l'Espace, Plan\'etologie}
+    \or
+      \docschool{SDU2E : \'Ecologie fonctionnelle}
+    \or
+      \docschool{SDU2E : Hydrologie, Hydrochimie, Sol, Environnement}
+    \or
+      \docschool{SDU2E : Oc\'ean, Atmosph\`ere et Surfaces Continentales}
+    \or
+      \docschool{SDU2E : Sciences de la Terre et des Plan\`etes Solides}
+    \or
+      \docschool{SEVAB : Agrosyst\`emes, \'ecosyst\`emes et environnement}
+    \or
+      \docschool{SEVAB : D\'eveloppement des plantes}
+    \or
+      \docschool{SEVAB : \'Ecologie, biodiversit\'e et \'evolution}
+    \or
+      \docschool{SEVAB : Ing\'enieries microbienne et enzymatique}
+    \or
+      \docschool{SEVAB : Interactions plantes-microorganismes}
+    \or
+      \docschool{SEVAB : Pathologie, Toxicologie, G\'en\'etique et Nutrition}
+    \or
+      \docschool{SG : Comptabilit\'e Contr\^ole}
+    \or
+      \docschool{SG : Finance}
+    \or
+      \docschool{SG : Gestion des Ressources Humaines}
+    \or
+      \docschool{SG : Marketing}
+    \or
+      \docschool{SG : Strat\'egie}
+    \or
+      \docschool{SG : Syst\`emes d'information}
+    \or
+      \docschool{SJP : Droit}
+    \or
+      \docschool{SJP : Sciences Politiques}
+    \or
+      \docschool{TESC : Anthropologie sociale et historique}
+    \or
+      \docschool{TESC : Architecture}
+    \or
+      \docschool{TESC : \'Economie}
+    \or
+      \docschool{TESC : \'Economie sociale}
+    \or
+      \docschool{TESC : \'Etudes hispaniques}
+    \or
+      \docschool{TESC : \'Etudes rurales en g\'eographie, environnement}
+    \or
+      \docschool{TESC : \'Etudes rurales en sciences de gestion}
+    \or
+      \docschool{TESC : \'Etudes rurales en sciences du d\'eveloppement}
+    \or
+      \docschool{TESC : \'Etudes rurales en sciences \'economiques}
+    \or
+      \docschool{TESC : \'Etudes rurales en sociologie}
+    \or
+      \docschool{TESC : \'Etudes sur l'Am\'erique Latine}
+    \or
+      \docschool{TESC : G\'eographie et am\'enagement}
+    \or
+      \docschool{TESC : Histoire}
+    \or
+      \docschool{TESC : Histoire de l'Art}
+    \or
+      \docschool{TESC : Pr\'ehistoire}
+    \or
+      \docschool{TESC : Sciences de l'Antiquit\'e}
+    \or
+      \docschool{TESC : Sociologie}
+    \or
+      \docschool{EDSYS : Automatique 4200046}
+    \or
+      \docschool{EDSYS : Automatique, Signal, Productique, Robotique 4200046}
+    \or
+      \docschool{EDSYS : G\'enie Industriel 4200046}
+    \or
+      \docschool{EDSYS : Informatique 4200018}
+    \or
+      \docschool{EDSYS : Robotique 4200046}
+    \or
+      \docschool{EDSYS : Syst\`emes embarqu\'es 4200046}
+    \fi
+  }
+{\PackageError{tlsflyleaf}{'\CurrentOption' option inconnue}}
+\DeclareOptionX{ED}{\setkeys{edname}{ED=#1}}
+
+% Docschool and speciality double
+\def\doubleSpe#1{\def\@doubleSpe{#1}}
+\define@choicekey+{dblspe}{ED2}[\val\nr]
+    {AA, ALLPHA-Al, ALLPHA-An, ALLPHA-Ar, ALLPHA-AtA, ALLPHA-AtSp, ALLPHA-AtSc, ALLPHA-AtP, ALLPHA-C, ALLPHA-D, ALLPHA-Es, ALLPHA-Ea, ALLPHA-I, ALLPHA-LC, ALLPHA-LM, ALLPHA-M, ALLPHA-Ph, ALLPHA-Po, ALLPHA-R, ALLPHA-S, ALLPHA-T, BSB-Anth, BSB-BioC, BSB-BioD, BSB-BioS, BSB-BiosV, BSB-BiotB, BSB-BiotC, BSB-GC, BSB-GM, BSB-Immu, BSB-Micr, BSB-Neur, BSB-Phar, BSB-Phys, CLESCO-A, CLESCO-D, CLESCO-E, CLESCO-L, CLESCO-Npsy, CLESCO-Nsc, CLESCO-NscCC, CLESCO-PM, CLESCO-Psy, CLESCO-Psyp, CLESCO-SE, CLESCO-SL, GEET-Comp, GEET-Elec, GEET-Genie, GEET-Plasma, GEET-MicNano, GEET-Pho, GEET-RadImg, MEGEP-DyF, MEGEP-Energ, MEGEP-GC, MEGEP-GPE, MEGEP-GMeca, MITT-MathEp, MITT-MathA, MITT-MathF, MITT-STICIA, MITT-STICRT, MITT-STICSL, MITT-ImgInf, MITT-SIAO, MPSE-Sci, SDM-CMacro, SDM-CMol, SDM-COrg, SDM-CBio, SDM-Nano, SDM-PTh, SDM-PCOR, SDM-PMat, SDM-SAgro, SDM-SGen, SDU2E-Ast, SDU2E-Eco, SDU2E-Hy, SDU2E-Oc, SDU2E-Sc, SEVAB-Ag, SEVAB-De, SEVAB-Eco, SEVAB-Ing, SEVAB-Int, SEVAB-PaTox, SG-C, SG-F, SG-G, SG-M, SG-St, SG-Sys, SJP-D, SJP-ScP, TESC-Ant, TESC-Arc, TESC-Eco, TESC-EcoS, TESC-EtH, TESC-EtRG, TESC-EtRSG, TESC-EtRSD, TESC-EtRSE, TESC-EtRS, TESC-EtA, TESC-Geo, TESC-Hist, TESC-HistA, TESC-Pre, TESC-ScA, TESC-Soc, EDSYS-A, EDSYS-ASPR, EDSYS-GenInd, EDSYS-Info, EDSYS-Robo, EDSYS-SystEmb}
+  {%
+    \ifcase\nr\relax
+      \doubleSpe{AA : voir dossier renouvellement}
+    \or
+      \doubleSpe{ALLPH@ : Allemand}
+    \or
+      \doubleSpe{ALLPH@ : Anglais}
+    \or
+      \doubleSpe{ALLPH@ : Arabe}
+    \or
+      \doubleSpe{ALLPH@ : Arts appliqu\'es}
+    \or
+      \doubleSpe{ALLPH@ : Arts du spectacle}
+    \or
+      \doubleSpe{ALLPH@ : Arts et Sciences des Arts}
+    \or
+      \doubleSpe{ALLPH@ : Arts plastiques}
+    \or
+      \doubleSpe{ALLPH@ : Cin\'ema}
+    \or
+      \doubleSpe{ALLPH@ : Didactique des langues}
+    \or
+      \doubleSpe{ALLPH@ : Espagnol}
+    \or
+      \doubleSpe{ALLPH@ : \'Etudes audiovisuelles}
+    \or
+      \doubleSpe{ALLPH@ : Italien}
+    \or
+      \doubleSpe{ALLPH@ : Lettres classiques}
+    \or
+      \doubleSpe{ALLPH@ : Lettres modernes}
+    \or
+      \doubleSpe{ALLPH@ : Musique}
+    \or
+      \doubleSpe{ALLPH@ : Philosophie}
+    \or
+      \doubleSpe{ALLPH@ : Portugais}
+    \or
+      \doubleSpe{ALLPH@ : Russe}
+    \or
+      \doubleSpe{ALLPH@ : Sciences de l'information et de la communication}
+    \or
+      \doubleSpe{ALLPH@ : Traductologie}
+    \or
+      \doubleSpe{BSB : Anthropobiologie}
+    \or
+      \doubleSpe{BSB : Biologie cellulaire}
+    \or
+      \doubleSpe{BSB : Biologie du d\'eveloppement}
+    \or
+      \doubleSpe{BSB : Biologie structurale et fonctionnelle}
+    \or
+      \doubleSpe{BSB : Biosciences v\'eg\'etales}
+    \or
+      \doubleSpe{BSB : Biotechnologies, Bio\'ethique}
+    \or
+      \doubleSpe{BSB : Biotechnologies, Canc\'erologie}
+    \or
+      \doubleSpe{BSB : G\`enes, cellules et d\'eveloppement}
+    \or
+      \doubleSpe{BSB : G\'en\'etique mol\'eculaire}
+    \or
+      \doubleSpe{BSB : Immunologie}
+    \or
+      \doubleSpe{BSB : Microbiologie}
+    \or
+      \doubleSpe{BSB : Neurosciences}
+    \or
+      \doubleSpe{BSB : Pharmacologie}
+    \or
+      \doubleSpe{BSB : Physiopathologie}
+    \or
+      \doubleSpe{CLESCO : Acoustique, Science du langage}
+    \or
+      \doubleSpe{CLESCO : Didactique des disciplines scientifiques}
+    \or
+      \doubleSpe{CLESCO : Ergonomie}
+    \or
+      \doubleSpe{CLESCO : Linguistique anglaise}
+    \or
+      \doubleSpe{CLESCO : Neuropsychologie}
+    \or
+      \doubleSpe{CLESCO : Neurosciences}
+    \or
+      \doubleSpe{CLESCO : Neurosciences, comportement et cognition}
+    \or
+      \doubleSpe{CLESCO : Performance motrice, adaptation et sports}
+    \or
+      \doubleSpe{CLESCO : Psychologie}
+    \or
+      \doubleSpe{CLESCO : Psychopathologie}
+    \or
+      \doubleSpe{CLESCO : Sciences de l'\'education}
+    \or
+      \doubleSpe{CLESCO : Sciences du langage}
+    \or
+      \doubleSpe{GEET : Composants et Syst\`emes de gestion de l'\'Energie}
+    \or
+      \doubleSpe{GEET : \'Electromagn\'etisme et Syst\`emes Haute Fr\'equence}
+    \or
+      \doubleSpe{GEET : G\'enie Electrique}
+    \or
+      \doubleSpe{GEET : Ing\'enierie des PLASMAS}
+    \or
+      \doubleSpe{GEET : Micro et Nanosyst\`emes}
+    \or
+      \doubleSpe{GEET : Photonique et Syst\`emes Opto\'electroniques}
+    \or
+      \doubleSpe{GEET : Radio-physique et Imagerie M\'edicale}
+    \or
+      \doubleSpe{MEGEP : Dynamique des fluides}
+    \or
+      \doubleSpe{MEGEP : \'Energ\'etique et transferts}
+    \or
+      \doubleSpe{MEGEP : G\'enie civil}
+    \or
+      \doubleSpe{MEGEP : G\'enie des proc\'ed\'es et de l'Environnement}
+    \or
+      \doubleSpe{MEGEP : G\'enie m\'ecanique, m\'ecanique des mat\'eriaux}
+    \or
+      \doubleSpe{MITT : Domaine Math\'ematiques : \'Epid\'emiologie}
+    \or
+      \doubleSpe{MITT : Domaine Math\'ematiques : Math\'ematiques appliqu\'ees}
+    \or
+      \doubleSpe{MITT : Domaine Math\'ematiques : Math\'ematiques fondamentales}
+    \or
+      \doubleSpe{MITT : Domaine STIC : Intelligence Artificielle}
+    \or
+      \doubleSpe{MITT : Domaine STIC : R\'eseaux, T\'el\'ecoms, Syst\`emes et Architecture}
+    \or
+      \doubleSpe{MITT : Domaine STIC : Suret\'e de logiciel et calcul de haute performance}
+    \or
+      \doubleSpe{MITT : Image, Information, Hyperm\'edia}
+    \or
+      \doubleSpe{MITT : Signal, Image, Acoustique et Optimisation}
+    \or
+      \doubleSpe{MPSE : Sciences \'Economiques}
+    \or
+      \doubleSpe{SDM : Chimie macromol\'eculaire et supramol\'eculaire - CO044}
+    \or
+      \doubleSpe{SDM : Chimie mol\'eculaire - CO 046}
+    \or
+      \doubleSpe{SDM : Chimie organom\'etallique de coordination - CO 043}
+    \or
+      \doubleSpe{SDM : Chimie, Biologie, Sant\'e - CO 042}
+    \or
+      \doubleSpe{SDM : Nano-physique, nano-composants, nano-mesures - COP 00}
+    \or
+      \doubleSpe{SDM : Physicochimie th\'eorique - COP 01}
+    \or
+      \doubleSpe{SDM : Physique - COR 02}
+    \or
+      \doubleSpe{SDM : Physique de la mati\`ere - CO090}
+    \or
+      \doubleSpe{SDM : Sciences des agroressources - CO019}
+    \or
+      \doubleSpe{SDM : Sciences et g\'enie des mat\'eriaux - CO034}
+    \or
+      \doubleSpe{SDU2E : Astrophysique, Sciences de l'Espace, Plan\'etologie}
+    \or
+      \doubleSpe{SDU2E : \'Ecologie fonctionnelle}
+    \or
+      \doubleSpe{SDU2E : Hydrologie, Hydrochimie, Sol, Environnement}
+    \or
+      \doubleSpe{SDU2E : Oc\'ean, Atmosph\`ere et Surfaces Continentales}
+    \or
+      \doubleSpe{SDU2E : Sciences de la Terre et des Plan\`etes Solides}
+    \or
+      \doubleSpe{SEVAB : Agrosyst\`emes, \'ecosyst\`emes et environnement}
+    \or
+      \doubleSpe{SEVAB : D\'eveloppement des plantes}
+    \or
+      \doubleSpe{SEVAB : \'Ecologie, biodiversit\'e et \'evolution}
+    \or
+      \doubleSpe{SEVAB : Ing\'enieries microbienne et enzymatique}
+    \or
+      \doubleSpe{SEVAB : Interactions plantes-microorganismes}
+    \or
+      \doubleSpe{SEVAB : Pathologie, Toxicologie, G\'en\'etique et Nutrition}
+    \or
+      \doubleSpe{SG : Comptabilit\'e Contr\^ole}
+    \or
+      \doubleSpe{SG : Finance}
+    \or
+      \doubleSpe{SG : Gestion des Ressources Humaines}
+    \or
+      \doubleSpe{SG : Marketing}
+    \or
+      \doubleSpe{SG : Strat\'egie}
+    \or
+      \doubleSpe{SG : Syst\`emes d'information}
+    \or
+      \doubleSpe{SJP : Droit}
+    \or
+      \doubleSpe{SJP : Sciences Politiques}
+    \or
+      \doubleSpe{TESC : Anthropologie sociale et historique}
+    \or
+      \doubleSpe{TESC : Architecture}
+    \or
+      \doubleSpe{TESC : \'Economie}
+    \or
+      \doubleSpe{TESC : \'Economie sociale}
+    \or
+      \doubleSpe{TESC : \'Etudes hispaniques}
+    \or
+      \doubleSpe{TESC : \'Etudes rurales en g\'eographie, environnement}
+    \or
+      \doubleSpe{TESC : \'Etudes rurales en sciences de gestion}
+    \or
+      \doubleSpe{TESC : \'Etudes rurales en sciences du d\'eveloppement}
+    \or
+      \doubleSpe{TESC : \'Etudes rurales en sciences \'economiques}
+    \or
+      \doubleSpe{TESC : \'Etudes rurales en sociologie}
+    \or
+      \doubleSpe{TESC : \'Etudes sur l'Am\'erique Latine}
+    \or
+      \doubleSpe{TESC : G\'eographie et am\'enagement}
+    \or
+      \doubleSpe{TESC : Histoire}
+    \or
+      \doubleSpe{TESC : Histoire de l'Art}
+    \or
+      \doubleSpe{TESC : Pr\'ehistoire}
+    \or
+      \doubleSpe{TESC : Sciences de l'Antiquit\'e}
+    \or
+      \doubleSpe{TESC : Sociologie}
+    \or
+      \doubleSpe{EDSYS : Automatique 4200046}
+    \or
+      \doubleSpe{EDSYS : Automatique, Signal, Productique, Robotique 4200046}
+    \or
+      \doubleSpe{EDSYS : G\'enie Industriel 4200046}
+    \or
+      \doubleSpe{EDSYS : Informatique 4200018}
+    \or
+      \doubleSpe{EDSYS : Robotique 4200046}
+    \or
+      \doubleSpe{EDSYS : Syst\`emes embarqu\'es 4200046}
+    \fi
+  }
+{\PackageError{tlsflyleaf}{'\CurrentOption' option inconnue}}
+\DeclareOptionX{ED2}{\setkeys{dblspe}{ED2=#1}}
+
+%% PROCESS OPTION
+\ProcessOptionsX
+
+% ============================================================
+% OPTION ERROR
+\ifx\@establishment\undefined
+  \PackageWarning{tlsflyleaf}{No option Ets given: set Ets to default}
+  \establishment{{\color{pdgred}D\'efinir le nom de l'\'etablissement avec l'option 'Ets' du paquet tlsflyleaf.sty}}
+\fi
+\ifx\@docschool\undefined
+  \PackageWarning{tlsflyleaf}{No option ED given: set ED to default}
+  \docschool{{\color{pdgred}D\'efinir l'\'ecole doctorale avec l'option 'ED' du paquet tlsflyleaf.sty}}
+\fi
+
+% ============================================================
+% PACKAGE
+\RequirePackage{lmodern}          % Latin Modern font
+\RequirePackage{color}            % Use color
+\RequirePackage{graphicx}         % Use graphics
+\RequirePackage{eso-pic}          % Make background texture (picture and page style)
+\RequirePackage{pgffor}           % Make loop for in LaTeX
+\RequirePackage{geometry}         % Change geometry
+\RequirePackage{fancyhdr}         % Nive header
+\RequirePackage{setspace}         % interline
+\RequirePackage{calc}             % allow use of '-',+','/' ans '*' to make simple lenght computation
+\RequirePackage{etoolbox}         % Need at least for ifstrequal, ifnumgreater (include in mdframed)
+
+%% Not standard package
+\RequirePackage{shadowtext}       % Allow shadow for text : http://www.tex.ac.uk/CTAN/macros/latex/contrib/shadowtext/
+
+% ============================================================
+% LENGHT
+\newlength{\RuleWidth}
+\newlength{\@pdgMargeSize}
+\newlength{\@pdgInnerBoxWidth}
+\newlength{\@pdgInnerBoxHeight}
+
+% ============================================================
+% COMMAND
+% Unit convertor
+\def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
+% Blank sheet
+\newcommand{\blanksheet}[1][num]{%
+	\ifstrequal{#1}{nonum}{%true nonum
+		\newpage{\thispagestyle{empty}} ~ \newpage{\thispagestyle{empty}~}
+	}{%false
+		\ifstrequal{#1}{num}{%true num
+			\newpage ~ \newpage
+		}{%false not nonum and not num
+			\PackageWarning{obianphd-blanksheet}{'#1' is not a possible option(nonum[default], num)}
+		}
+	}
+}
+% Blank page
+\newcommand{\blankpage}[1][num]{%
+	\ifstrequal{#1}{nonum}{%true nonum
+		\newpage{\thispagestyle{empty}}~
+	}{%false
+		\ifstrequal{#1}{num}{%true num
+			\newpage ~
+		}{%false not nonum and not num
+			\PackageWarning{obianphd-blanksheet}{'#1' is not a possible option(nonum[default], num)}
+		}
+	}
+}
+% textline
+\newcommand\textline[4][t]{%
+  \par\noindent\parbox[#1]{.333\textwidth}{\raggedright{\sc #2}}%
+  \parbox[#1]{.333\textwidth}{\centering#3}%
+  \parbox[#1]{.333\textwidth}{\raggedleft#4}\par%
+}
+% makesomeone
+\gdef\showline{show}% Permet de tester si la ligne doit etre affichee
+\newcommand{\makesomeone}[5]{%
+	\edef\makesomeonearg{{#1}}%
+	\expandafter\ifstrequal\makesomeonearg{judge}{}{%FALSE
+		\expandafter\ifstrequal\makesomeonearg{referee}{}{%FALSE
+			\expandafter\ifstrequal\makesomeonearg{boss}{}{%FALSE
+				\PackageError{tlsflyleaf-makesomeone}{%
+                    '#1' is not a possible argument
+                }
+                {%
+                    First argument could be in {judge, referee, boss}
+                }
+	        }%
+        }%
+    }%
+	\expandafter\gdef\csname @#1N#2\endcsname{#3}
+	\expandafter\gdef\csname @#1P#2\endcsname{#4}
+	\expandafter\gdef\csname @#1L#2\endcsname{#5}
+	\expandafter\gdef\csname @#1S#2\endcsname{\showline}
+}
+% Box and background picture
+\newcommand\MakeBackground{%
+	% Line thickness
+	\linethickness{1pt}
+	%dimention
+	\setlength{\@pdgMargeSize}{15mm}%
+	\setlength{\@pdgInnerBoxWidth}{\paperwidth-2\@pdgMargeSize-2\linethickness}%
+	\setlength{\@pdgInnerBoxHeight}{\paperheight-2\@pdgMargeSize-2\linethickness}%
+    % University logo
+	\put(\convertto{pt}{1.5\@pdgMargeSize},\convertto{pt}{\paperheight-6.1\@pdgMargeSize}){%
+        \parbox[t][\paperheight]{\paperwidth}{%
+            \includegraphics[width=5cm]{templates/packages/tlsflyleaf/tlsflyleaf/logo-univ}%
+        }
+    }
+	% Background picture
+    \put(\convertto{pt}{\paperwidth-6.92\@pdgMargeSize}, \convertto{pt}{0.42\@pdgMargeSize}){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\includegraphics[width=10.8cm]{templates/packages/tlsflyleaf/tlsflyleaf/filigrammecut}%
+		}%
+	}%
+	% Colored frame box
+	\put(\LenToUnit{\@pdgMargeSize},\LenToUnit{\@pdgMargeSize}){%
+		\color{pdgred}
+		\framebox(\LenToUnit{\@pdgInnerBoxWidth},\LenToUnit{\@pdgInnerBoxHeight}){}
+	}%
+}
+
+% ============================================================
+% COLOR
+\definecolor{pdgred}{rgb}{0.676,0.224,0.288}
+
+% ============================================================
+\newif\if@showCotutelle\@showCotutellefalse
+% SIMPLE STRING
+\def\defencedate#1{\gdef\@defencedate{#1}}
+\def\lab#1{\gdef\@lab{#1}}
+\def\cotutelle#1{\gdef\@cotutelle{\textit{#1}}}
+% Boss
+\def\nboss#1{\gdef\@nboss{#1}}
+% Referee
+\def\nreferee#1{\gdef\@nreferee{#1}}
+% Judge
+\def\njudge#1{\gdef\@njudge{#1}}
+
+% ============================================================
+% Set default value for author and title
+\author{Nom du doctorant}
+\title{Titre de la th\`ese}
+
+% ============================================================
+% STYLE
+\if@draft
+    \newcommand{\makeflyleaf}{}
+\else
+    \newcommand{\makeflyleaf}{%
+        %% Test if \@variable exist %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \ifx\@defencedate\undefined
+            \defencedate{Date de soutenance}
+        \fi
+        \ifx\@lab\undefined
+            \lab{Nom de l'Unit\'e de recherche}
+        \fi
+        \ifx\@cotutelle\undefined\else
+            \@showCotutelletrue
+        \fi
+        \ifx\@nboss\undefined
+            \nboss{1}
+            \makesomeone{boss}{1}{Nom(s) du/des directeur(s) de th\`ese}{}{}
+        \fi
+        \ifx\@nreferee\undefined
+            \nreferee{1}
+            \makesomeone{referee}{1}{Noms des rapporteurs (s'ils ne font pas partie des membres du jury)}{}{}
+        \fi
+        \ifx\@njudge\undefined
+            \njudge{5}
+            \makesomeone{judge}{1}{Nom}{Professeur}{Pr\'esident}
+            \makesomeone{judge}{2}{Nom}{Directeur de recherche}{Membre}
+            \makesomeone{judge}{3}{Nom}{Directeur de recherche}{Membre}
+            \makesomeone{judge}{4}{Nom}{Directeur de recherche}{Membre}
+            \makesomeone{judge}{5}{~}{\dots\textit{(Pr\'eciser la qualit\'e de chacun des menbres)}}{~}
+        \fi
+        %% Test if \@variable exist %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % White page
+        \if@emptysheetbefore
+            \blanksheet[nonum]
+        \fi
+        % Flyleaf
+        \pagestyle{empty}
+        \newgeometry{centering, vmargin=2cm, hmargin=3cm}
+        \AddToShipoutPictureBG*{\MakeBackground} %% Add Colored frame box and picture background
+        \begin{center}
+            \setstretch{1.05}
+            %\vfill
+                \begin{minipage}[t][\textheight-.8\baselineskip-6pt]{\textwidth-1pt}
+                    \begin{center}
+                        \vspace*{3cm}
+                        %%%%% THESE %%%%%
+                        %%\shadowoffset{2pt}
+                        %%\shadowrgb{0.4, 0.2, 0.2}
+                        \shadowtext{\textcolor{pdgred}{\fontfamily{pbk}\fontsize{1.5cm}{1.8cm}\selectfont{TH\`ESE}}}
+                        %%%%%%%%%%%%%%%%%
+
+                        \vspace*{1.4cm}
+                        %%%%% DOC %%%%%
+                        {\bfseries En vue de l'obtention du}
+
+                        \bigskip
+                        {\Large \bfseries DOCTORAT DE L'UNIVERSIT\'E DE TOULOUSE}
+
+                        %%%%% ETS & COTUTELLE %%%%%
+                        \bigskip
+                        \mbox{\bfseries D\'elivr\'e par :} \mbox{\textit{\@establishment}} \if@showCotutelle\mbox{Cotutelle internationale \@cotutelle}\fi
+                        %%%%%%%%%%%%%%%
+
+                        \vfill
+
+                        \rule{\textwidth}{2.5pt}
+
+                        \vspace{-2ex}
+                        \rule{\textwidth}{1.2pt}
+                        {\bfseries \fontfamily{cmr} Pr\'esent\'ee et soutenue le} \textit{\@defencedate} {\bfseries \fontfamily{cmr} par :}\\
+                        \settowidth{\RuleWidth}{\large\fontfamily{cmr}\textbf{\textsc{\@author}}}
+
+                        \smallskip
+                        {\large\fontfamily{cmr}\textbf{\textsc{\@author}}}
+
+                        \vspace*{-5pt}
+                        ~{\color{pdgred}\rule{1.2\RuleWidth}{0.8pt}}
+                        \vspace*{3pt}
+
+                        {\large\bf\@title}
+
+                        \rule{\textwidth}{1.2pt}
+
+                        \vspace{-1.6ex}
+                        \rule{\textwidth}{2.5pt}
+
+                        \vfill
+                        %%%% JURY %%%%
+                        {\bfseries JURY}
+                        \ifnum \@njudge=0
+                          \\Membres du jury
+                        \else
+                          \foreach \n in {1,...,\@njudge}{%
+                              \edef\mytemp{{\csname @judgeS\n\endcsname}{\showline}}%
+                              \expandafter\ifstrequal\mytemp{%TRUE
+                                  \textline[t]{\csname @judgeN\n\endcsname}{\csname @judgeP\n\endcsname}{\csname @judgeL\n\endcsname}%
+                              }{}%
+                          }
+                        \fi
+                        %%%% JURY %%%%
+
+                        \vfill
+                        \rule{\textwidth}{1.2pt}
+
+                        {\raggedright\bfseries \'Ecole doctorale et sp\'ecialit\'e :\\} \hfill\parbox[t]{0.92\textwidth}{\textit{\@docschool}}
+
+                        \ifx\@doubleSpe\undefined\else{\raggedright\bfseries Double mention :\\} \hfill\parbox[t]{0.92\textwidth}{\textit{\@doubleSpe}}\fi
+
+
+                        {\raggedright\bfseries Unit\'e de Recherche :\\} \hfill\parbox[t]{0.92\textwidth}{\textit{\@lab}}
+
+                        \ifnumgreater{\@nboss}{1}{%TRUE
+                            {\raggedright\bfseries Directeur(s) de Th\`ese :\\}
+                        }{%FALSE
+                            {\raggedright\bfseries Directeur de Th\`ese :\\}
+                        }
+                        \hfill\parbox[t]{0.92\textwidth}{
+                            \foreach \n in {1,...,\@nboss}{%
+                                \edef\mytemp{{\csname @bossS\n\endcsname}{\showline}}%
+                                \ifnumgreater{\n}{1}{%TRUE
+                                    \ifnumgreater{\n}{\@nboss-1}{%TRUE
+                                        \expandafter\ifstrequal\mytemp{%TRUE
+                                            \ et \textit{\csname @bossN\n\endcsname}\ignorespaces
+                                        }{}%
+                                    }{%FALSE
+                                        \expandafter\ifstrequal\mytemp{%TRUE
+                                            , \textit{\csname @bossN\n\endcsname}\ignorespaces
+                                        }{}%
+                                    }
+                                }{%FALSe
+                                    \expandafter\ifstrequal\mytemp{%TRUE
+                                        \textit{\csname @bossN\n\endcsname}\ignorespaces
+                                    }{}%
+                                }
+                            }
+                        }
+
+                        \ifnumgreater{\@nreferee}{1}{%TRUE
+                            {\raggedright\bfseries Rapporteurs :\\}
+                        }{%FALSE
+                            {\raggedright\bfseries Rapporteur :\\}
+                        }
+                        \hfill\parbox[t]{0.92\textwidth}{
+                            \foreach \n in {1,...,\@nreferee}{%
+                                \edef\mytemp{{\csname @refereeS\n\endcsname}{\showline}}%
+                                \ifnumgreater{\n}{1}{%TRUE
+                                    \ifnumgreater{\n}{\@nreferee-1}{%TRUE
+                                        \expandafter\ifstrequal\mytemp{%
+                                            \ et \textit{\csname @refereeN\n\endcsname}\ignorespaces
+                                        }{}%
+                                    }{%FALSE
+                                        \expandafter\ifstrequal\mytemp{%
+                                            , \textit{\csname @refereeN\n\endcsname}\ignorespaces
+                                        }{}%
+                                    }
+                                }{%FALSE
+                                    \expandafter\ifstrequal\mytemp{%TRUE
+                                        \textit{\csname @refereeN\n\endcsname}\ignorespaces
+                                    }{}%
+                                }
+                            }
+                        }
+                        \vfill
+
+                    \end{center}
+                \end{minipage}
+            \vfill
+        \end{center}
+        \restoregeometry
+        \pagestyle{plain}
+        % White page
+        \if@emptypageafter
+            \blankpage[nonum]
+        \fi
+    }
+\fi

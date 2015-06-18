@@ -2,7 +2,7 @@
 
 # Custom path
 PANDOC_BIN=~/.cabal/bin/pandoc
-MAIN_BIB=$$HOME/Documents/phd/library.bib
+MAIN_BIB=library.bib
 BIB_STYLE=templates/cell.csl
 LATEX_TEMPLATE=templates/preamble.tex
 

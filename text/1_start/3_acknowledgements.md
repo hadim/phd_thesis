@@ -1,3 +1,3 @@
-# Acknowledgements
+# Remerciements
 
-Write your "Thank You"s here! test
+...

@@ -1,6 +1,10 @@
 % Table of contents formatting
-\renewcommand{\contentsname}{Table of Contents}
-\setcounter{tocdepth}{2}
+\renewcommand{\contentsname}{Table des matières}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\renewcommand*\listfigurename{Liste des figures}
+\renewcommand*\listtablename{Liste des tableaux}
 
 % Headers and page numbering
 \usepackage{fancyhdr}
@@ -41,11 +45,34 @@
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \usepackage{array}
-\newcolumntype{x}[1]{%
->{\centering\arraybackslash}m{#1}}%
+\newcolumntype{x}[1]{>{\centering\arraybackslash}m{#1}}
 
 % Allow for long captions and float captions on opposite page of figures
 \usepackage[rightFloats, CaptionBefore]{templates/packages/fltpage}
 
 % Don't let floats cross subsections
 \usepackage[section,subsection]{templates/packages/extraplaceins}
+
+% University of Toulouse cover page package
+\usepackage[emptypageafter, Ets=UT3]{templates/packages/tlsflyleaf/tlsflyleaf}
+
+%% Titre, auteur, date, laboratoire, cotutelle
+\title{Analyse and Modélisation de la Dynamique des Chromosomes durant la Mitose chez la levure à fission}
+\author{Hadrien Mary}
+\defencedate{11/12/2015}
+\lab{Laboratoire de Biologie Cellulaire et Moléculaire du Contrôle de la Prolifération (UMR 5088)}
+\docschool{École Doctorale Biologie Santé Biotechnologies}
+
+%% Directeur(s) de thèse
+\nboss{2}
+\makesomeone{boss}{2}{Yannick Gachet}{}{}
+\makesomeone{boss}{1}{Sylvie Tournier}{}{}
+%% Referee
+\nreferee{2}
+\makesomeone{referee}{1}{Premier RAPPORTEUR}{}{}
+\makesomeone{referee}{2}{Second RAPPORTEUR}{}{}
+%% Jury
+\njudge{3}
+\makesomeone{judge}{1}{Premier MEMBRE}{Professeur d'Université}{Président du Jury}
+\makesomeone{judge}{2}{Second MEMBRE}{Astronome Adjoint}{Membre du Jury}
+\makesomeone{judge}{3}{Troisième MEMBRE}{Chargé de Recherche}{Membre du Jury}

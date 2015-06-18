@@ -1,0 +1,78 @@
+%% This is file `example.tex',
+%% Copyright 2013 Tristan GREGOIRE
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is T. GREGOIRE
+%
+
+\documentclass{book}
+
+% Loading the tlsflyleaf.sty package require some option to define the
+% establishment name, the doctoral school and the PhD speciality.
+% In that aim you have 2 key-value option:
+%   - Ets=<value> : define the establishment name
+%   - ED=<value>  : define the doctoral school and speciality
+%   - ED2=<value> : define the second speciality ("double mention"). OPTIONAL.
+% The full list of accepted values for each option could be find either
+% in the documentation or in ED-list.txt and Ets-list.txt files provide with the package.
+\usepackage[ED=SDU2E-Ast, Ets=UT3]{tlsflyleaf}
+%\usepackage[ED=SDU2E-Ast, ED2=SDU2E-Eco, Ets=UT3]{tlsflyleaf}
+
+% ==================
+% Setup basic string
+% - PhD Title
+% - author
+% - defence date
+% - laboratory
+% - cotutelle
+\title{\textbf{\large Pr\'esentation du template \LaTeX\ au PRES de l'universit\'e Toulouse III Une nouvelle approche pour r\'ediger sa th\`ese}}
+\author{Tristan GR\'EGOIRE}
+\defencedate{30/09/2013}
+\lab{Institut de Recherche en Astrophysique et Plan\'etologie (UMR 5277)}
+%\cotutelle{Nom de l'\'etablissement}
+
+% ==================
+% Setup people like your boss, the jury team and the referees
+% - First you need to define how number they will be in each category
+%   It is done with the commands \nboss{n}, \nreferee{n} and \njudge{n}.
+%   You can define more people in each category than the number given 
+%   but only the first "\npeople" will be print.
+% - Then use the command \makesomeone{<category>}{<number>}{<name>}{<status>}{<other>}
+%   where:
+%     <category> should be select in ['boss', 'referee', 'judge']
+%     <number>   is the rank for printing the person. 
+%                Only number <= "\npeople" will be printed
+%     <name>     First name and las name of the people
+%     <status>   Is (s)he a "charg\'e de recher" ou un "professeur d'universit\'e"...
+%     <other>    What ever string you want to add (laboratory, jury member place...).
+%% Boss
+\nboss{2}
+\makesomeone{boss}{2}{Second DIRECTEUR}{}{}  % Sera affiche en second
+\makesomeone{boss}{1}{Premier DIRECTEUR}{}{} % Sera afiche en premier
+%% Referee
+\nreferee{2}
+\makesomeone{referee}{1}{Premier RAPPORTEUR}{}{}
+\makesomeone{referee}{2}{Second RAPPORTEUR}{}{}
+%% Judges
+\njudge{5}
+\makesomeone{judge}{1}{Premier MEMBRE}{Professeur d'Universit\'e}{Pr\'esident du Jury}
+\makesomeone{judge}{2}{Second MEMBRE}{Astronome Adjoint}{Membre du Jury}
+\makesomeone{judge}{3}{Troisi\`eme MEMBRE}{Charg\'e de Recherche}{Membre du Jury}
+\makesomeone{judge}{4}{Quatri\`eme MEMBRE}{Charg\'e de Recherche}{Membre du Jury}
+\makesomeone{judge}{5}{Ciqui\`eme MEMBRE}{Charg\'e de Recherche}{Membre du Jury}
+
+% ============================================================
+% DOCUMENT
+\begin{document}
+    \makeflyleaf
+\end{document}

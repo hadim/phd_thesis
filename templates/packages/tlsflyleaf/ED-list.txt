@@ -1,0 +1,125 @@
+%% Liste de valueur possibles pour l'option 'ED' du paquet tlsflyleaf.sty
+%% valeur     -> ED : specialite
+%% Une seule valeur possible. (Classement par ordre alphabétique).
+
+AA            ->  AA : voir dossier renouvellement
+ALLPHA-Al     ->  ALLPH@ : Allemand
+ALLPHA-An     ->  ALLPH@ : Anglais
+ALLPHA-Ar     ->  ALLPH@ : Arabe
+ALLPHA-AtA    ->  ALLPH@ : Arts appliqu\'es
+ALLPHA-AtSp   ->  ALLPH@ : Arts du spectacle
+ALLPHA-AtSc   ->  ALLPH@ : Arts et Sciences des Arts
+ALLPHA-AtP    ->  ALLPH@ : Arts plastiques
+ALLPHA-C      ->  ALLPH@ : Cin\'ema
+ALLPHA-D      ->  ALLPH@ : Didactique des langues
+ALLPHA-Es     ->  ALLPH@ : Espagnol
+ALLPHA-Ea     ->  ALLPH@ : \'Etudes audiovisuelles
+ALLPHA-I      ->  ALLPH@ : Italien
+ALLPHA-LC     ->  ALLPH@ : Lettres classiques
+ALLPHA-LM     ->  ALLPH@ : Lettres modernes
+ALLPHA-M      ->  ALLPH@ : Musique
+ALLPHA-Ph     ->  ALLPH@ : Philosophie
+ALLPHA-Po     ->  ALLPH@ : Portugais
+ALLPHA-R      ->  ALLPH@ : Russe
+ALLPHA-S      ->  ALLPH@ : Sciences de l'information et de la communication
+ALLPHA-T      ->  ALLPH@ : Traductologie
+BSB-Anth      ->  BSB : Anthropobiologie
+BSB-BioC      ->  BSB : Biologie cellulaire
+BSB-BioD      ->  BSB : Biologie du d\'eveloppement
+BSB-BioS      ->  BSB : Biologie structurale et fonctionnelle
+BSB-BiosV     ->  BSB : Biosciences v\'eg\'etales
+BSB-BiotB     ->  BSB : Biotechnologies, Bio\'ethique
+BSB-BiotC     ->  BSB : Biotechnologies, Canc\'erologie
+BSB-GC        ->  BSB : G\`enes, cellules et d\'eveloppement
+BSB-GM        ->  BSB : G\'en\'etique mol\'eculaire
+BSB-Immu      ->  BSB : Immunologie
+BSB-Micr      ->  BSB : Microbiologie
+BSB-Neur      ->  BSB : Neurosciences
+BSB-Phar      ->  BSB : Pharmacologie
+BSB-Phys      ->  BSB : Physiopathologie
+CLESCO-A      ->  CLESCO : Acoustique, Science du langage
+CLESCO-D      ->  CLESCO : Didactique des disciplines scientifiques
+CLESCO-E      ->  CLESCO : Ergonomie
+CLESCO-L      ->  CLESCO : Linguistique anglaise
+CLESCO-Npsy   ->  CLESCO : Neuropsychologie
+CLESCO-Nsc    ->  CLESCO : Neurosciences
+CLESCO-NscCC  ->  CLESCO : Neurosciences, comportement et cognition
+CLESCO-PM     ->  CLESCO : Performance motrice, adaptation et sports
+CLESCO-Psy    ->  CLESCO : Psychologie
+CLESCO-Psyp   ->  CLESCO : Psychopathologie
+CLESCO-SE     ->  CLESCO : Sciences de l'\'education
+CLESCO-SL     ->  CLESCO : Sciences du langage
+GEET-Comp     ->  GEET : Composants et Syst\`emes de gestion de l'\'Energie
+GEET-Elec     ->  GEET : \'Electromagn\'etisme et Syst\`emes Haute Fr\'equence
+GEET-Genie    ->  GEET : G\'enie Electrique
+GEET-Plasma   ->  GEET : Ing\'enierie des PLASMAS
+GEET-MicNano  ->  GEET : Micro et Nanosyst\`emes
+GEET-Pho      ->  GEET : Photonique et Syst\`emes Opto\'electroniques
+GEET-RadImg   ->  GEET : Radio-physique et Imagerie M\'edicale
+MEGEP-DyF     ->  MEGEP : Dynamique des fluides
+MEGEP-Energ   ->  MEGEP : \'Energ\'etique et transferts
+MEGEP-GC      ->  MEGEP : G\'enie civil
+MEGEP-GPE     ->  MEGEP : G\'enie des proc\'ed\'es et de l'Environnement
+MEGEP-GMeca   ->  MEGEP : G\'enie m\'ecanique, m\'ecanique des mat\'eriaux
+MITT-MathEp   ->  MITT : Domaine Math\'ematiques : \'Epid\'emiologie                   
+MITT-MathA    ->  MITT : Domaine Math\'ematiques : Math\'ematiques appliqu\'ees
+MITT-MathF    ->  MITT : Domaine Math\'ematiques : Math\'ematiques fondamentales
+MITT-STICIA   ->  MITT : Domaine STIC : Intelligence Artificielle
+MITT-STICRT   ->  MITT : Domaine STIC : R\'eseaux, T\'el\'ecoms, Syst\`emes et Architecture
+MITT-STICSL   ->  MITT : Domaine STIC : Suret\'e de logiciel et calcul de haute performance
+MITT-ImgInf   ->  MITT : Image, Information, Hyperm\'edia
+MITT-SIAO     ->  MITT : Signal, Image, Acoustique et Optimisation
+MPSE-Sci      ->  MPSE : Sciences \'Economiques
+SDM-CMacro    ->  SDM : Chimie macromol\'eculaire et supramol\'eculaire - CO044
+SDM-CMol      ->  SDM : Chimie mol\'eculaire - CO 046
+SDM-COrg      ->  SDM : Chimie organom\'etallique de coordination - CO 043
+SDM-CBio      ->  SDM : Chimie, Biologie, Sant\'e - CO 042
+SDM-Nano      ->  SDM : Nano-physique, nano-composants, nano-mesures - COP 00
+SDM-PTh       ->  SDM : Physicochimie th\'eorique - COP 01
+SDM-PCOR      ->  SDM : Physique - COR 02
+SDM-PMat      ->  SDM : Physique de la mati\`ere - CO090
+SDM-SAgro     ->  SDM : Sciences des agroressources - CO019
+SDM-SGen      ->  SDM : Sciences et g\'enie des mat\'eriaux - CO034
+SDU2E-Ast     ->  SDU2E : Astrophysique, Sciences de l'Espace, Plan\'etologie
+SDU2E-Eco     ->  SDU2E : \'Ecologie fonctionnelle
+SDU2E-Hy      ->  SDU2E : Hydrologie, Hydrochimie, Sol, Environnement
+SDU2E-Oc      ->  SDU2E : Oc\'ean, Atmosph\`ere et Surfaces Continentales
+SDU2E-Sc      ->  SDU2E : Sciences de la Terre et des Plan\`etes Solides
+SEVAB-Ag      ->  SEVAB : Agrosyst\`emes, \'ecosyst\`emes et environnement
+SEVAB-De      ->  SEVAB : D\'eveloppement des plantes
+SEVAB-Eco     ->  SEVAB : \'Ecologie, biodiversit\'e et \'evolution 
+SEVAB-Ing     ->  SEVAB : Ing\'enieries microbienne et enzymatique
+SEVAB-Int     ->  SEVAB : Interactions plantes-microorganismes
+SEVAB-PaTox   ->  SEVAB : Pathologie, Toxicologie, G\'en\'etique et Nutrition
+SG-C          ->  SG : Comptabilit\'e Contr\^ole
+SG-F          ->  SG : Finance
+SG-G          ->  SG : Gestion des Ressources Humaines
+SG-M          ->  SG : Marketing
+SG-St         ->  SG : Strat\'egie
+SG-Sys        ->  SG : Syst\`emes d'information
+SJP-D         ->  SJP : Droit
+SJP-ScP       ->  SJP : Sciences Politiques
+TESC-Ant      ->  TESC : Anthropologie sociale et historique
+TESC-Arc      ->  TESC : Architecture
+TESC-Eco      ->  TESC : \'Economie
+TESC-EcoS     ->  TESC : \'Economie sociale
+TESC-EtH      ->  TESC : \'Etudes hispaniques
+TESC-EtRG     ->  TESC : \'Etudes rurales en g\'eographie, environnement
+TESC-EtRSG    ->  TESC : \'Etudes rurales en sciences de gestion
+TESC-EtRSD    ->  TESC : \'Etudes rurales en sciences du d\'eveloppement
+TESC-EtRSE    ->  TESC : \'Etudes rurales en sciences \'economiques
+TESC-EtRS     ->  TESC : \'Etudes rurales en sociologie
+TESC-EtA      ->  TESC : \'Etudes sur l'Am\'erique Latine
+TESC-Geo      ->  TESC : G\'eographie et am\'enagement
+TESC-Hist     ->  TESC : Histoire
+TESC-HistA    ->  TESC : Histoire de l'Art
+TESC-Pre      ->  TESC : Pr\'ehistoire
+TESC-ScA      ->  TESC : Sciences de l'Antiquit\'e
+TESC-Soc      ->  TESC : Sociologie
+EDSYS-A       ->  EDSYS : Automatique 4200046 
+EDSYS-ASPR    ->  EDSYS : Automatique, Signal, Productique, Robotique 4200046
+EDSYS-GenInd  ->  EDSYS : G\'enie Industriel 4200046 
+EDSYS-Info    ->  EDSYS : Informatique 4200018 
+EDSYS-Robo    ->  EDSYS : Robotique 4200046 
+EDSYS-SystEmb ->  EDSYS : Syst\`emes embarqu\'es 4200046
+

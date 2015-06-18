@@ -1,0 +1,14 @@
+## LaTeX files
+*.bbl
+*.log
+*.out
+*.toc
+*.aux
+*.blg
+
+## Working files
+*HDR*
+
+## Vim files
+*.swp
+

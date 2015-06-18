@@ -1,0 +1,14 @@
+%% Liste de valueur possibles pour l'option 'Ets' du paquet tlsflyleaf.sty
+%% valeur     -> Etablissement
+%% Une seule valeur possible.
+
+UT1       -> Universit\'e Toulouse 1 Capitole (UT1 Capitole)
+UT2       -> Universit\'e Toulouse 2 Le Mirail (UT2 Le Mirail)
+UT2       -> Universit\'e Toulouse - Jean Jaur\`es
+UT2-ENSA  -> UT2 Le Mirail conjointement avec l'\'Ecole Nationale Sup\'erieur d'Architecture de Toulouse
+UT3       -> Universit\'e Toulouse 3 Paul Sabatier (UT3 Paul Sabatier)
+INP       -> Institut National Polytechnique de Toulouse (INP Toulouse)
+INP-ENSM  -> INP Toulouse conjointement avec l'\'Ecole Nationale Sup\'erieure des Mines d'Albi-Carmaux
+INSA      -> Institut National des Sciences Appliqu\'ees de Toulouse (INSA de Toulouse)
+INSA-ENSM -> INSA de Toulouse conjointement avec l'\'Ecole Nationale Sup\'erieure des Mines d'Albi-Carmaux
+ISAE      -> Institut Sup\'erieur de l'A\'eronautique et de l'Espace (ISAE)
