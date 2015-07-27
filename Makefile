@@ -24,6 +24,15 @@ define TEX_OPTIONS
 -V classoption:twoside
 endef
 
+define TEX_OPTIONS_ABSTRACT
+--latex-engine=xelatex \
+-H $(LATEX_TEMPLATE) \
+-V fontsize=12pt \
+-V documentclass:book \
+-V papersize:a4paper \
+-V classoption:oneside
+endef
+
 define DOCX_OPTIONS
 --reference-docx=templates/references.docx \
 --toc
@@ -48,3 +57,7 @@ docx: build-bib
 
 build-bib:
 	python scripts/md2bib.py library.bib -g text/ -o /tmp/pandoc.bib
+
+abstract:
+	$(PANDOC_BIN) $(TEX_OPTIONS_ABSTRACT) $(PANDOC_OPTIONS) text/1_start/2_summary.md \
+	              -o "abstract.pdf" --verbose
