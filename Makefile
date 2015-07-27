@@ -59,5 +59,5 @@ build-bib:
 	python scripts/md2bib.py library.bib -g text/ -o /tmp/pandoc.bib
 
 abstract:
-	$(PANDOC_BIN) $(TEX_OPTIONS_ABSTRACT) $(PANDOC_OPTIONS) text/1_start/2_summary.md \
+	$(PANDOC_BIN) $(TEX_OPTIONS_ABSTRACT) $(PANDOC_OPTIONS) text/1_start/3_summary.md \
 	              -o "abstract.pdf" --verbose
