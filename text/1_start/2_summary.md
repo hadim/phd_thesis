@@ -2,7 +2,7 @@
 
 # Résumé
 
-La mitose est une étape clé du cycle cellulaire, très preservé chez toutes les cellules eucaryotes, durant laquelle le matériel génétique de la cellule (les chromosomes) est séparé en deux puis réparti de manière égale dans les deux cellules filles. Cette équipartition du matériel génétique est crucial pour le maintien de la stabilité génétique. Durant ce processus la cellule forme une plaque métaphasique au centre du fuseau mitotique composé des chromatides soeurs. Chaque chromatide est alors attaché à son pôle respectif (on parle d'attachement bipolaire) vers lequel elle se dirigera durant l'anaphase.
+La mitose est une étape clé du cycle cellulaire, très préservée chez toutes les cellules eucaryotes, durant laquelle le matériel génétique de la cellule (les chromosomes) est séparé en deux puis réparti de manière égale dans les deux cellules filles. Cette équipartition du matériel génétique est crucial pour le maintien de la stabilité génétique. Durant ce processus la cellule forme une plaque métaphasique au centre du fuseau mitotique composé des chromatides soeurs. Chaque chromatide est alors attaché à son pôle respectif (on parle d'attachement bipolaire) vers lequel elle se dirigera durant l'anaphase.
 
 Les chromatides sont l'unité indivisible du matériel génétique durant la mitose, à l'image des atomes dans une molécule. Initialement chacun de ces « objets » est libre (non attaché) et positionné de manière non ordonné dans le noyau. Toute la compléxité de la mitose est d'attacher chacune des chromatides au bon pôle afin d'exercer des forces sur ces derniers pour les positionner sur la plaque métaphasique au centre du fuseau avant leur séparation et migration vers les pôles durant l'anaphase.
 
