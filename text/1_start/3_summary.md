@@ -18,4 +18,6 @@ L'ensemble de mon travail s'est donc intéressé au contrôle du mouvement, de l
 
 # Summary
 
-TODO
+Mitosis is a critical step during cell cycle, well conserved in all eukaryotic cells, during
+
+Mitosis is a highly preserved process in all eukaryotic cells during which genetic material (chromosomes) is divided in two parts and then spread in both daughter cells. This equipartition is crucial for maintaining genetic stability. During this process
