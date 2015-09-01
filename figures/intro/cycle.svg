@@ -59,9 +59,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="-88.793417"
-     inkscape:cy="-29.244308"
+     inkscape:zoom="0.35"
+     inkscape:cx="758.98301"
+     inkscape:cy="848.11357"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -274,7 +274,9 @@
        y="-3124.9951"
        x="2153.824"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50"><tspan
          id="tspan5454"
          y="-3124.9951"
          x="2160.7576"
@@ -282,6 +284,6 @@
          y="-3074.9951"
          x="2153.824"
          sodipodi:role="line"
-         id="tspan5461">grossisement de la cellule</tspan></text>
+         id="tspan5461">croissance de la cellule</tspan></text>
   </g>
 </svg>
