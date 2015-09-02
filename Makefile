@@ -21,7 +21,8 @@ define TEX_OPTIONS
 -V documentclass:book \
 -V papersize:a4paper \
 -V classoption:openright \
--V classoption:twoside
+-V classoption:twoside \
+--template=templates/template.tex
 endef
 
 define TEX_OPTIONS_ABSTRACT
