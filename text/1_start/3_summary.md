@@ -24,7 +24,7 @@ Chromatids are the indivisible units of genetic material during mitosis just lik
 
 This step of cell division not only requires complex interaction networks and metabolic signaling pathways just like many others biological processes but also a fine spatio-temporal control of the movement and positioning of these big objects relative to the cell size: the chromatids.
 
-It would seems that the origin of chromosome movement comeslargely from microtubule dynamic. What is less clear is the portion given to the different processes regulating this dynamic. Whether the intrinsic dynamics (called dynamic instability of microtubules) or the effect of different proteins of microtubules such as MAPs and kinesins. Note also that the energy transfer mechanism between microtubule dynamics and movement of chromosomes is still largely hypothetical.
+It would seems that the origin of chromosome movement comes largely from microtubule dynamic. What is less clear is the portion given to the different processes regulating this dynamic. Whether the intrinsic dynamics (called dynamic instability of microtubules) or the effect of different proteins of microtubules such as MAPs and kinesins. Note also that the energy transfer mechanism between microtubule dynamics and movement of chromosomes is still largely hypothetical.
 
 Moreover chromosome dynamics during mitosis is largely regulated by a large number of actors other than microtubules. Some of them being responsible for the MT-kinetochore attachment such as NDC80 and DAM1 complex. While others are involved in the regulation of MT dynamic such as kinesin-8 and kinesin-13.
 
