@@ -8,7 +8,7 @@ Les chromatides sont l'unité indivisible du matériel génétique durant la mit
 
 Cette étape de la divison cellulaire requiert donc non seulement un complexe réseau d'intéraction et de signalisation métabolique comme dans beaucoup d'autre processus biologiques mais aussi un fin contrôle spatio-temporel du mouvement et du positionnement des ces objets de grande taille à l'echelle de la cellule: les chromatides.
 
-Il est à ce jour clairement établi qu'une grande partie de l'énergie nécessaire au mouvement des chromatides durant la mitose provient de la dépolymérisation de l'extrémité + des microtubules (MTs) qui attache chaque chromatide par l'intermédiaire d'un grand complexe protéique appelé le kinétochore. Bien que le mécanisme de transfert d'énergie entre la dépolymérisation des MTs et le mouvement des chromatides reste encore très largement hypothétique.
+Il semblerait que l'origine du mouvement des chromosomes proviennent pour une grande part de la dynamique des microtubules. Ce qui est moins certain est la part accordée aux différents processus régulant cette dynamique; que ce soit la dynamique intrinsèque (appelé instabilité dynamique des microtubules) ou l'effet de différentes protéines sur les microtubules comme les MAPs et les kinésines. On notera par ailleurs que le mécanisme de transfert d'énergie entre la dynamique des microtubules et le mouvement des chromosomes est encore très largement hypothétique.
 
 La dynamique des chromosomes durant la mitose est par ailleurs largement controlée par un grand nombre d'acteurs autres que les microtubules. Certains d'entre eux étant responsables de l'attachement MTs-kinétochore comme les complexes NDC80 et DAM1, tandis que d'autres sont impliqués dans la régulation de la dynamique des microtubules comme la kinésine-8 et la kinésine-13.
 
@@ -24,7 +24,7 @@ Chromatids are the indivisible units of genetic material during mitosis just lik
 
 This step of cell division not only requires complex interaction networks and metabolic signaling pathways just like many others biological processes but also a fine spatio-temporal control of the movement and positioning of these big objects relative to the cell size: the chromatids.
 
-It is today clearly established that much of the energy necessary for chromatids movement during mitosis comes from the depolymerization of microtubule + end (MT) which attach each chromatid through a large protein complex called the kinetochore. Although the energy transfer mechanism between MT depolymerization and chromatid movement is still largely unknown.
+It would seems that the origin of chromosome movement comeslargely from microtubule dynamic. What is less clear is the portion given to the different processes regulating this dynamic. Whether the intrinsic dynamics (called dynamic instability of microtubules) or the effect of different proteins of microtubules such as MAPs and kinesins. Note also that the energy transfer mechanism between microtubule dynamics and movement of chromosomes is still largely hypothetical.
 
 Moreover chromosome dynamics during mitosis is largely regulated by a large number of actors other than microtubules. Some of them being responsible for the MT-kinetochore attachment such as NDC80 and DAM1 complex. While others are involved in the regulation of MT dynamic such as kinesin-8 and kinesin-13.
 
