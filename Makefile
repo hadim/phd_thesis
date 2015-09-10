@@ -3,7 +3,7 @@
 # Custom path
 PANDOC_BIN=~/.cabal/bin/pandoc
 MAIN_BIB=library.bib
-BIB_STYLE=templates/jcb.csl
+BIB_STYLE=templates/cell.csl
 LATEX_TEMPLATE=templates/preamble.tex
 
 SRC_FILES := $(shell find text/ -name '*.md' | sort)
