@@ -1,0 +1,10 @@
+{
+    "build_systems":
+    [
+        {
+            "name": "pdf",
+            "shell_cmd": "make pdf",
+            "working_dir": "${project_path}"
+        }
+    ]
+}
