@@ -4,7 +4,7 @@ My PhD thesis is written in Markdown and converted in Latex + pdf with Pandoc. T
 
 ## Informations
 
-My thesis is about the dynamic and modeling of chromosome during mitosis in fision yeast. It's all written in __french__ except [a summary in english](text/1_start/3_summary.md).
+My thesis is about _the dynamic and modeling of chromosome during mitosis in fission yeast_. It's all written in __french__ except [a summary in english](text/1_start/3_summary.md).
 
 ## How to build
 
