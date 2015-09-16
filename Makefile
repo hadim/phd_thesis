@@ -2,6 +2,7 @@
 
 # Custom path
 PANDOC_BIN=~/.cabal/bin/pandoc
+CITEPROC_BIN=~/.cabal/bin/pandoc-citeproc
 MAIN_BIB=library.bib
 BIB_STYLE=templates/cell.csl
 LATEX_TEMPLATE=templates/preamble.tex
@@ -11,7 +12,8 @@ SRC_FILES := $(shell find text/ -name '*.md' | sort)
 define PANDOC_OPTIONS
 --chapters \
 --bibliography=$(MAIN_BIB) \
---csl=$(BIB_STYLE)
+--csl=$(BIB_STYLE) \
+--filter $(CITEPROC_BIN)
 endef
 
 define TEX_OPTIONS
