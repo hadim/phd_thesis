@@ -50,9 +50,9 @@
      fit-margin-left="5"
      fit-margin-right="5"
      fit-margin-bottom="5"
-     inkscape:zoom="1.1283377"
-     inkscape:cx="198.07004"
-     inkscape:cy="38.35995"
+     inkscape:zoom="1.5957105"
+     inkscape:cx="223.58273"
+     inkscape:cy="82.017326"
      inkscape:window-x="0"
      inkscape:window-y="50"
      inkscape:window-maximized="0"
@@ -186,7 +186,7 @@
        id="tspan5942"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.55435467px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:butt;stroke-linejoin:round"
        x="264.97208"
-       y="231.57314">Prometaphase</tspan></text>
+       y="231.57314">Prométaphase</tspan></text>
   <rect
      y="266.21463"
      x="195.73064"
@@ -206,7 +206,7 @@
        x="145.57687"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.73913956px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:round"
        id="tspan5948"
-       sodipodi:role="line">Metaphase</tspan></text>
+       sodipodi:role="line">Métaphase</tspan></text>
   <rect
      y="213.28764"
      x="33.040073"
@@ -248,7 +248,7 @@
        id="tspan5980-7"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.55435467px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:butt;stroke-linejoin:round"
        x="16.24531"
-       y="75.638428">Telophase</tspan></text>
+       y="75.638428">Télophase</tspan></text>
   <rect
      y="243.09525"
      x="57.2342"
@@ -314,7 +314,7 @@
        x="59.644375"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.41576576px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:butt;stroke-linejoin:round"
        id="tspan4278"
-       sodipodi:role="line">Kinetochore</tspan></text>
+       sodipodi:role="line">Kinétochore</tspan></text>
   <text
      xml:space="preserve"
      style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.41576576px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
@@ -326,7 +326,7 @@
        id="tspan4282"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.41576576px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:butt;stroke-linejoin:round"
        x="13.750255"
-       y="295.12512">Sister chromatid</tspan></text>
+       y="295.12512">Chromatides soeurs</tspan></text>
   <path
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.41847849px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="m 71.863339,265.59401 0,-4.40421"

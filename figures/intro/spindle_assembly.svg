@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="307.36575"
-     inkscape:cy="138.50863"
+     inkscape:zoom="4"
+     inkscape:cx="164.17456"
+     inkscape:cy="172.28994"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1071,12 +1071,17 @@
          y="655.69885"
          x="470.03"
          sodipodi:role="line"
-         style="font-size:10px">kinétochore</tspan><tspan
+         style="font-size:10px">Rotation du</tspan><tspan
          y="665.69885"
          x="470.03"
          sodipodi:role="line"
+         style="font-size:10px"
+         id="tspan4363">kinétochore</tspan><tspan
+         y="675.69885"
+         x="470.03"
+         sodipodi:role="line"
          id="tspan11944"
-         style="font-size:10px">rotation</tspan></text>
+         style="font-size:10px" /></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 468.43175,657.63664 -18.208,10.6066"
