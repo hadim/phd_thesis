@@ -1,8 +1,10 @@
-\tableofcontents
-
 \frontmatter
-\thispagestyle{empty}
-\doclicenseThis
 
-\noindent
-Source code used to generate this thesis is freely available at [https://github.com/hadim/thesis](https://github.com/hadim/thesis) (free as in freedom not as in a beer !).
+\newpage
+\cleardoublepage
+\pagenumbering{gobble}
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{roman}
+\setcounter{page}{1}

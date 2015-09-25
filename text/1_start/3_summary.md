@@ -1,6 +1,9 @@
 \frontmatter
 
-# Résumé
+\section*{Résumé}
+
+\thispagestyle{empty}
+\afterpage{\thispagestyle{empty}}
 
 La mitose est une étape clé du cycle cellulaire, très préservée chez toutes les cellules eucaryotes, durant laquelle le matériel génétique de la cellule (les chromosomes) est séparé en deux puis réparti de manière égale dans les deux cellules filles. Cette équipartition du matériel génétique est cruciale pour le maintien de la stabilité génétique. Durant ce processus, la cellule forme une plaque métaphasique au centre du fuseau mitotique composé des chromatides sœurs. Chaque chromatide est attachée à son pôle respectif (on parle d'attachement bipolaire) vers lequel elle se dirigera durant l'anaphase.
 
@@ -10,13 +13,18 @@ Cette étape de la division cellulaire requiert donc non seulement un complexe r
 
 Il semblerait que l'origine du mouvement des chromosomes provienne pour une grande part de la dynamique des microtubules. Ce qui est moins certain est la part relative accordée aux différents processus régulant cette dynamique; que ce soit la dynamique intrinsèque (appelé instabilité dynamique des microtubules) ou l'effet de différentes protéines sur les microtubules comme les MAPs et les kinésines. On notera par ailleurs que le mécanisme de transfert d'énergie entre la dynamique des microtubules et le mouvement des chromosomes est encore très largement hypothétique.
 
-La dynamique des chromosomes durant la mitose est par ailleurs largement contrôlée par un grand nombre d'acteurs autres que les microtubules. Certains d'entre eux étant responsables de l'attachement MTs-kinétochore comme les complexes NDC80 et DAM1, tandis que d'autres sont impliqués dans la régulation de la dynamique des microtubules comme la kinésine-8 et la kinésine-13.
+La dynamique des chromosomes durant la mitose est aussi largement contrôlée par un grand nombre d'acteurs autres que les microtubules. Certains d'entre eux étant responsables de l'attachement MTs-kinétochore comme les complexes NDC80 et DAM1, tandis que d'autres sont impliqués dans la régulation de la dynamique des microtubules comme la kinésine-8 et la kinésine-13.
 
 Durant mon travail de thèse, j'ai étudié la dynamique des chromosomes en mitose chez la levure à fission qui a l'avantage de conserver les mécanismes primordiaux de la mitose avec les eucaryotes supérieurs. Deux mécanismes que l'on retrouve chez de nombreuses cellules sont l'alignement des chromosomes durant la métaphase ainsi qu'un mouvement de va et vient plus ou moins régulier le long du fuseau aussi appelé oscillation des chromosomes. J'ai montré en analysant les trajectoires des chromosomes que ces deux processus sont pour une large part indépendants chez la levure à fission (article accepté). De plus le processus d'alignement des chromosomes, encore mal compris, est en parti contrôlé par la kinésine-8 via une activité dépendante de la longueur des microtubules. Il semblerait donc qu'une protéine, la kinésine-8, soit capable de fournir une information spatiale le long du fuseau mitotique afin de positionner correctement les chromosomes. Enfin j'ai utilisé un modèle mathématique du fuseau mitotique développé dans l'équipe afin de tester de manière quantitative les hypothèses de mécanisme du centrage des chromosomes par la kinésine-8.
 
 L'ensemble de mon travail s'est donc intéressé au contrôle du mouvement, de l'attachement et du positionnement des chromosomes durant la mitose afin de mieux comprendre la biophysique du fuseau mitotique.
 
-# Summary
+\frontmatter
+
+\section*{Summary}
+
+\thispagestyle{empty}
+\afterpage{\thispagestyle{empty}}
 
 Mitosis is a highly preserved process in all eukaryotic cells during which genetic material (chromosomes) is divided in two parts and then spread in both daughter cells. This equipartition is crucial for maintaining genetic stability. During this process, cell forms a metaphasic plate  at the center of the mitotic spindle composed of sisters chromatid. Each chromatid is attached to his respective pole (called bipolar attachment) toward which it will go during anaphase.
 
