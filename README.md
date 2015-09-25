@@ -10,6 +10,8 @@ You can access to the final pdf [here](thesis.pdf).
 
 ## How to build
 
+Building process requires `pandoc` + all the necessary requirements to compile latex project + pandoc-citeproc + pandoc-crossref.
+
 ```sh
 make pdf
 ```
