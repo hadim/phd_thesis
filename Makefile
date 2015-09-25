@@ -13,6 +13,7 @@ define PANDOC_OPTIONS
 --chapters \
 --bibliography=$(MAIN_BIB) \
 --csl=$(BIB_STYLE) \
+--filter ./scripts/pandoc-svg.py \
 --filter $(PANDOC_BIN_FOLDER)/pandoc-crossref \
 --filter $(PANDOC_BIN_FOLDER)/pandoc-citeproc
 endef

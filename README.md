@@ -10,7 +10,15 @@ You can access to the final pdf [here](thesis.pdf).
 
 ## How to build
 
-Building process requires `pandoc` + all the necessary requirements to compile latex project + pandoc-citeproc + pandoc-crossref.
+### Requirements
+
+- `pandoc`
+- `pandoc-citeproc` : enable citation in Markdown
+- `pandoc-crossref` : enable cross reference in Markdown
+- python package `pandocfilters` : automatic SVG to PNG conversion (latex can't include SVG files)
+- all the necessary requirements to compile latex projects
+
+### Build
 
 ```sh
 make pdf
