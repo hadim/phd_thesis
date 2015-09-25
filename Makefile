@@ -1,8 +1,8 @@
 .PHONY: pdf log docx odt latex
 
 # Custom path
+PANDOC_BIN_FOLDER=~/.cabal/bin/
 PANDOC_BIN=~/.cabal/bin/pandoc
-CITEPROC_BIN=~/.cabal/bin/pandoc-citeproc
 MAIN_BIB=library.bib
 BIB_STYLE=templates/cell.csl
 LATEX_TEMPLATE=templates/preamble.tex
@@ -13,7 +13,8 @@ define PANDOC_OPTIONS
 --chapters \
 --bibliography=$(MAIN_BIB) \
 --csl=$(BIB_STYLE) \
---filter $(CITEPROC_BIN)
+--filter $(PANDOC_BIN_FOLDER)/pandoc-crossref \
+--filter $(PANDOC_BIN_FOLDER)/pandoc-citeproc
 endef
 
 define TEX_OPTIONS
