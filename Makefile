@@ -8,6 +8,7 @@ BIB_STYLE=templates/cell.csl
 LATEX_TEMPLATE=templates/preamble.tex
 
 SRC_FILES := $(shell find text/ -name '*.md' | sort)
+TEST_SRC_FILES := $(shell find text/1_start -name '*.md' | sort)
 
 define PANDOC_OPTIONS
 --chapters \
@@ -50,6 +51,10 @@ pdf: build-bib
 log: build-bib
 	$(PANDOC_BIN) $(TEX_OPTIONS) $(PANDOC_OPTIONS) $(SRC_FILES) \
 	              -o "thesis.pdf" --verbose
+
+test: build-bib
+	$(PANDOC_BIN) $(TEX_OPTIONS) $(PANDOC_OPTIONS) $(TEST_SRC_FILES) \
+	              -o "test.pdf" --verbose
 
 latex: build-bib
 	$(PANDOC_BIN) $(TEX_OPTIONS) $(PANDOC_OPTIONS) $(SRC_FILES) \
