@@ -1,5 +1,5 @@
 \newpage
-\thispagestyle{empty}
+\pagestyle{empty}
 
 \vspace*{\fill}
   \begin{quote}
@@ -9,4 +9,3 @@
 \vspace*{\fill}
 
 \newpage
-\thispagestyle{empty}

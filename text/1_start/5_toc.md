@@ -1,10 +1,7 @@
+\cleardoublepage
 \frontmatter
+\pagestyle{plain}
 
-\newpage
 \cleardoublepage
-\pagenumbering{gobble}
 \tableofcontents
-\cleardoublepage
-
-\pagenumbering{roman}
-\setcounter{page}{1}
+\addcontentsline{toc}{chapter}{\contentsname}

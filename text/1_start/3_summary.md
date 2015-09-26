@@ -1,9 +1,5 @@
-\frontmatter
-
+\cleardoublepage
 \section*{Résumé}
-
-\thispagestyle{empty}
-\afterpage{\thispagestyle{empty}}
 
 La mitose est une étape clé du cycle cellulaire, très préservée chez toutes les cellules eucaryotes, durant laquelle le matériel génétique de la cellule (les chromosomes) est séparé en deux puis réparti de manière égale dans les deux cellules filles. Cette équipartition du matériel génétique est cruciale pour le maintien de la stabilité génétique. Durant ce processus, la cellule forme une plaque métaphasique au centre du fuseau mitotique composé des chromatides sœurs. Chaque chromatide est attachée à son pôle respectif (on parle d'attachement bipolaire) vers lequel elle se dirigera durant l'anaphase.
 
@@ -19,12 +15,8 @@ Durant mon travail de thèse, j'ai étudié la dynamique des chromosomes en mito
 
 L'ensemble de mon travail s'est donc intéressé au contrôle du mouvement, de l'attachement et du positionnement des chromosomes durant la mitose afin de mieux comprendre la biophysique du fuseau mitotique.
 
-\frontmatter
-
+\cleardoublepage
 \section*{Summary}
-
-\thispagestyle{empty}
-\afterpage{\thispagestyle{empty}}
 
 Mitosis is a highly preserved process in all eukaryotic cells during which genetic material (chromosomes) is divided in two parts and then spread in both daughter cells. This equipartition is crucial for maintaining genetic stability. During this process, cell forms a metaphasic plate  at the center of the mitotic spindle composed of sisters chromatid. Each chromatid is attached to his respective pole (called bipolar attachment) toward which it will go during anaphase.
 

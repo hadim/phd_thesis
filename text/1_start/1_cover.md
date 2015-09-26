@@ -13,4 +13,6 @@ tblPrefix:
 secPrefix:
     - 'Section'
     - 'Sections'
+loftitle: "# Liste des figures"
+lotTitle: "# Liste des tableaux"
 ---

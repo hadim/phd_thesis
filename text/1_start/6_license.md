@@ -1,7 +1,4 @@
-\frontmatter
-
-\thispagestyle{empty}
-\afterpage{\thispagestyle{empty}}
+\cleardoublepage
 
 \doclicenseThis
 

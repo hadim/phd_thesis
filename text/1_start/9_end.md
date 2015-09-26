@@ -1,6 +1,4 @@
-\frontmatter
-
-\setcounter{page}{1}
-\pagenumbering{arabic}
+\mainmatter
 
 \newpage
+\cleardoublepage

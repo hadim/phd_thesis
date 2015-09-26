@@ -1,4 +1,4 @@
-\frontmatter
+\cleardoublepage
 
 # Liste des acronymes
 

@@ -3,10 +3,15 @@
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
-\renewcommand*\listfigurename{Liste des figures}
-\renewcommand*\listtablename{Liste des tableaux}
+\renewcommand{\listfigurename}{Liste des figures}
+
+% Automatic way to use the first sentence of the figure caption as the short caption
+\let\oldcaption\caption
+\def\splitter #1. #2@@{\oldcaption[#1]{#1. #2}}
+\def\caption#1{\splitter #1@@}
 
 \usepackage{afterpage}
+\usepackage{minitoc}
 
 % Headers and page numbering
 \usepackage{fancyhdr}
