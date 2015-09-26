@@ -1,5 +1,3 @@
-\makeflyleaf
-
 ---
 eqnPrefix:
     - 'Equation'
@@ -15,4 +13,7 @@ secPrefix:
     - 'Sections'
 loftitle: "# Liste des figures"
 lotTitle: "# Liste des tableaux"
+link-citations: true
 ---
+
+\makeflyleaf
