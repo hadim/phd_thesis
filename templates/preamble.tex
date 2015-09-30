@@ -92,10 +92,3 @@
 \makesomeone{judge}{5}{Yannick Gachet}{Directeur de Recherche}{Membre du Jury}
 \makesomeone{judge}{6}{Sylvie Tournier}{Directeur de Recherche}{Membre du Jury Invité}
 \makesomeone{judge}{7}{Guillaume Gay}{Chercheur Indépendant}{Membre du Jury Invité}
-
-\usepackage{subcaption}
-\captionsetup{compatibility=false}
-
-\let\oldcaption\caption
-\def\splitter #1. #2@@{\oldcaption[#1]{#1. #2}}
-\def\caption#1{\splitter #1@@}
