@@ -4,7 +4,8 @@
         {
             "name": "pdf",
             "shell_cmd": "make pdf",
-            "working_dir": "${project_path}"
+            "working_dir": "${project_path}",
+            "shell": true
         }
     ]
 }
