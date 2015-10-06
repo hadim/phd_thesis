@@ -26,7 +26,8 @@ define TEX_OPTIONS
 -V papersize:a4paper \
 -V classoption:openright \
 -V classoption:twoside \
---template=templates/template.tex
+--template=templates/template.tex \
+ --highlight-style=tango
 endef
 
 define TEX_OPTIONS_ABSTRACT
