@@ -27,7 +27,8 @@ define TEX_OPTIONS
 -V classoption:openright \
 -V classoption:twoside \
 --template=templates/template.tex \
- --highlight-style=tango
+ --highlight-style=tango \
+ --number-sections
 endef
 
 define TEX_OPTIONS_ABSTRACT
