@@ -23,6 +23,23 @@ You can access to the final pdf [here](thesis.pdf).
 make pdf
 ```
 
+### Repository structure
+
+```
+├── abstract.pdf       # only abstract as pdf
+├── figures/           # contains all my figures (.svg and .png)
+├── library.bib        # bib file containing... my bibliography (generated with Mendeley)
+├── Makefile           # various commands to build the thesis
+├── README.md          # the file you are actullay reading
+├── scripts/           # scripts needed to build system
+├── templates/         # template files for LaTeX, .docx and .bib
+├── test.pdf           # generate a tiny version of the thesis (only for testing purpose)
+├── text/              # contains the thesis text file (in Markdown)
+├── thesis.docx        # thesis generated in .docx (for people who use Microsoft Office)
+├── thesis.pdf         # final pdf containing your thesis
+└── thesis.tex         # intermediate .tex file can be generated (for LaTeX debugging purpose only)
+```
+
 ## Author
 
 Hadrien Mary
