@@ -1,0 +1,3 @@
+dt = 10s
+number of frames = 200
+z = 7
