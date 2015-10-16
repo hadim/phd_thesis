@@ -4,6 +4,7 @@
 
 - __AP__ : _anti-poleward_
 - __GDP__ : Guanosine triphosphate
+- __GFP__ : _Green Fluorescence Protein_
 - __GTP__ : Guanosine diphosphate
 - __KT__ : kinétochore
 - __MAPs__ : _microtubule associated proteins_
