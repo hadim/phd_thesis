@@ -127,7 +127,7 @@
 \raggedbottom
 
 % Set margins
-\usepackage[top=1.25in,bottom=1.25in]{geometry}
+\usepackage[top=1.15in,bottom=1.15in,left=1in,right=1in]{geometry}
 
 % Chapter styling
 \usepackage[grey]{quotchap}
@@ -345,7 +345,30 @@ the biophysical processes controlling mitosis.
 
 \section*{Remerciements}
 
-\ldots{}
+\begin{itemize}
+\item
+  jury
+\item
+  sylvie et yannick
+\item
+  céline
+\item
+  guillaume
+\item
+  jonathan
+\item
+  equipe
+\item
+  labo
+\item
+  parents
+\item
+  parents olivia
+\item
+  amis
+\item
+  olivia
+\end{itemize}
 
 \cleardoublepage
 \frontmatter
@@ -378,6 +401,8 @@ a beer !).
   \textbf{AP} : \emph{anti-poleward}
 \item
   \textbf{GDP} : Guanosine triphosphate
+\item
+  \textbf{GFP} : \emph{Green Fluorescence Protein}
 \item
   \textbf{GTP} : Guanosine diphosphate
 \item
@@ -1808,60 +1833,875 @@ l'ensemble de fuseau afin de permettre l'alignement des chromosomes.
 \section{Reconstruction et analyse de la trajectoire des chromosomes en
 métaphase}\label{reconstruction-et-analyse-de-la-trajectoire-des-chromosomes-en-muxe9taphase}
 
+L'analyse des mouvements des chromosomes permet d'inférer les mécanismes
+régulant la dynamique du fuseau mitotique. En effet l'ensemble des
+interactions physico-chimiques des toutes les molécules et protéines
+composant le fuseau permet l'émergence de phénomènes de plus haut niveau
+comme le mouvement et l'attachement des chromosomes durant la mitose.
+Tout ces mécanismes sont requis pour une division cellulaire stable et
+fidèle.
+
+L'analyse du mouvement se déroule en trois étapes et peut être
+appliquées à un grand nombre de type de cellules différentes :
+
+\begin{itemize}
+\item
+  Avant l'étape d'acquisition il est nécessaire de concevoir des cellule
+  dont les kinétochores ou bien la partie centromérique de la chromatide
+  de un ou plusieurs chromosomes sont marqués avec une sonde
+  fluorescente. L'acquisition se déroule généralement à l'aide d'un
+  microscope à champs large ou bien confocale dont on règle les
+  paramètres d'acquisition afin d'obtenir une photo des cellules à des
+  pas de temps défini. Plus le pas de temps est faible plus large sera
+  l'éventail des phénomènes biophysiques observables. Cependant des pas
+  de temps trop faible pendant un temps d'acquisition trop long aura
+  tendance à abîmer les cellules par phototoxicité.
+\item
+  L'étape de reconstruction de la trajectoire des chromosomes comprend
+  la détection des différents éléments observés (souvent kinétochore et
+  pôle du fuseau mitotique) pour chaque pas de temps suivi de la
+  jointure des objets détectés dans le temps.
+\item
+  Enfin la dernière étape d'analyse proprement dite n'est pas aussi bien
+  défini que les deux étapes précédentes. Elle consiste à utiliser
+  différents outils ou algorithmes afin de comparer et d'analyser les
+  propriétés des trajectoires reconstruites afin d'en déduire différents
+  mécanismes régulant la dynamique des chromosomes.
+\end{itemize}
+
+Cette stratégie d'analyse a été appliquée dans l'étude présentée en
+Section~\ref{sec:article}. Ce qui suit propose de détailler les
+différents outils utilisés ainsi que de présenter de nouvelles
+techniques d'analyse.
+
 \subsection{La reconstruction des trois chromosomes de la levure à
 fission : un challenge
 ?}\label{la-reconstruction-des-trois-chromosomes-de-la-levure-uxe0-fission-un-challenge}
 
+Après l'acquisition en vidéo-microscopie, la première étape consiste
+donc à détecter chacun des spots qui correspond à un kinétochore ou à un
+des deux pôles du fuseau mitotique.
+
+La résolution de la vidéo-microscopie actuelle ainsi que la taille du
+fuseau mitotique de la levure à fission (entre 1 et 4μm) rend la
+différenciation entre les six kinétochores très difficile tout au long
+de la métaphase (Figure~\ref{fig:spindle_peaks}A).
+
+Il est possible de visualiser uniquement un chromosome en utilisant une
+sonde fluorophore situer sur une zone spécifique de ce chromosome au
+niveau de sa partie péri-centromérique. Une lignée pré-existante
+(Yamamoto and Hiraoka, \hyperref[ref-Yamamoto2003]{2003}) a donc été
+utilisé afin de marquer le chromosome II de la levure à fission à l'aide
+d'un système LacO/LacI (Robinett, \hyperref[ref-Robinett1996]{1996}).
+Cette lignée permet une différenciation beaucoup plus facile entre les
+deux kinétochores du chromosome visualisé
+(Figure~\ref{fig:spindle_peaks}B).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/spindle_peaks.png}
+\caption[Image en microscopie à fluorescence de deux fuseaux mitotique]{\label{fig:spindle_peaks}Image
+en microscopie à fluorescence de deux fuseaux mitotiques. \textbf{A}.
+Cellule marqué en GFP pour les six kinétochores (Ndc80-GFO, en vert sur
+le schéma) et pour les pôles (Cdc11-GFP, en rouge sur le schéma).
+\textbf{B}. Cellule marqué en GFP pour le centromère du chromosome II
+(Cen2-GFP, en vert sur le schéma) et pour les pôles (Cdc11-GFP, en rouge
+sur le schéma). La barre d'échelle correspond à 1μm.}
+\end{figure}
+
+De l'information est donc perdu (la position des kinétochores des deux
+autres chromosomes) au profit d'une précision très fortement accru de la
+position des deux kinétochores restant.
+
+Enfin on remarque que la visualisation des pôles se fait dans la même
+longueur d'onde que les kinétochores (marqués en GFP) afin de ne pas
+avoir à imager dans deux longueurs d'ondes différentes dans le but de
+réduire les dommages causés par la phototoxicité du système
+d'acquisition ainsi que de réduire le temps d'intervalle minimal entre
+deux acquisitions.
+
+\subsubsection{Détection par fit
+gaussien}\label{duxe9tection-par-fit-gaussien}
+
+En imagerie on définit un blob comme étant « une région d'une image
+formée par un ensemble de pixels connectés spatialement ». Plus
+communément un blob est un point qui correspond à une région
+intéressante de l'image. Par exemple, Figure~\ref{fig:spindle_peaks}B
+contient quatre blobs, deux correspondant aux pôles du fuseau mitotique
+et deux autres correspondant à la partie péri-centromérique des deux
+chromatides sœurs du chromosome II. L'étape de la détection est
+d'arriver à obtenir les propriétés géométriques de ces quatre objets
+(position, largeur et intensité).
+
+L'un des algorithmes les plus utilisés pour la détection de blob se base
+sur la convolution de l'image par un noyau Gaussien suivi de
+l'application de l'opérateur Laplacien (on parle de « Laplacian of
+Gaussian » en anglais\footnote{\url{https://en.wikipedia.org/wiki/Blob_detection\#The_Laplacian_of_Gaussian}}).
+Cette approche est très précise mais est aussi très sensible au
+paramètre d'échelle, c'est à dire que son résultat va fortement dépendre
+de la relation entre la taille des structures des blobs et la taille du
+noyau gaussien.
+
+L'idée de convoluer l'image source avec un noyau gaussien vient de
+l'observation que les blobs des sondes utilisées en biologie peuvent
+parfois avoir une forme qui s'approche d'une distribution gaussienne en
+deux dimensions (Figure~\ref{fig:gaussian}).
+
+La qualité de la détection dépend aussi de la qualité du ratio
+signal/bruit de l'image ainsi que de la fidélité de la sonde
+fluorescente à reproduire une distribution gaussienne. Par exemple on
+peut remarquer que la sonde Cen2-GFP (Figure~\ref{fig:gaussian}B)
+possède souvent une gaussienne moins bien défini que la sonde Cdc11-GFP
+(Figure~\ref{fig:gaussian}C)). Ceci pourrait être causé par le fait que
+la sonde Cen2-GFP consiste en une répétition d'insertion d'un gène
+(LacO) le long de la partie péri-centromérique du chromosome II. Il en
+résulterait un signal moins centré autour d'un unique point de l'espace
+et plus diffus dans la longueur du chromosome.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/gaussian.png}
+\caption[Distribution des intensités gaussiennes en deux dimensions]{\label{fig:gaussian}Distribution
+des intensités gaussiennes en deux dimensions. \textbf{A}. Cet image a
+été généré \emph{in silico} par l'échantillonnage aléatoire d'une
+distribution gaussienne. Le surface plot (image de droite) contient une
+dimension supplémentaire en \(z\) dont la hauteur est proportionnelle à
+l'intensité des pixels dans l'image originale (image de gauche) .
+\textbf{B}. Cette image correspond à un blob de la sonde Cen2-GFP qui
+marque le centromère d'une des chromatides du chromosome II. \textbf{C}.
+Cette image correspond à un blob de la sonde Cdc11-GFP qui marque les
+deux pôles du fuseau mitotique.}
+\end{figure}
+
+Une implémentation existe dans le plugin TrackMate inclus dans Fiji
+(Schindelin et al., \hyperref[ref-Schindelin2012]{2012}). Son code est
+librement disponible.\footnote{\url{http://git.io/vC9zf}}
+
+Cette implémentation a été utilisé pour l'analyse des images de
+vidéo-microscopie durant ce travail. La précision de la détection a
+aussi été testé en détectant des faux films générés depuis des
+trajectoires simulées \emph{in silico}
+(Figure~\ref{fig:detection_precision}A). La distance entre la position
+réelle \emph{in silico} puis la position détectée a ensuite été comparé
+(Figure~\ref{fig:detection_precision}B). La largeur à mi hauteur (FWHM,
+\emph{full width at half maximum}) de la distribution de l'erreur de
+détection est d'à peu près 34nm.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/detection_precision.png}
+\caption[Précision de la détection des blobs]{\label{fig:detection_precision}Précision
+de la détection des blobs. \textbf{A}. Superposition d'une trajectoire
+de chromosome et pôle simulée \emph{in silico} (en rouge) avec la
+trajectoire reconstruire par détection de blob (en vert). \textbf{B}.
+Distribution de la distance entre les blobs simulés et les blobs
+détectés.}
+\end{figure}
+
+Enfin un autre algorithme de détection de blob a aussi testé durant ce
+travail. Il est basé sur le travail de Sergé et al. (Sergé et al.,
+\hyperref[ref-Serge2008]{2008}) dont le principal atout consiste à être
+capable de détecter plusieurs blobs très proche les uns des autres comme
+cela peut être le cas lorsque on visualise les six kinétochores de la
+levure à fission (Figure~\ref{fig:spindle_peaks}A).
+
+L'idée principale est d'appliquer un algorithme de détection de blob
+plusieurs fois. Entre chaque tour de détection, on soustrait les blobs
+détectés à l'image source et on re-détecte les blobs restant
+(Figure~\ref{fig:deflation}). L'algorithme s'arrête quand plus aucun
+blob n'est détecté dans l'image. Cela permet la détection des blobs
+d'intensité plus faible qui sont masqués par un blob de plus forte
+intensité proche de celui-ci.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/deflation.png}
+\caption[Principe de l'algorithme de détection de blob par déflation]{\label{fig:deflation}Principe
+de l'algorithme de détection de blob par déflation. \textbf{A}. Le
+premier tour de fit gaussien détecte le blob le plus grand et le plus
+intense. \textbf{B}. Une fois le premier blob détecté soustrait de
+l'image source, le second tour de fit gaussien détecte le blob plus
+petit et moins intense. Les line plots situés à droite des schémas sont
+adaptés de Sergé et al. (\hyperref[ref-Serge2008]{2008}).}
+\end{figure}
+
+Une implémentation en Python de cet algorithme est librement disponible
+en ligne.\footnote{\url{http://git.io/vCHGs}}
+
+Deux raisons ont empêchés cet algorithme d'être utilisé dans le cadre de
+ce travail. La première est que l'implémentation en Python est beaucoup
+plus lente (quasiment un facteur 100) que la détection de blob proposée
+par le plugin TrackMate. Afin de remédier à cela il faudrait
+ré-implémenter l'algorithme de façon plus efficace, probablement en
+utilisant un langage plus bas niveau tel que Cython ou le C. Cette perte
+de temps aurait pu éventuellement être acceptable si la détection de
+blobs superposés dans les images à six kinétochores
+(Figure~\ref{fig:spindle_peaks}A) fonctionnait bien. Or l'algorithme de
+déflation ne donne pas de résultat convaincant comparé à celui proposé
+par TrackMate (Figure~\ref{fig:compare}). Ceci pourrait s'expliquer par
+le fait que la déflation est réellement efficace sur des sondes à
+molécules unique (« Single Particle Tracking » ou aussi SPT en anglais)
+et non pas des agrégats de multiples sondes fluorophores comme c'est le
+cas pour Cen2-GFP.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/compare.png}
+\caption[Principe de l'algorithme de détection de blob par déflation]{\label{fig:compare}Comparaison
+entre le LoG détection de TrackMate et l'implémentation par déflation
+basé sur l'algorithme de Sergé et al. Aucun n'est deux algorithmes
+n'arrivent à détecter les six kinétochores et les deux pôles. Par contre
+l'algorithme de TrackMate (à droite) détecte cinq kinétochores et les
+deux pôles. Alors que l'autre algorithme (à gauche) fait plus d'erreurs
+en détectant deux pôles au lieu de un (en haut) et en omettant un
+kinétochore au milieu.}
+\end{figure}
+
+Une fois les blobs détectés pour chaque pas de temps, il faut encore
+relié chaque blob avec son blob correspondant dans le temps afin
+d'obtenir les trajectoires uniques de chaque chromosomes et des pôles;
+c'est l'étape de tracking.
+
+\subsubsection{Reconstruction des
+trajectoires}\label{reconstruction-des-trajectoires}
+
+Durant le tracking, les trajectoires des objets observés (les
+chromosomes et les pôles) sont reconstruites. C'est à dire que chaque
+blob est relié avec le blob qui correspond au même objet dans tout les
+pas de temps (Figure~\ref{fig:whatistracking}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/whatistracking.png}
+\caption[Le tracking est l'étape de liaison des objets d'intérêts dans le temps]{\label{fig:whatistracking}Le
+tracking est l'étape de liaison des objets d'intérêts dans le temps.
+Sans cette étape il est impossible de savoir si un objet est le même que
+un autre dans deux temps différents.}
+\end{figure}
+
+Tout les algorithmes de tracking sont basé sur la même idée que d'un pas
+de temps à l'autre, deux blobs correspondent au même objet si leurs
+distances est la plus petite parmi toutes les distances possibles avec
+les autres blobs.
+
+Le tracking consiste donc à minimiser un ensemble de solutions parmi le
+champ des possibles. La version la plus utilisée se base sur la
+minimisation de la distance euclidienne d'un pas de temps à l'autre.
+
+\paragraph{Trois chromosomes}\label{trois-chromosomes}
+
+Le tracking des six kinétochores est un challenge. En effet comme déjà
+vu en Figure~\ref{fig:spindle_peaks}A, les six kinétochores évoluent
+ensemble dans un espace de petite taille, le fuseau mitotique. De plus
+ils ont tendance à se superposer très souvent. On notera qu'il n'est pas
+possible de les différencier même en filmant dans la profondeur du
+champs focal (en \(z\)).
+
+Cependant il est possible de reconstruire partiellement des morceaux de
+trajectoires. Pour cela il est possible d'utiliser un framework générale
+de tracking de particules développé par Jaqaman et al. appelé le LAP
+tracker pour \emph{Linear Assignement Problem tracker} (Jaqaman et al.
+(\hyperref[ref-Jaqaman2008]{2008})).
+
+L'idée du LAP tracker est de minimiser successivement deux matrices de
+coût contenant l'ensemble des solutions possibles au problème
+(Figure~\ref{fig:jaqaman}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/jaqaman.png}
+\caption[Les deux matrices de coût du LAP tracker]{\label{fig:jaqaman}Les
+deux matrices de coût du LAP tracker. \textbf{A}. Matrice de coût
+contentant l'ensemble des liens possibles entre deux blobs pour deux pas
+de temps successifs \(t\) et \(t+1\). Il existe donc autant de cette
+première matrice que de pas de temps dans la trajectoire. Le bloc en bas
+à droite (LRB) est un bloc auxiliaire requis pour satisfaire des
+contraintes topologiques de l'algorithme. \textbf{B}. Matrice de coût
+contrôlant la fermeture des trous, la fusion et la séparation des
+trajectoires. Adapté de Jaqaman et al.
+(\hyperref[ref-Jaqaman2008]{2008}).}
+\end{figure}
+
+Dans la première matrice (Figure~\ref{fig:jaqaman}A), chaque ligne et
+colonne correspond à un blob allant de de \(1\) à \(n_{t+1}\) pour deux
+pas de temps successifs \(t\) et \(t+1\). Chaque intersection de la
+matrice va contenir un score qui va mesurer la probabilité que
+l'événement en question arrive. Par exemple pour le bloc en haut à
+gauche (le bloc de liaison), chaque case correspond à un événement de
+liaison entre les deux blobs correspondant. Tandis que dans le bloc en
+bas à gauche, le score correspond à la probabilité que ce blob soit le
+premier d'un trajectoire (c'est à dire qu'il n'est lié a aucun autre
+blob dans le passé), on parle alors de « birth ». Le bloc en haut à
+droite correspond aux probabilités de mort d'une trajectoire, c'est à
+dire que le blob soit le dernier d'une trajectoire (pas de liaison dans
+le futur), on parle alors de « death ».
+
+Le score du bloc de liaison peut être défini de plusieurs manières. Si
+on suppose un mouvement brownien on peut simplement définir le score
+comme la distance au carré qui séparent les deux particules. Si on
+étudie un mouvement dirigé on peut utiliser par exemple un score basé
+sur la distance entre le blob \(t+1\) et une position prédite et
+probable qui correspondrait à un mouvement dirigé (basé sur un filtre de
+Kalman par exemple).
+
+Une fois les matrices crées (on note qu'il existe \(t-1\) matrices dans
+le cas de la première matrice). Elles sont minimisés en utilisant
+l'algorithme de Jonker-Volgenant (Jonker and Volgenant
+(\hyperref[ref-Jonker1987]{1987})). La minimisation des matrices va
+alors calculer la combinaison des événements les plus probables en se
+basant sur les scores. On obtient ainsi des trajectoires.
+
+La seconde matrice (Figure~\ref{fig:jaqaman}B) gère des événements plus
+complexes liés aux trajectoires et non plus aux blobs. Ici chaque ligne
+et colonne correspond à une trajectoire. Le calcul des scores cherche à
+exprimer la probabilité d'événements tel que le lien entre le début
+d'une trajectoire et la fin d'une autre, la fusion ou la séparation de
+deux trajectoires.
+
+Deux implémentations ont été testées (Figure~\ref{fig:ndc80}). La
+première provenant d'un module Python crée pour l'occasion, appelé
+\texttt{scikit-tracker}, possédant une fonction de score supposant un
+mouvement brownien (Figure~\ref{fig:ndc80}A). La seconde est celle
+disponible dans TrackMate et contient une fonction de score qui suppose
+un mouvement dirigé basé sur un filtre de Kalman pour prédire les
+trajectoires (Figure~\ref{fig:ndc80}B).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/ndc80.png}
+\caption[Reconstruction de la trajectoire avec six kinétochores]{\label{fig:ndc80}Reconstruction
+de la trajectoire avec six kinétochores. \textbf{A}. La reconstruction
+est basé sur une implémentation développé dans le cadre de cette étude
+appelé \texttt{scikit-tracker}. \textbf{B}. Reconstruction avec le
+plugin Fiji nommé TrackMate.}
+\end{figure}
+
+On observe que certains morceaux de trajectoires sont correctement
+reconstruits. Cependant dans les deux reconstructions, les six
+kinétochores ne sont jamais clairement visibles. Soit certains sont
+superposés à d'autre et donc ils apparaissent comme un unique blob, soit
+certains d'entre eux sortent du champ focal du microscope. Il est très
+compliqué de différencier entre les deux scénarios.
+
+Afin d'obtenir des trajectoires exacts de chromosomes tout au long de la
+mitose l'une des solutions est d'imager seulement les deux kinétochores
+d'un seul chromosome.
+
+\paragraph{Un chromosome}\label{un-chromosome}
+
+En observant seulement un seul chromosome
+(Figure~\ref{fig:spindle_peaks}B), la détection des blobs et la tracking
+deviennent beaucoup plus facile et robuste. En présence de seulement
+quatre blobs on peut alors facilement concevoir un algorithme simple et
+qui fonctionne dans la majorité des cas.
+
+Cette approche a été utilisée dans la majorité des reconstructions de
+trajectoire de chromosomes utilisées dans ce travail.
+
+L'algorithme utilisé est le suivant (Figure~\ref{fig:algo_cen2}) :
+
+\begin{itemize}
+\item
+  pour chaque pas de temps, on détermine les deux blobs les plus
+  éloignés. Ils sont marqués comme étant les pôles du fuseau. Les deux
+  autres blobs restant sont marqués comme étant les kinétochores.
+\item
+  un côté (droite ou gauche) est assigné à chacun des pôles. Le
+  kinétochore le plus proche de lui se voit assigner le côté
+  correspondant.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/algo_cen2.png}
+\caption[Algorithme de tracking pour un chromosome]{\label{fig:algo_cen2}Algorithme
+de tracking pour un chromosome.}
+\end{figure}
+
+Cette technique est très robuste (Figure~\ref{fig:cen2}). Cependant il
+arrive parfois que quelques erreurs subsistent dans les trajectoires. On
+peut alors avoir recours à une interface de correction manuelle des
+trajectoires.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/cen2.png}
+\caption[Reconstruction de la trajectoire du chromosome II et de ces deux pôles.]{\label{fig:cen2}Reconstruction
+de la trajectoire du chromosome II et de ces deux pôles.}
+\end{figure}
+
+\paragraph{Interface de correction manuelle des
+trajectoires}\label{interface-de-correction-manuelle-des-trajectoires}
+
+Afin de pouvoir facilement corriger les trajectoires des chromosomes
+contenant des erreurs qu'ils auraient été dommage d'écarter de
+l'analyse, il a été développé une interface graphique de correction
+manuelle. Cette interface écrite en Python est basé sur la bibliothèque
+\texttt{pyqtgraph}.\footnote{\url{www.pyqtgraph.org}} Son code est
+librement disponible.\footnote{\url{http://git.io/vCNxh}}
+
+L'interface permet de naviguer de manière intuitive dans la trajectoire
+à l'aide d'un système de zoom dynamique (Figure~\ref{fig:gui}). Il est
+possible de visualiser en deux dimensions n'importe quelle information
+contenue dans la trajectoire telles que le temps, la position en \(x\),
+\(y\) et \(z\) (si disponible), la taille et l'intensité des blobs, etc.
+Elle permet aussi d'annoter les trajectoires en leur donnant une note
+comprise entre un et trois décrivant la qualité de la trajectoire. Enfin
+il est possible de spécifier le début de l'anaphase
+(Figure~\ref{fig:gui}A) afin de pouvoir faciliter l'analyse automatique
+des différentes phases de la mitose ultérieurement.
+
+Cependant l'utilité majeure de l'interface graphique est de pouvoir
+modifier les erreurs de tracking (Figure~\ref{fig:gui}B). Ainsi il est
+possible de sélectionner un ou plusieurs blobs en même temps afin de les
+supprimer. On peut aussi sélectionner deux trajectoires afin de les
+raccorder, de les fusionner ou bien de les séparer.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/gui.png}
+\caption[Interface graphique de correction manuelle des trajectoires]{\label{fig:gui}Interface
+graphique de correction manuelle des trajectoires. \textbf{A}. Le début
+de l'anaphase peut être modifier manuellement. \textbf{B}. Chaque
+trajectoire peut être modifié à l'aide d'une interface simple et
+intuitive.}
+\end{figure}
+
+\subsubsection{Résumé du workflow de reconstruction des
+trajectoires}\label{ruxe9sumuxe9-du-workflow-de-reconstruction-des-trajectoires}
+
+Voici un résumé de l'ensemble des étapes menant à la reconstruction de
+la trajectoire des chromosomes (Figure~\ref{fig:workflow}). En entrée on
+a un film issu de la vidéo-microscopie à fluorescence contenant la
+dynamique des chromosomes et des pôles du fuseau mitotique durant la
+mitose. En sortie on a la trajectoires de chacun des objets qui contient
+les positions ainsi que les propriétés géométriques des blobs pour
+chaque pas de temps.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/workflow.png}
+\caption[Workflow de reconstruction des trajectoires]{\label{fig:workflow}Workflow
+de reconstruction des trajectoires. Deux étapes nécessitent une
+intervention manuelle. Suite à la détection de blobs (peaks) et après la
+reconstruction automatique des trajectoires.}
+\end{figure}
+
+La constitution d'une base de donnée de trajectoires contenant
+différentes souches cellulaires permet par la suite de comparer les
+différents groupes de trajectoires afin d'en extraire leurs principales
+propriétés biophysiques.
+
+\subsection{L'état de cohérence du mouvement des kinétochores
+frères}\label{luxe9tat-de-cohuxe9rence-du-mouvement-des-kinuxe9tochores-fruxe8res}
+
+En plus des propriétés oscillatoires telles que l'amplitude ou la
+période des mouvements (voir Section~\ref{sec:article} pour les
+résultats de cette analyse), il est aussi possible d'analyser la
+cohérence du mouvement des kinétochores (Armond et al.
+(\hyperref[ref-Armond2015]{2015})).
+
+On définit la cohérence d'un mouvement pour deux kinétochores frères
+comme étant l'état de synchronisation du mouvement de chaque kinétochore
+en fonction de son kinétochore frère. Par exemple si un kinétochore a un
+mouvement poleward (P), le mouvement du chromosome est cohérent si son
+kinétochore frère à un mouvement anti-poleward (AP)
+(Figure~\ref{fig:coherence_schema}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/coherence_schema.png}
+\caption[Schéma de mouvement cohérent et incohérent des kinétochores frères.]{\label{fig:coherence_schema}Schéma
+de mouvement cohérent et incohérent des kinétochores frères. \textbf{A}.
+Les deux kinétochores frères sont dans des états poleward et
+anti-poleward, le mouvement est cohérent. \textbf{B} et \textbf{C}. Les
+deux kinétochores frères sont dans le même état poleward ou
+anti-poleward, le mouvement est incohérent. \textbf{D}. Dans certains
+cas il est impossible de déterminer précisément l'état de cohérence d'un
+chromosome.}
+\end{figure}
+
+La méthode (Armond et al., \hyperref[ref-Armond2015]{2015}) consiste à
+assigner une direction (poleward (P), anti-poleward (AP) ou inconnu (N))
+à chaque kinétochore indépendamment les uns des autres. La direction
+pour un pas de temps est déterminée en regardant le signe du mouvement à
+ce temps ainsi que le signe des mouvements autour de ce pas de temps
+dans une fenêtre de taille \(w\). On assigne ainsi pour chaque pas de
+temps un score qui selon sa valeurs classe le pas de temps en P, AP ou N
+(Figure~\ref{fig:coherence_schema}).
+
+\[
+S_i = \frac{n_p - n_{AP}}{2w - 1}
+\]
+
+Où \(n_P\) et \(n_{AP}\) sont le nombre de pas de temps contenant un
+état poleward et anti-poleward dans la fenêtre de temps de taille \(w\).
+L'état est déterminé en regardant le signe du mouvement en fonction de
+la position du pôle. Les pas de temps avec \(S_i < -S*\) sont assignés
+comme P. Les pas de temps avec \(S_i > S*\) sont assignés comme AP. Les
+paramètres ont été fixé manuellement avec \(S* = 0.15\) et \(w = 10\)
+(avec \(dt=100ms\)). Si \(-S* < S_i < S*\) alors le pas de temps est
+considéré comme n'ayant pas de direction (N).
+
+Bien que cette méthode soit grandement dépendante de \(S*\), elle reste
+efficace pour pouvoir comparer des trajectoires provenant de différentes
+conditions.
+
+On observe que dans une cellule sauvage le plus souvent un kinétochore
+est dans l'état opposé à son kinétochore frère bien qu'il existe de
+courte période de temps où les deux kinétochores sont dans un état
+incohérent (Figure~\ref{fig:coherence_kymo}, voir le mouvement entre
+220s et 230s).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/coherence_kymo.png}
+\caption[Direction des kinétochores frères en metaphase.]{\label{fig:coherence_kymo}Direction
+des kinétochores frères en metaphase. Trajectoires des pôles (rouge et
+vert) et des kinétochores frères (bleu et rose) en métaphase dans une
+cellule sauvage. Le pas de temps de l'acquisition est de 100ms.}
+\end{figure}
+
+Si on compare les états de cohérence de plusieurs cellules dans
+différentes conditions (Figure~\ref{fig:coherence-stats}) on observe que
+le mutant kinésine-8 (\emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ}) passe
+plus de temps dans un état incohérent que des cellules sauvages. Plus
+précisément le mutant kinésine-8 semble passer plus de temps dans l'état
+incohérent AP-AP alors que l'état P-P semble être le même que dans les
+cellules sauvages.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/coherence_stats.png}
+\caption[Temps passé dans les différents états de cohérence dans différentes conditions]{\label{fig:coherence-stats}Temps
+passé dans les différents états de cohérence dans différentes
+conditions. WT désigne une cellule sauvage. \emph{klp6Δ}, \emph{klp5Δ}
+et \emph{klp56Δ} désigne différents mutants de la kinésine-8 qui possède
+tous le même phénotype (voir Section~\ref{sec:article} pour plus de
+détails). TBZ désigne une drogue, le thiabendazole qui inhibe les
+oscillations des chromosomes en métaphase. Le nombre de cellule utilisés
+pour cette analyse est n = 24 pour WT, n = 18 pour \emph{klp6Δ}, n = 12
+pour \emph{klp5Δ}, n = 26 pour \emph{klp56Δ}, n = 19 pour WT+TBZ, n = 14
+pour \emph{klp6Δ}+TBZ.}
+\end{figure}
+
+Si on suppose que le mouvement P implique que les microtubules associés
+soient en majorité dans un état de dépolymérisation et que le mouvement
+AP implique que les microtubules associés soient en majorité dans un
+état de polymérisation (Armond et al., \hyperref[ref-Armond2015]{2015})
+alors cette observation pourrait indiquer que la kinésine-8 participe
+activement à la synchronisation du mouvement des kinétochores frères.
+
+La distance inter-kinétochore entre les deux kinétochores peut être un
+bon moyen pour quantifier la tension exercée sur les kinétochores par
+les microtubules. De cette façon, en observant la distance
+inter-kinétochore en fonction de l'état de cohérence dans différentes
+conditions, on voit que de manière assez subtile la distribution des
+distances pour un état cohérent (AP-P) a une moyenne de environ 400nm
+dans toutes les conditions. Elle semble par ailleurs très légèrement
+supérieure pour l'état incohérent P-P et très légèrement inférieure pour
+l'état incohérent AP-AP. Bien que ces résultats ne soit pas
+significatif, ils pourraient supporter l'idée qu'un mouvement AP
+implique une force de poussée tandis qu'un mouvement P implique une
+force de traction sur le kinétochore.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/coherence_stretch.png}
+\caption[Distance inter-kinétochore en fonction de l'état de cohérence dans différentes conditions]{\label{fig:coherence_stretch}Distance
+inter-kinétochore en fonction de l'état de cohérence dans différentes
+conditions. La barre rouge des violin plots désigne la moyenne. WT
+désigne une cellule sauvage. \emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ}
+désigne différents mutants de la kinésine-8 qui possède tous le même
+phénotype (voir Section~\ref{sec:article} pour plus de détails). TBZ
+désigne une drogue, le thiabendazole qui inhibe les oscillations des
+chromosomes en métaphase. Le nombre de cellule utilisés pour cette
+analyse est n = 24 pour WT, n = 18 pour \emph{klp6Δ}, n = 12 pour
+\emph{klp5Δ}, n = 26 pour \emph{klp56Δ}, n = 19 pour WT+TBZ, n = 14 pour
+\emph{klp6Δ}+TBZ.}
+\end{figure}
+
+Cette dernière observation nécessite d'être confirmer car la mesure de
+la distance inter-kinétochore dans ce système pourrait comporter un
+biais important. En effet le mutant Cen2-GFP possède une sonde
+fluorescente au niveau de la partie péri-centromérique de la chromatide,
+donc proche mais pas tout à fait au même endroit que le kinétochore. La
+distance entre les deux positions a été estimée à 125nm (Gay et al.,
+\hyperref[ref-Gay2012a]{2012}) ce qui est bien plus que la différence
+observée. De plus la sonde ne se situe pas dans l'axe des deux
+kinétochores frères ce qui signifie qu'une traction ou une poussée sur
+cet axe pourrait bien être invisible en mesurant la distance entre les
+sonde Cen2-GFP.
+
+Pour finir on notera quand même que la légère différence de distance
+inter-kinétochore pour les états AP-AP et P-P est retrouvée dans toutes
+les conditions observées et vont à chaque fois dans le même sens. Cela
+constitue tout de même une forte indication que la distance
+inter-kinétochore varie de manière significative. Le système Cen2-GFP ne
+serait simplement pas assez précis pour capter l'amplitude totale de
+cette variation.
+
+L'analyse de l'état de cohérence des kinétochores est une observation
+dans des fenêtres de temps relativement grande de l'ordre de 10s. Il est
+possible de réduire cette fenêtre de temps d'un facteur 10 à 100 afin de
+capter les propriétés biophysique sous jacentes qui contrôle le
+mouvement des kinétochores au niveau moléculaire.
+
+\subsection{Analyse du mouvement par « Mean Square Displacement
+»}\label{analyse-du-mouvement-par-mean-square-displacement}
+
+\subsubsection{La MSD, un outil pour accéder aux différents phénomènes
+gouvernant un
+mouvement}\label{la-msd-un-outil-pour-accuxe9der-aux-diffuxe9rents-phuxe9nomuxe8nes-gouvernant-un-mouvement}
+
+Les mouvements observés au niveau subcellulaire peuvent être dirigés par
+des processus différents qu'on peut diviser en trois familles :
+
+\begin{itemize}
+\item
+  un mouvement purement diffusif (aussi appelé mouvement brownien)
+  gouverné par par l'ensemble des chocs de petites particules sur une
+  particule plus grosse. Il en résulte un mouvement aléatoire dans
+  toutes les dimensions de l'espace.
+\item
+  un mouvement confiné qui est restreint dans l'espace, par exemple à
+  cause d'une paroi cellulaire ou subcellulaire contraignant le
+  mouvement d'une protéine. Il est souvent ajouté par dessus un
+  mouvement diffusif.
+\item
+  un mouvement dirigé qui est principalement gouverné par une force
+  s'appliquant sur l'objet le mettant ainsi en mouvement dans une
+  direction particulière.
+\end{itemize}
+
+Dans la réalité les mouvements observés sont souvent dirigés par un
+mélange de ces trois processus.
+
+L'outil communément utilisé pour l'étude de ces processus est la mesure
+du « Mean Square Displacement » (MSD) qui représente l'étendue spatiale
+explorée (caractérisé par une aire dans le cas d'un mouvement en deux
+dimensions) en fonction de différentes intervalles de temps \(\tau\).
+
+Si on suppose ces processus stationnaires, il est possible de les
+modéliser tel que :
+
 \begin{itemize}
 \tightlist
 \item
-  parler de la détection par deflation (implementation trop lente?, pk
-  ca marche pas pr nous?)
-\item
-  parler de l'algo de jaquaman et de scikit tracker : pk ca marche pas
-  ici aussi? du a détection trop mauvaise et pas à l'algo de tracking
+  pour un mouvement diffusif (mouvement brownien) :
 \end{itemize}
 
-\subsection{Traitement des trajectoires par des techniques d'analyse du
-signal}\label{traitement-des-trajectoires-par-des-techniques-danalyse-du-signal}
+\[
+\mbox{MSD}(\tau) = 2dD\tau
+\]
+
+Où \(d\) est le nombre de dimensions et \(D\) le coefficient de
+diffusion.
 
 \begin{itemize}
 \tightlist
 \item
-  parler des techniques utilisées dans le papier et des problemes qu on
-  a eu
-\item
-  dam1
+  pour un mouvement confiné et diffusif :
 \end{itemize}
 
-\subsection{Cohérence kinetochore
-AP-P}\label{cohuxe9rence-kinetochore-ap-p}
+\[
+\mbox{MSD}(\tau) = R_c^2(1-e^{-2dD\tau / R_c})
+\]
+
+Où \(R_c\) est la rayon dans lequel la particule est confinée, \(d\) est
+le nombre de dimensions et \(D\) le coefficient de diffusion.
 
 \begin{itemize}
 \tightlist
 \item
-  broder un truc (probablement avec du data-driven bla bla bla)
+  pour un mouvement dirigé :
 \end{itemize}
 
-\subsection{MSD}\label{msd}
+\[
+\mbox{MSD}(\tau) = v^2\tau ^2
+\]
+
+Où \(v\) est la vitesse de la particule.
+
+On notera par ailleurs qu'il est aussi possible de modéliser une MSD
+plus simplement en généralisant simplement le modèle du mouvement
+diffusif :
+
+\[
+\mbox{MSD}(\tau) = 2dD\tau ^ {\alpha}
+\]
+
+Où \(\alpha\) désigne une constante. Si \(\alpha = 1\), on observe un
+mouvement diffusif, si \(\alpha > 1\), il s'agit d'un phénomène de
+super-diffusion tandis que pour \(\alpha < 1\), le phénomène est appelé
+sous-diffusion.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/wiki_diffuse.png}
+\caption[Exemple de MSD pour trois types de diffusion théoriques]{\label{fig:wiki_diffuse}Exemple
+de MSD pour trois types de diffusion théoriques. Adapté de
+https://commons.wikimedia.org/wiki/File\%3AMsd\_anomalous\_diffusion.svg}
+\end{figure}
+
+La mesure de la MSD pour une différence de temps \(\Delta t\) est
+calculé comme la distance au carré entre la position de l'objet \(r_i\)
+au temps \(t\) et sa position au temps \(t+\Delta t\) moyenné sur touts
+les temps successifs \(t\) :
+
+\[
+\mbox{MSD}(\Delta t) = \langle (r_i(t) - r_i(t + \Delta t)) ^ 2 \rangle
+\]
+
+Par exemple on peut simuler un mouvement brownien et un mouvement dirigé
+en deux dimensions (Figure~\ref{fig:motions}A,B). On observe que dans le
+cas d'un mouvement brownien, l'aire explorée (la MSD) est beaucoup plus
+petite pour un même délai que dans le cas d'un mouvement dirigé.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/motions.png}
+\caption[Exemple de MSD pour un mouvement dirigé et un mouvement brownien simulé]{\label{fig:motions}Exemple
+de MSD pour un mouvement dirigé et un mouvement brownien simulé.
+\textbf{A} et \textbf{B}. Évolution des positions d'une particule en
+deux dimensions dans le cas d'un mouvement respecitvement brownien et
+dirigé simulé. \textbf{C} et \textbf{D}. MSD correspondant aux
+mouvements en \textbf{A} et \textbf{B}.}
+\end{figure}
+
+En fittant des mesures de mouvement de particules avec les équations
+décrites précédemment on peut trouver le mouvement majoritaire qui
+gouverne le processus (diffusif, dirigé ou confiné) ainsi qu'accéder aux
+paramètres physiques gouvernant ces phénomènes tels que le coefficient
+de diffusion \(D\), la vitesse de la particule \(v\) ou encore le volume
+de confinement \(R_C\).
+
+Cette approche est appelée modélisation basé sur les données («
+data-driven modeling » en anglais). Toutes la difficulté est de trouver
+la bonne technique pour remonter aux équations à partir des données.
+Récemment un article publiée par Monier et al. (Monnier et al.,
+\hyperref[ref-Monnier2012]{2012}) propose une approche basée sur les
+statistiques bayésiennes afin de prédire pour différents types de
+mouvement le processus à l'origine ainsi que les paramètres associés.
+
+\subsubsection{Mesure de la MSD appliquée au mouvement de
+Cen2-GFP}\label{mesure-de-la-msd-appliquuxe9e-au-mouvement-de-cen2-gfp}
+
+L'observation des MSD de différentes trajectoires de Cen2-GFP sous
+différentes conditions (Figure~\ref{fig:msds} et
+Figure~\ref{fig:msds-log} pour une visualisation en log-log) fait
+apparaître une sur-diffusion des trajectoires dans les cellules sans
+kinésine-8 (\emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ}) ce qui concorde
+avec une augmentation de l'amplitude (voir Section~\ref{sec:article})
+ainsi qu'une perturbation de l'état de cohérence du mouvement des
+kinétochores frères.
+
+On peut aussi observer que les trajectoires avec TBZ sont très largement
+sous diffusives comparées aux trajectoires sans TBZ. Ceci qui confirme
+qu'une force net plus faible est appliquée dans ces conditions dû à un
+attachement plus faible des kinétochores aux microtubules. Les
+kinétochores sera alors dans un confinement forcés du fait des moindres
+forces s'exerçant sur elles. Cette observation confirme que
+l'attachement est primordiale dans la génération de la force au niveau
+du kinétochore.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/msds.png}
+\caption[MSD pour différentes trajectoires de Cen2-GFP sous différentes conditions.]{\label{fig:msds}MSD
+pour différentes trajectoires de Cen2-GFP sous différentes conditions.
+La ligne bleu foncé représente la MSD moyenne pondérée par le nombre de
+pas de temps pour un délai donné. L'erreur en bleu clair représente
+l'erreur standard de la moyenne tandis que l'erreur en bleu très clair
+représente la déviation standard. Les MSD en gris correspondent aux MSD
+individuelles de chacune des trajectoires. Le nombre de trajectoires
+utilisées pour cette analyse est n = 26 pour WT, n = 25 pour
+\emph{klp6Δ}, n = 22 pour \emph{klp5Δ}, n = 51 pour \emph{klp56Δ}, n =
+23 pour WT+TBZ, n = 19 pour \emph{klp6Δ}+TBZ.}
+\end{figure}
+
+La visualisation en log-log (Figure~\ref{fig:msds-log}) permet de voir
+de manière plus précise ce qui se passe aux temps courts. Il est ainsi
+possible d'observer que toutes les MSD pourraient posséder trois temps
+caractéristiques (Figure~\ref{fig:msds-log-fit}) :
 
 \begin{itemize}
-\tightlist
 \item
-  broder aussi un truc avec des MSD toussa toussa
+  Un premier temps allant juqu'à 0.3s (en orange) pourrait traduire
+  l'effet des différents processus aléatoires sur le mouvement
+  (mouvement brownien, bruit blanc de la mesure, etc).
+\item
+  De 0.3s à 2s (en vert), la pente chute brusquement
+  (Figure~\ref{fig:msds-log-fit}), ce qui pourrait être la signature de
+  la mesure de Cen2-GFP qui bougerait de la même manière qu'une
+  particule confinée dû à son éloignement au point où s'exerce les
+  forces au niveau du kinétochore et à l'état faiblement rigide de la
+  chromatide.
+\item
+  De 2s à 40s (en bleu), la pente augmente
+  (Figure~\ref{fig:msds-log-fit}) ce qui pourrait traduire l'effet du la
+  force appliquée au niveau des kinétochores. Cette pente serait alors
+  caractéristique d'un mouvement dirigé.
 \end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/msds_log.png}
+\caption[MSD en log-log pour différentes trajectoires de Cen2-GFP sous différentes conditions]{\label{fig:msds-log}MSD
+en log-log pour différentes trajectoires de Cen2-GFP sous différentes
+conditions. L'erreur en bleu clair représente l'erreur standard de la
+moyenne tandis que l'erreur en bleu très clair représente la déviation
+standard. Les MSD en gris correspondent aux MSD individuelles de chacune
+des trajectoires. Le nombre de trajectoires utilisées pour cette analyse
+est n = 26 pour WT, n = 25 pour \emph{klp6Δ}, n = 22 pour \emph{klp5Δ},
+n = 51 pour \emph{klp56Δ}, n = 23 pour WT+TBZ, n = 19 pour
+\emph{klp6Δ}+TBZ.}
+\end{figure}
+
+Il est d'ailleurs très intéressant de remarquer que dans les MSD avec
+TBZ, la troisième pente (de 2s à 40s) est quasiment égale à la seconde
+pente (de 0.3s à 2s). Cela pourrait signifier que les kinétochores en
+présence de TBZ sont peu soumis à une force possiblement dirigée par un
+processus de mouvement dirigé comme le confirme l'analyse des
+oscillations en Section~\ref{sec:article}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/results/imaging/msds_log_fit.png}
+\caption[Régression linéaire sur des MSD pour différentes trajectoires de Cen2-GFP sous différentes conditions]{\label{fig:msds-log-fit}Régression
+linéaire sur des MSD pour différentes trajectoires de Cen2-GFP sous
+différentes conditions. La régression linéaire a été faite en utilisant
+la fonction \texttt{scipy.stats.linregress} de la bibliothèque python
+\texttt{scipy}. Les temps choisis pour les trois différentes régressions
+sont : de 0.1s à 0.3s, de 0.3s à 2s et de 2s à 40s.}
+\end{figure}
+
+Des analyses plus précises sont nécessaires pour pouvoir conclure sur
+les différents types de phénomène en jeu dans le mouvement des
+chromosomes. Il serait notamment intéressant de comparer le mouvement de
+Ndc80-GFP (situé au niveau du kinétochore) avec celui de Cen2-GFP.
+
+Il pourrait être par la suite utile de modéliser à partir de ces
+différentes mesures les modèles de mouvement vus dans la section
+précédente. L'approche bayésienne semble être une approche intéressante
+dans ce type de problème (Monnier et al.,
+\hyperref[ref-Monnier2012]{2012}).
 
 \section{Modélisation bio-mécanique de la ségrégation des
 chromosomes}\label{moduxe9lisation-bio-muxe9canique-de-la-suxe9gruxe9gation-des-chromosomes}
 
+La modélisation \emph{in silico} des trajectoires des chromosomes en
+mitose permet de mieux comprendre quel sont les mécanismes sous-jacent
+responsable de la régulation de ces mouvements. L'approche « modèles de
+connaissance », qui s'inspire de la mécanique du point, est utilisé et
+permet d'établir des hypothèses sur les mécanismes de congression des
+chromosomes en métaphase. Enfin d'autre hypothèses sont aussi envisagées
+afin de décrire les oscillations du mouvement des chromosomes observées
+\emph{in vivo}.
+
 \subsection{Modéliser la dynamique des chromosomes par une approche «
 force balance
 »}\label{moduxe9liser-la-dynamique-des-chromosomes-par-une-approche-force-balance}
-
-(TODO: EST CE QUE JE DOIS PAS FOUTRE CETTE PARTIE EN INTRO PLUTOT ? EN
-MEME TEMPS JE FAIS UNE CONNECTION DIRECT AVEC LES MODIFS FAITE DURANT MA
-THESE SUR LE MODELE DONC JE TROUVE BIEN AUSSI DE LE LAISSER EN
-RESULTAT\ldots{} VOUS EN PENSEZ QUOI ?)
 
 Tout système mécanique peut se modéliser en résolvant les équations des
 forces appliquées sur le système. Cette approche a été utilisé pour la
@@ -1897,14 +2737,14 @@ des processus physiques très divers. En voici une liste non exhaustive :
   une force \textbf{centrifuge} est subit par un objet en rotation. Sa
   magnitude vaut \(ma_c\), où \(a_c\) correspond à l'accélération
   centrifuge. On peut aussi noter que la force centripète est la force
-  opposée à la force centrifuge qui empèche un objet en rotation de «
+  opposée à la force centrifuge qui empêche un objet en rotation de «
   fuir » le centre.
 \item
   une force \textbf{optique} est une force de collision correspondant à
   une pression optique dû au moment cinétique des photons. Les photons
   peuvent donc exercer une force quand ils sont diffractés par un objet.
   Cette force est très faible dans la nature, par exemple si une
-  moléculare absorbe \(10^9\) photons par seconde (cela correspond à un
+  molécule absorbe \(10^9\) photons par seconde (cela correspond à un
   laser puissant), la force optique ne sera que de \(10^{-6}pN\).
 \item
   les forces \textbf{thermiques} sont un autre type de force de
@@ -1924,7 +2764,7 @@ des processus physiques très divers. En voici une liste non exhaustive :
 \end{itemize}
 
 La nature très diverse de ces forces ainsi que la difficulté à les
-mesurer à des échelles microscopiques les rend diffcilement utilisable
+mesurer à des échelles microscopiques les rend difficilement utilisable
 pour l'étude des processus cellulaires et subcellulaires (TODO: C'EST
 VRAI CE QUE JE RACONTE LA ?).
 
@@ -1948,7 +2788,7 @@ F = ma = m\frac{dv}{dt} = m\frac{dx^2}{dt^2}
 
 Un amortisseur est un élément mécanique qui répond à une force appliqué
 en se déformant à vitesse constante avec une magnitude de
-\(v = F/\gamma\), où γ correspont au coefficient de viscosité
+\(v = F/\gamma\), où γ correspond au coefficient de viscosité
 (Figure~\ref{fig:force_types}). Cet objet idéal est utilisé pour
 modéliser le mouvement d'un objet dans un fluide comme par exemple une
 cuillère qu'on insère dans un pot de miel. L'action de tirer rapidement
@@ -1957,7 +2797,7 @@ viscosité élevé du miel qui va contrer la force de la cuillère tirée de
 manière proportionnelle à la vitesse.
 
 Enfin un élastique est un élément mécanique qui s'allonge en réponse à
-une force. L'allongement d'un élastique par rapport à sa longeur de
+une force. L'allongement d'un élastique par rapport à sa longueur de
 repos est égale à \(L = F/\kappa\), où \(\kappa\) la constante
 d'élasticité et \(L\) l'allongement (Figure~\ref{fig:force_types}). Si
 la constante d'élasticité est indépendante de la force ou de
@@ -1965,7 +2805,7 @@ l'extension, on dit que l'élastique suit la loi de Hooke.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/force_types.png}
+\includegraphics{figures/results/modelling/force_types.png}
 \caption[Schéma des trois éléments mécaniques fondamentales]{\label{fig:force_types}Schéma
 des trois éléments mécaniques fondamentales : la masse, l'amortisseur et
 le ressort (adapté de Howard (\hyperref[ref-Howard2001]{2001})). Les
@@ -1998,7 +2838,7 @@ appliquées au système (Figure~\ref{fig:motion_equation}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/motion_equation.png}
+\includegraphics{figures/results/modelling/motion_equation.png}
 \caption[L'équation du mouvement]{\label{fig:motion_equation}L'équation
 du mouvement décrit l'évolution spatial d'un objet au cours du temps
 sous l'action de plusieurs forces appliquées sur lui. Le terme inertiel
@@ -2012,7 +2852,7 @@ peut être complexe et rendre les temps de calcul relativement long
 (C'EST BIEN DE METTRE CA???).
 
 Il est possible d'approximer l'équation du mouvement en enlevant le
-terme inertiel lorsqu'on étudie des sytèmes où la force inertiel est
+terme inertiel lorsqu'on étudie des systèmes où la force inertiel est
 négligeable par rapport aux forces visqueuses. Par exemple dans le cas
 d'un système évoluant dans un milieu très visqueux par rapport à sa
 masse comme dans une cellule. Ce rapport entre les deux forces est
@@ -2050,7 +2890,7 @@ kinétochores l'un par rapport à l'autre et du paramètre de raideur
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/spindle_model.png}
+\includegraphics{figures/results/modelling/spindle_model.png}
 \caption[Modélisation mécanique du fuseau mitotique]{\label{fig:spindle_model}Le
 fuseau modélisé est composé de différents objets ayant des propriétés
 visco-élastique définies. On décrit aussi les forces appliquées sur les
@@ -2078,8 +2918,8 @@ kinétochores et des pôles (Figure~\ref{fig:traj_model}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/traj_model.png}
-\caption[Trajectoire des chromosomes \_\_in silico\_\_]{\label{fig:traj_model}Une
+\includegraphics{figures/results/modelling/traj_model.png}
+\caption[Trajectoire des chromosomes \_in silico\_]{\label{fig:traj_model}Une
 simulation numérique permet de résoudre l'équation du mouvement et
 ensuite accéder à l'évolution des positions de chaque objets au cours du
 temps.}
@@ -2089,9 +2929,9 @@ temps.}
 numérique}\label{impluxe9mentation-numuxe9rique}
 
 L'implémentation numérique du modèle (appelée \texttt{kt\_simul}) est
-disponible en libre accès sous license open-source à cette adresse :
+disponible en libre accès sous licence open-source à cette adresse :
 \texttt{https://github.com/bnoi/kt\_simul}. Le code source est basé sur
-le language de programmation Python ainsi que l'ensemble des librairies
+le langage de programmation Python ainsi que l'ensemble des librairies
 scientifique associées (« Scipy », Oliphant
 (\hyperref[ref-Oliphant2007]{2007})).
 
@@ -2104,24 +2944,24 @@ d'utilisation voir l'annexe en Section~\ref{sec:ktsimul}.
 L'exécution d'un grand nombre de simulations peut prendre du temps,
 c'est pour cela que \texttt{kt\_simul} possède aussi des fonctions
 permettant la répartition de différentes simulations sur différents
-coeurs de la machine qui les exécute. La parallélisation permet une
+cœurs de la machine qui les exécute. La parallélisation permet une
 réduction drastique des temps de calcul sans avoir à requérir à un
 puissant cluster, souvent cher et difficile d'accès. Ainsi une station
-de travail classique, équipé de 16 coeurs Intel Xeon E5-2650 cadencé à
-2GHz, est capable d'exécuter plus de 2000 simulations standards tandis
-que la version non parallélisée en exécute seulement 200.
+de travail classique, équipé de 16 cœurs Intel Xeon E5-2650 cadencé à
+2GHz, est capable d'exécuter plus de 2000 simulations standards en une
+heure tandis que la version non parallélisée en exécute seulement 200.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/parallel.png}
+\includegraphics{figures/results/modelling/parallel.png}
 \caption[Schéma décrivant le principe de la parallélisation en informatique]{\label{fig:parallel}Schéma
 décrivant le principe de la parallélisation en informatique. Différence
 de vitesse d'exécution théorique entre une implémentation parallélisée
 et une implémentation séquentiel. Un algorithme parallélisé (en bleu)
-utilise les différents coeurs de la machine pour exécuter plusieurs
-simulations en même temps. Donc une machine possédant deux coeurs
-exécute en théorie les quatres simulations deux fois plus vite qu'un
-algorithme non parallélisé (en rose).}
+utilise les différents cœurs de la machine pour exécuter plusieurs
+simulations en même temps. Donc une machine possédant deux cœurs exécute
+en théorie les quatre simulations deux fois plus vite qu'un algorithme
+non parallélisé (en rose).}
 \end{figure}
 
 \texttt{kt\_simul} permet donc de modifier le modèle facilement. Il a
@@ -2144,12 +2984,12 @@ congression des chromosomes (Gay et al., \hyperref[ref-Gay2012a]{2012}).
 Cette force dépendante de la longueur est gouverné par un seul paramètre
 \(L_{dep}\) qui caractérise l'amplitude de la dépendance en longueur de
 cette force. Elle a été optimisé afin de reproduire les distributions
-d'alignement \emph{in vivo} (pour le détail de l'implementation, se
+d'alignement \emph{in vivo} (pour le détail de l'implémentation, se
 référer aux méthodes de l'article en Section~\ref{sec:article}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/hyp1.png}
+\includegraphics{figures/results/modelling/hyp1.png}
 \caption[Premier mécanisme expliquant l'alignement des chromosomes]{\label{fig:hyp1}Schémas
 et exemple de trajectoire \emph{in silico} du mécanisme d'alignement
 avec et sans force dépendante de la longueur.}
@@ -2157,7 +2997,7 @@ avec et sans force dépendante de la longueur.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/ch_alignment.png}
+\includegraphics{figures/results/modelling/ch_alignment.png}
 \caption[Distribution de l'alignement relatif des chromosomes en anaphase]{\label{fig:ch_alignment}Distribution
 de l'alignement relatif des chromosomes en anaphase \emph{in vivo} (dans
 les cellules WT, n=52 et klp6Δ, n=63) et \emph{in silico} pour
@@ -2169,7 +3009,7 @@ mitotique.}
 \end{figure}
 
 L'hypothèse 1, présenté dans l'article (Section~\ref{sec:article}), est
-princpalement basé sur des observations \emph{in vivo} et \emph{in
+principalement basé sur des observations \emph{in vivo} et \emph{in
 vitro} montrant que la kinésine-8 s'accumule de manière plus importante
 au pôle plus du microtubule (Tischer et al.,
 \hyperref[ref-Tischer2009]{2009}; Varga et al.,
@@ -2188,13 +3028,13 @@ La force dépendante de la longueur, décrite par l'hypothèse 1, peut donc
 s'expliquer par le fait que si un microtubule possède une densité plus
 élevé de kinésine-8 à une extrémité, il produira une force de traction
 plus élevé sur le kinétochore. Bien que cette hypothèse reproduise de
-manière fidéle l'alignement ainsi que les chromosomes retardataires en
+manière fidèle l'alignement ainsi que les chromosomes retardataires en
 anaphase (Figure~\ref{fig:ch_alignment} et aussi Figure 7 de l'article
 en Section~\ref{sec:article}), le mécanisme proposé est encore très
 phénoménologique et le lien entre force de traction et kinésine-8 reste
-largement hypothètique.
+largement hypothétique.
 
-La flexibilité de l'implementation du modèle \texttt{kt\_simul} permet
+La flexibilité de l'implémentation du modèle \texttt{kt\_simul} permet
 de proposer une hypothèse alternative moins phénoménologique.
 
 L'hypothèse 2 est basé sur l'observation faite que la kinésine-8 peut
@@ -2208,7 +3048,7 @@ un paramètre d'échelle) comme une distribution gaussienne par exemple.
 Cette distribution non uniforme des extrémités plus des microtubules
 pourrait avoir été observée chez la levure à fission par des
 reconstructions 3D du fuseau mitotique en cryo-microscopie électronique
-(voir nottament la Figure 12 de Ding et al.
+(voir notamment la Figure 12 de Ding et al.
 (\hyperref[ref-Ding1993a]{1993}) ainsi que la Figure 1 de Ward et al.
 (\hyperref[ref-Ward2014]{2014})). Ce résultat reste cependant encore à
 confirmer dû aux déformations du fuseau que peut engendrer ce type de
@@ -2221,7 +3061,7 @@ devrait varier en fonction de cette distribution de la taille des
 microtubules.
 
 L'implémentation est basé sur la modification de la probabilité
-d'attachement des microtubules aux kinétochores. Dans le modèle intial
+d'attachement des microtubules aux kinétochores. Dans le modèle initial
 (Gay et al., \hyperref[ref-Gay2012a]{2012}), l'attachement est gouverné
 de manière stochastique par une une probabilité \(P_{\alpha}\) défini
 comme suit :
@@ -2248,13 +3088,13 @@ auquel il est attaché (c'est à dire la taille du microtubule).
 \(n_{dep}(d_{KT})\) représente donc la distribution du taux
 d'attachement le long du fuseau mitotique. Il a été impossible de
 reproduire des trajectoires de chromosomes similaires à celles observées
-\emph{in vivo} en faisant coincider la distribution de
+\emph{in vivo} en faisant coïncider la distribution de
 \(n_{dep}(d_{KT})\) avec les distribution de microtubule observées en
 cryo-microscopie électronique par Ding et al.
 (\hyperref[ref-Ding1993a]{1993}) et Ward et al.
 (\hyperref[ref-Ward2014]{2014}).
 
-Cependant il est possible de supposer une distribtuion hypothétique
+Cependant il est possible de supposer une distribution hypothétique
 suivant une loi de Cauchy (Figure~\ref{fig:hyp2}). Ce type de
 distribution est préféré par rapport à une distribution gaussienne plus
 classique à cause de sa longue queue qui permet de ne pas interdire les
@@ -2278,7 +3118,7 @@ chromosomes en mitose (Figure~\ref{fig:ch_alignment}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/hyp2.png}
+\includegraphics{figures/results/modelling/hyp2.png}
 \caption[Second mécanisme expliquant l'alignement des chromosomes]{\label{fig:hyp2}Schémas
 et exemple de trajectoire \emph{in silico} du mécanisme d'alignement
 avec et sans taux d'attachement dépendant de la longueur.}
@@ -2305,23 +3145,23 @@ L'instabilité directionnelle observée chez les chromosomes \emph{in
 vivo} n'est pas reproduite par le modèle de force balance présenté
 jusqu'ici. En effet les oscillations pourraient requérir un mécanisme
 encore mal compris afin de synchroniser les deux kinétochores frères et
-produirent ce type de mouvement coordonné (Wan et al.,
+produisent ce type de mouvement coordonné (Wan et al.,
 \hyperref[ref-Wan2012]{2012}).
 
-On rappelle que le modèle initialement développé (Gay et al.,
-\hyperref[ref-Gay2012a]{2012}) ne contient pas de structure pouvant
-s'apparenter aux microtubules \emph{in vivo}. En effet, chaque site
-d'attachement peut se trouver dans deux états; soit « ON » est produire
-une force en direction du pôle, soit « OFF » est ne produire aucune
-force (Figure~\ref{fig:two_states}). Le passage entre les deux états se
-fait de manière stochastique avec en plus deux mécanismes de corrections
-qui peuvent modifier les constantes d'attachement et de détachement
-(voir Gay et al. (\hyperref[ref-Gay2012a]{2012}) pour le fonctionnement
-de ces deux mécanismes de corrections).
+On rappelle que le modèle initialement développé par Tournier et al. ne
+contient pas de structure pouvant s'apparenter aux microtubules \emph{in
+vivo}. En effet, le système est composé d'un attachement à deux états,
+qui peut être; soit « ON » est produire une force en direction du pôle,
+soit « OFF » est ne produire aucune force (Figure~\ref{fig:two_states}).
+Le passage entre les deux états se fait de manière stochastique avec en
+plus deux mécanismes de corrections qui peuvent modifier les constantes
+d'attachement et de détachement (voir Gay et al.
+(\hyperref[ref-Gay2012a]{2012}) pour le fonctionnement de ces deux
+mécanismes de corrections).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/two_states.png}
+\includegraphics{figures/results/modelling/two_states.png}
 \caption[Modèle d'attachement à deux états]{\label{fig:two_states}Modèle
 d'attachement à deux états. Le passage d'un état à l'autre se fait de
 manière stochastique et est régulé par deux mécanismes de corrections
@@ -2330,14 +3170,158 @@ gouvernés par les deux paramètres \(\beta\) et \(d_\alpha\) (Gay et al.,
 \end{figure}
 
 L'idée du modèle d'attachement à trois états est d'ajouter un niveau de
-flexibilité dans la dynamique des attachements et donc aussi dans la
-dynamique des forces appliquées aux chromosomes.
+flexibilité supplémentaire dans la dynamique des attachements et donc
+aussi dans la dynamique des forces appliquées aux chromosomes dans le
+but de produire des mouvements oscillatoires tel que observés \emph{in
+vivo}.
+
+L'ajout d'un état permettrait au système de mieux « imiter » l'action
+des microtubules sur la dynamique des attachements sans réellement avoir
+à modéliser les microtubules eux-mêmes.
+
+Le concept que les microtubules peuvent « pousser » par polymérisation
+et « tirer » par dépolymérisation a été proposé dans les années 70 par
+Inoué et Sato (Inoué and Sato, \hyperref[ref-Inoue1967]{1967}). Les
+mécanismes gouvernant cette génération de force devint évident lorsque
+l'instabilité dynamique des microtubules a été découverte (Mitchison and
+Kirschner, \hyperref[ref-Mitchison1984]{1984}).
+
+Un des mécanismes possible générant la force de poussée (« pushing force
+» en anglais) serait le cliquet brownien (« brownian ratchet » en
+anglais) dans lequel les fluctuations thermiques permettrait l'ajout de
+dimères de tubuline à l'extrémité plus des microtubules (Peskin et al.,
+\hyperref[ref-Peskin1993]{1993}). Par ailleurs, bien que les forces de
+poussées ont été observées \emph{in vivo} (Skibbens et al.,
+\hyperref[ref-Skibbens1993]{1993}), il est supposé que leurs
+contributions aux mouvements des chromosomes soient très minoritaires
+(Khodjakov and Rieder, \hyperref[ref-Khodjakov1996]{1996}; Waters et
+al., \hyperref[ref-Waters1996a]{1996}) et que la force de traction soit
+l'acteur majeur gouvernant le mouvement des chromosomes (Inoué and
+Salmon, \hyperref[ref-Inoue1995]{1995}).
+
+Le modèle à trois états proposent d'intégrer ces observations
+(Figure~\ref{fig:three_states}) :
+
+\begin{itemize}
+\item
+  L'état « détaché » (D) correspond à site d'attachement sans
+  microtubule et donc sans génération de force car elle est supposé
+  provenir du microtubules.
+\item
+  L'état « attaché \& dépolymérisant » (SA) correspond à un attachement
+  par un microtubule qui génère une force notamment du fait de la
+  dépolymérisation du microtubule.
+\item
+  L'état « attaché \& polymérisant » (GA) correspond à un attachement
+  par un microtubule qui polymérise est donc sans production de force.
+  L'absence de force est motivés par la faible contribution des forces
+  de poussées aux mouvement des chromosomes.
+\end{itemize}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/results/three_states.png}
-\caption{\label{fig:three_states}TODO}
+\includegraphics{figures/results/modelling/three_states.png}
+\caption[Modèle d'attachement à trois états]{\label{fig:three_states}Modèle
+d'attachement à trois états. Les trois états prennent en compte les
+différentes observations faites entre la génération de la force au
+niveau du kinétochore et la dynamique des microtubules.}
 \end{figure}
+
+L'implémentation de ce modèle suppose donc que le passage de D à GA (et
+inversement) et de D à SA (et inversement) sont toujours dirigés par les
+deux mécanismes déjà décrits dans Gay et al.
+(\hyperref[ref-Gay2012a]{2012}) et dépendant de \(\beta\) et
+\(d_{\alpha}\).
+
+De plus, il est proposé que le passage de GA à SA soit gouverné par le
+taux de catastrophe, \(k_{catastrophe}\), (passage d'un état
+polymérisation à un état dépolymérisation) du microtubule attaché et que
+le passage de SA à GA soit gouverné par le taux de rescue,
+\(k_{rescue}\), (passage d'un état dépolymérisation à un état
+polymérisation) du microtubule attaché (Figure~\ref{fig:three_states}).
+
+Cette implémentation du modèle d'attachements à trois états ajoute donc
+deux paramètres et aucune synchronisation entre les kinétochores frères.
+On suppose donc que les oscillations seraient une caractéristique
+émergente du système (théorie du kinétochore bête, voir Khodjakov et al.
+(\hyperref[ref-Khodjakov1999]{1999})).
+
+Un modèle plus complexe serait de moduler \(k_{rescue}\) et
+\(k_{catastrophe}\) en fonction de la vitesse de déplacement du
+kinétochore, qui correspond à la vitesse de polymérisation et
+dépolymérisation du microtubule attaché.
+
+Ainsi le système introduit un mécanisme de communication entre les deux
+kinétochores frêres et on suppose alors que les oscillations soient une
+conséquence directe de la capacité des kinétochores à sentir l'état de
+leurs kinétochores frères (théorie du kinétochore intelligent, voir
+Khodjakov et al. (\hyperref[ref-Khodjakov1999]{1999})).
+
+Un exemple d'implémentation de la modulation des taux de catastrophe et
+de rescue pourrait prendre cette forme :
+
+\[
+k_{rescue} = \frac{kmax_{rescue}}{1 + e^{\frac{-v}{v_{shrink}}}}
+\]
+
+\[
+k_{catastrophe} = \frac{kmax_{catastrophe}}{1 + e^{\frac{-v}{v_{growth}}}}
+\]
+
+Où \(v_{growth}\) et \(v_{shrink}\) serait les vitesses maximales de
+polymérisation de dépolymérisation des microtubules attachés au
+kinétochore.
+
+Ici on rajoute donc quatre paramètres libres (\(kmax_{rescue}\),
+\(kmax_{catastrophe}\), \(v_{growth}\) et \(v_{shrink}\)) en plus des
+deux autres déjà présent (\(\beta\) et \(d_{\alpha}\)).
+
+La dynamique globale de l'attachement ayant changé, il est nécessaire de
+recalculer la force de calage de la zone interdigitée (\(F_{mz}\)) afin
+de garder un fuseau en équilibre de force et un taux d'élongation du
+fuseau mitotique cohérent (pour des détails sur le calcul de la force de
+calage voir « Parameter estimation \textgreater{} Midzone motors stall
+force » dans les méthodes de Gay et al.
+(\hyperref[ref-Gay2012a]{2012})).
+
+Pour calculer \(F_{mz}\) on doit déterminer le nombre moyen de sites
+d'attachements générant une force appelé \(<\alpha>\). Il faut donc dans
+le cas du modèle d'attachement à trois états calculer l'état d'équilibre
+à l'aide de la matrice de transition des différents états ((Brun et al.,
+\hyperref[ref-Brun2009]{2009})). Pour cela on suppose que le processus
+de transition est une chaîne de Markov. Pour simplifier, un processus de
+Markov est une suite d'états dans lequel les états futurs ne dépendent
+pas des états passés mais uniquement de l'état présent.
+
+Cependant le grand nombre de paramètre ajoutés par ce modèle a rendu
+très difficile leurs optimisations afin d'obtenir des simulations
+stables. C'est à dire qu'avec six paramètres libres il est nécessaire
+d'en « tester » un grand nombre afin de trouver un jeux de paramètre qui
+reproduira de manière convenable les trajectoires \emph{in vivo}. Ces
+paramètres représentant, pour certains, des valeurs mesurables \emph{in
+vivo}, ils doivent en plus de cela rester dans des ordres de grandeurs
+acceptables.
+
+Par exemple si on veut tester dix valeurs pour les six paramètres en
+faisant pour chaque jeu de paramètre dix simulations, on doit faire
+\(10^6 * 10 = 10\,000\,000\) simulations (ce qui correspond à 210 jours
+de calcul sur une station de travail standard).
+
+Plusieurs tentatives d'optimisation ciblée avec un nombre de paramètre à
+tester plus faible on était tenté mais sans succès.
+
+Il est probable que ce modèle à trois états, bien que complexe, soit
+capable de reproduire une partie du mouvement des chromosomes observées
+\emph{in vivo}. Cependant il manque encore probablement du travail sur
+l'implémentation numérique ainsi que sur l'optimisation des paramètres
+libres. Une première piste serait d'ajouter le troisième état en fixant
+les deux nouveaux paramètres (\(k_{rescue}\) et \(k_{catastrophe}\)).
+Ainsi on aurait plus que quatre paramètres à optimiser. L'ajout de la
+modulation du taux de catastrophe et du taux de rescue se ferait alors
+dans un second temps.
+
+TODO: BON JAI FAIT COMME JAI PU POUR CETTE DERNIERE PARTIE\ldots{}
+GUILLAUME LA AUSSI SI TU AS DES IDEES\ldots{} JE PRENDS :-)
 
 \chapter{Discussion}\label{discussion}
 
@@ -2431,11 +3415,11 @@ kinétochore (Figure~\ref{fig:kt-simul-traj}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/trajectories.png}
-\caption{\label{fig:kt-simul-traj}Exemple de trajectoire générée par
-\texttt{kt\_simul}. En plus de l'évolution de la position (axe des
-ordonnées) en fonction du temps (axe des abscisses), on visualise aussi
-les états d'attachements de chaque kinétochore sur les panneaux
-supèrieurs et inférieurs.}
+\caption[Exemple de trajectoire générée par `kt\_simul`]{\label{fig:kt-simul-traj}Exemple
+de trajectoire générée par \texttt{kt\_simul}. En plus de l'évolution de
+la position (axe des ordonnées) en fonction du temps (axe des
+abscisses), on visualise aussi les états d'attachements de chaque
+kinétochore sur les panneaux supèrieurs et inférieurs.}
 \end{figure}
 
 Enfin on peut aussi visualiser la simulation à l'aide d'une interface
@@ -2453,11 +3437,11 @@ graphique dynamique (Figure~\ref{fig:kt-simul-gui}) et du code suivant :
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/gui.png}
-\caption[GUI]{\label{fig:kt-simul-gui}Animation graphique d'une
-simulation. L'interface graphique permet de suivre la dynamique en temps
-réel à l'aide d'un « slider » en bas qui permet de changer le temps. Le
-panneau à droite permet d'avoir une vue détaillée de la position et de
-l'attachement de chaque site d'attachement.}
+\caption[Animation graphique d'une simulation]{\label{fig:kt-simul-gui}Animation
+graphique d'une simulation. L'interface graphique permet de suivre la
+dynamique en temps réel à l'aide d'un « slider » en bas qui permet de
+changer le temps. Le panneau à droite permet d'avoir une vue détaillée
+de la position et de l'attachement de chaque site d'attachement.}
 \end{figure}
 
 \backmatter
@@ -2496,6 +3480,12 @@ closed mitosis. Nucleus (Austin, Tex.) \emph{4}, 160--165.
 Bowne-Anderson, H., Zanic, M., Kauer, M., and Howard, J. (2013).
 Microtubule dynamic instability: A new model with coupled GTP hydrolysis
 and multistep catastrophe. BioEssays \emph{35}, 452--461.
+
+\hyperdef{}{ref-Brun2009}{\label{ref-Brun2009}}
+Brun, L., Rupp, B., Ward, J.J., and Nédélec, F. (2009). A theory of
+microtubule catastrophes and their regulation. Proceedings of the
+National Academy of Sciences of the United States of America \emph{106},
+21173--21178.
 
 \hyperdef{}{ref-Campas2006}{\label{ref-Campas2006}}
 Campàs, O., and Sens, P. (2006). Chromosome oscillations in mitosis.
@@ -2631,6 +3621,22 @@ Yen, T.J. (2008). Phosphorylation sites in BubR1 that regulate
 kinetochore attachment, tension, and mitotic exit. The Journal of Cell
 Biology \emph{183}, 667--680.
 
+\hyperdef{}{ref-Inoue1995}{\label{ref-Inoue1995}}
+Inoué, S., and Salmon, E.D. (1995). Force generation by microtubule
+assembly/disassembly in mitosis and related movements. Molecular Biology
+of the Cell \emph{6}, 1619--1640.
+
+\hyperdef{}{ref-Inoue1967}{\label{ref-Inoue1967}}
+Inoué, S., and Sato, H. (1967). Cell motility by labile association of
+molecules. The nature of mitotic spindle fibers and their role in
+chromosome movement. The Journal of General Physiology \emph{50},
+Suppl:259--l:292.
+
+\hyperdef{}{ref-Jaqaman2008}{\label{ref-Jaqaman2008}}
+Jaqaman, K., Loerke, D., Mettlen, M., Kuwata, H., Grinstein, S., Schmid,
+S.L., and Danuser, G. (2008). Robust single-particle tracking in
+live-cell time-lapse sequences. Nature Methods \emph{5}, 695--702.
+
 \hyperdef{}{ref-Jaqaman2010}{\label{ref-Jaqaman2010}}
 Jaqaman, K., King, E.M., Amaro, A.C., Winter, J.R., Dorn, J.F., Elliott,
 H.L., Mchedlishvili, N., McClelland, S.E., Porter, I.M., Posch, M., et
@@ -2652,6 +3658,11 @@ Joglekar, A.P., Bloom, K.S., and Salmon, E.D. (2010). Mechanisms of
 force generation by end-on kinetochore-microtubule attachments. Current
 Opinion in Cell Biology \emph{22}, 57--67.
 
+\hyperdef{}{ref-Jonker1987}{\label{ref-Jonker1987}}
+Jonker, R., and Volgenant, a. (1987). A shortest augmenting path
+algorithm for dense and sparse linear assignment problems. Computing
+\emph{38}, 325--340.
+
 \hyperdef{}{ref-Ke2009}{\label{ref-Ke2009}}
 Ke, K., Cheng, J., and Hunt, A.J. (2009). The Distribution of Polar
 Ejection Forces Determines the Amplitude of Chromosome Directional
@@ -2661,6 +3672,17 @@ Instability. Current Biology \emph{19}, 807--815.
 Keener, J.P., and Shtylla, B. (2014). A mathematical model of force
 generation by flexible kinetochore-microtubule attachments. Biophysical
 Journal \emph{106}, 998--1007.
+
+\hyperdef{}{ref-Khodjakov1996}{\label{ref-Khodjakov1996}}
+Khodjakov, A., and Rieder, C.L. (1996). Kinetochores moving away from
+their associated pole do not exert a significant pushing force on the
+chromosome. The Journal of Cell Biology \emph{135}, 315--327.
+
+\hyperdef{}{ref-Khodjakov1999}{\label{ref-Khodjakov1999}}
+Khodjakov, A., Gabashvili, I.S., and Rieder, C.L. (1999). 'Dumb' versus
+'smart' kinetochore models for chromosome congression during mitosis in
+vertebrate somatic cells. Cell Motility and the Cytoskeleton \emph{43},
+179--185.
 
 \hyperdef{}{ref-Kirschner1986}{\label{ref-Kirschner1986}}
 Kirschner, M., and Mitchison, T. (1986). Beyond self-assembly: from
@@ -2750,10 +3772,19 @@ Miranda, J.J.L., De Wulf, P., Sorger, P.K., and Harrison, S.C. (2005).
 The yeast DASH complex forms closed rings on microtubules. Nature
 Structural \& Molecular Biology \emph{12}, 138--143.
 
+\hyperdef{}{ref-Mitchison1984}{\label{ref-Mitchison1984}}
+Mitchison, T., and Kirschner, M. (1984). Dynamic instability of
+microtubule growth. Nature \emph{312}, 237--242.
+
 \hyperdef{}{ref-Mogilner2010}{\label{ref-Mogilner2010}}
 Mogilner, A., and Craig, E. (2010). Towards a quantitative understanding
 of mitotic spindle assembly and mechanics. Journal of Cell Science
 \emph{123}, 3435--3445.
+
+\hyperdef{}{ref-Monnier2012}{\label{ref-Monnier2012}}
+Monnier, N., Guo, S.-M., Mori, M., He, J., Lénárt, P., and Bathe, M.
+(2012). Bayesian Approach to MSD-Based Analysis of Particle Motion in
+Live Cells.
 
 \hyperdef{}{ref-Morgan2007}{\label{ref-Morgan2007}}
 Morgan, D.O. (2007). The Cell Cycle: Principles of Control (New Science
@@ -2822,6 +3853,11 @@ movements and rotations accelerate mitotic spindle assembly without
 compromising accuracy. Proceedings of the National Academy of Sciences
 of the United States of America \emph{106}, 15708--15713.
 
+\hyperdef{}{ref-Peskin1993}{\label{ref-Peskin1993}}
+Peskin, C.S., Odell, G.M., and Oster, G.F. (1993). Cellular motions and
+thermal fluctuations: the Brownian ratchet. Biophysical Journal
+\emph{65}, 316--324.
+
 \hyperdef{}{ref-Peters2010}{\label{ref-Peters2010}}
 Peters, C., Brejc, K., Belmont, L., Bodey, A.J., Lee, Y., Yu, M., Guo,
 J., Sakowicz, R., Hartman, J., and Moores, C. a (2010). Insight into the
@@ -2852,6 +3888,17 @@ operator/repressor recognition. The Journal of Cell Biology \emph{135},
 \hyperdef{}{ref-Santaguida2009a}{\label{ref-Santaguida2009a}}
 Santaguida, S., and Musacchio, A. (2009). The life and miracles of
 kinetochores. The EMBO Journal \emph{28}, 2511--2531.
+
+\hyperdef{}{ref-Schindelin2012}{\label{ref-Schindelin2012}}
+Schindelin, J., Arganda-Carreras, I., Frise, E., Kaynig, V., Longair,
+M., Pietzsch, T., Preibisch, S., Rueden, C., Saalfeld, S., Schmid, B.,
+et al. (2012). Fiji: an open-source platform for biological-image
+analysis. Nature Methods \emph{9}, 676--682.
+
+\hyperdef{}{ref-Serge2008}{\label{ref-Serge2008}}
+Sergé, A., Bertaux, N., Rigneault, H., and Marguet, D. (2008). Dynamic
+multiple-target tracing to probe spatiotemporal cartography of cell
+membranes. Nature Methods \emph{5}, 687--694.
 
 \hyperdef{}{ref-Shtylla2011}{\label{ref-Shtylla2011}}
 Shtylla, B., and Keener, J.P. (2011). A Mathematical Model for Force
@@ -2953,6 +4000,11 @@ design principles of a mitotic spindle. ELife \emph{4}, 1--28.
 Wargacki, M.M., Tay, J.C., Muller, E.G., Asbury, C.L., and Davis, T.N.
 (2010). Kip3, the yeast kinesin-8, is required for clustering of
 kinetochores at metaphase. Cell Cycle \emph{9}, 2581--2588.
+
+\hyperdef{}{ref-Waters1996a}{\label{ref-Waters1996a}}
+Waters, J.C., Skibbens, R.V., and Salmon, E.D. (1996). Oscillating
+mitotic newt lung cell kinetochores are, on average, under tension and
+rarely push. Journal of Cell Science \emph{109 ( Pt 1}, 2823--2831.
 
 \hyperdef{}{ref-watson1953molecular}{\label{ref-watson1953molecular}}
 Watson, J.D., Crick, F.H.C., and Others (1953). Molecular structure of
