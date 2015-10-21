@@ -180,9 +180,9 @@
 %% Jury
 \njudge{7}
 \makesomeone{judge}{1}{Kerstin Bystricky}{Professeur d'Université}{Président du Jury}
-\makesomeone{judge}{3}{Benoit Arcangioli}{Professeur d'Université}{Membre du Jury}
-\makesomeone{judge}{4}{Emmanuelle Fabre}{Directeur de recherche}{Membre du Jury}
-\makesomeone{judge}{2}{Andrea Parmeggiani}{Directeur de Recherche}{Membre du Jury}
+\makesomeone{judge}{2}{Benoit Arcangioli}{Professeur d'Université}{Membre du Jury}
+\makesomeone{judge}{3}{Emmanuelle Fabre}{Directeur de recherche}{Membre du Jury}
+\makesomeone{judge}{4}{Andrea Parmeggiani}{Directeur de Recherche}{Membre du Jury}
 \makesomeone{judge}{5}{Yannick Gachet}{Directeur de Recherche}{Membre du Jury}
 \makesomeone{judge}{6}{Sylvie Tournier}{Directeur de Recherche}{Membre du Jury Invité}
 \makesomeone{judge}{7}{Guillaume Gay}{Chercheur Indépendant}{Membre du Jury Invité}
@@ -1116,41 +1116,127 @@ gradient au niveau des pôles du fuseau (Hochegger et al.,
 \hyperref[ref-Hochegger2013]{2013}; Ye et al.,
 \hyperref[ref-Ye2015]{2015}).
 
-TODO: go deeper sur le mouvement des chromosomes
+\subsection{Le mouvement des
+chromosomes}\label{le-mouvement-des-chromosomes}
+
+Bien que aucun modèle commun expliquant le mécanisme général de
+congression chez tout les organismes n'existe, on observe à travers tout
+ces mécanismes un processus conservé chez l'ensemble des cellules
+eucaryotes. Les chromosomes se déplacent de manière régulière en
+exhibant des mouvements oscillatoires (Armond et al.,
+\hyperref[ref-Armond2015]{2015}; McIntosh,
+\hyperref[ref-McIntosh2012]{2012}; Skibbens et al.,
+\hyperref[ref-Skibbens1993]{1993}).
+
+Deux mécanismes sont nécessaires pour produire ce mouvement :
 
 \begin{itemize}
 \item
-  le mvt est du à deux choses
-
-  \begin{itemize}
-  \tightlist
-  \item
-    un attachement qui produit de la force (NDC80 qui track le MT
-    depoly) comme proposé in vitro par (Joglekar and DeLuca,
-    \hyperref[ref-Joglekar2009]{2009}; Powers et al.,
-    \hyperref[ref-Powers2009a]{2009}) : continuité du modele de Hill
-    (Hill, \hyperref[ref-Hill1985]{1985})
-  \item
-    une regulation au niveau des deux kinétochores freres pr savoir qui
-    tire ou pas (these de harry)
-  \end{itemize}
+  En premier lieu, les kinétochores frères doivent être sous l'effet
+  d'une force afin de pouvoir bouger. Cette force serait majoritairement
+  dû à l'attachement microtubules - kinétochores. Plusieurs modèles
+  proposent différents mécanismes capable de générer une force
+  (Civelekoglu-Scholey et al.,
+  \hyperref[ref-Civelekoglu-Scholey2006]{2006}; Joglekar and DeLuca,
+  \hyperref[ref-Joglekar2009]{2009}; McIntosh,
+  \hyperref[ref-McIntosh2012]{2012}; Powers et al.,
+  \hyperref[ref-Powers2009a]{2009}). Le modèle stipulant que l'énergie
+  proviendrait de la dépolymérisation des microtubules et transmise par
+  une protéine capable de lier le microtubule instable avec le
+  kinétochore (le complexe NDC80 et le complexe DAM1 possiblement) est
+  en faite la version moderne d'un modèle théorique établi dans les
+  années 1990, appelé le modèle Hill (Hill,
+  \hyperref[ref-Hill1985]{1985}). Ces différentes mécanismes sont
+  détaillés en Section~\ref{sec:force-gen}.
 \item
-  (Wan et al., \hyperref[ref-Wan2012]{2012}) pour l'intro avec skibbens
-\item
-  switch entre irregular movement et oscillations (Magidson et al.,
-  \hyperref[ref-Magidson2011]{2011})
-\item
-  mouvement AP et P
-\item
-  these de harry qui prend pas en compte les mvt irreguliers (Harry,
-  \hyperref[ref-Harry2014]{2014})
-\item
-  donc mvt depend de la dynamique des MT
-\item
-  dynamique des MT peut etre influencé par bcp bcp de MAPs
-\item
-  comment fonctionne la régulation/synchronisation ?
+  Une fois le chromosome en mouvement, un mécanisme doit pouvoir réguler
+  sa dynamique afin de contraindre ses déplacements et exhiber des
+  mouvement de va et vient et une congression au milieu du fuseau
+  mitotique. Ce mécanisme encore mal compris est probablement dû à la
+  contribution de plusieurs phénomènes comme l'instabilité
+  directionnelle des kinétochores (Skibbens et al.,
+  \hyperref[ref-Skibbens1993]{1993}), le « microtubule poleward flux »
+  (Mitchison, \hyperref[ref-Mitchison1989]{1989},
+  \hyperref[ref-Mitchison1992]{1992}), le stretch dû au mouvement
+  relatif des kinétochores frères (Maddox et al.,
+  \hyperref[ref-Maddox2003]{2003}; Skibbens et al.,
+  \hyperref[ref-Skibbens1993]{1993}, \hyperref[ref-Skibbens1995]{1995}),
+  le gradient de concentration de certaines protéines (Gardner et al.,
+  \hyperref[ref-Gardner2008a]{2008}; Jaqaman et al.,
+  \hyperref[ref-Jaqaman2010]{2010}; Mayr et al.,
+  \hyperref[ref-Mayr2007]{2007}; Stumpff et al.,
+  \hyperref[ref-Stumpff2008]{2008}; Varga et al.,
+  \hyperref[ref-Varga2006]{2006}) ou encore l'instabilité dynamique des
+  microtubules (Amaro et al., \hyperref[ref-Amaro2010a]{2010}; Tirnauer
+  and Canman, \hyperref[ref-Tirnauer2002]{2002}).
 \end{itemize}
+
+L'un des phénomènes encore mal compris malgré son importance capitale
+est le mécanisme par lequel les deux kinétochores frères sont capable de
+coordonner leurs états P/AP afin de produire un mouvement régulier et
+synchronisé.
+
+Le modèle standard du switch de direction d'un chromosome a été théorisé
+en 1994 par Rieder et al. (Rieder, \hyperref[ref-Rieder1994]{1994})
+suite à différentes études sur le mouvement coordonné des kinétochores
+frères (Skibbens et al., \hyperref[ref-Skibbens1993]{1993}) et le rôle
+capitale de la chromatine centromérique dans la coordination du switch
+de direction du mouvement des chromosomes (Skibbens et al.,
+\hyperref[ref-Skibbens1995]{1995}).
+
+Ce modèle (Figure~\ref{fig:run-switch}) stipule que c'est la tension
+entre les deux kinétochores qui déclenche le changement d'état du
+leading kinétochore en P-AP. La diminution de tension s'en suivant
+déclencherait alors le changement d'état AP-P du second kinétochore (le
+trailing kinétochore).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/intro/run_switch.png}
+\caption[Modèle standard du changement de direction des kinétochores frères.]{\label{fig:run-switch}Modèle
+standard du changement de direction des kinétochores frères. Le leading
+kinétochore en se déplaçant plus vite augmente la tension et donc la
+distance entre les deux kinétochores. L'augmentation de tension bascule
+le leading kinétochore d'un état P à un état AP. Il en résulte une perte
+brute de tension et donc de stretch étant donné que les deux
+kinétochores se déplacent l'un vers l'autre. Cette relaxation déclenche
+alors le changement d'état du trailing kinétochore de AP en P. Les
+microtubules en bleu en forme de flèche représentent la polymérisation
+tandis que les autres microtubules sont en dépolymérisation.}
+\end{figure}
+
+Des observations sur des cellules Ptk1 montrant que le switch est
+déclenché lorsque la distance inter-kinétochore est maximum, concorde
+avec ce modèle (Wan et al., \hyperref[ref-Wan2012]{2012}). Cependant
+beaucoup de questions restent encore ouvertes.
+
+Par exemple certains chromosomes de cellules d'eucaryotes supèrieurs
+exhibent des mouvements très instables sans oscillations apparentes
+(Burroughs et al., \hyperref[ref-Burroughs2015]{2015}; Wan et al.,
+\hyperref[ref-Wan2012]{2012}). De plus il a été observé dans plus de
+30\% des switch chez les cellules HeLa que le premier kinétochore a
+switché n'est pas le leading kinétochore mais le trailing kinétochore
+(Burroughs et al., \hyperref[ref-Burroughs2015]{2015}).
+
+Pour finir aucune étude n'a encore déterminé les propriétés du mouvement
+des chromosomes dans des cellules de plus petites tailles et ne
+possédant pas de chromokinésines (Stumpff et al.,
+\hyperref[ref-Stumpff2012]{2012}) comme la levure.
+
+Comment est il alors possible de réconcilier ces différentes
+observations avec le modèle standard ?
+
+En 2015, Burroughs et al. ont proposé un nouveau modèle plus précis que
+le modèle standard stipulant que la tension seule ne pouvait expliquer
+le déclenchement du switch de direction. En se basant sur des
+observations très précises de l'évolution de la distance
+inter-kinétochore autour de l'événement de switch de direction, ils
+stipulent que en plus de la tension, une horloge régulerait le taux de
+catastrophe et de rescue des microtubules kinétochoriens.
+
+Le mouvement des chromosomes fait parti d'un plus grand ensemble, le
+fuseau mitotique, qui durant la métaphase est sous l'effet d'importantes
+forces.
 
 \subsection{Le fuseau mitotique : un objet sous
 contrainte}\label{le-fuseau-mitotique-un-objet-sous-contrainte}
@@ -1198,8 +1284,7 @@ par un complexe protéique appelé la cohésine (Nasmyth and Haering,
 \hyperref[ref-Nasmyth2009]{2009}). L'entrée en anaphase active un
 mécanisme de dégradation de la cohésine. Une fois le lien entre les
 chromatides sœurs disparu, chacune des chromatides va migrer en
-direction du pôle vers lequel elle est attachée, c'est l'anaphase (TODO:
-go deeper).
+direction du pôle vers lequel elle est attachée, c'est l'anaphase.
 
 Lorsque tous les kinétochores sont attachés de manière stable, alors le
 SAC se désactive et une cascade métabolique dégrade le complexe cohésine
@@ -1433,6 +1518,8 @@ explorant différents états d'attachement.}
 
 \subsection{La dynamique des
 chromosomes}\label{la-dynamique-des-chromosomes}
+
+\label{sec:force-gen}
 
 La trajectoire des chromosomes en métaphase peut être reconstruite
 \emph{in vivo} de manière très précise (Armond et al.,
@@ -1691,9 +1778,9 @@ phase exponentielle de croissance, 80\% des cellules sont en G2 et
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/pombe_cell_cycle.png}
-\caption[Schéma du cycle cellulaire de \_S. pombe\_]{\label{fig:pombe-cell-cycle}Schéma
-du cycle cellulaire de \emph{S. pombe}. La levure à fission possède une
-phase G2 très longue comparé à d'autres types cellulaire.}
+\caption[Schéma du cycle cellulaire de la levure à fission]{\label{fig:pombe-cell-cycle}Schéma
+du cycle cellulaire de la levure à fission. La levure à fission possède
+une phase G2 très longue comparé à d'autres types cellulaire.}
 \end{figure}
 
 Bien que les principaux mécanismes gouvernant la mitose soient conservés
@@ -2658,12 +2745,14 @@ n = 51 pour \emph{klp56Δ}, n = 23 pour WT+TBZ, n = 19 pour
 \emph{klp6Δ}+TBZ.}
 \end{figure}
 
-Il est d'ailleurs très intéressant de remarquer que dans les MSD avec
-TBZ, la troisième pente (de 2s à 40s) est quasiment égale à la seconde
-pente (de 0.3s à 2s). Cela pourrait signifier que les kinétochores en
-présence de TBZ sont peu soumis à une force possiblement dirigée par un
-processus de mouvement dirigé comme le confirme l'analyse des
-oscillations en Section~\ref{sec:article}.
+Il est d'ailleurs intéressant de remarquer que dans les MSD avec TBZ, la
+troisième pente (de 2s à 40s) est plsu faible comparé aux MSD sans TBZ.
+Cela pourrait signifier que les kinétochores en présence de TBZ sont
+moins soumis à une force possiblement dirigée par un processus de
+mouvement dirigé comme le confirme l'analyse des oscillations en
+Section~\ref{sec:article}. Pour confirmer ce résultat il faudrait
+mesurer cette troisième pente en faisant varier les concentrations de
+TBZ et regarder si une corrélation existe.
 
 \begin{figure}[htbp]
 \centering
@@ -3268,6 +3357,22 @@ k_{rescue} = \frac{kmax_{rescue}}{1 + e^{\frac{-v}{v_{shrink}}}}
 k_{catastrophe} = \frac{kmax_{catastrophe}}{1 + e^{\frac{-v}{v_{growth}}}}
 \]
 
+GUILLAUME: JAI DU MAL A ME SOUVENIR/COMPRENDRE PK ON A CONSTRUIT UNE
+MODULATION BASE SUR DES VITESSE. NE POURRAIT ON PAS FAIRE UN SWITCH
+DEPENDANT DE LA TENSION DONC DU STRETCH (SI ON SUPPOSE UN COEF DE
+RAIDEUR CONSTANT) COMME PROPOSE DANS LES MODELES STANDARD (VOIR Rieder
+and Salmon, 1994 ET PLUS RECEMMENT
+http://elifesciences.org/lookup/doi/10.7554/eLife.09500) ??? (par contre
+pas le temps de tester, je peux en parler en discussion)
+
+GUILLAUME: JE VIENS DE FINIR
+http://elifesciences.org/lookup/doi/10.7554/eLife.09500 ET EN FAITE ILS
+DISENT QUE AU CONTRAIRE LE SWITCH PEUT PAS SEXPLIQUER PAR JUSTE UN
+TRESHOLD SUR LA TENSION SINON ON POURRAIT JAMAIS AVOIR DES OSCILLATIONS
+AUSSI NET (VOIR LA FIGURE 4A DE L'ARTICLE ELIFE POUR LES DETAILS). DU
+COUP IL PROPOSE UN ``switching time regulator'' (A TENSION CLOCK MODEL),
+VOIR FIGURE 6).
+
 Où \(v_{growth}\) et \(v_{shrink}\) serait les vitesses maximales de
 polymérisation de dépolymérisation des microtubules attachés au
 kinétochore.
@@ -3325,26 +3430,108 @@ GUILLAUME LA AUSSI SI TU AS DES IDEES\ldots{} JE PRENDS :-)
 
 \chapter{Discussion}\label{discussion}
 
-\section{Le mouvement des chromosomes durant la
-mitose}\label{le-mouvement-des-chromosomes-durant-la-mitose}
+\section{L'approche multidisciplinaire comme méthode d'étude en biologie
+cellulaire}\label{lapproche-multidisciplinaire-comme-muxe9thode-duxe9tude-en-biologie-cellulaire}
 
-\section{\texorpdfstring{Le mécanisme d'alignement des chromosomes : de
-l'\emph{in silico} à l'\emph{in
-vivo}}{Le mécanisme d'alignement des chromosomes : de l'in silico à l'in vivo}}\label{le-muxe9canisme-dalignement-des-chromosomes-de-lin-silico-uxe0-lin-vivo}
+L'explosion des données générées par la biologie dans les années 2000 a
+basculé cette discipline dans une nouvelle ère. Avant les chercheurs
+manquaient de données sur lesquels travailler ou dépenser énormément de
+temps et d'argent à générer une quantité significative et exploitable
+dans le cadre d'une étude. Depuis l'ère \emph{big data}, les chercheurs
+ont eu presque du jour au lendemain un accès à une quantité de données
+considérable (notamment provenant de la génomique ou bien de la
+microscopie) que ni eux et ni les ordinateurs n'étaient capable de
+traiter. Bien sûr il a fallu peu de temps avant que la communauté ne
+mettent au point de nouvelles techniques d'analyse, conçoivent de
+nouveaux logiciels de traitement de données et créent même de nouvelles
+disciplines scientifique tel que la bioinformatique.
 
-\section{Modéliser la mitose : jusqu'à quelle précision
-?}\label{moduxe9liser-la-mitose-jusquuxe0-quelle-pruxe9cision}
+De nos jours, en 2015, ce nouveau paradigme est intégré à tout les
+niveaux de la recherche. Par exemple l'essor de la bioinformatique a
+notamment révolutionné certaines disciplines comme l'évolution en
+autorisant la modélisation phylogénique \emph{in silico} souvent très
+difficile à reproduire \emph{in vivo} ou \emph{in vitro} dû aux temps
+géologique sur lesquels sont basées ces études.
 
-\section{démarche méthode scientifique / bio quantitative et
-computationnelle}\label{duxe9marche-muxe9thode-scientifique-bio-quantitative-et-computationnelle}
+L'interaction entre la physique et la biologie est quant à elle plus
+vieille. En effet de nombreux physiciens et les techniques dérives de la
+physique ont joué un rôle important dans la naissance de la biologie
+moléculaire. Par exemple l'un des deux chercheurs qui découvrit la
+structure de l'ADN, Francis Crick, avait reçu une formation de physicien
+et travaillé dans un laboratoire de physique, le Cavendish Laboratory.
+C'est aussi un physicien théoricien (George Gamow) qui a émis pour la
+première fois l'idée de l'existence d'un code génétique, un langage qui
+permet de traduire une séquence de nucléotides en une séquence d'acides
+aminés.
 
-\section{dynamique des chromosomes}\label{dynamique-des-chromosomes}
+Bien que la dialogue est parfois compliqué entre les deux disciplines,
+il est souvent facile de convaincre les deux partis de travailler sur
+les mêmes problématiques. Ce qui montre bien qu'une véritable volonté de
+travail interdisciplinaire existe. Pour allez plus loin sur ces
+problématiques d'interaction entre physique et biologie, voir le livre
+de Claude Debru et al. intitulé « Physique et biologie : une
+interdisciplinarité complexe » (Debru et al.,
+\hyperref[ref-Debru]{2006}).
+
+Ce travail est basé sur l'interaction des trois disciplines discutées
+plus haut :
 
 \begin{itemize}
+\item
+  La biologie en est la clé de voûte, étant à la base de la
+  problématique posée : la compréhension des mécanismes responsable de
+  la dynamique des chromosomes durant la mitose.
+\item
+  L'approche biophysique a permis à la fois d'appliquer des techniques
+  d'analyses complexes afin de mieux comprendre la façon dont les
+  chromosomes bougent, mais aussi de tester des hypothèses mécaniques
+  \emph{in silico} sur la façon dont les chromosomes se positionnent le
+  long du fuseau mitotique.
+\item
+  Enfin l'outil informatique permet la conception de programmes
+  d'analyse automatique, documentés et libre d'accès. Ces deux derniers
+  points étant à la base d'une recherche reproductible et ouverte qui
+  plus qu'un choix d'orientation doit devenir un devoir. Par ailleurs,
+  le travail d'optimisation des algorithmes est aussi utile car il est
+  souvent à l'origine de gain de temps et de mémoire non négligeable
+  durant les analyses ou les simulations.
+\end{itemize}
+
+Cette approche à la fois originale mais aussi de plus en plus répandu a
+permis d'explorer de nouvelles hypothèses à l'origine de la régulation
+de la dynamique des chromosomes durant la mitose chez la levure.
+
+\section{La dynamique des chromosomes en
+mitose}\label{la-dynamique-des-chromosomes-en-mitose}
+
+\begin{itemize}
+\item
+  communication active ou bien emergente des mecanisme sous jacent plus
+  basique ?
+\item
+  force de la levure dans ce type d'etude car mvt tres irregulier
+
+  \begin{itemize}
+  \tightlist
+  \item
+    regularite lie au nombre de chromosome/taille/nbre de microtubule
+  \end{itemize}
 \item
   analyse stat bayesienne
 \item
   regulation mvt oscillation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    si mt sont impliques dans le switch
+  \item
+    difference levure/cellule supp
+  \item
+    mvt irregulier 20\% chez hella
+  \item
+    modele qui doit aussi prendre en compte ca
+  \end{itemize}
 \item
   regulation position
 \item
@@ -3462,6 +3649,11 @@ Alushin, G.M., Ramey, V.H., Pasqualato, S., Ball, D.A., Grigorieff, N.,
 Musacchio, A., and Nogales, E. (2010). The Ndc80 kinetochore complex
 forms oligomeric arrays along microtubules. Nature \emph{467}, 805--810.
 
+\hyperdef{}{ref-Amaro2010a}{\label{ref-Amaro2010a}}
+Amaro, A., Samora, C., and Holtackers, R. (2010). Molecular control of
+kinetochore-microtubule dynamics and chromosome oscillations. Nature
+Cell \ldots{}.
+
 \hyperdef{}{ref-Armond2015}{\label{ref-Armond2015}}
 Armond, J.W., Vladimirou, E., Erent, M., McAinsh, A.D., and Burroughs,
 N.J. (2015). Probing microtubule polymerisation state at single
@@ -3486,6 +3678,11 @@ Brun, L., Rupp, B., Ward, J.J., and Nédélec, F. (2009). A theory of
 microtubule catastrophes and their regulation. Proceedings of the
 National Academy of Sciences of the United States of America \emph{106},
 21173--21178.
+
+\hyperdef{}{ref-Burroughs2015}{\label{ref-Burroughs2015}}
+Burroughs, N.J., Harry, E.F., and McAinsh, A.D. (2015). Super-resolution
+kinetochore tracking reveals the mechanisms of human sister kinetochore
+directional switching. ELife \emph{4}, 1--5.
 
 \hyperdef{}{ref-Campas2006}{\label{ref-Campas2006}}
 Campàs, O., and Sens, P. (2006). Chromosome oscillations in mitosis.
@@ -3521,6 +3718,10 @@ microtubule motor proteins. The Journal of Cell Biology.
 Courtheoux, T., Gay, G., Gachet, Y., and Tournier, S. (2009).
 Ase1/Prc1-dependent spindle elongation corrects merotely during anaphase
 in fission yeast. Journal of Cell Biology \emph{187}, 399--412.
+
+\hyperdef{}{ref-Debru}{\label{ref-Debru}}
+Debru, C., Jacrot, B., and Mache, R. (2006). Physique et biologie : une
+interdisciplinarité complexe (EDP Sciences).
 
 \hyperdef{}{ref-DeLuca2002}{\label{ref-DeLuca2002}}
 DeLuca, J.G., Moree, B., Hickey, J.M., Kilmartin, J.V., and Salmon, E.D.
@@ -3587,10 +3788,6 @@ describes fission yeast chromosome segregation. Journal of Cell Biology
 Goshima, G., Wollman, R., Stuurman, N., Scholey, J.M., and Vale, R.D.
 (2005). Length control of the metaphase spindle. Current Biology
 \emph{15}, 1979--1988.
-
-\hyperdef{}{ref-Harry2014}{\label{ref-Harry2014}}
-Harry, E. (2014). Metaphase chromosome dynamics investigated by high
-resolution tracking and data-driven modelling.
 
 \hyperdef{}{ref-Hill1985}{\label{ref-Hill1985}}
 Hill, T.L. (1985). Theoretical problems related to the attachment of
@@ -3718,10 +3915,11 @@ Lodish, H., Berk, A., Zipursky, S.L., Matsudaira, P., Baltimore, D., and
 Darnell, J. (2000). Overview of the Cell Cycle and Its Control (W. H.
 Freeman).
 
-\hyperdef{}{ref-Magidson2011}{\label{ref-Magidson2011}}
-Magidson, V., O'Connell, C.B., Lončarek, J., Paul, R., Mogilner, A., and
-Khodjakov, A. (2011). The spatial arrangement of chromosomes during
-prometaphase facilitates spindle assembly. Cell \emph{146}, 555--567.
+\hyperdef{}{ref-Maddox2003}{\label{ref-Maddox2003}}
+Maddox, P., Straight, A., Coughlin, P., Mitchison, T.J., and Salmon,
+E.D. (2003). Direct observation of microtubule dynamics at kinetochores
+in Xenopus extract spindles: implications for spindle mechanics. The
+Journal of Cell Biology \emph{162}, 377--382.
 
 \hyperdef{}{ref-Maney1998}{\label{ref-Maney1998}}
 Maney, T., and Hunter, A. (1998). Mitotic centromere--associated kinesin
@@ -3771,6 +3969,16 @@ kinesin-8 motors through the cell cycle. Systems and Synthetic Biology
 Miranda, J.J.L., De Wulf, P., Sorger, P.K., and Harrison, S.C. (2005).
 The yeast DASH complex forms closed rings on microtubules. Nature
 Structural \& Molecular Biology \emph{12}, 138--143.
+
+\hyperdef{}{ref-Mitchison1989}{\label{ref-Mitchison1989}}
+Mitchison, T. (1989). Polewards microtubule flux in the mitotic spindle:
+evidence from photoactivation of fluorescence. The Journal of Cell
+Biology.
+
+\hyperdef{}{ref-Mitchison1992}{\label{ref-Mitchison1992}}
+Mitchison, T.J. (1992). Poleward kinetochore fiber movement occurs
+during both metaphase and anaphase-A in newt lung cell mitosis. The
+Journal of Cell Biology \emph{119}, 569--582.
 
 \hyperdef{}{ref-Mitchison1984}{\label{ref-Mitchison1984}}
 Mitchison, T., and Kirschner, M. (1984). Dynamic instability of
@@ -3879,6 +4087,11 @@ Reese, L., Melbinger, A., and Frey, E. (2014). Molecular Mechanisms for
 Microtubule Length Regulation by Kinesin-8 and XMAP215 Proteins. ArXiv
 Preprint ArXiv:1405.5847 \emph{4}, 1--21.
 
+\hyperdef{}{ref-Rieder1994}{\label{ref-Rieder1994}}
+Rieder, C.L. (1994). Anaphase onset in vertebrate somatic cells is
+controlled by a checkpoint that monitors sister kinetochore attachment
+to the spindle. The Journal of Cell Biology \emph{127}, 1301--1310.
+
 \hyperdef{}{ref-Robinett1996}{\label{ref-Robinett1996}}
 Robinett, C.C. (1996). In vivo localization of DNA sequences and
 visualization of large-scale chromatin organization using lac
@@ -3920,8 +4133,8 @@ of Cell Biology \emph{122}, 859--875.
 Skibbens, R.V., Rieder, C.L., and Salmon, E.D. (1995). Kinetochore
 motility after severing between sister centromeres using laser
 microsurgery: evidence that kinetochore directional instability and
-position is regulated by tension. Journal of Cell Science \emph{108 ( Pt
-7}, 2537--2548.
+position is regulated by. Journal of Cell Science \emph{108 ( Pt 7},
+2537--2548.
 
 \hyperdef{}{ref-Stumpff2008}{\label{ref-Stumpff2008}}
 Stumpff, J., Dassow, G. von, Wagenbach, M., Asbury, C., and Wordeman, L.
@@ -3952,6 +4165,10 @@ E., Stark, M.J.R., and Nasmyth, K. (2002). Evidence that the Ipl1-Sli15
 (Aurora Kinase-INCENP) complex promotes chromosome bi-orientation by
 altering kinetochore-spindle pole connections. Cell \emph{108},
 317--329.
+
+\hyperdef{}{ref-Tirnauer2002}{\label{ref-Tirnauer2002}}
+Tirnauer, J., and Canman, J. (2002). EB1 targets to kinetochores with
+attached, polymerizing microtubules. Molecular Biology of \ldots{}.
 
 \hyperdef{}{ref-Tischer2009}{\label{ref-Tischer2009}}
 Tischer, C., Brunner, D., and Dogterom, M. (2009). Force- and

@@ -3,7 +3,7 @@
     [
         {
             "name": "pdf",
-            "shell_cmd": "make pdf",
+            "shell_cmd": "make pdf docx latex",
             "working_dir": "${project_path}",
             "shell": true
         }
