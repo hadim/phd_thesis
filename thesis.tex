@@ -3603,12 +3603,13 @@ elements de discussion :
   Une autre idée serait de concevoir un modèle numérique « from scratch
   » afin de comprendre les mécanismes fondamentaux capable de produire
   des mouvements oscillatoires. Une première tentative d'implémentation
-  naïve est disponible en dans les annexes en
+  naïve est disponible dans les annexes en
   Section~\ref{sec:simu-oscillations}. Cet modèle est composé de trois
   paramètres : un taux d'attachement, un taux de détachement ainsi que
-  le nombre de site d'attachements par kinétochore. Les premiers tests
+  le nombre de site d'attachements par kinétochore. Les résultats
   semblent indiquer que ces trois paramètres ne sont pas suffisant pour
-  obtenir un mouvement régulier.
+  obtenir un mouvement régulier et qu'il manque probablement des
+  mécanismes plus complexes de régulation des attachements.
 \end{itemize}
 
 \appendix
@@ -3703,81 +3704,186 @@ oscillatoire}\label{paramuxe8tres-minimums-reproduisant-un-mouvement-oscillatoir
 
 \label{sec:simu-oscillations}
 
-Voici le code Python utilisé pour lancer une simulation de 2000s avec un
-pas de temps de 10s où l'anaphase (dégradation du ressort cohésine) est
-déclenché à 1750s.
+\subsection{Un modèle naïf du mouvement d'un
+chromosome}\label{un-moduxe8le-nauxeff-du-mouvement-dun-chromosome}
+
+Un modèle simple de mouvement d'un chromosome peut être conçu de la
+façon suivante :
+
+\begin{itemize}
+\item
+  Un chromosome est représenté par ses deux kinétochores frères.
+\item
+  Les deux kinétochores frères sont représentés par deux vecteurs
+  \(V_a\) et \(V_b\) de tailles \texttt{n\_a} qui représente le nombre
+  de site d'attachements sur un kinétochore.
+\item
+  Chacune des valeurs contenu dans les vecteurs peut contenir deux
+  valeurs \(0\) quand il n'est pas attaché et \(1\) quand il est
+  attaché.
+\item
+  A chaque pas de temps, on change les valeurs des attachements en
+  fonction d'un paramètre d'attachement \texttt{k\_a} et d'un paramètre
+  de détachement \texttt{k\_d}.
+\item
+  On déplace la position du chromosome en fonction de l'équilibre entre
+  les deux vecteurs de cette façon :
+\end{itemize}
+
+\[
+\Delta x = \frac{sum(V_a) - sum(V_b)}{n_a}
+\]
+
+Ainsi le chromosome se déplace d'une longueur proportionnelle à la
+différence du nombre d'attachements entre les deux kinétochores. On
+normalise ensuite le déplacement en le divisant par \texttt{n\_a}.
+
+Une implémentation numérique en Python est disponible ci-dessous.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ImportTok{from} \NormalTok{kt_simul.core.simul_spindle }\ImportTok{import} \NormalTok{Metaphase}
-\ImportTok{from} \NormalTok{kt_simul.io.simuio }\ImportTok{import} \NormalTok{SimuIO}
-\ImportTok{from} \NormalTok{kt_simul.core }\ImportTok{import} \NormalTok{parameters}
+\ImportTok{import} \NormalTok{numpy }\ImportTok{as} \NormalTok{np}
 
-\NormalTok{paramtree }\OperatorTok{=} \NormalTok{parameters.get_default_paramtree()}
-\NormalTok{paramtree[}\StringTok{'dt'}\NormalTok{] }\OperatorTok{=} \DecValTok{10}
-\NormalTok{paramtree[}\StringTok{'span'}\NormalTok{] }\OperatorTok{=} \DecValTok{2000}
-\NormalTok{paramtree[}\StringTok{'t_A'}\NormalTok{] }\OperatorTok{=} \DecValTok{1750}
+\CommentTok{# Parameters}
+\NormalTok{duration }\OperatorTok{=} \DecValTok{10} \OperatorTok{*} \DecValTok{60}  \CommentTok{# seconds}
+\NormalTok{dt }\OperatorTok{=} \FloatTok{0.1}  \CommentTok{# seconds}
+\NormalTok{n_a }\OperatorTok{=} \DecValTok{10}
+\NormalTok{k_a }\OperatorTok{=} \FloatTok{0.5}  \CommentTok{# s-1}
+\NormalTok{k_d }\OperatorTok{=} \FloatTok{0.5}  \CommentTok{# s-1}
 
-\NormalTok{measuretree }\OperatorTok{=} \NormalTok{parameters.get_default_measuretree()}
-\NormalTok{measuretree[}\StringTok{'mean_metaph_k_dist'}\NormalTok{] }\OperatorTok{=} \FloatTok{0.3}  \CommentTok{# 0.3}
+\NormalTok{times }\OperatorTok{=} \NormalTok{np.arange(}\DecValTok{0}\NormalTok{, duration, dt)}
+\NormalTok{N }\OperatorTok{=} \NormalTok{np.floor(duration }\OperatorTok{/} \NormalTok{dt).astype(}\StringTok{"int"}\NormalTok{)}
 
-\CommentTok{# Init simu}
-\NormalTok{meta }\OperatorTok{=} \NormalTok{Metaphase(verbose}\OperatorTok{=}\VariableTok{True}\NormalTok{,}
-                 \NormalTok{paramtree}\OperatorTok{=}\NormalTok{paramtree,}
-                 \NormalTok{measuretree}\OperatorTok{=}\NormalTok{measuretree,}
-                 \NormalTok{initial_plug}\OperatorTok{=}\StringTok{'random'}\NormalTok{,}
-                 \NormalTok{keep_same_random_seed}\OperatorTok{=}\VariableTok{False}\NormalTok{,}
-                 \NormalTok{force_parameters}\OperatorTok{=}\NormalTok{[])}
+\NormalTok{states }\OperatorTok{=} \NormalTok{np.zeros((N, n_a, }\DecValTok{2}\NormalTok{), dtype}\OperatorTok{=}\StringTok{"int"}\NormalTok{)}
+\NormalTok{x }\OperatorTok{=} \NormalTok{np.zeros(N, dtype}\OperatorTok{=}\StringTok{"float"}\NormalTok{)}
 
-\CommentTok{# Launch simu}
-\NormalTok{meta.simul()}
+\ControlFlowTok{for} \NormalTok{i, t }\OperatorTok{in} \BuiltInTok{enumerate}\NormalTok{(times[:}\OperatorTok{-}\DecValTok{1}\NormalTok{]):}
 
-\CommentTok{# Save results}
-\NormalTok{SimuIO(meta).save(}\StringTok{"simu.h5"}\NormalTok{)}
+    \NormalTok{state }\OperatorTok{=} \NormalTok{states[i]}
+    \NormalTok{next_state }\OperatorTok{=} \NormalTok{states[i}\DecValTok{+1}\NormalTok{]}
 
-\CommentTok{# Show trajectories (matplotlib needed)}
-\NormalTok{fig }\OperatorTok{=} \NormalTok{meta.show()}
+    \CommentTok{# Change attachments}
+    \ControlFlowTok{for} \NormalTok{idx }\OperatorTok{in} \NormalTok{np.ndindex(state.shape):}
+
+        \CommentTok{# Is it unattached ?}
+        \ControlFlowTok{if} \NormalTok{state[idx] }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+
+            \CommentTok{# Roll dice to attach it}
+            \NormalTok{dice }\OperatorTok{=} \NormalTok{np.random.rand()}
+            \NormalTok{p_a }\OperatorTok{=} \DecValTok{1} \OperatorTok{-} \NormalTok{np.exp(}\OperatorTok{-}\NormalTok{k_a}\OperatorTok{*}\NormalTok{dt)}
+            \ControlFlowTok{if}  \NormalTok{dice }\OperatorTok{<} \NormalTok{p_a:}
+                \NormalTok{next_state[idx] }\OperatorTok{=} \DecValTok{1}
+
+        \CommentTok{# Is it attached ?}
+        \ControlFlowTok{elif} \NormalTok{state[idx] }\OperatorTok{==} \DecValTok{1}\NormalTok{:}
+
+            \CommentTok{# Roll dice to unattach it}
+            \NormalTok{dice }\OperatorTok{=} \NormalTok{np.random.rand()}
+            \NormalTok{p_d }\OperatorTok{=} \DecValTok{1} \OperatorTok{-} \NormalTok{np.exp(}\OperatorTok{-}\NormalTok{k_d}\OperatorTok{*}\NormalTok{dt)}
+            \ControlFlowTok{if}  \NormalTok{dice }\OperatorTok{<} \NormalTok{p_d:}
+                \NormalTok{next_state[idx] }\OperatorTok{=} \DecValTok{0}
+
+    \NormalTok{pos }\OperatorTok{=} \NormalTok{x[i]}
+    \NormalTok{next_pos }\OperatorTok{=} \NormalTok{x[i}\DecValTok{+1}\NormalTok{]}
+
+    \CommentTok{# Move chromosome}
+    \NormalTok{x[i}\DecValTok{+1}\NormalTok{] }\OperatorTok{=} \NormalTok{x[i] }\OperatorTok{+} \NormalTok{(next_state[:, }\DecValTok{1}\NormalTok{].}\BuiltInTok{sum}\NormalTok{() }\OperatorTok{-} \NormalTok{next_state[:, }\DecValTok{0}\NormalTok{].}\BuiltInTok{sum}\NormalTok{()) }\OperatorTok{/} \NormalTok{n_a}
 \end{Highlighting}
 \end{Shaded}
 
-Les trajectoires et les états d'attachements peuvent être sauvegardés
-dans un fichier binaire pour une analyse ultérieure (appelé ici
-\texttt{simu.h5}).
+On peut ensuite visualiser la trajectoire obtenue
+(Figure~\ref{fig:simu-oscill-trajectory}) avec le code suivant.
 
-Il est aussi possible de visualiser les trajectoires des chromosomes et
-des pôles ainsi que les états d'attachements associés à chaque
-kinétochore (Figure~\ref{fig:kt-simul-traj}).
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import} \NormalTok{matplotlib.pyplot }\ImportTok{as} \NormalTok{plt}
+
+\NormalTok{plt.plot(times, x)}
+\NormalTok{plt.xlabel(}\StringTok{"Time (s)"}\NormalTok{)}
+\NormalTok{plt.ylabel(}\StringTok{"Position (A.U)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/annexes/trajectories.png}
-\caption[Exemple de trajectoire générée par `kt\_simul`]{\label{fig:kt-simul-traj}Exemple
-de trajectoire générée par \texttt{kt\_simul}. En plus de l'évolution de
-la position (axe des ordonnées) en fonction du temps (axe des
-abscisses), on visualise aussi les états d'attachements de chaque
-kinétochore sur les panneaux supérieurs et inférieurs.}
+\includegraphics{figures/annexes/simu_oscill_trajectory.png}
+\caption[Exemple de trajectoire générée par le modèle naïf du mouvement d'un chromosome]{\label{fig:simu-oscill-trajectory}Exemple
+de trajectoire générée par le modèle naïf du mouvement d'un chromosome.
+Les paramètres utilisés pour cette simulation sont \texttt{n\_a\ =\ 10},
+\texttt{k\_a\ =\ 0.2} et \texttt{k\_d\ =\ 0.5}.}
 \end{figure}
 
-Enfin on peut aussi visualiser la simulation à l'aide d'une interface
-graphique dynamique (Figure~\ref{fig:kt-simul-gui}) et du code suivant :
+\subsection{Étude des trajectoires avec des techniques d'analyse du
+signal}\label{uxe9tude-des-trajectoires-avec-des-techniques-danalyse-du-signal}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ImportTok{from} \NormalTok{kt_simul.gui.animation }\ImportTok{import} \NormalTok{Animator}
+Par la suite on applique deux outils communément utilisés en analyse du
+signal afin de repérer des régularités dans les trajectoires générées.
 
-\NormalTok{anim }\OperatorTok{=} \NormalTok{Animator(meta)}
-\NormalTok{anim.play()}
-\end{Highlighting}
-\end{Shaded}
+\begin{itemize}
+\item
+  L'autocorrélation est la corrélation croisée d'un signal par lui-même.
+  En général, le premier minimum local correspond à la demi-période de
+  la fréquence fondamentale (si jamais cette fréquence existe !).
+\item
+  La Transformation de Fourier discrète (TFD) décompose une fonction du
+  temps (la trajectoire étudiée) en un spectre de fréquences (un peu à
+  la manière d'un prisme qui décompose la lumière en un spectre de
+  couleurs). Le pic du spectre avec l'amplitude la plus grande
+  correspondent généralement à celui de la fréquence fondamentale.
+\end{itemize}
+
+Ces deux outils permettent par exemple de détecter la fréquence
+fondamentale d'un signal sinusoidal généré auquel on a ajouté un bruit
+tel que l'analyse dans l'espace temporel rend cette fréquence
+indétectable (Figure~\ref{fig:simu-oscill-sinus}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{figures/annexes/gui.png}
-\caption[Animation graphique d'une simulation]{\label{fig:kt-simul-gui}Animation
-graphique d'une simulation. L'interface graphique permet de suivre la
-dynamique en temps réel à l'aide d'un « slider » en bas qui permet de
-changer le temps. Le panneau à droite permet d'avoir une vue détaillée
-de la position et de l'attachement de chaque site d'attachement.}
+\includegraphics{figures/annexes/simu_oscill_sinus.png}
+\caption[Autocorrélation et transformée de Fourier d'un signal sinusoïdal bruité]{\label{fig:simu-oscill-sinus}Autocorrélation
+et transformée de Fourier d'un signal sinusoïdal bruité. Le signal
+généré avec la fonction \texttt{sinus} possède une période de 100s. Le
+signal orange en \textbf{A} correspond au signal sinusoïdal (en bleu)
+auquel a été ajouté un bruit blanc. \textbf{B}. Autocorrélation du
+signal orange en \textbf{A}. \textbf{C}. Transformée de Fourier du
+signal orange en \textbf{A}.}
+\end{figure}
+
+\subsection{Optimisation des
+paramètres}\label{optimisation-des-paramuxe8tres}
+
+Le modèle possède donc trois paramètres \texttt{n\_a}, \texttt{k\_a} et
+\texttt{k\_d} qu'il faut explorer afin de trouver la combinaison capable
+de générer des trajectoires régulières.
+
+L'exploration est effectué dans l'espace de paramètre composé de la
+combinaisons de ces trois vecteurs :
+
+\begin{verbatim}
+n_a = [1, 4, 8, 20, 30, 60, 100]
+k_a = [0.05, 0.1, 0.2, 0.5, 0.7, 1]
+k_d = [0.05, 0.1, 0.2, 0.5, 0.7, 1]
+\end{verbatim}
+
+Pour chaque jeu de paramètre cinq simulations sont exécutes. Enfin la
+durée des simulations est fixée à 3000s (50min).
+
+Bien que quelques simulations exhibent des mouvements periodiques, aucun
+des jeux de paramètre associés n'a été capable de reproduire de manière
+significative un signal régulier. La figure
+Figure~\ref{fig:simu-oscill-all} montre quelques exemples de
+trajectoires simulées avec leurs autocorrélations et transformées de
+Fourier associées.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/annexes/simu_oscill_all.png}
+\caption[Quelques exemples de trajectoires avec différents paramètre du modèle naïf du mouvement d'un chromosome]{\label{fig:simu-oscill-all}Quelques
+exemples de trajectoires avec différents paramètre du modèle naïf du
+mouvement d'un chromosome. Les trois paramètres des simulations sont
+affichés en haut de chaque trajectoires. Les points rouges correspondent
+aux 4 premiers minimum locaux pour l'autocorrélation et aux quatre
+premiers maximum locaux pour la transformée de Fourier.}
 \end{figure}
 
 \backmatter
