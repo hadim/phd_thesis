@@ -3469,7 +3469,7 @@ De nos jours, en 2015, ce nouveau paradigme est intégré à tout les
 niveaux de la recherche. Par exemple l'essor de la bioinformatique a
 notamment révolutionné certaines disciplines comme l'évolution en
 autorisant la modélisation phylogénique \emph{in silico} souvent très
-difficile à reproduire \emph{in vivo} ou \emph{in vitro} dû aux echelles
+difficile à reproduire \emph{in vivo} ou \emph{in vitro} dû aux échelles
 de temps géologique sur lesquels sont basées ces processus.
 
 L'interaction entre la physique et la biologie a quand à elle des
@@ -3562,6 +3562,8 @@ mitose}\label{la-dynamique-des-chromosomes-en-mitose}
 \item
   est ce que la dynamique des chromosomes est pas influencé par d'autre
   mechanisme en dehors du fuseau comme l'orientation
+\item
+  role super important des kinésines depolymerisatrice dans une cellule
 \end{itemize}
 
 elements de discussion :
@@ -3597,6 +3599,16 @@ elements de discussion :
   microtubules. Il faudrait faire une étude phylogénique de comparaison
   des seq genomique et proteique ou une étude comparative in vitro de
   mesure des differents parametre de linstabilité dynamique.
+\item
+  Une autre idée serait de concevoir un modèle numérique « from scratch
+  » afin de comprendre les mécanismes fondamentaux capable de produire
+  des mouvements oscillatoires. Une première tentative d'implémentation
+  naïve est disponible en dans les annexes en
+  Section~\ref{sec:simu-oscillations}. Cet modèle est composé de trois
+  paramètres : un taux d'attachement, un taux de détachement ainsi que
+  le nombre de site d'attachements par kinétochore. Les premiers tests
+  semblent indiquer que ces trois paramètres ne sont pas suffisant pour
+  obtenir un mouvement régulier.
 \end{itemize}
 
 \appendix
@@ -3607,6 +3619,89 @@ elements de discussion :
 \texttt{kt\_simul}}{Exemple d'utilisation de kt\_simul}}\label{exemple-dutilisation-de-ktux5fsimul}
 
 \label{sec:ktsimul}
+
+Voici le code Python utilisé pour lancer une simulation de 2000s avec un
+pas de temps de 10s où l'anaphase (dégradation du ressort cohésine) est
+déclenché à 1750s.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from} \NormalTok{kt_simul.core.simul_spindle }\ImportTok{import} \NormalTok{Metaphase}
+\ImportTok{from} \NormalTok{kt_simul.io.simuio }\ImportTok{import} \NormalTok{SimuIO}
+\ImportTok{from} \NormalTok{kt_simul.core }\ImportTok{import} \NormalTok{parameters}
+
+\NormalTok{paramtree }\OperatorTok{=} \NormalTok{parameters.get_default_paramtree()}
+\NormalTok{paramtree[}\StringTok{'dt'}\NormalTok{] }\OperatorTok{=} \DecValTok{10}
+\NormalTok{paramtree[}\StringTok{'span'}\NormalTok{] }\OperatorTok{=} \DecValTok{2000}
+\NormalTok{paramtree[}\StringTok{'t_A'}\NormalTok{] }\OperatorTok{=} \DecValTok{1750}
+
+\NormalTok{measuretree }\OperatorTok{=} \NormalTok{parameters.get_default_measuretree()}
+\NormalTok{measuretree[}\StringTok{'mean_metaph_k_dist'}\NormalTok{] }\OperatorTok{=} \FloatTok{0.3}  \CommentTok{# 0.3}
+
+\CommentTok{# Init simu}
+\NormalTok{meta }\OperatorTok{=} \NormalTok{Metaphase(verbose}\OperatorTok{=}\VariableTok{True}\NormalTok{,}
+                 \NormalTok{paramtree}\OperatorTok{=}\NormalTok{paramtree,}
+                 \NormalTok{measuretree}\OperatorTok{=}\NormalTok{measuretree,}
+                 \NormalTok{initial_plug}\OperatorTok{=}\StringTok{'random'}\NormalTok{,}
+                 \NormalTok{keep_same_random_seed}\OperatorTok{=}\VariableTok{False}\NormalTok{,}
+                 \NormalTok{force_parameters}\OperatorTok{=}\NormalTok{[])}
+
+\CommentTok{# Launch simu}
+\NormalTok{meta.simul()}
+
+\CommentTok{# Save results}
+\NormalTok{SimuIO(meta).save(}\StringTok{"simu.h5"}\NormalTok{)}
+
+\CommentTok{# Show trajectories (matplotlib needed)}
+\NormalTok{fig }\OperatorTok{=} \NormalTok{meta.show()}
+\end{Highlighting}
+\end{Shaded}
+
+Les trajectoires et les états d'attachements peuvent être sauvegardés
+dans un fichier binaire pour une analyse ultérieure (appelé ici
+\texttt{simu.h5}). Le format binaire contrairement au format texte
+permet des accès en lecture très rapide.
+
+Il est aussi possible de visualiser les trajectoires des chromosomes et
+des pôles ainsi que les états d'attachements associés à chaque
+kinétochore (Figure~\ref{fig:kt-simul-traj}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/annexes/trajectories.png}
+\caption[Exemple de trajectoire générée par `kt\_simul`]{\label{fig:kt-simul-traj}Exemple
+de trajectoire générée par \texttt{kt\_simul}. En plus de l'évolution de
+la position (axe des ordonnées) en fonction du temps (axe des
+abscisses), on visualise aussi les états d'attachements de chaque
+kinétochore sur les panneaux supérieurs et inférieurs.}
+\end{figure}
+
+Enfin on peut aussi visualiser la simulation à l'aide d'une interface
+graphique dynamique (Figure~\ref{fig:kt-simul-gui}) et du code suivant :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from} \NormalTok{kt_simul.gui.animation }\ImportTok{import} \NormalTok{Animator}
+
+\NormalTok{anim }\OperatorTok{=} \NormalTok{Animator(meta)}
+\NormalTok{anim.play()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/annexes/gui.png}
+\caption[Animation graphique d'une simulation]{\label{fig:kt-simul-gui}Animation
+graphique d'une simulation. L'interface graphique permet de suivre la
+dynamique en temps réel à l'aide d'un « slider » en bas qui permet de
+changer le temps. Le panneau à droite permet d'avoir une vue détaillée
+de la position et de l'attachement de chaque site d'attachement.}
+\end{figure}
+
+\section{Paramètres minimums reproduisant un mouvement
+oscillatoire}\label{paramuxe8tres-minimums-reproduisant-un-mouvement-oscillatoire}
+
+\label{sec:simu-oscillations}
 
 Voici le code Python utilisé pour lancer une simulation de 2000s avec un
 pas de temps de 10s où l'anaphase (dégradation du ressort cohésine) est
