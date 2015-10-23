@@ -10,7 +10,7 @@ Un grand merci à Guillaume pour m'avoir transmis tes connaissances toujours ave
 
 Une mention spéciale à Céline ainsi que tout les membres présents et passés de l'équipe. Céline et Tiphaine, merci pour votre patience et surtout votre bonne humeur autour de la paillasse au labo. Simon et Tong, je vous souhaite plein de bonne choses pour la suite.
 
-Je remercie aussi Andreas Merdes ainsi que Florence Larminat d'avoir suivi mon travail de thèse pendant deux ans. Nos discussions et vos commentaires ont toujours été d'une aide précieuse.
+Je remercie aussi Andreas Merdes ainsi que Florence Larminat pour avoir suivi mon travail de thèse pendant deux ans. Nos discussions et vos commentaires ont toujours été d'une aide précieuse.
 
 Un énorme merci à tout le labo du LBCMCP ! Gardez cette ambiance qui constitue votre ADN. Merci à Pierre, Jonathan, François, Julie, Anne, Carole, Béa, Damien, Gaëlle, Nathalie, Magalie, Thomas, Yvan, Aude, Gemael, Kader, mais aussi à tous ceux que je ne cite pas.
 
