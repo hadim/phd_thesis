@@ -23,7 +23,7 @@ Un grand merci à Anne, Pauline, Charlotte et Julien pour ces délicieux moments
 
 Un grand merci à Pascaline et Alain pour m'avoir accueilli depuis quelques années maintenant dans votre famille avec tant de bonne humeur. Je remercie aussi Théo, Bastien et Lucas pour ces moments passés ensemble.
 
-Je veux aussi remercier tous mes amis, ceux que je connais depuis longtemps et ceux que j'ai connu plus récemment. Un merci particulier à tous ceux que je vois peu mais qui sont toujours présent durant nos moments de retrouvailles.
+Je veux aussi remercier tous mes amis, ceux que je connais depuis longtemps et ceux que j'ai connu plus récemment. Un merci particulier à tous ceux que je vois peu mais qui sont toujours présent quand l'heure des retrouvailles sonne !
 
 Mes derniers remerciements vont à Olivia qui a tout fait pour m’aider, qui m’a soutenu
 et surtout supporté depuis ces trois ans. Une nouvelle page s'ouvre à nous maintenant...
