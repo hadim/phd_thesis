@@ -1,4 +1,2 @@
+\clearpage\null
 \mainmatter
-
-\newpage
-\cleardoublepage

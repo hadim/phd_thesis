@@ -110,10 +110,6 @@
 \usepackage{fancyhdr}
 \pagestyle{plain}
 
-% Fonts and typesetting
-\setmainfont{TeX Gyre Pagella}
-\setsansfont{Verdana}
-
 % Set figure legends and captions to be smaller sized sans serif font
 \usepackage[font={footnotesize,sf}]{caption}
 
@@ -156,6 +152,7 @@
 % Don't let floats cross subsections
 \usepackage[section,subsection]{templates/packages/extraplaceins}
 
+% License stuff
 \usepackage[type={CC},modifier={by-sa},version={4.0},lang=french]{doclicense}
 
 % University of Toulouse cover page package
@@ -215,6 +212,8 @@
 \newpage
 
 \cleardoublepage
+\clearpage\null
+
 \section*{Résumé}
 
 La mitose est une étape clé du cycle cellulaire, très préservée chez
@@ -268,21 +267,23 @@ chromosomes durant la métaphase ainsi qu'un mouvement de va et vient
 plus ou moins régulier le long du fuseau aussi appelé oscillation des
 chromosomes. J'ai montré, en analysant les trajectoires des chromosomes
 que ces deux processus sont pour une large part indépendants chez la
-levure à fission (J. Cell Science, in press). De plus, le processus
-d'alignement des chromosomes, encore mal compris, est en partie contrôlé
-par la kinésine-8 via une activité dépendante de la longueur des
-microtubules. Il semblerait donc que cette kinésine soit capable de
-fournir une information spatiale le long du fuseau mitotique afin de
-positionner correctement les chromosomes. Enfin, j'ai utilisé un modèle
-mathématique de la ségrégation des chromosomes développé dans l'équipe
-précédemment afin de tester de manière quantitative les hypothèses de
-mécanisme du centrage des chromosomes par la kinésine-8.
+levure à fission (Mary et al., \hyperref[ref-Mary2015]{2015}). De plus,
+le processus d'alignement des chromosomes, encore mal compris, est en
+partie contrôlé par la kinésine-8 via une activité dépendante de la
+longueur des microtubules. Il semblerait donc que cette kinésine soit
+capable de fournir une information spatiale le long du fuseau mitotique
+afin de positionner correctement les chromosomes. Enfin, j'ai utilisé un
+modèle mathématique de la ségrégation des chromosomes développé dans
+l'équipe précédemment afin de tester de manière quantitative les
+hypothèses de mécanisme du centrage des chromosomes par la kinésine-8.
 
 L'ensemble de mon travail porte donc sur le contrôle du mouvement, de
 l'attachement et du positionnement des chromosomes durant la mitose afin
 de mieux comprendre les processus biophysiques associés à la mitose.
 
 \cleardoublepage
+\clearpage\null
+
 \section*{Summary}
 
 Mitosis is a highly preserved process in all eukaryotic cells during
@@ -329,19 +330,20 @@ conserved mechanisms throughout evolution are chromosome alignment
 during metaphase and back and forth movement along the spindle, called
 chromosome oscillation. By analyzing chromosome trajectories, I showed
 that both processes are performed through independent mechanisms in
-fission yeast (J.Cell Sci. in press). Moreover chromosome alignment
-process, which is still poorly understood, is regulated by Kinesin-8 via
-a length dependent activity on microtubules. This suggests that
-Kinesin-8 is able to provide spatial information along the mitotic
-spindle to properly position chromosomes. Finally, I used a mathematical
-model of chromosome segregation in order to test quantitatively
-different hypotheses of chromosome centering process.
+fission yeast (Mary et al., \hyperref[ref-Mary2015]{2015}). Moreover
+chromosome alignment process, which is still poorly understood, is
+regulated by Kinesin-8 via a length dependent activity on microtubules.
+This suggests that Kinesin-8 is able to provide spatial information
+along the mitotic spindle to properly position chromosomes. Finally, I
+used a mathematical model of chromosome segregation in order to test
+quantitatively different hypotheses of chromosome centering process.
 
 This work is thus deciphering the control of movement, attachment and
 positioning of chromosomes during mitosis and seeks to better understand
 the biophysical processes controlling mitosis.
 
 \cleardoublepage
+\clearpage\null
 
 \section*{Remerciements}
 
@@ -407,11 +409,11 @@ Mes derniers remerciements vont à Olivia qui a tout fait pour m'aider,
 qui m'a soutenu et surtout supporté depuis ces trois ans. Une nouvelle
 page s'ouvre à nous maintenant\ldots{}
 
+\clearpage\null
 \cleardoublepage
 \frontmatter
-\pagestyle{plain}
+\pagestyle{plain} \cleardoublepage
 
-\cleardoublepage
 \tableofcontents
 \addcontentsline{toc}{chapter}{\contentsname}
 
@@ -456,11 +458,8 @@ a beer !).
   \textbf{SPB} : \emph{spindle pole body}
 \end{itemize}
 
+\clearpage\null
 \mainmatter
-
-\newpage
-
-\cleardoublepage
 
 \chapter{Introduction}\label{introduction}
 
@@ -2149,6 +2148,8 @@ Enfin un modèle mathématique de la mitose (Gay et al.,
 hypothèses de mécanismes à l'origine de la congression ainsi que les
 mécanismes gouvernant le mouvement des chromosomes.
 
+\clearpage\null
+
 \chapter{Résultats}\label{ruxe9sultats}
 
 \section{« Fission yeast kinesin-8 controls chromosome congression
@@ -2513,18 +2514,19 @@ exprimer la probabilité d'événements tel que le lien entre le début
 d'une trajectoire et la fin d'une autre, la fusion ou la séparation de
 deux trajectoires.
 
-Deux implémentations ont été testées (Figure~\ref{fig:ndc80}). La
-première provenant d'un module Python crée pour l'occasion, appelé
-\texttt{scikit-tracker}, possédant une fonction de score supposant un
-mouvement brownien (Figure~\ref{fig:ndc80}A). La seconde est celle
+Deux implémentations ont été testées
+(Figure~\ref{fig:ndc80-reconstruction}). La première provenant d'un
+module Python crée pour l'occasion, appelé \texttt{scikit-tracker},
+possédant une fonction de score supposant un mouvement brownien
+(Figure~\ref{fig:ndc80-reconstruction}A). La seconde est celle
 disponible dans TrackMate et contient une fonction de score qui suppose
 un mouvement dirigé basé sur un filtre de Kalman pour prédire les
-trajectoires (Figure~\ref{fig:ndc80}B).
+trajectoires (Figure~\ref{fig:ndc80-reconstruction}B).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/ndc80.png}
-\caption[Reconstruction de la trajectoire avec six kinétochores]{\label{fig:ndc80}Reconstruction
+\caption[Reconstruction de la trajectoire avec six kinétochores]{\label{fig:ndc80-reconstruction}Reconstruction
 de la trajectoire avec six kinétochores. \textbf{A}. La reconstruction
 est basée sur une implémentation développée dans le cadre de cette étude
 appelé \texttt{scikit-tracker}. \textbf{B}. Reconstruction avec le
@@ -3470,6 +3472,8 @@ Ainsi il ne resterait que quatre paramètres à optimiser. L'ajout de la
 modulation du taux de catastrophe et du taux de rescue se ferait alors
 dans un second temps.
 
+\clearpage\null
+
 \chapter{Discussion}\label{discussion}
 
 \section{L'approche multidisciplinaire comme méthode d'étude en biologie
@@ -3813,9 +3817,10 @@ kinétochore. Ce modèle appelé « dumb kinetochore model » discuté par
 Khodjakov et al. (Khodjakov et al., \hyperref[ref-Khodjakov1999]{1999})
 est soutenu par l'observation qu'une partie significative des
 kinétochores frères sont dans un état d'incohérence chez la levure à
-fission (voir l'annexe sec:coherence) et que 20\% des trajectoires de
-chromosome chez la cellule HeLa exhibent des mouvements « hautement
-stochastiques » (Burroughs et al., \hyperref[ref-Burroughs2015]{2015}).
+fission (voir l'annexe Section~\ref{sec:coherence}) et que 20\% des
+trajectoires de chromosome chez la cellule HeLa exhibent des mouvements
+« hautement stochastiques » (Burroughs et al.,
+\hyperref[ref-Burroughs2015]{2015}).
 
 Il est possible de tester ces modèles de régulation des mouvements P et
 AP par deux approches différentes. La première serait de concevoir un
@@ -3921,6 +3926,8 @@ Pour finir la généralisation du modèle à deux organismes ouvre la voix
 vers une modélisation globale capable d'expliquer la diversité des
 mitoses observées chez différents organismes.
 
+\clearpage\null
+
 \appendix
 
 \chapter{Annexes}\label{annexes}
@@ -4007,6 +4014,134 @@ dynamique en temps réel à l'aide d'un « slider » en bas qui permet de
 changer le temps. Le panneau à droite permet d'avoir une vue détaillée
 de la position et de l'attachement de chaque site d'attachement.}
 \end{figure}
+
+\cleardoublepage
+\clearpage\null
+
+\section{Le complexe DAM1 favorise l'attachement
+microtubule-kinétochore}\label{le-complexe-dam1-favorise-lattachement-microtubule-kinuxe9tochore}
+
+\label{sec:dam1}
+
+\subsection{Strucure de Dam1 et son rôle dans la régulation de
+l'attachement}\label{strucure-de-dam1-et-son-ruxf4le-dans-la-ruxe9gulation-de-lattachement}
+
+La protéine Dam1 a été pour la première fois identifié chez la levure à
+bourgeon comme une protéine crucial pour le maintien de l'intégrité
+structurelle du fuseau mitotique (Hofmann,
+\hyperref[ref-Hofmann1998]{1998})
+
+Par la suite, il a été montré que des complexes composés de DAM1
+pouvaient former des structures en anneaux \textbf{in vitro} (Westermann
+et al., \hyperref[ref-Westermann2005]{2005}) autour des microtubules
+(Figure~\ref{fig:dam1-struct}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/annexes/dam1-struct.png}
+\caption[Structure du complexe DAM1]{\label{fig:dam1-struct}Structure du
+complexe DAM1. \textbf{A}. Schéma de la strucute et du positionnement du
+complexe DAM1 lorsque il forme un anneau autour du microtubule.
+\textbf{B}. Exemple d'une image de microscopie éléctronique (EM)
+montrant une vue de l'extrémité finale d'un microtubule entourée d'un
+complexe DAM1 (Westermann et al., \hyperref[ref-Westermann2006]{2006}).
+\textbf{C}. Complexe DAM1 purifié et attaché à des microtubules
+stabilisés par du taxol et visualisé par EM (Westermann et al.,
+\hyperref[ref-Westermann2005]{2005}). \textbf{D}. Complexe DAM1 incubé
+48h dans une monocouche phospholipidique et visualisé par EM. Des
+anneaux auto-assemblés de complexe DAM1 sont visibles. Les barre
+d'echelles correspondent à 50nm.}
+\end{figure}
+
+Cependant c'est dans une autre étude que le rôle essentiel du complexe
+DAM1 dans l'attachement kinétochore-microtubule fut décrit (Westermann
+et al., \hyperref[ref-Westermann2006]{2006}). En effet les auteurs ont
+montré (Figure~\ref{fig:dam1-struct}) par vidéo-microscopie à
+fluorescence que des anneaux de DAM1 peuvent se déplacer vers
+l'extrémité plus d'un microtubule sur plusieurs micromètre sans se
+détacher. Ils proposent alors que la protéine Dam1 joue un rôle
+important dans l'attachement kinétochore-microtubule et agit comme un
+système capable de convertir l'énergie mécanique générée par un
+microtubule en une force appliquée sur le kinétochore afin de générer un
+mouvement.
+
+Des oligomères de Dam1 de plus petite tailles sans structure en anneau
+ont aussi été identifiées \textbf{in vitro} chez la levure à bourgeon
+(Gestaut et al., \hyperref[ref-Gestaut2008]{2008}). Ces assemblages
+appelés « patchs » sont cependant capable de diffusés le long du
+microtubule ainsi que de suivre son extrémité pendant sa
+dépolymérisation (Gestaut et al., \hyperref[ref-Gestaut2008]{2008}).
+
+La protéine Dam1 est conservé chez la levure à fission et se localiste
+de la même façon que son homologue de la levure à bourgeon au niveau des
+kinétochores et des microtubules nucléaires. Cependant une étude
+\emph{in vivo} a montré par microscopie quantitative que en moyenne
+seulement 7-8 copies de Dam1 étaient présent au kinétochore (Gao et al.,
+\hyperref[ref-Gao2010]{2010}). Les auteurs proposent donc Dam1 est
+capable de modifier la dynamique des microtubules kinétochoriens sans
+structure en anneaux mais plutôt à travers des « patchs » de petite
+tailles.
+
+Une autre étude montre aussi que Dam1 est capable de former des patchs
+\textbf{in vitro} lorsque sa concentration est très faible de l'ordre de
+500pM (Tien et al., \hyperref[ref-Tien2010]{2010}).
+
+Bien que Dam1 soit absent chez les eucaryotes supérieurs comme la
+cellule humaine, une autre protéine, Ska1, a été décrite comme pouvant
+jouer un rôle similaire à Dam1 (Schmidt et al.,
+\hyperref[ref-Schmidt2012]{2012}). Différentes études ont été en mesure
+de montrer que que les complexes Ska1 et NDC80 forment un système
+intégré capable de coupler le mouvement des chromosomes à la
+dépolymérisation des microtubules (Daum et al.,
+\hyperref[ref-Daum2009]{2009}; Gaitanos et al.,
+\hyperref[ref-Gaitanos2009]{2009}; Hanisch et al.,
+\hyperref[ref-Hanisch2006]{2006}; Raaijmakers et al.,
+\hyperref[ref-Raaijmakers2009]{2009}; Schmidt et al.,
+\hyperref[ref-Schmidt2012]{2012}; Theis et al.,
+\hyperref[ref-Theis2009]{2009}; Welburn et al.,
+\hyperref[ref-Welburn2009]{2009}).
+
+\subsection{La congression et les oscillations des chromosomes sont deux
+mécanismes indépendants chez la levure à
+fission}\label{la-congression-et-les-oscillations-des-chromosomes-sont-deux-muxe9canismes-induxe9pendants-chez-la-levure-uxe0-fission}
+
+Bien que le mutant \emph{dam1Δ} chez la levure à bourgeon soit non
+viable, celui de la levure à fission est viable. Il montre cependant des
+problèmes de croissance et une ségrégation anormal des chromosomes
+(Sanchez-Perez et al., \hyperref[ref-Sanchez-Perez2005]{2005}). Il a
+aussi été montré que la protéine Dam1 chez la levure à fission joue un
+rôle durant la capture des chromosomes par les microtubules durant la
+mitose (Gachet et al., \hyperref[ref-Gachet2008a]{2008}).
+
+L'analyse des trajectoires des chromosomes en métaphase et anaphase chez
+la levure à fission sans la protéine Dam1 montre que cette protéine
+n'est pas requise pour la ségrégation des chromosomes mais est
+nécessaire pour observer des mouvements oscillatoires comme observé chez
+la souche sauvage (Figure~\ref{fig:dam1-traj}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/annexes/dam1-traj.png}
+\caption[Trajectoire du chromosome II dans la levure à fission sans Dam1]{\label{fig:dam1-traj}Trajectoire
+du chromosome II dans la levure à fission sans Dam1. \textbf{A}.
+Kymographe de la trajectoire des deux pôles du fuseau mitotique et des
+deux kinétochores du chromosome II durant la métaphase et l'anaphase.
+\textbf{B}. La trajectoire reconstruite du kymographe en \textbf{A}.}
+\end{figure}
+
+On note aussi que bien les chromosomes n'oscillent pas, ils sont centrés
+au milieu du fuseau mitotique. Cette observation confirme celle faite
+durant l'analyse des trajectoires des chromosomes en présence d'une
+drogue stabilisatrice des microtubules (Thiabendazole ou TBZ) à des
+concentrations nanomolaires montrant que le centrage des chromosomes
+étaient indépendant des oscillations (Mary et al.,
+\hyperref[ref-Mary2015]{2015}). Ce résultat va à l'encontre d'une étude
+similaire chez des cellules HeLa proposant que la congression est
+contrôlé par une diminution du mouvement des chromosomes (Stumpff et
+al., \hyperref[ref-Stumpff2008]{2008}).
+
+\cleardoublepage
+\clearpage\null
 
 \section{Paramètres minimums reproduisant un mouvement
 oscillatoire}\label{paramuxe8tres-minimums-reproduisant-un-mouvement-oscillatoire}
@@ -4196,127 +4331,7 @@ aux 4 premiers minimum locaux pour l'autocorrélation et aux quatre
 premiers maximum locaux pour la transformée de Fourier.}
 \end{figure}
 
-\section{Le complexe DAM1 favorise l'attachement
-microtubule-kinétochore}\label{le-complexe-dam1-favorise-lattachement-microtubule-kinuxe9tochore}
-
-\label{sec:dam1}
-
-\subsection{Strucure de Dam1 et son rôle dans la régulation de
-l'attachement}\label{strucure-de-dam1-et-son-ruxf4le-dans-la-ruxe9gulation-de-lattachement}
-
-La protéine Dam1 a été pour la première fois identifié chez la levure à
-bourgeon comme une protéine crucial pour le maintien de l'intégrité
-structurelle du fuseau mitotique (Hofmann,
-\hyperref[ref-Hofmann1998]{1998})
-
-Par la suite, il a été montré que des complexes composés de DAM1
-pouvaient former des structures en anneaux \textbf{in vitro} (Westermann
-et al., \hyperref[ref-Westermann2005]{2005}) autour des microtubules
-(Figure~\ref{fig:dam1-struct}).
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{figures/annexes/dam1-struct.png}
-\caption[Structure du complexe DAM1]{\label{fig:dam1-struct}Structure du
-complexe DAM1. \textbf{A}. Schéma de la strucute et du positionnement du
-complexe DAM1 lorsque il forme un anneau autour du microtubule.
-\textbf{B}. Exemple d'une image de microscopie éléctronique (EM)
-montrant une vue de l'extrémité finale d'un microtubule entourée d'un
-complexe DAM1 (Westermann et al., \hyperref[ref-Westermann2006]{2006}).
-\textbf{C}. Complexe DAM1 purifié et attaché à des microtubules
-stabilisés par du taxol et visualisé par EM (Westermann et al.,
-\hyperref[ref-Westermann2005]{2005}). \textbf{D}. Complexe DAM1 incubé
-48h dans une monocouche phospholipidique et visualisé par EM. Des
-anneaux auto-assemblés de complexe DAM1 sont visibles. Les barre
-d'echelles correspondent à 50nm.}
-\end{figure}
-
-Cependant c'est dans une autre étude que le rôle essentiel du complexe
-DAM1 dans l'attachement kinétochore-microtubule fut décrit (Westermann
-et al., \hyperref[ref-Westermann2006]{2006}). En effet les auteurs ont
-montré (Figure~\ref{fig:dam1-struct}) par vidéo-microscopie à
-fluorescence que des anneaux de DAM1 peuvent se déplacer vers
-l'extrémité plus d'un microtubule sur plusieurs micromètre sans se
-détacher. Ils proposent alors que la protéine Dam1 joue un rôle
-important dans l'attachement kinétochore-microtubule et agit comme un
-système capable de convertir l'énergie mécanique générée par un
-microtubule en une force appliquée sur le kinétochore afin de générer un
-mouvement.
-
-Des oligomères de Dam1 de plus petite tailles sans structure en anneau
-ont aussi été identifiées \textbf{in vitro} chez la levure à bourgeon
-(Gestaut et al., \hyperref[ref-Gestaut2008]{2008}). Ces assemblages
-appelés « patchs » sont cependant capable de diffusés le long du
-microtubule ainsi que de suivre son extrémité pendant sa
-dépolymérisation (Gestaut et al., \hyperref[ref-Gestaut2008]{2008}).
-
-La protéine Dam1 est conservé chez la levure à fission et se localiste
-de la même façon que son homologue de la levure à bourgeon au niveau des
-kinétochores et des microtubules nucléaires. Cependant une étude
-\emph{in vivo} a montré par microscopie quantitative que en moyenne
-seulement 7-8 copies de Dam1 étaient présent au kinétochore (Gao et al.,
-\hyperref[ref-Gao2010]{2010}). Les auteurs proposent donc Dam1 est
-capable de modifier la dynamique des microtubules kinétochoriens sans
-structure en anneaux mais plutôt à travers des « patchs » de petite
-tailles.
-
-Une autre étude montre aussi que Dam1 est capable de former des patchs
-\textbf{in vitro} lorsque sa concentration est très faible de l'ordre de
-500pM (Tien et al., \hyperref[ref-Tien2010]{2010}).
-
-Bien que Dam1 soit absent chez les eucaryotes supérieurs comme la
-cellule humaine, une autre protéine, Ska1, a été décrite comme pouvant
-jouer un rôle similaire à Dam1 (Schmidt et al.,
-\hyperref[ref-Schmidt2012]{2012}). Différentes études ont été en mesure
-de montrer que que les complexes Ska1 et NDC80 forment un système
-intégré capable de coupler le mouvement des chromosomes à la
-dépolymérisation des microtubules (Daum et al.,
-\hyperref[ref-Daum2009]{2009}; Gaitanos et al.,
-\hyperref[ref-Gaitanos2009]{2009}; Hanisch et al.,
-\hyperref[ref-Hanisch2006]{2006}; Raaijmakers et al.,
-\hyperref[ref-Raaijmakers2009]{2009}; Schmidt et al.,
-\hyperref[ref-Schmidt2012]{2012}; Theis et al.,
-\hyperref[ref-Theis2009]{2009}; Welburn et al.,
-\hyperref[ref-Welburn2009]{2009}).
-
-\subsection{La congression et les oscillations des chromosomes sont deux
-mécanismes indépendants chez la levure à
-fission}\label{la-congression-et-les-oscillations-des-chromosomes-sont-deux-muxe9canismes-induxe9pendants-chez-la-levure-uxe0-fission}
-
-Bien que le mutant \emph{dam1Δ} chez la levure à bourgeon soit non
-viable, celui de la levure à fission est viable. Il montre cependant des
-problèmes de croissance et une ségrégation anormal des chromosomes
-(Sanchez-Perez et al., \hyperref[ref-Sanchez-Perez2005]{2005}). Il a
-aussi été montré que la protéine Dam1 chez la levure à fission joue un
-rôle durant la capture des chromosomes par les microtubules durant la
-mitose (Gachet et al., \hyperref[ref-Gachet2008a]{2008}).
-
-L'analyse des trajectoires des chromosomes en métaphase et anaphase chez
-la levure à fission sans la protéine Dam1 montre que cette protéine
-n'est pas requise pour la ségrégation des chromosomes mais est
-nécessaire pour observer des mouvements oscillatoires comme observé chez
-la souche sauvage (Figure~\ref{fig:dam1-traj}).
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{figures/annexes/dam1-traj.png}
-\caption[Trajectoire du chromosome II dans la levure à fission sans Dam1]{\label{fig:dam1-traj}Trajectoire
-du chromosome II dans la levure à fission sans Dam1. \textbf{A}.
-Kymographe de la trajectoire des deux pôles du fuseau mitotique et des
-deux kinétochores du chromosome II durant la métaphase et l'anaphase.
-\textbf{B}. La trajectoire reconstruite du kymographe en \textbf{A}.}
-\end{figure}
-
-On note aussi que bien les chromosomes n'oscillent pas, ils sont centrés
-au milieu du fuseau mitotique. Cette observation confirme celle faite
-durant l'analyse des trajectoires des chromosomes en présence d'une
-drogue stabilisatrice des microtubules (Thiabendazole ou TBZ) à des
-concentrations nanomolaires montrant que le centrage des chromosomes
-étaient indépendant des oscillations (Mary et al.,
-\hyperref[ref-Mary2015]{2015}). Ce résultat va à l'encontre d'une étude
-similaire chez des cellules HeLa proposant que la congression est
-contrôlé par une diminution du mouvement des chromosomes (Stumpff et
-al., \hyperref[ref-Stumpff2008]{2008}).
+\clearpage\null
 
 \backmatter
 
