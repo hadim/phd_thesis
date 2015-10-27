@@ -2652,6 +2652,8 @@ propriétés biophysiques.
 \subsection{L'état de cohérence du mouvement des kinétochores
 frères}\label{luxe9tat-de-cohuxe9rence-du-mouvement-des-kinuxe9tochores-fruxe8res}
 
+\label{sec:coherence}
+
 En plus des propriétés oscillatoires telles que l'amplitude ou la
 période des mouvements (voir Section~\ref{sec:article} pour les
 résultats de cette analyse), il est aussi possible d'analyser la
@@ -3272,6 +3274,8 @@ coordonnés des chromosomes en mitose.
 \subsection{Vers un modèle d'attachement à trois
 états}\label{vers-un-moduxe8le-dattachement-uxe0-trois-uxe9tats}
 
+\label{sec:three-state}
+
 L'instabilité directionnelle des chromosomes \emph{in vivo} n'est pas
 reproduite par le modèle de force balance présenté jusqu'ici. En effet,
 les oscillations pourraient requérir un mécanisme encore mal compris
@@ -3556,7 +3560,7 @@ chromosomes}\label{le-muxe9canisme-de-congression-des-chromosomes}
 
 L'alignement des chromosomes au milieu du fuseau mitotique est une
 observation faite dans une grande majorité des cellules eucaryotes.
-Cette régulation spatiale implique que au moins des processus régulant
+Cette régulation spatiale implique qu'au moins un des processus régulant
 la dynamique des chromosomes soit capable de « détecter » la position du
 chromosome le long du fuseau.
 
@@ -3681,82 +3685,205 @@ première hypothèse (Mary et al., \hyperref[ref-Mary2015]{2015}).
 
 Pour finir, on peut souligner que ce travail de thèse confirme le rôle
 crucial des kinésines dépolymérisatrices comme la kinésine-8 dans des
-processus cellulaires clés tel que la division cellulaire. En effet, il
-a été montré que les kinésines dépolymérisatrice contrairement aux
-autres kinésines sont présentes dans toutes les cellules eucaryotes
-testées jusqu'à présent (Wickstead and Gull,
-\hyperref[ref-Wickstead2006]{2006}). Ceci montre bien que les kinésines
-outre leurs rôles dans le transport des vésicules et des organites ont
-une activité propre qui est l'origine de la régulation de mécanismes
-aussi complexe que la dynamique des microtubules. L'évolution a
-sélectionné un outil très puissant car capable de moduler de manière
+processus cellulaires clés tel que la mitose. En effet, les kinésines
+dépolymérisatrice contrairement aux autres kinésines sont présentes dans
+toutes les cellules eucaryotes testées jusqu'à présent (Wickstead and
+Gull, \hyperref[ref-Wickstead2006]{2006}). Ceci montre que les
+kinésines, outre leurs rôles dans le transport des vésicules et des
+organites, ont une activité propre qui est l'origine de la régulation de
+mécanismes aussi complexe que la dynamique des microtubules. L'évolution
+a sélectionné ici un outil très puissant capable de moduler de manière
 spatio-temporelle la concentration d'éléments transportés ou directement
 des kinésines elles-mêmes à l'intérieur de la cellule.
 
 \subsection{La régulation du mouvement des
 chromosomes}\label{la-ruxe9gulation-du-mouvement-des-chromosomes}
 
-\begin{itemize}
-\item
-  communication active ou bien emergente des mecanisme sous jacent plus
-  basique ?
-\item
-  force de la levure dans ce type d'etude car mvt tres irregulier
+Le mouvement des chromosomes est l'un des phénomènes les plus
+remarquable de la division cellulaire. La génération et la régulation du
+mouvement d'objets aussi grand dans un espace aussi confiné est un
+challenge que la cellule a su relevée notamment par l'établissement du
+fuseau mitotique et de structures telle que le kinétochore.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    regularite lie au nombre de chromosome/taille/nbre de microtubule
-  \end{itemize}
-\item
-  analyse stat bayesienne
-\item
-  regulation mvt oscillation
+Dans une étude sur l'homologue de la kinésine-8 humaine, Stumpff et al.
+montre que la protéine Kif18a atténue le mouvement des chromosomes en
+favorisant l'état de pause à l'extrémité plus du microtubule (Stumpff et
+al., \hyperref[ref-Stumpff2012]{2012}). Par la suite, ils expliquent que
+le mécanisme de congression pourrait provenir du fait que l'atténuation
+des mouvements soit dépendant de la concentration de Kif18a (donc de la
+longueur dû à sa processivité sur le microtubule).
 
-  \begin{itemize}
-  \tightlist
-  \item
-    si mt sont impliques dans le switch
-  \item
-    difference levure/cellule supp
-  \item
-    mvt irregulier 20\% chez hella
-  \item
-    modele qui doit aussi prendre en compte ca
-  \end{itemize}
-\item
-  dam1 en supp schema + photo EM + kymo Section~\ref{sec:dam1}
-\item
-  aucune étude n'a comparé rigouresement les différentes type de
-  tubuline alpha et beta de différents organisme. Leurs dynamique
-  pourraient être légèrement (idée devolution) différente d'une espece à
-  l'autre et donc coordonnée de maniere différente la dynamique des
-  microtubules. Il faudrait faire une étude phylogénique de comparaison
-  des seq genomique et proteique ou une étude comparative in vitro de
-  mesure des differents parametre de linstabilité dynamique.
-\end{itemize}
+Ce travail de thèse montre que l'amplitude des oscillations des
+chromosomes chez des cellules \emph{S. pombe} délétées pour la protéine
+Klp6 est plus important que dans des cellules sauvages (voir la Figure 2
+dans Mary et al. (\hyperref[ref-Mary2015]{2015})). De plus il est
+observé chez ces même cellules que Klp6 permet la congression des
+chromosomes, de la même manière que chez les cellules humaines avec
+Kif18a.
+
+Cette observation va dans le sens que la kinésine-8 pourrait agir comme
+un régulateur du mouvement des chromosomes permettant leur congression
+et confirme donc le résultat de Stumpff et al. (Stumpff et al.,
+\hyperref[ref-Stumpff2012]{2012}).
+
+Cependant, ce travail a aussi montré que l'inhibition des oscillations
+des chromosomes a un effet seulement minime sur leur congression le long
+du fuseau mitotique. Un résultat non détaillé montre aussi qu'il existe
+un mutant chez la levure à fission (le mutant \emph{dam1Δ}) qui n'exhibe
+pas d'oscillations mais dont les chromosomes sont alignés en métaphase
+(voir l'annexe en Section~\ref{sec:dam1}). Ensemble ces deux résultats
+vont donc l'encontre de l'hypothèse proposé par Stumpf et al..
+
+Plusieurs phénomènes peuvent expliquer ces résultats contradictoires.
+
+On note que l'hypothèse de Stumpff et al. est basé sur le rôle de deux
+kinésines sur le fuseau mitotique. La kinésine-8 comme déjà expliqué
+ainsi qu'une chromokinésine, appelé Kid qui générerait des forces de
+poussée sur le chromosome (Brouhard and Hunt,
+\hyperref[ref-Brouhard2005]{2005}, Cassimeris et al.
+(\hyperref[ref-Cassimeris1994]{1994})). Les chromokinésine ont aussi été
+décrite comme favorisant l'alignement des chromosomes (Funabiki and
+Murray, \hyperref[ref-Funabiki2000]{2000}). Or la levure à fission ne
+possède pas de chromokinésines et dès lors il est plus difficile de
+comparer les deux hypothèses de congression dans des fuseaux aussi
+différents.
+
+Il est aussi possible que la congression chez \emph{S. pombe} ai lieu
+très tôt en prométaphase et donc que Klp5 et Klp6 participent seulement
+au maintien des chromosomes au centre du fuseau. Ce qui expliquerait
+pourquoi l'inhibition des oscillations n'a que peu d'effet sur
+l'alignement en métaphase.
+
+Ce centrage très tôt en prométaphase a déjà été décrit chez des cellules
+de mammifères (Kapoor et al., \hyperref[ref-Kapoor2006]{2006}) et a
+montré que ce processus était dépendant de CENP-E (kinésine-7). Il est
+par ailleurs intéressant de noter que Grissom et al. ont proposé que la
+kinésine-8 chez la levure à fission pourrait partager des propriétés
+communes avec la kinésine-7 absente chez ce dernier (Grissom et al.,
+\hyperref[ref-Grissom2009]{2009}). Cela serait alors un exemple du
+principe stipulant qu'à travers un vaste ensemble phylogénique, le
+fuseau mitotique et ses composants préservent leurs fonctions mais pas
+nécessairement l'identité de leurs protéines (McIntosh et al.,
+\hyperref[ref-McIntosh2002b]{2002}).
+
+On souligne aussi que les deux modèles mathématiques de la congression
+des chromosomes proposés durant ce travail (Mary et al.
+(\hyperref[ref-Mary2015]{2015}) et Section~\ref{sec:second-modele})
+reproduisent fidèlement l'alignement des chromosomes sans même
+reproduire les oscillations observées \emph{in vivo}.
+
+Cependant, bien que les deux modèles de congression proposés ne
+reproduisent pas les oscillations, cela ne signifie pas que celles-ci ne
+jouent pas nécessairement un rôle dans la congression. Il serait donc
+intéressant de pouvoir reproduire les oscillations des chromosomes
+\emph{in silico} afin d'étudier plus finement leurs possibles impacts
+sur la congression.
+
+Mais le mécanisme de génération du mouvement reste encore mal compris et
+il est donc encore difficile de modéliser mathématiquement et de manière
+fidèle le mouvement des chromosomes dans un cadre générale de la
+ségrégation des chromosomes (Gay et al., \hyperref[ref-Gay2012a]{2012}).
+
+Le modèle utilisé dans le cadre de ce travail (basé sur les travaux de
+Tournier et al.) ne fait aucune hypothèse sur le mécanisme moléculaire
+générant la force au kinétochore et suppose une relation force-vitesse
+linéaire.
+
+L'un des challenges auquel a à faire la cellule dès lors qu'une force
+est générée au niveau des kinétochores frères et la régulation qu'exerce
+l'un des kinétochores par rapport à son frères. En effet l'état de
+cohérence entre les deux kinétochores doit être synchronisé afin de
+pouvoir générer un mouvement le plus efficace possible.
+
+L'origine de cette synchronisation est encore inconnue bien des études
+proposant des hypothèses de processus actifs basées sur la détection de
+la force et la présence d'une horloge moléculaire au niveau du
+microtubule existent (Vladimirou et al.,
+\hyperref[ref-Vladimirou2013]{2013}, Armond et al.
+(\hyperref[ref-Armond2015]{2015}), Burroughs et al.
+(\hyperref[ref-Burroughs2015]{2015})).
+
+Une idée alternative est que l'instabilité directionnelle des
+chromosomes (Skibbens et al., \hyperref[ref-Skibbens1993]{1993}) est une
+propriété inhérente des kinétochores et que le changement d'un état P-AP
+ou AP-P est indépendant de toutes influences extérieurs. Dès lors la
+synchronisation serait le résultat de l'émergence d'une dynamique
+gouvernée par l'instabilité dynamique des microtubules couplée au
+kinétochore. Ce modèle appelé « dumb kinetochore model » discuté par
+Khodjakov et al. (Khodjakov et al., \hyperref[ref-Khodjakov1999]{1999})
+est soutenu par l'observation qu'une partie significative des
+kinétochores frères sont dans un état d'incohérence chez la levure à
+fission (voir l'annexe sec:coherence) et que 20\% des trajectoires de
+chromosome chez la cellule HeLa exhibent des mouvements « hautement
+stochastiques » (Burroughs et al., \hyperref[ref-Burroughs2015]{2015}).
+
+Il est possible de tester ces modèles de régulation des mouvements P et
+AP par deux approches différentes. La première serait de concevoir un
+modèle mathématique simple et « from scratch » afin de comprendre les
+mécanismes fondamentaux capable de produire des mouvements
+oscillatoires. Une première tentative d'implémentation naïve est
+disponible dans les annexes en Section~\ref{sec:simu-oscillations}. Cet
+modèle est composé de trois paramètres : un taux d'attachement, un taux
+de détachement ainsi que le nombre de site d'attachements par
+kinétochore. Les premiers résultats semblent indiquer que ces trois
+paramètres ne sont pas suffisant pour obtenir un mouvement régulier et
+qu'il manque probablement des mécanismes plus complexes de régulation
+des attachements.
+
+Une autre possibilité serait de poursuivre l'implémentation du modèle
+d'attachement à trois états dans le modèle initiale de ségrégation des
+chromosomes sur lequel est basé ce travail (Gay et al.,
+\hyperref[ref-Gay2012a]{2012}) (voir Section~\ref{sec:three-state}).
+TODO ICI DISCUTER AVEC GUILLAUME
+
+Pour finir, on note que les études faites sur le mouvement et les
+oscillations des chromosomes a presque toujours été faite sur des
+eucaryotes supèrieurs et rarement chez des organismes tel que la levure
+à fission.
+
+Pourtant il est intéressant de souligner que les mouvements observés
+chez les levures sont irréguliers (Mary et al.,
+\hyperref[ref-Mary2015]{2015}, Stephens et al.
+(\hyperref[ref-Stephens2013a]{2013})) comparés à ceux observés chez les
+cellules eucaryotes supèrieurs tel que les cellules humaines (Jaqaman et
+al., \hyperref[ref-Jaqaman2010]{2010}). Cependant, ces cellules peuvent
+aussi posséder des chromosomes exhibant des mouvements irréguliers
+(Burroughs et al., \hyperref[ref-Burroughs2015]{2015}).
+
+Dès lors il devient important de se poser la question de savoir non pas
+comment les chromosomes oscillent mais bien quel mécanisme peut
+expliquer une diversité aussi vaste de mouvement des chromosomes; aussi
+bien les oscillations régulières que les mouvements irréguliers.
+
+Plusieurs différences pourraient expliquer le mouvement irrégulier
+observé chez les levures. Tout d'abord la taille du fuseau est beaucoup
+plus faible, tout comme le nombre de microtubules attachés. Les
+chromosomes seraient donc soumis à un éventail de forces plus
+restreintes et seraient donc plus sensible aux phénomènes stochastiques
+qui gouvernent la dynamique à ces échelles.
+
+Une autre hypothèse pourrait s'expliquer par la différence de structure
+des protéines composant les microtubules (la tubuline \(\alpha\) et
+\(\beta\)). En effet si on suppose que le mouvement est en partie dû à
+l'instabilité dynamique des microtubules alors leurs structures doivent
+jouer un rôle crucial dans la régulation de cette dynamique. Il faudrait
+mettre au point une étude \emph{in vitro} afin de comparer les
+différentes type de tubuline \(\alpha\) et \(\beta\) chez différents
+organismes ainsi qu'une analyse bioinformatique afin de comparer leurs
+différences de structures d'un point de vue phylogénique.
 
 \subsection{Vers un modèle global de la division
 cellulaire}\label{vers-un-moduxe8le-global-de-la-division-cellulaire}
 
+LA JE VAIS JUSTE FAIRE DEUX TROIS PETITS PARAGRAPHES DE PERSPECTIVES SUR
+LA COLLABO AVEC JACQUES
+
 \begin{itemize}
-\item
-  Une autre idée serait de concevoir un modèle numérique « from scratch
-  » afin de comprendre les mécanismes fondamentaux capable de produire
-  des mouvements oscillatoires. Une première tentative d'implémentation
-  naïve est disponible dans les annexes en
-  Section~\ref{sec:simu-oscillations}. Cet modèle est composé de trois
-  paramètres : un taux d'attachement, un taux de détachement ainsi que
-  le nombre de site d'attachements par kinétochore. Les résultats
-  semblent indiquer que ces trois paramètres ne sont pas suffisant pour
-  obtenir un mouvement régulier et qu'il manque probablement des
-  mécanismes plus complexes de régulation des attachements.
+\tightlist
 \item
   apport modelisation ds la dynamique
 \item
-  ouvre passage a la 3d et multi organismes
-\item
-  orientation
+  ouvre passage a la 3d et multi organismes + orientation
 \item
   est ce que la dynamique des chromosomes est pas influencé par d'autre
   mechanisme en dehors du fuseau comme l'orientation
@@ -4201,6 +4328,12 @@ Bowne-Anderson, H., Zanic, M., Kauer, M., and Howard, J. (2013).
 Microtubule dynamic instability: A new model with coupled GTP hydrolysis
 and multistep catastrophe. BioEssays \emph{35}, 452--461.
 
+\hyperdef{}{ref-Brouhard2005}{\label{ref-Brouhard2005}}
+Brouhard, G.J., and Hunt, A.J. (2005). Microtubule movements on the arms
+of mitotic chromosomes: polar ejection forces quantified in vitro.
+Proceedings of the National Academy of Sciences of the United States of
+America \emph{102}, 13903--13908.
+
 \hyperdef{}{ref-Brun2009}{\label{ref-Brun2009}}
 Brun, L., Rupp, B., Ward, J.J., and Nédélec, F. (2009). A theory of
 microtubule catastrophes and their regulation. Proceedings of the
@@ -4215,6 +4348,12 @@ directional switching. ELife \emph{4}, 1--5.
 \hyperdef{}{ref-Campas2006}{\label{ref-Campas2006}}
 Campàs, O., and Sens, P. (2006). Chromosome oscillations in mitosis.
 Physical Review Letters \emph{97}.
+
+\hyperdef{}{ref-Cassimeris1994}{\label{ref-Cassimeris1994}}
+Cassimeris, L., Rieder, C., and Salmon, E. (1994). Microtubule assembly
+and kinetochore directional instability in vertebrate monopolar
+spindles: implications for the mechanism of chromosome congression.
+Journal of Cell Science.
 
 \hyperdef{}{ref-Cheeseman2008}{\label{ref-Cheeseman2008}}
 Cheeseman, I.M., and Desai, A. (2008). Molecular architecture of the
@@ -4294,6 +4433,11 @@ Fu, C., Ward, J.J., Loiodice, I., Velve-Casquillas, G., Nedelec, F.J.,
 and Tran, P.T. (2009). Phospho-regulated interaction between kinesin-6
 Klp9p and microtubule bundler Ase1p promotes spindle elongation.
 Developmental Cell \emph{17}, 257--267.
+
+\hyperdef{}{ref-Funabiki2000}{\label{ref-Funabiki2000}}
+Funabiki, H., and Murray, A.W. (2000). The Xenopus Chromokinesin Xkid Is
+Essential for Metaphase Chromosome Alignment and Must Be Degraded to
+Allow Anaphase Chromosome Movement. Cell \emph{102}, 411--424.
 
 \hyperdef{}{ref-Gachet2008a}{\label{ref-Gachet2008a}}
 Gachet, Y., Reyes, C., Courthéoux, T., Goldstone, S., Gay, G.,
@@ -4446,6 +4590,12 @@ Jonker, R., and Volgenant, a. (1987). A shortest augmenting path
 algorithm for dense and sparse linear assignment problems. Computing
 \emph{38}, 325--340.
 
+\hyperdef{}{ref-Kapoor2006}{\label{ref-Kapoor2006}}
+Kapoor, T.M., Lampson, M. a, Hergert, P., Cameron, L., Cimini, D.,
+Salmon, E.D., McEwen, B.F., and Khodjakov, A. (2006). Chromosomes can
+congress to the metaphase plate before biorientation. Science (New York,
+N.Y.) \emph{311}, 388--391.
+
 \hyperdef{}{ref-Ke2009}{\label{ref-Ke2009}}
 Ke, K., Cheng, J., and Hunt, A.J. (2009). The Distribution of Polar
 Ejection Forces Determines the Amplitude of Chromosome Directional
@@ -4544,6 +4694,11 @@ on the mitotic spindle. Methods in Cell Biology \emph{79}, 259--293.
 \hyperdef{}{ref-McIntosh2012}{\label{ref-McIntosh2012}}
 McIntosh, J.R. (2012). Motors or dynamics: what really moves
 chromosomes? Nature Cell Biology \emph{14}, 1234.
+
+\hyperdef{}{ref-McIntosh2002b}{\label{ref-McIntosh2002b}}
+McIntosh, J.R., Grishchuk, E.L., and West, R.R. (2002).
+Chromosome-microtubule interactions during mitosis. Annual Review of
+Cell and Developmental Biology \emph{18}, 193--219.
 
 \hyperdef{}{ref-McIntosh2008}{\label{ref-McIntosh2008}}
 McIntosh, J.R., Grishchuk, E.L., Morphew, M.K., Efremov, A.K.,
@@ -4757,6 +4912,12 @@ microsurgery: evidence that kinetochore directional instability and
 position is regulated by. Journal of Cell Science \emph{108 ( Pt 7},
 2537--2548.
 
+\hyperdef{}{ref-Stephens2013a}{\label{ref-Stephens2013a}}
+Stephens, A.D., Snider, C.E., Haase, J., Haggerty, R.a., Vasquez, P.a.,
+Gregory Forest, M., and Bloom, K. (2013). Individual pericentromeres
+display coordinated motion and stretching in the yeast spindle. Journal
+of Cell Biology \emph{203}, 407--416.
+
 \hyperdef{}{ref-Stumpff2008}{\label{ref-Stumpff2008}}
 Stumpff, J., Dassow, G. von, Wagenbach, M., Asbury, C., and Wordeman, L.
 (2008). The Kinesin-8 Motor Kif18A Suppresses Kinetochore Movements to
@@ -4828,6 +4989,11 @@ Microtubule Depolymerization. Cell \emph{138}, 1174--1183.
 
 \hyperdef{}{ref-virchow1860cellular}{\label{ref-virchow1860cellular}}
 Virchow, R.L.K. (1860). Cellular pathology (John Churchill).
+
+\hyperdef{}{ref-Vladimirou2013}{\label{ref-Vladimirou2013}}
+Vladimirou, E., Mchedlishvili, N., Gasic, I., Armond, J., Samora, C.,
+Meraldi, P., and McAinsh, A. (2013). Nonautonomous Movement of
+Chromosomes in Mitosis. Developmental Cell \emph{27}, 411--424.
 
 \hyperdef{}{ref-Walczak1996}{\label{ref-Walczak1996}}
 Walczak, C.E., Mitchison, T.J., and Desai, A. (1996). XKCM1: A Xenopus
