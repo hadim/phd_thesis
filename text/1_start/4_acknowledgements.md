@@ -13,7 +13,7 @@ Une mention spéciale à Céline ainsi que tout les membres présents et passés
 
 Je remercie aussi Andreas Merdes ainsi que Florence Larminat pour avoir suivi mon travail de thèse pendant deux ans. Nos discussions et vos commentaires ont toujours été d'une aide précieuse.
 
-Un énorme merci à tout le labo du LBCMCP ! Gardez cette ambiance qui constitue votre ADN et fait de vous un petit labo aux allures de grand. Merci à Pierre, Jonathan, François, Julie, Anne, Carole, Béa, Damien, Gaëlle, Nathalie, Magalie, Thomas, Yvan, Aude, Gemael, Kader, mais aussi à tous ceux que je ne cite pas.
+Un énorme merci à tout le labo du LBCMCP ! Gardez cette ambiance qui constitue votre ADN et fait de vous ce petit labo aux allures de grand dans lequel il fait bon travailler. Merci à Pierre, Jonathan, François, Julie, Anne, Carole, Béa, Damien, Gaëlle, Nathalie, Magalie, Thomas, Yvan, Aude, Gemael, Kader, mais aussi à tous ceux que je ne cite pas.
 
 
 Je veux aussi remercier Maman et Jacques pour votre soutien, votre patience infinie durant toutes ces années mais aussi votre sens innée des grandes réunions familiales réussies. Merci à Papa pour nos nombreux voyages aux quatre coins de la France ou ailleurs, nos longues discussions parisiennes interminables et ton soutien sans faille depuis toujours. Un grand merci à mes frères : Julien, encore quelques années avant d'en voir le bout à ton tour, Aurélien, j'espère que trouveras une voie dans laquelle tu pourras t'épanouir.
