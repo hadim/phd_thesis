@@ -1,8 +1,8 @@
 .PHONY: pdf log docx odt latex
 
 # Custom path
-PANDOC_BIN_FOLDER=~/.cabal/bin/
-PANDOC_BIN=~/.cabal/bin/pandoc
+PANDOC_BIN_FOLDER=~/.local/bin/
+PANDOC_BIN=~/.local/bin/pandoc
 MAIN_BIB=library.bib
 BIB_STYLE=templates/cell.csl
 LATEX_TEMPLATE=templates/preamble.tex
