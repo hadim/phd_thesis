@@ -106,7 +106,7 @@
 
 \usepackage{siunitx}
 \usepackage{float}
-\usepackage{pdfpages}
+\usepackage[final]{pdfpages}
 
 % Adjust spacing between lines to 1.5
 \usepackage{setspace}
@@ -366,10 +366,10 @@ suivi mon travail de thèse pendant deux ans. Nos discussions et vos
 commentaires ont toujours été d'une aide précieuse.
 
 Un énorme merci à tout le labo du LBCMCP ! Gardez cette ambiance qui
-constitue votre ADN et fait de vous un petit labo aux allures de grand.
-Merci à Pierre, Jonathan, François, Julie, Anne, Carole, Béa, Damien,
-Gaëlle, Nathalie, Magalie, Thomas, Yvan, Aude, Gemael, Kader, mais aussi
-à tous ceux que je ne cite pas.
+constitue votre ADN et fait de vous ce petit labo aux allures de grand
+dans lequel il fait bon travailler. Merci à Pierre, Jonathan, François,
+Julie, Anne, Carole, Béa, Damien, Gaëlle, Nathalie, Magalie, Thomas,
+Yvan, Aude, Gemael, Kader, mais aussi à tous ceux que je ne cite pas.
 
 Je veux aussi remercier Maman et Jacques pour votre soutien, votre
 patience infinie durant toutes ces années mais aussi votre sens innée
@@ -2186,7 +2186,7 @@ Dans l'ensemble, ces données illustrent comment l'action locale d'une
 protéine motrice au kinétochore peut fournir une information spatiale à
 l'ensemble de fuseau afin de permettre l'alignement des chromosomes.
 
-\includepdf[pages=-,pagecommand=\thispagestyle{plain}]{text/3_resultats/jcs_issue.pdf}
+\includepdf[pages=-,scale=10,pagecommand=\thispagestyle{plain}]{text/3_resultats/jcs_issue.pdf}
 \includepdf[pages=-,pagecommand=\thispagestyle{plain}]{text/3_resultats/jcs_article.pdf}
 \includepdf[pages=-,pagecommand=\thispagestyle{plain}]{text/3_resultats/jcs_supp.pdf}
 
@@ -3071,7 +3071,7 @@ précédemment développé par Tournier et al. (Gay et al.,
 sous licence open-source à cette adresse :
 \texttt{https://github.com/bnoi/kt\_simul}. Le code source est basé sur
 le langage de programmation Python ainsi que l'ensemble des librairies
-scientifique associées («~Scipy~», Oliphant
+scientifique associées («~Scipy~»; Oliphant
 (\protect\hyperlink{ref-Oliphant2007}{2007})).
 
 Dans le but de rendre \texttt{kt\_simul} plus facilement utilisable et
@@ -3593,21 +3593,21 @@ microtubules. Bien que cette hypothèse ai été observés dans des
 microtubules nucléaires en mitose chez la levure à fission (Mary et al.,
 \protect\hyperlink{ref-Mary2015}{2015}), elle reste controversée car la
 haute processivité \emph{in vitro} de Klp5 et Klp6 n'a pas été observée
-(Grissom et al., \protect\hyperlink{ref-Grissom2009}{2009}, Erent et al.
-(\protect\hyperlink{ref-Erent2012}{2012})) comme chez les autres
+(Erent et al., \protect\hyperlink{ref-Erent2012}{2012}; Grissom et al.,
+\protect\hyperlink{ref-Grissom2009}{2009}) comme chez les autres
 homologues de la kinésine-8; la cellule humaine et la levure à bourgeon
-(Stumpff et al., \protect\hyperlink{ref-Stumpff2011a}{2011}, Varga et
-al. (\protect\hyperlink{ref-Varga2006}{2006})). Cela pourrait
-s'expliquer par le fait que Klp5 et Klp6 agissent en formant un
-hétérodimères (Unsworth et al.,
-\protect\hyperlink{ref-Unsworth2008}{2008}) et que des modifications
-essentielles ou bien l'ajout de composants encore non-identifiés
-manqueraient durant les étapes d'expression et de purification \emph{in
-vitro} (Messin and Millar, \protect\hyperlink{ref-Messin2014}{2014}). De
-plus une étude \emph{in vivo} sur des microtubules cytoplasmiques a
-montré que Klp5 et Klp6 augmentent le taux de catastrophe des
-microtubules d'une manière dépendante de leurs longueurs (Tischer et
-al., \protect\hyperlink{ref-Tischer2009}{2009}).
+(Stumpff et al., \protect\hyperlink{ref-Stumpff2011a}{2011}; Varga et
+al., \protect\hyperlink{ref-Varga2006}{2006}). Cela pourrait s'expliquer
+par le fait que Klp5 et Klp6 agissent en formant un hétérodimères
+(Unsworth et al., \protect\hyperlink{ref-Unsworth2008}{2008}) et que des
+modifications essentielles ou bien l'ajout de composants encore
+non-identifiés manqueraient durant les étapes d'expression et de
+purification \emph{in vitro} (Messin and Millar,
+\protect\hyperlink{ref-Messin2014}{2014}). De plus une étude \emph{in
+vivo} sur des microtubules cytoplasmiques a montré que Klp5 et Klp6
+augmentent le taux de catastrophe des microtubules d'une manière
+dépendante de leurs longueurs (Tischer et al.,
+\protect\hyperlink{ref-Tischer2009}{2009}).
 
 La seconde hypothèse est que l'augmentation de l'activité
 dépolymérisatrice des microtubules induit par Klp5 et Klp6 (Erent et
@@ -3636,8 +3636,8 @@ sur une nouvelle hypothèse. En effet les premières études \emph{in
 vitro} et in \emph{vivo} de l'homologue de la kinésine-8 chez la levure
 à bourgeon, Kip3p, proposent que la kinésine-8 de part sa processivité
 et son activité dépolymérisatrice est capable de contrôler la taille des
-microtubules (Varga et al., \protect\hyperlink{ref-Varga2006}{2006},
-Gupta et al. (\protect\hyperlink{ref-Gupta2006}{2006})). Un résultat qui
+microtubules (Gupta et al., \protect\hyperlink{ref-Gupta2006}{2006};
+Varga et al., \protect\hyperlink{ref-Varga2006}{2006}). Un résultat qui
 a aussi été observé dans une autre étude chez l'homologue humain de la
 kinésine-8, Kif18a (Weaver et al.,
 \protect\hyperlink{ref-Weaver2011}{2011}). De plus une étude a aussi
@@ -3675,10 +3675,10 @@ engendrer ce type de technique.
 Une première tentative d'implémentation de l'hypothèse alternative était
 basée sur les distributions observées par microscopie électronique des
 microtubules du fuseau mitotique (Ding et al.,
-\protect\hyperlink{ref-Ding1993a}{1993}, Ward et al.
-(\protect\hyperlink{ref-Ward2014}{2014})). Cependant, il a été
-impossible de reproduire des trajectoires de chromosomes similaires à
-celles observées \emph{in vivo}.
+\protect\hyperlink{ref-Ding1993a}{1993}; Ward et al.,
+\protect\hyperlink{ref-Ward2014}{2014}). Cependant, il a été impossible
+de reproduire des trajectoires de chromosomes similaires à celles
+observées \emph{in vivo}.
 
 La distribution en forme de cloche a donc été choisie de manière
 arbitraire et ses paramètres optimisées afin de reproduire l'alignement
@@ -3746,8 +3746,8 @@ On note que l'hypothèse de Stumpff et al. est basé sur le rôle de deux
 kinésines sur le fuseau mitotique. La kinésine-8 comme déjà expliqué
 ainsi qu'une chromokinésine, appelé Kid qui générerait des forces de
 poussée sur le chromosome (Brouhard and Hunt,
-\protect\hyperlink{ref-Brouhard2005}{2005}, Cassimeris et al.
-(\protect\hyperlink{ref-Cassimeris1994}{1994})). Les chromokinésine ont
+\protect\hyperlink{ref-Brouhard2005}{2005}; Cassimeris et al.,
+\protect\hyperlink{ref-Cassimeris1994}{1994}). Les chromokinésine ont
 aussi été décrite comme favorisant l'alignement des chromosomes
 (Funabiki and Murray, \protect\hyperlink{ref-Funabiki2000}{2000}). Or la
 levure à fission ne possède pas de chromokinésines et dès lors il est
@@ -3807,10 +3807,10 @@ REFORMULER
 L'origine de cette synchronisation est encore inconnue bien QUE des
 études proposant des hypothèses de processus actifs basées sur la
 détection de la force et la présence d'une horloge moléculaire au niveau
-du microtubule existent (Vladimirou et al.,
-\protect\hyperlink{ref-Vladimirou2013}{2013}, Armond et al.
-(\protect\hyperlink{ref-Armond2015}{2015}), Burroughs et al.
-(\protect\hyperlink{ref-Burroughs2015}{2015})). TODO A REFORUMLER ETRE
+du microtubule existent (Armond et al.,
+\protect\hyperlink{ref-Armond2015}{2015}; Burroughs et al.,
+\protect\hyperlink{ref-Burroughs2015}{2015}; Vladimirou et al.,
+\protect\hyperlink{ref-Vladimirou2013}{2013}). TODO A REFORUMLER ETRE
 CRITIQUE ILS NE PROPOSENT PAS DE MECANISME
 
 Une idée alternative est que l'instabilité directionnelle des
@@ -3855,8 +3855,8 @@ eucaryotes supèrieurs et rarement chez des organismes tel que la levure
 
 Pourtant il est intéressant de souligner que les mouvements observés
 chez les levures sont irréguliers (Mary et al.,
-\protect\hyperlink{ref-Mary2015}{2015}, Stephens et al.
-(\protect\hyperlink{ref-Stephens2013a}{2013})) comparés à ceux observés
+\protect\hyperlink{ref-Mary2015}{2015}; Stephens et al.,
+\protect\hyperlink{ref-Stephens2013a}{2013}) comparés à ceux observés
 chez les cellules eucaryotes supèrieurs tel que les cellules humaines
 (Jaqaman et al., \protect\hyperlink{ref-Jaqaman2010}{2010}). Cependant,
 ces cellules peuvent aussi posséder des chromosomes exhibant des
