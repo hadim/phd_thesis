@@ -1588,17 +1588,14 @@ afin de suivre l'évolution de la position de chaque objet du système
 dans le temps, défini par :
 
 \[
-F = m\frac{d^2x}{d^2t} + \gamma\frac{dx}{dt} + \kappa x
+\sum F - \gamma\frac{dx}{dt} - \kappa x = m\frac{d^2x}{d^2t}
 \]
 
-\[
-\sum F = m\frac{d^2x}{d^2t}
-\]
-
-TODO Où le premier terme inertiel est la seconde loi de Newton, le
-second terme correspond aux forces visqueuses et le troisième terme est
-du aux forces élastiques. \(F\) correspond à toutes les autres forces
-externes appliquées au système (Figure~\ref{fig:motion_equation}).
+Où le terme inertiel est la seconde loi de Newton, le terme dépendant de
+la vitesse \(\frac{dx}{dt}\) correspond aux forces visqueuses et le
+troisième terme est du aux forces élastiques. \(\sum F\) correspond à
+toutes les autres forces externes appliquées au système
+(Figure~\ref{fig:motion_equation}).
 
 \begin{figure}[htbp]
 \centering
@@ -1630,7 +1627,7 @@ un système subcellulaire (Figure~\ref{fig:motion_equation}).
 On peut donc approximer l'équation du mouvement comme suit :
 
 \[
-F = \gamma\frac{dx}{dt} + \kappa x
+\sum F = \gamma\frac{dx}{dt} + \kappa x
 \]
 
 \subsubsection{Application au fuseau
@@ -3376,54 +3373,24 @@ polymérisation) du microtubule attaché (Figure~\ref{fig:three_states}).
 Cette implémentation du modèle d'attachements à trois états ajoute donc
 deux paramètres mais aucune synchronisation entre les kinétochores
 frères. On suppose donc que la présence d'oscillations serait une
-caractéristique émergente du système (théorie du kinétochore bête, voir
-Khodjakov et al. (\protect\hyperlink{ref-Khodjakov1999}{1999})).
+caractéristique émergente du système (théorie du «~kinétochore bête~»,
+voir Khodjakov et al. (\protect\hyperlink{ref-Khodjakov1999}{1999})).
 
 Un modèle plus complexe serait de moduler \(k_{rescue}\) et
 \(k_{catastrophe}\) en fonction de la vitesse de déplacement du
 kinétochore, qui correspond à la vitesse de polymérisation et
 dépolymérisation du microtubule attaché.
 
-Ainsi le système introduit un mécanisme de communication entre les deux
-kinétochores frères et on suppose alors que les oscillations proviennent
-directement de la capacité des kinétochores à détecter l'état dans
-lequel ils sont (théorie du kinétochore intelligent, voir Khodjakov et
-al. (\protect\hyperlink{ref-Khodjakov1999}{1999})).
+Ainsi il est introduit dans le système un mécanisme de communication
+entre les deux kinétochores frères et on suppose alors que les
+oscillations proviennent directement de la capacité des kinétochores à
+détecter l'état dans lequel ils sont (théorie du «~kinétochore
+intelligent~», voir Khodjakov et al.
+(\protect\hyperlink{ref-Khodjakov1999}{1999})).
 
-Un exemple d'implémentation de la modulation des taux de catastrophe et
-de rescue pourrait prendre cette forme :
-
-\[
-k_{rescue} = \frac{kmax_{rescue}}{1 + e^{\frac{-v}{v_{shrink}}}}
-\]
-
-\[
-k_{catastrophe} = \frac{kmax_{catastrophe}}{1 + e^{\frac{-v}{v_{growth}}}}
-\]
-
-GUILLAUME: JAI DU MAL A ME SOUVENIR/COMPRENDRE PK ON A CONSTRUIT UNE
-MODULATION BASE SUR DES VITESSE. NE POURRAIT ON PAS FAIRE UN SWITCH
-DEPENDANT DE LA TENSION DONC DU STRETCH (SI ON SUPPOSE UN COEF DE
-RAIDEUR CONSTANT) COMME PROPOSE DANS LES MODELES STANDARD (VOIR Rieder
-and Salmon, 1994 ET PLUS RECEMMENT
-http://elifesciences.org/lookup/doi/10.7554/eLife.09500) ??? (par contre
-pas le temps de tester, je peux en parler en discussion)
-
-GUILLAUME: JE VIENS DE FINIR
-http://elifesciences.org/lookup/doi/10.7554/eLife.09500 ET EN FAITE ILS
-DISENT QUE AU CONTRAIRE LE SWITCH PEUT PAS SEXPLIQUER PAR JUSTE UN
-TRESHOLD SUR LA TENSION SINON ON POURRAIT JAMAIS AVOIR DES OSCILLATIONS
-AUSSI NET (VOIR LA FIGURE 4A DE L'ARTICLE ELIFE POUR LES DETAILS). DU
-COUP IL PROPOSE UN ``switching time regulator'' (A TENSION CLOCK MODEL),
-VOIR FIGURE 6).
-
-Où \(v_{growth}\) et \(v_{shrink}\) serait les vitesses maximales de
-polymérisation de dépolymérisation des microtubules attachés au
-kinétochore.
-
-Ici on rajoute donc quatre paramètres libres (\(kmax_{rescue}\),
-\(kmax_{catastrophe}\), \(v_{growth}\) et \(v_{shrink}\)) en plus des
-deux autres déjà présent (\(\beta\) et \(d_{\alpha}\)).
+Durant ce travail de thèse, seul une implémentation de la théorie du
+kinétochore bête (sans modulation de \(k_{rescue}\) et
+\(k_{catastrophe}\)) a été testée.
 
 La dynamique globale de l'attachement ayant changé, il est nécessaire de
 recalculer la force de calage de la zone interdigitée (\(F_{mz}\)) afin
@@ -3442,19 +3409,18 @@ processus de transition est une chaîne de Markov. Pour simplifier, un
 processus de Markov est une suite d'états dans lequel les états futurs
 ne dépendent pas des états passés mais uniquement de l'état présent.
 
-Cependant, le grand nombre de paramètres ajoutés par ce modèle a rendu
-très difficile leur optimisation afin d'obtenir des simulations stables.
-C'est à dire qu'avec six paramètres libres il est nécessaire d'en
-«~tester~» un grand nombre afin de trouver un jeux de paramètre qui
-reproduira de manière convenable les trajectoires \emph{in vivo}. Ces
-paramètres représentant, pour certains, des valeurs mesurables \emph{in
-vivo}, ils doivent en plus de cela rester dans des ordres de grandeurs
-acceptables.
+Le modèle à trois états du «~kinétochore bête~» ajoute deux paramètres
+\(k_{rescue}\) et \(k_{catastrophe}\). Bien que ces deux paramètres
+ajoutés doivent pouvoir être mesurable \emph{in vivo} (Harry,
+\protect\hyperlink{ref-Harry2014}{2014}), il a été décidé dans un
+premier temps de les traiter comme des paramètres libres contraint dans
+une rang de valeurs acceptable compris entre \(10^{-3} s^{-1}\) et
+\(1 s^{-1}\).
 
-Par exemple si on veut tester dix valeurs pour les six paramètres en
-faisant pour chaque jeu de paramètre dix simulations, on doit faire
-\(10^6 * 10 = 10\,000\,000\) simulations (ce qui correspond à 210 jours
-de calcul sur une station de travail standard).
+Cependant, le nombre de paramètres libres ajouté par ce modèle a rendu
+difficile son optimisation afin d'obtenir des simulations stables. Pour
+le moment aucun jeux de paramètre n'a encore permis de reproduire des
+trajectoires de chromosomes comportant des propriétés oscillatoires.
 
 Plusieurs tentatives d'optimisation ciblée avec un nombre de paramètre à
 tester plus faible ont été tentées mais sans succès.
@@ -3462,12 +3428,13 @@ tester plus faible ont été tentées mais sans succès.
 Il est probable que ce modèle à trois états, bien que complexe, soit
 capable de reproduire une partie du mouvement des chromosomes observées
 \emph{in vivo}. Cependant, il manque encore du travail sur
-l'implémentation numérique ainsi que sur l'optimisation des paramètres
-libres. Une première piste serait d'ajouter le troisième état en fixant
-les deux nouveaux paramètres (\(k_{rescue}\) et \(k_{catastrophe}\)).
-Ainsi il ne resterait que quatre paramètres à optimiser. L'ajout de la
-modulation du taux de catastrophe et du taux de rescue se ferait alors
-dans un second temps.
+l'implémentation numérique ainsi que sur l'optimisation des paramètres.
+
+Il est aussi possible que le modèle du «~kinétochore bête~» ne soit pas
+suffisant pour reproduire des trajectoires observées \emph{in vivo} et
+qu'il soit nécessaire d'implémenter le modèle d'attachement à trois
+états possédant une modulation des taux d'attachements (théorie du
+«~kinétochore intelligent~»).
 
 \clearpage\null
 
@@ -3553,7 +3520,7 @@ la dynamique des chromosomes. Ce travail de thèse a pour objectif de
 comprendre de quelle façon les mécanismes d'alignement et de mouvement
 des chromosomes sont régulés et interagissent entre eux. Plusieurs
 hypothèse élaborées à l'aide d'observations faites \emph{in vivo} sont
-testées \emph{in silico} afin d'évaluer leurs pertinences.
+testées \emph{in silico} afin d'évaluer leur pertinences.
 
 \subsection{Le mécanisme de congression des
 chromosomes}\label{le-muxe9canisme-de-congression-des-chromosomes}
@@ -3564,12 +3531,11 @@ Cette régulation spatiale implique qu'au moins un des processus régulant
 la dynamique des chromosomes soit capable de «~détecter~» la position du
 chromosome le long du fuseau.
 
-Il a été montré chez les cellules humaines l'une des protéines
-permettant la congression est l'homologue humain de la kinésine-8,
-appelé Kif18a (Stumpff et al.,
-\protect\hyperlink{ref-Stumpff2008}{2008}). Le modèle explique que la
-grande processivité de la kinésine-8 (Gupta et al.,
-\protect\hyperlink{ref-Gupta2006}{2006}; Varga et al.,
+Il a été montré chez les cellules humaines, que l'une des protéines
+permettant la congression, est l'homologue de la kinésine-8, appelé
+Kif18a (Stumpff et al., \protect\hyperlink{ref-Stumpff2008}{2008}). Le
+modèle explique que la grande processivité de la kinésine-8 (Gupta et
+al., \protect\hyperlink{ref-Gupta2006}{2006}; Varga et al.,
 \protect\hyperlink{ref-Varga2006}{2006}) lui permet de s'accumuler d'une
 manière dépendante de la longueur à l'extrémité plus des microtubules
 kinétochorien \emph{in vitro} (Varga et al.,
@@ -3598,7 +3564,7 @@ haute processivité \emph{in vitro} de Klp5 et Klp6 n'a pas été observée
 homologues de la kinésine-8; la cellule humaine et la levure à bourgeon
 (Stumpff et al., \protect\hyperlink{ref-Stumpff2011a}{2011}; Varga et
 al., \protect\hyperlink{ref-Varga2006}{2006}). Cela pourrait s'expliquer
-par le fait que Klp5 et Klp6 agissent en formant un hétérodimères
+par le fait que Klp5 et Klp6 agissent en formant un hétérodimère
 (Unsworth et al., \protect\hyperlink{ref-Unsworth2008}{2008}) et que des
 modifications essentielles ou bien l'ajout de composants encore
 non-identifiés manqueraient durant les étapes d'expression et de
@@ -3684,7 +3650,7 @@ La distribution en forme de cloche a donc été choisie de manière
 arbitraire et ses paramètres optimisées afin de reproduire l'alignement
 observé \emph{in vivo} (voir Section~\ref{sec:second-modele}).
 
-Les premiers résultats montrent que cette hypothèse alternatif arrive à
+Les premiers résultats montrent que cette hypothèse alternative arrive à
 reproduire la congression des chromosomes de la même manière qu'avec la
 première hypothèse (Mary et al.,
 \protect\hyperlink{ref-Mary2015}{2015}).
@@ -3765,7 +3731,7 @@ de mammifères (Kapoor et al., \protect\hyperlink{ref-Kapoor2006}{2006})
 et a montré que ce processus était dépendant de CENP-E (kinésine-7). Il
 est par ailleurs intéressant de noter que Grissom et al. ont proposé que
 la kinésine-8 chez la levure à fission pourrait partager des propriétés
-communes avec la kinésine-7 absente chez ce dernier (Grissom et al.,
+avec la kinésine-7 absente chez ce dernier (Grissom et al.,
 \protect\hyperlink{ref-Grissom2009}{2009}). Cela serait alors un exemple
 du principe stipulant qu'à travers un vaste ensemble phylogénique, le
 fuseau mitotique et ses composants préservent leurs fonctions mais pas
@@ -3776,7 +3742,7 @@ On souligne aussi que les deux modèles mathématiques de la congression
 des chromosomes proposés durant ce travail (Mary et al.
 (\protect\hyperlink{ref-Mary2015}{2015}) et
 Section~\ref{sec:second-modele}) reproduisent fidèlement l'alignement
-des chromosomes sans même reproduire les oscillations observées \emph{in
+des chromosomes sans bien reproduire les oscillations observées \emph{in
 vivo}.
 
 Cependant, bien que les deux modèles de congression proposés ne
@@ -3788,7 +3754,7 @@ sur la congression.
 
 Mais le mécanisme de génération du mouvement reste encore mal compris et
 il est donc encore difficile de modéliser mathématiquement et de manière
-fidèle le mouvement des chromosomes dans un cadre générale de la
+fidèle le mouvement des chromosomes dans un cadre général de la
 ségrégation des chromosomes (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}).
 
@@ -3843,13 +3809,13 @@ qu'il manque probablement des mécanismes plus complexes de régulation
 des attachements.
 
 Une autre possibilité serait de poursuivre l'implémentation du modèle
-d'attachement à trois états dans le modèle initiale de ségrégation des
+d'attachement à trois états dans le modèle initial de ségrégation des
 chromosomes sur lequel est basé ce travail (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}) (voir
-Section~\ref{sec:three-state}). TODO ICI DISCUTER AVEC GUILLAUME
+Section~\ref{sec:three-state}).
 
 Pour finir, on note que les études faites sur le mouvement et les
-oscillations des chromosomes a presque toujours été faite sur des
+oscillations des chromosomes ont presque toujours été faites sur des
 eucaryotes supèrieurs et rarement chez des organismes tel que la levure
 à fission.
 
@@ -4574,6 +4540,10 @@ Biology \emph{8}, 913--923.
 Hanisch, A., Silljé, H.H.W., and Nigg, E.A. (2006). Timely anaphase
 onset requires a novel spindle and kinetochore complex comprising Ska1
 and Ska2. The EMBO Journal \emph{25}, 5504--5515.
+
+\hypertarget{ref-Harry2014}{}
+Harry, E. (2014). Metaphase chromosome dynamics investigated by high
+resolution tracking and data-driven modelling.
 
 \hypertarget{ref-Hill1985}{}
 Hill, T.L. (1985). Theoretical problems related to the attachment of
