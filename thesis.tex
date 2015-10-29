@@ -104,9 +104,19 @@
 % Set figure legends and captions to be smaller sized sans serif font
 \usepackage[font={footnotesize,sf}]{caption}
 
-\usepackage{siunitx}
 \usepackage{float}
 \usepackage[final]{pdfpages}
+
+\usepackage{siunitx}
+% Note that the sign must be
+%  µ
+%  MICRO SIGN
+%  Unicode: U+00B5, UTF-8: C2 B5
+% and \emph{not}
+%  μ
+%  GREEK SMALL LETTER MU
+%  Unicode: U+03BC, UTF-8: CE BC
+\sisetup{math-micro=\text{µ},text-micro=µ}
 
 % Adjust spacing between lines to 1.5
 \usepackage{setspace}
@@ -219,13 +229,13 @@ chromatides sœurs. Chaque chromatide est attachée à son pôle respectif
 l'anaphase.
 
 Les chromatides sont l'unité indivisible du matériel génétique durant la
-mitose, à l'image des atomes dans une molécule. Initialement chacun de
-ces «~objets~» est libre (non attaché) et positionné de manière non
-ordonnée dans le noyau. Toute la complexité de la mitose est d'attacher
-chacune des chromatides au bon pôle afin d'exercer des forces sur ces
-derniers pour les positionner sur la plaque métaphasique au centre du
-fuseau avant leur séparation et migration vers les pôles durant
-l'anaphase.
+mitose, à l'image des atomes dans une molécule. Initialement, une fois
+la chromatine condensée en chromosomes, chacun de ces «~objets~» est
+libre (non attaché) et positionné de manière non ordonnée dans le noyau.
+Toute la complexité de la mitose est d'attacher chacune des chromatides
+au bon pôle afin d'exercer des forces sur ces derniers pour les
+positionner sur la plaque métaphasique au centre du fuseau avant leur
+séparation et migration vers les pôles durant l'anaphase.
 
 Cette étape de la division cellulaire requiert donc non seulement un
 réseau complexe d'interaction et de signalisation métabolique comme dans
@@ -414,9 +424,9 @@ page s'ouvre à nous maintenant\ldots{}
 \doclicenseThis
 
 \noindent
-Source code used to generate this thesis is freely available at
-\url{https://github.com/hadim/phd_thesis} (free as in freedom not as in
-a beer !).
+Le source code utilisé pour générer cette thèse est librement disponible
+à \url{https://github.com/hadim/phd_thesis} (free as in freedom not as
+in a beer !).
 
 \cleardoublepage
 \phantomsection
@@ -431,11 +441,11 @@ a beer !).
 \item
   \textbf{AP} : \emph{anti-poleward}
 \item
-  \textbf{GDP} : Guanosine triphosphate
+  \textbf{GDP} : Guanosine diphosphate
 \item
   \textbf{GFP} : \emph{Green Fluorescence Protein}
 \item
-  \textbf{GTP} : Guanosine diphosphate
+  \textbf{GTP} : Guanosine triphosphate
 \item
   \textbf{KT} : kinétochore
 \item
@@ -477,14 +487,14 @@ les cellules sont issues d'autres cellules.~» Ses travaux seront ensuite
 confirmés par un scientifique français du nom de Louis Pasteur qui
 malgré de nombreuses controverses parvint à faire tomber le mythe de la
 génération spontanée qui stipulait que la vie pouvait naître de la
-matière inerte.
+matière inerte (Pasteur, \protect\hyperlink{ref-Pasteur}{1862}).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/virchow.png}
-\caption{\label{fig:virchow}Illustration du livre «~Cell theory~»
-(Virchow, \protect\hyperlink{ref-virchow1860cellular}{1860}) de Rudolf
-Virchow}
+\caption[Illustration du livre « Cell theory » de Rudolf Virchow]{\label{fig:virchow}Illustration
+du livre «~Cell theory~» (Virchow,
+\protect\hyperlink{ref-virchow1860cellular}{1860}) de Rudolf Virchow}
 \end{figure}
 
 C'est véritablement au 20ème siècle que toute la complexité de la
@@ -566,7 +576,7 @@ sous-étapes (Norbury and Nurse,
   car elle possède un système de blocage du cycle cellulaire (aussi
   appelé «~checkpoint~» ou «~point de contrôle~») qui permet de retarder
   l'entrée en mitose en cas de problème de réplication de l'ADN apparu
-  en phase S.
+  en phase S ou encore d'éventuel dommage à l'ADN.
 \item
   la phase de division (\textbf{mitose} ou \textbf{phase M}) qui fait
   suite à l'interphase est l'étape durant laquelle la cellule se divise
@@ -576,9 +586,9 @@ sous-étapes (Norbury and Nurse,
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/cycle.png}
-\caption{\label{fig:cycle}Les différentes étapes du cycle cellulaire.
-Les phases S et G2 préparent la division cellulaire qui a lieu à la
-phase M.}
+\caption[Les différentes étapes du cycle cellulaire]{\label{fig:cycle}Les
+différentes étapes du cycle cellulaire. Les phases S et G2 préparent la
+division cellulaire qui a lieu à la phase M.}
 \end{figure}
 
 Il est important de souligner que dans la réalité, il existe autant de
@@ -593,16 +603,16 @@ la biologie cellulaire aujourd'hui est de comprendre quelle est la part
 des mécanismes conservée entre différents types cellulaires et quelle
 est la part spécifique de l'organisme étudié.
 
-La dernière phase du cycle cellulaire est donc la mitose, c'est à dire
+Une des phases crucial du cycle cellulaire est appelé la mitose, c'est
 le moment où une cellule va devenir deux cellules.
 
-\section{La mitose : la dernière étape du cycle
-cellulaire}\label{la-mitose-la-derniuxe8re-uxe9tape-du-cycle-cellulaire}
+\section{La mitose : une étape du cycle
+cellulaire}\label{la-mitose-une-uxe9tape-du-cycle-cellulaire}
 
-La dernière étape du cycle cellulaire est la mitose. Durant cette étape
-la cellule mère va se diviser en deux cellules filles. Tous les
-mécanismes précédents et ceux composant la mitose ont pour objectif
-d'assurer une division intègre et égale entre les deux cellules filles.
+Une des étapes du cycle cellulaire est la mitose. Durant cette étape la
+cellule mère va se diviser en deux cellules filles. Tous les mécanismes
+précédents et ceux composant la mitose ont pour objectif d'assurer une
+division intègre et égale entre les deux cellules filles.
 
 L'entrée en mitose est un événement contrôlé en grande partie par la
 kinase Cdc2 aussi appelée Cdk1 (Nasmyth and Reed,
@@ -640,7 +650,7 @@ Les différentes phases de la mitose sont (Figure~\ref{fig:mitosis}) :
 
 Note: certains fuseaux mitotiques sont formés en l'absence de pôles
 (\emph{«~acentrosomal spindle formation~»} en anglais). Ce type de
-division très particulier ne sera pas discuté dans ce manuscrit.
+division très particulier ne sera pas discuté dans ce travail de thèse.
 
 \begin{itemize}
 \item
@@ -648,10 +658,14 @@ division très particulier ne sera pas discuté dans ce manuscrit.
   le cas d'une mitose ouverte (Boettcher and Barral,
   \protect\hyperlink{ref-Boettcher2013}{2013}) tandis qu'elle reste
   intacte dans les mitoses fermées (répandues chez les protistes et
-  organismes unicellulaires). Les chromosomes s'attachent aux
-  microtubules par l'intermédiaire d'une structure protéique qui
-  s'assemble au même moment au niveau du centromère des chromosomes: le
-  kinétochore.
+  organismes unicellulaires). A ce stade chaque chromatide possède une
+  région centromérique d'une longeur variable selon les organismes
+  allant de quelques centaines de pair de base à plusieurs millions
+  (Black and Bassett, \protect\hyperlink{ref-Black2008}{2008}). Le
+  centromère est composé d'un variant de l'histone H3 (Cnp1p chez
+  \emph{S. pombe} et CENP-A chez la plupart des mamifères) qui permet
+  l'assemblage du kinétochore. C'est le kinétochore qui permet
+  l'attachement des chromosomes aux microtubules.
 \item
   la \textbf{métaphase} : les chromosomes alors attachés aux pôles par
   l'intermédiaire des microtubules viennent se positionner à l'équateur
@@ -664,12 +678,7 @@ division très particulier ne sera pas discuté dans ce manuscrit.
 En effet, la transition métaphase/anaphase est régulée par un point de
 contrôle appelé le SAC (Spindle Assembly Checkpoint) qui permet à la
 cellule de bloquer la ségrégation des chromosomes en cas d'attachement
-incorrect (Musacchio and Salmon,
-\protect\hyperlink{ref-Musacchio2007}{2007}). L'anaphase débute au
-moment de l'activation de l'APC (Anaphase Promoting Complex), une
-ubiquitine ligase responsable de la dégradation de la Cyclin B et donc
-de l'inactivation du complexe Cdk1 (Sivakumar and Gorbsky,
-\protect\hyperlink{ref-Sivakumar2015}{2015}).
+incorrect (Section~\ref{sec:sac}).
 
 \begin{itemize}
 \item
@@ -683,25 +692,26 @@ de l'inactivation du complexe Cdk1 (Sivakumar and Gorbsky,
   notera que ces deux phases peuvent être distinctes ou pas selon le
   type de cellule étudiée.
 \item
-  la \textbf{télophase} : les microtubules attachés aux kinétochores se
-  désagrègent, les chromosomes se décondensent et retournent à leur état
-  initial de brins d'ADN. L'enveloppe nucléaire se reforme dans le cas
-  d'une mitose ouverte.
+  la \textbf{télophase} : les microtubules kinétochoriens s'attachent,
+  les chromosomes se décondensent et retournent à leur état initial de
+  brins d'ADN. L'enveloppe nucléaire se reforme dans le cas d'une mitose
+  ouverte.
 \item
   la \textbf{cytocinèse} : à ce stade, la mitose est finie. Durant cette
   période, la cellule va alors se diviser grâce à la formation d'un
-  sillon au niveau de la membrane cytoplasmique qui s'invagine jusqu'à
-  «~couper~» la cellule mère en deux cellules filles.
+  anneau d'acto-myosine contractiel qui s'invagine jusqu'à «~couper~» la
+  cellule mère en deux cellules filles.
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/mitosis.png}
-\caption{\label{fig:mitosis}Les différentes étapes de la mitose (adapté
-de Cheeseman and Desai (\protect\hyperlink{ref-Cheeseman2008}{2008})).
-Durant les cinq phases de la mitose la cellule établit un fuseau
-mitotique par élongation de ces deux pôles (en vert) puis doit répartir
-la même quantité de chromosomes (en bleu) à chacun des pôles.}
+\caption[Les différentes étapes de la mitose]{\label{fig:mitosis}Les
+différentes étapes de la mitose (adapté de Cheeseman and Desai
+(\protect\hyperlink{ref-Cheeseman2008}{2008})). Durant les cinq phases
+de la mitose la cellule établit un fuseau mitotique par élongation de
+ces deux pôles (en vert) puis doit répartir la même quantité de
+chromosomes (en bleu) à chacun des pôles.}
 \end{figure}
 
 On voit bien à travers la description des différentes étapes de la
@@ -733,14 +743,16 @@ Il est composé de deux régions (Figure~\ref{fig:kt}) :
   microtubules permettant le mouvement des chromosomes durant la mitose.
   Le nombre de site d'ancrage varie fortement d'une espèce à une autre
   allant d'une quarantaine chez l'humain à seulement un site
-  d'attachement pour la levure à bourgeon (\emph{S. cerevisiae}).
+  d'attachement pour la levure à bourgeon (Richard McIntosh et al.,
+  \protect\hyperlink{ref-Mcintosh2013}{2013}).
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/kt.png}
-\caption{\label{fig:kt}Structure d'un kinétochore. \textbf{A.} Vue d'un
-kinétochore humain de côté par microscopie électronique (McEwen et al.
+\caption[Structure d'un kinétochore]{\label{fig:kt}Structure d'un
+kinétochore. \textbf{A.} Vue d'un kinétochore humain de côté par
+microscopie électronique (McEwen et al.
 (\protect\hyperlink{ref-McEwen2007}{2007})). \textbf{B.} Schéma des
 différentes plaques d'un kinétochore}
 \end{figure}
@@ -760,11 +772,11 @@ sont formés de dimères de tubuline, eux mêmes composés de deux sous
 unités, la tubuline α et la tubuline β.
 
 La formation d'un microtubule requiert un complexe protéique qui jouera
-le rôle de patron de construction, constitué de la γ tubuline. Celui-ci
-forme un anneau permettant la disposition de chaque protofilament tel
-que présenté Figure~\ref{fig:mt}A. L'extrémité + est coiffée de dimère
-GTP et c'est son hydrolyse en GDP qui permet l'assemblage des
-protofilaments.
+le rôle de patron de construction, constitué de la tubuline γ (Zheng et
+al., \protect\hyperlink{ref-Zheng1995}{1995}). Celui-ci forme un anneau
+permettant la disposition de chaque protofilament tel que présenté
+Figure~\ref{fig:mt}A. L'extrémité + est coiffée de dimère GTP et c'est
+son hydrolyse en GDP qui permet l'assemblage des protofilaments.
 
 Par ailleurs, le microtubule est un polymère extrêmement dynamique dont
 les extrémités passent leur temps à basculer entre deux états : la
@@ -778,28 +790,31 @@ dynamique (coiffée par la tubuline α).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/mt.png}
-\caption{\label{fig:mt}Structure et dynamique du microtubule.
-\textbf{A.} Schéma présentant l'organisation d'un microtubule.
-\textbf{B.} Les microtubules sont des structures hautement dynamiques
-qui passent très souvent d'un état à un autre (Walczak et al.,
-\protect\hyperlink{ref-Walczak2010}{2010}).}
+\caption[Structure et dynamique du microtubule]{\label{fig:mt}Structure
+et dynamique du microtubule. \textbf{A.} Schéma présentant
+l'organisation d'un microtubule. \textbf{B.} Les microtubules sont des
+structures hautement dynamiques qui passent très souvent d'un état à un
+autre (Walczak et al., \protect\hyperlink{ref-Walczak2010}{2010}).}
 \end{figure}
 
 Les microtubules, et d'une manière plus générale l'ensemble des
-protéines du cytosquelette, permettent le maintien de la forme
-tridimensionnelle. De plus, elles participent aussi de manière active au
-processus de migration cellulaires ainsi que de transport
-intra-cellulaire. C'est ainsi qu'il est possible d'apprécier la grande
-diversité de formes et d'élasticité des cellules composant l'ensemble
-des organismes connus.
+protéines du cytosquelette, participent au maintien de la forme
+tridimensionnelle de la cellule (Mata and Nurse,
+\protect\hyperlink{ref-Mata1997}{1997}). De plus, elles participent
+aussi de manière active au processus de migration cellulaires ainsi que
+de transport intra-cellulaire. C'est ainsi qu'il est possible
+d'apprécier la grande diversité de formes et d'élasticité des cellules
+composant l'ensemble des organismes connus.
 
 Les microtubules sont aussi connus pour leur rôle dans le transport
 cytoplasmique de divers composants tels que des vésicules ou autres
 grandes protéines. En effet leur polarité et leur grande rigidité
-permettent un déplacement sur de longues distances et de manière
-dirigée. Par exemple, les neurones contiennent un grand nombre de
-microtubules nécessaires aux déplacements de nombreuses protéines soit
-vers les prolongements cellulaires ou bien vers le corps cellulaire.
+permettent un déplacement sur de longues distances et de manière dirigée
+(Hirokawa, \protect\hyperlink{ref-Hirokawa1998}{1998}). Par exemple, les
+neurones contiennent un grand nombre de microtubules nécessaires aux
+déplacements de nombreuses protéines soit vers les prolongements
+cellulaires ou bien vers le corps cellulaire (Goldstein and Yang,
+\protect\hyperlink{ref-Goldstein2000}{2000}).
 
 Le transport est rendu possible grâce à des protéines associées aux
 microtubules (appelées Microtubules-Associated Proteins ou MAPs en
@@ -883,10 +898,14 @@ catalytiques similaires.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/dep_kinesin.png}
-\caption{\label{fig:dep_kinesin}Vue en trois dimensions de la
-kinésine-13 (MCAK) et de la kinésine-8 (Kif18a) chez des cellules
-humaines. La troisième vue montre une superposition des deux protéines.
-(Walczak et al., \protect\hyperlink{ref-Walczak2013a}{2013})}
+\caption[Reconstruction 3D des kinésines dépolymérisatrice]{\label{fig:dep_kinesin}Vue
+en trois dimensions de la kinésine-13 (MCAK) et de la kinésine-8
+(Kif18a) chez des cellules humaines. La troisième vue montre une
+superposition des deux protéines. Les domaines important participant à
+la liaison avec le microtubule sont colorés. La boucle 2 appele le KVD
+finger (cyan et bleu) et la boucle 8 (en jaune et orange). La
+superposition montre la similarité de ces domaines chez les deux
+kinésines (Walczak et al., \protect\hyperlink{ref-Walczak2013a}{2013}).}
 \end{figure}
 
 On notera aussi la grande conservation des domaines protéiques qui
@@ -897,10 +916,10 @@ drosophile) comme le montre la Figure~\ref{fig:proteicdomain}.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/proteicdomain.png}
-\caption{\label{fig:proteicdomain}Vue schématique des domaines
-protéiques composant la kinésine-8 chez la cellule humaine, la levure à
-bourgeon et la levure à fission (Messin and Millar,
-\protect\hyperlink{ref-Messin2014}{2014}).}
+\caption[Les domaines protéiques des différentes kinésine-8]{\label{fig:proteicdomain}Vue
+schématique des domaines protéiques composant la kinésine-8 chez la
+cellule humaine, la levure à bourgeon et la levure à fission (Messin and
+Millar, \protect\hyperlink{ref-Messin2014}{2014}).}
 \end{figure}
 
 Si les protéines dépolymérisatrices influencent le comportement de
@@ -938,11 +957,11 @@ al., \protect\hyperlink{ref-Miranda2005}{2005}; Westermann et al.,
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/ndc80.png}
-\caption{\label{fig:ndc80}Stucture de l'attachement
-kinétochore-microtubule. \textbf{A.} Vue schématique de la structure du
-complexe NDC80 ainsi que sa localisation dans le kinétochore.
-\textbf{B.} Interaction non contrainte entre des complexes NDC80 (en
-rouge) avec différents microtubules (en vert) (Zaytsev et al.,
+\caption[Stucture de l'attachement kinétochore-microtubule]{\label{fig:ndc80}Stucture
+de l'attachement kinétochore-microtubule. \textbf{A.} Vue schématique de
+la structure du complexe NDC80 ainsi que sa localisation dans le
+kinétochore. \textbf{B.} Interaction non contrainte entre des complexes
+NDC80 (en rouge) avec différents microtubules (en vert) (Zaytsev et al.,
 \protect\hyperlink{ref-Zaytsev2014}{2014}).}
 \end{figure}
 
@@ -952,6 +971,84 @@ l'attachement des microtubules au kinétochore (Zaytsev et al.,
 d'attachement ne sont plus vus comme un ensemble d'éléments discrets,
 mais comme une surface sur laquelle les attachements se font de manière
 non exclusive (voir Figure~\ref{fig:ndc80}B).
+
+Une autre protéine est connu pour son rôle dans l'attachement du
+microtubule au kinétochore. La protéine Dam1 a été pour la première fois
+identifié chez la levure à bourgeon comme une protéine cruciale pour le
+maintien de l'intégrité structurelle du fuseau mitotique (Hofmann,
+\protect\hyperlink{ref-Hofmann1998}{1998})
+
+Par la suite, il a été montré que des complexes composés de DAM1
+pouvaient former des structures en anneaux \textbf{in vitro} (Westermann
+et al., \protect\hyperlink{ref-Westermann2005}{2005}) autour des
+microtubules (Figure~\ref{fig:dam1-struct}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/intro/dam1-struct.png}
+\caption[Structure du complexe DAM1]{\label{fig:dam1-struct}Structure du
+complexe DAM1. \textbf{A}. Schéma de la strucute et du positionnement du
+complexe DAM1 lorsque il forme un anneau autour du microtubule.
+\textbf{B}. Exemple d'une image de microscopie éléctronique (EM)
+montrant une vue de l'extrémité finale d'un microtubule entourée d'un
+complexe DAM1 (Westermann et al.,
+\protect\hyperlink{ref-Westermann2006}{2006}). \textbf{C}. Complexe DAM1
+purifié et attaché à des microtubules stabilisés par du taxol et
+visualisé par EM (Westermann et al.,
+\protect\hyperlink{ref-Westermann2005}{2005}). \textbf{D}. Complexe DAM1
+incubé 48h dans une monocouche phospholipidique et visualisé par EM. Des
+anneaux auto-assemblés de complexe DAM1 sont visibles. Les barre
+d'echelles correspondent à 50nm.}
+\end{figure}
+
+Cependant c'est dans une autre étude que le rôle essentiel du complexe
+DAM1 dans l'attachement kinétochore-microtubule fut décrit (Westermann
+et al., \protect\hyperlink{ref-Westermann2006}{2006}). En effet les
+auteurs ont montré (Figure~\ref{fig:dam1-struct}) par vidéo-microscopie
+à fluorescence que des anneaux de DAM1 peuvent se déplacer vers
+l'extrémité plus d'un microtubule sur plusieurs micromètre sans se
+détacher. Ils proposent alors que la protéine Dam1 joue un rôle
+important dans l'attachement kinétochore-microtubule et agit comme un
+système capable de convertir l'énergie mécanique générée par un
+microtubule en une force appliquée sur le kinétochore afin de générer un
+mouvement.
+
+Des oligomères de Dam1 de plus petite tailles sans structure en anneau
+ont aussi été identifiées \textbf{in vitro} chez la levure à bourgeon
+(Gestaut et al., \protect\hyperlink{ref-Gestaut2008}{2008}). Ces
+assemblages appelés «~patchs~» sont cependant capable de diffusés le
+long du microtubule ainsi que de suivre son extrémité pendant sa
+dépolymérisation (Gestaut et al.,
+\protect\hyperlink{ref-Gestaut2008}{2008}).
+
+La protéine Dam1 est conservé chez la levure à fission et se localiste
+de la même façon que son homologue de la levure à bourgeon au niveau des
+kinétochores et des microtubules nucléaires. Cependant une étude
+\emph{in vivo} a montré par microscopie quantitative que en moyenne
+seulement 7-8 copies de Dam1 étaient présent au kinétochore (Gao et al.,
+\protect\hyperlink{ref-Gao2010}{2010}). Les auteurs proposent donc Dam1
+est capable de modifier la dynamique des microtubules kinétochoriens
+sans structure en anneaux mais plutôt à travers des «~patchs~» de petite
+tailles.
+
+Une autre étude montre aussi que Dam1 est capable de former des patchs
+\textbf{in vitro} lorsque sa concentration est très faible de l'ordre de
+500pM (Tien et al., \protect\hyperlink{ref-Tien2010}{2010}).
+
+Bien que Dam1 soit absent chez les eucaryotes supérieurs comme la
+cellule humaine, une autre protéine, Ska1, a été décrite comme pouvant
+jouer un rôle similaire à Dam1 (Schmidt et al.,
+\protect\hyperlink{ref-Schmidt2012}{2012}). Différentes études ont été
+en mesure de montrer que que les complexes Ska1 et NDC80 forment un
+système intégré capable de coupler le mouvement des chromosomes à la
+dépolymérisation des microtubules (Daum et al.,
+\protect\hyperlink{ref-Daum2009}{2009}; Gaitanos et al.,
+\protect\hyperlink{ref-Gaitanos2009}{2009}; Hanisch et al.,
+\protect\hyperlink{ref-Hanisch2006}{2006}; Raaijmakers et al.,
+\protect\hyperlink{ref-Raaijmakers2009}{2009}; Schmidt et al.,
+\protect\hyperlink{ref-Schmidt2012}{2012}; Theis et al.,
+\protect\hyperlink{ref-Theis2009}{2009}; Welburn et al.,
+\protect\hyperlink{ref-Welburn2009}{2009}).
 
 \subsection{Les différents types
 d'attachements}\label{sec:attachments-type}
@@ -981,17 +1078,18 @@ Figure~\ref{fig:attachements}):
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/attachments.png}
-\caption{\label{fig:attachements}Les différents types d'attachements des
-microtubules aux kinétochores. Le seul attachement correct pour le
-fuseau mitotique est l'attachement amphitélique aussi appelé attachement
-bi-orienté. Les autres attachements sont généralement corrigés durant la
-mitose.}
+\caption[Les différents types d'attachements des microtubules aux kinétochores]{\label{fig:attachements}Les
+différents types d'attachements des microtubules aux kinétochores. Le
+seul attachement correct pour le fuseau mitotique est l'attachement
+amphitélique aussi appelé attachement bi-orienté. Les autres
+attachements sont généralement corrigés durant la mitose.}
 \end{figure}
 
 Un attachement incorrect des kinétochores durant l'anaphase peut
-entraîner une perte de chromosome et par la suite la mort cellulaire ou
-bien la dégénérescence d'un tissu. La cellule a donc développé des
-mécanismes robustes de correction.
+entraîner une perte de chromosome et par la suite la mort cellulaire
+(King and Cidlowski, \protect\hyperlink{ref-King1995}{1995}) ou bien la
+dégénérescence d'un tissu. La cellule a donc développé des mécanismes
+robustes de correction.
 
 D'abord de manière purement géométrique, suite au processus de
 réplication et de condensation, les deux kinétochores frères sont placés
@@ -1021,24 +1119,32 @@ maintenus jusqu'au début de l'anaphase (Kirschner and Mitchison,
 
 Un des mécanismes proposés pour expliquer l'instabilité des attachements
 incorrects, sous une moindre tension, est basé sur l'activité d'une
-protéine kinase appelée Aurora B et localisée au centre du centromère.
-La phosphorylation de certaines protéines du kinétochore par Aurora B
-réduit l'affinité de l'attachement (DeLuca et al.,
-\protect\hyperlink{ref-DeLuca2006}{2006}). Comme présenté sur la
-Figure~\ref{fig:aurora}, si la distance entre les deux kinétochores est
-grande, due à une tension élevée, Aurora B n'aurait pas accès aux
-protéines du kinétochore et ne pourrait donc pas déstabiliser
+protéine kinase appelée Aurora B et localisée au centre du centromère
+(Carmena et al., \protect\hyperlink{ref-Carmena2012a}{2012}). La
+phosphorylation de certaines protéines du kinétochore par Aurora B
+réduit l'affinité de l'attachement du kinétochore aux microtubules
+(DeLuca et al., \protect\hyperlink{ref-DeLuca2006}{2006}). Comme
+présenté sur la Figure~\ref{fig:aurora}, si la distance entre les deux
+kinétochores est grande, due à une tension élevée, Aurora B n'aurait pas
+accès aux protéines du kinétochore et ne pourrait donc pas déstabiliser
 l'attachement en déphosphorylant ces substrats (Tanaka et al.,
 \protect\hyperlink{ref-Tanaka2002}{2002}).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/aurora.png}
-\caption{\label{fig:aurora}Le mécanisme de déstabilisation de
-l'attachement KT-MT. Quand les deux kinétochores frères sont éloignés
-(schéma de droite), Aurora B ne peut pas atteindre les protéines du
-kinétochore (en vert) et donc déstabiliser l'attachement KT-MT.}
+\caption[Le mécanisme de déstabilisation de l'attachement KT-MT]{\label{fig:aurora}Le
+mécanisme de déstabilisation de l'attachement KT-MT. Quand les deux
+kinétochores frères sont éloignés (schéma de droite), le gradient
+d'Aurora B ne peut pas atteindre les protéines du kinétochore (en vert)
+et donc déstabiliser l'attachement KT-MT.}
 \end{figure}
+
+Ce modèle du positionnement d'Aurora B au centre du kinétochore et
+établissant un gradient de concentration est encore controversé. Des
+études proposent des mécanismes alternatifs où Aurora B serait localisé
+directement sur le kinétochore (Campbell and Desai,
+\protect\hyperlink{ref-Campbell2013a}{2013}).
 
 Ces mécanismes ne peuvent néanmoins pas corriger les attachements
 mérotéliques. En effet les deux kinétochores étant partiellement
@@ -1069,11 +1175,11 @@ du fuseau mitotique entre les deux pôles
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/spindle_micro.png}
-\caption{\label{fig:spindle_micro}Deux cellules en métaphase (cellule
-HeLa à gauche et cellule Ptk1 à droite). Pour les deux cellules les
-kinétochores de l'ensemble des chromosomes sont marqués respectivement
-en rouge et vert tandis que les microtubules sont marqués respectivement
-en vert et rouge. (Huang et al.,
+\caption[Deux types de cellules différentes en métaphase]{\label{fig:spindle_micro}Deux
+cellules en métaphase (cellule HeLa à gauche et cellule Ptk1 à droite).
+Pour les deux cellules les kinétochores de l'ensemble des chromosomes
+sont marqués respectivement en rouge et vert tandis que les microtubules
+sont marqués respectivement en vert et rouge. (Huang et al.,
 \protect\hyperlink{ref-Huang2008}{2008}; Wan et al.,
 \protect\hyperlink{ref-Wan2012}{2012})}
 \end{figure}
@@ -1105,18 +1211,19 @@ microtubules d'une cellule humaine par exemple
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/congression.png}
-\caption{\label{fig:congression}Cellule humaine (RPE1) en début de
-mitose. Les kinétochores (en rouge) sont alignés à la fin du processus
-durant la métaphase. On peut deviner les deux pôles du fuseau en suivant
-où les microtubules (en vert) convergent. (DeLuca et al.,
-\protect\hyperlink{ref-DeLuca2002}{2002})}
+\caption[Cellule humaine de la prophase à la métaphase]{\label{fig:congression}Cellule
+humaine (RPE1) en début de mitose. Les kinétochores (en rouge) sont
+alignés à la fin du processus durant la métaphase. On peut deviner les
+deux pôles du fuseau en suivant où les microtubules (en vert)
+convergent. (DeLuca et al., \protect\hyperlink{ref-DeLuca2002}{2002})}
 \end{figure}
 
 L'un des modèles de congression propose que les kinétochores soient
 capables de «~détecter~» leur position au sein du fuseau afin de biaiser
 leurs mouvements en direction du centre du fuseau mitotique durant la
 mitose. Ce mécanisme implique des protéines régulatrices de la dynamique
-des microtubules telles que la kinésine-13 et la kinésine-8.
+des microtubules telles que la kinésine-13 et la kinésine-8 (Walczak et
+al., \protect\hyperlink{ref-Walczak2013a}{2013}).
 
 Par exemple, il a été montré qu'un chromosome amphitélique non aligné
 dans des cellules humaines accumule l'homologue de la kinésine-13,
@@ -1233,16 +1340,16 @@ kinétochore).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/run_switch.png}
-\caption{\label{fig:run-switch}Modèle standard du changement de
-direction des kinétochores frères. Le leading kinétochore en se
-déplaçant plus vite augmente la tension et donc la distance entre les
-deux kinétochores. L'augmentation de tension bascule le leading
-kinétochore d'un état P à un état AP. Il en résulte une perte brute de
-tension et donc de stretch étant donné que les deux kinétochores se
-déplacent l'un vers l'autre. Cette relaxation déclenche alors le
-changement d'état du trailing kinétochore de AP en P. Les microtubules
-en bleu en forme de flèche représentent la polymérisation tandis que les
-autres microtubules sont en dépolymérisation.}
+\caption[Modèle standard du changement de direction des kinétochores frères.]{\label{fig:run-switch}Modèle
+standard du changement de direction des kinétochores frères. Le leading
+kinétochore en se déplaçant plus vite augmente la tension et donc la
+distance entre les deux kinétochores. L'augmentation de tension bascule
+le leading kinétochore d'un état P à un état AP. Il en résulte une perte
+brute de tension et donc de stretch étant donné que les deux
+kinétochores se déplacent l'un vers l'autre. Cette relaxation déclenche
+alors le changement d'état du trailing kinétochore de AP en P. Les
+microtubules en bleu en forme de flèche représentent la polymérisation
+tandis que les autres microtubules sont en dépolymérisation.}
 \end{figure}
 
 Des observations sur des cellules Ptk1 montrant que le switch est
@@ -1290,60 +1397,69 @@ contrainte}\label{le-fuseau-mitotique-un-objet-sous-contrainte}
 La métaphase est un moment très particulier de la mitose car c'est le
 moment ou le fuseau atteint un état quasi-stationnaire. A ce stade,
 l'appareil mitotique subit une contrainte maximum car tous les
-chromosomes sont attachés et produisent une force
+chromosomes sont attachés et une force est exercée sur eux
 (Figure~\ref{fig:spindle}). Le complexe cohésine contrebalance les
 forces appliquées aux kinétochores. De plus, les microtubules
 inter-digitées produisent aussi une force d'extension au niveau du
-centre du fuseau. La métaphase est donc le moment où toutes ces forces
-s'équilibrent entre elles. Le fuseau est dans un état d'attente qui sera
-rompu aussitôt que l'équilibre des forces est brisé par la dégradation
-de la cohésine sonnant alors le début de l'anaphase.
+centre du fuseau (Lansky et al.,
+\protect\hyperlink{ref-Lansky2015}{2015}). La métaphase est donc le
+moment où toutes ces forces s'équilibrent entre elles. Le fuseau est
+dans un état d'attente qui sera rompu aussitôt que l'équilibre des
+forces est brisé par la dégradation de la cohésine sonnant alors le
+début de l'anaphase.
 
 Pour donner une idée des forces en jeu, Nicklas a mesuré que la force
 maximale que pouvait supporter un chromosome était de l'ordre de 700 pN
 (Nicklas, \protect\hyperlink{ref-Nicklas1983}{1983}), ce qui correspond
 à une force approximative de 10-15 pN par microtubule. Le maintien de la
 stabilité mécanique du fuseau métaphasique subissant de telles
-contraintes est encore mal compris.
+contraintes est encore mal compris. Cependant de récentes techniques de
+purification et de reconstruction des protéines du kinétochores \emph{in
+vitro} devrait permettre dans le futur de mieux caractériser la
+magnitude des force en jeux dans de tels systèmes (Gonen et al.,
+\protect\hyperlink{ref-Gonen2012a}{2012}).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/spindle.png}
-\caption{\label{fig:spindle}Schéma d'un fuseau mitotique en métaphase
-(mitose fermé). Les flèches correspondent aux forces appliquées sur les
-différents éléments du fuseau mitotique.}
+\caption[Schéma d'un fuseau mitotique en métaphase]{\label{fig:spindle}Schéma
+d'un fuseau mitotique en métaphase (mitose fermé). Les flèches
+correspondent aux forces appliquées sur les différents éléments du
+fuseau mitotique.}
 \end{figure}
 
 \subsection{Le point de contrôle de la transition
 métaphase/anaphase}\label{le-point-de-contruxf4le-de-la-transition-muxe9taphaseanaphase}
 
+\label{sec:sac}
+
 Le point de contrôle de l'assemblage du fuseau («~Spindle Assembly
 Checkpoint~» ou SAC en anglais) maintient la stabilité génomique en
-retardant la division cellulaire jusqu'à ce que la fidélité de tous les
-attachements soit garantis (voir Lara-Gonzalez et al.
+retardant la division cellulaire jusqu'à ce que tous les attachements
+soit corrects (voir Lara-Gonzalez et al.
 (\protect\hyperlink{ref-Lara-Gonzalez2012}{2012}) pour une revue). Quand
 un attachement est incorrect (Figure~\ref{fig:attachements}), il y a
 activation du SAC et blocage du cycle cellulaire.
 
 Jusqu'à la métaphase les chromatides sœurs sont maintenues entre elles
 par un complexe protéique appelé la cohésine (Nasmyth and Haering,
-\protect\hyperlink{ref-Nasmyth2009}{2009}). L'entrée en anaphase active
-un mécanisme de dégradation de la cohésine. Une fois le lien entre les
-chromatides sœurs disparu, chacune des chromatides va migrer en
-direction du pôle vers lequel elle est attachée, c'est l'anaphase.
+\protect\hyperlink{ref-Nasmyth2009}{2009}). C'est la dégradation de la
+cohésine qui marque l'entrée en anaphase. En effet, une fois le lien
+entre les chromatides sœurs disparu, chacune des chromatides migre en
+direction du pôle vers lequel elle est attachée.
 
 Lorsque tous les kinétochores sont attachés de manière stable, alors le
-SAC se désactive et une cascade métabolique dégrade le complexe cohésine
-(Figure~\ref{fig:sac}).
+SAC est satisfait et une cascade biochimique dégrade le complexe
+cohésine (Figure~\ref{fig:sac}).
 
 Les kinétochores non-attachés génèrent un signal «~ON~» à l'attention du
 SAC en recrutant un complexe protéique composé principalement de 4
 protéines Mad2, BubR1, Bub3 et Cdc20 (Sudakin et al.,
 \protect\hyperlink{ref-Sudakin2001}{2001}) appelé le «~Mitotic
-Checkpoint Complex~» (MCC) (Figure~\ref{fig:sac}). Ce complexe, à ce
-jour connu pour être l'inhibiteur principal de l'APC/C, est une E3
-ubiquitine ligase qui cible des protéines du cycle cellulaire afin de
-les dégrader par protéolyse (Pines,
+Checkpoint Complex~» (MCC) (Figure~\ref{fig:sac}). Le MCC séquestre la
+protéine Cdc20, une fois le SAC satisfait Cdc20 active l'APC/C qui est
+une E3 ubiquitine ligase ciblant des protéines du cycle cellulaire afin
+de les dégrader par protéolyse (Pines,
 \protect\hyperlink{ref-Pines2011}{2011}). L'une des cibles de l'APC/C
 est la sécurine qui inhibe la protéine capable de cliver la cohésine
 appelée la séparase (Figure~\ref{fig:sac}).
@@ -1351,11 +1467,12 @@ appelée la séparase (Figure~\ref{fig:sac}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/sac.png}
-\caption{\label{fig:sac}Le mécanisme d'action du SAC. Les chromosomes
-non-attachés catalysent la formation du MCC au niveau du kinétochore. Le
-MCC bloque l'activité de l'ubiquitine ligase APC/C. Une fois tous les
-kinétochores correctement attachés, l'APC/C dégrade la sécurine, ce qui
-active la séparase qui clive le complexe protéique de la cohésine.}
+\caption[Le mécanisme d'action du SAC]{\label{fig:sac}Le mécanisme
+d'action du SAC. Les chromosomes non-attachés catalysent la formation du
+MCC au niveau du kinétochore. Le MCC bloque l'activité de l'ubiquitine
+ligase APC/C. Une fois tous les kinétochores correctement attachés,
+l'APC/C dégrade la sécurine, ce qui active la séparase qui clive le
+complexe protéique de la cohésine.}
 \end{figure}
 
 La façon dont les kinétochores non-attachés recrutent le MCC implique un
@@ -1406,7 +1523,8 @@ cette approche. On utilise donc parfois une autre classes de modèle
 (comme les modèles de «~boites noires~», non discutés ici). On notera
 qu'il est aussi possible d'appliquer une série d'approximations afin de
 réduire la complexité du processus étudié et ainsi d'utiliser un modèle
-de connaissance, au prix d'une précision moins importante.
+de connaissance, au prix d'une précision moins importante (on parle
+alors de modélisation gros grain).
 
 Avant de continuer, il est important de répondre à une question
 primordiale qui revient souvent chez les biologistes : pourquoi
@@ -1424,10 +1542,10 @@ décrivant un processus biologique (Figure~\ref{fig:modelling}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/modelling.png}
-\caption{\label{fig:modelling}Schéma reproduisant un workflow
-expérimental possible lors de l'étude d'un phénomène biologique par une
-approche de modélisation (adapté de Woelke et al.
-(\protect\hyperlink{ref-Woelke2010}{2010})).}
+\caption[Workflow de l'approche modélisation en biologie]{\label{fig:modelling}Schéma
+reproduisant un workflow expérimental possible lors de l'étude d'un
+phénomène biologique par une approche de modélisation (adapté de Woelke
+et al. (\protect\hyperlink{ref-Woelke2010}{2010})).}
 \end{figure}
 
 Il peut apporter une vision plus précise du processus étudié, notamment
@@ -1566,8 +1684,9 @@ le ressort suit la loi de Hooke.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/force_types.png}
-\caption{\label{fig:force_types}Schéma des trois éléments mécaniques
-fondamentaux : la masse, l'amortisseur et le ressort (adapté de Howard
+\caption[Schéma des trois éléments mécaniques fondamentaux]{\label{fig:force_types}Schéma
+des trois éléments mécaniques fondamentaux : la masse, l'amortisseur et
+le ressort (adapté de Howard
 (\protect\hyperlink{ref-Howard2001}{2001})). Les ordres de grandeurs
 correspondent à la magnitude des forces rencontrées au niveau
 moléculaire : forces élastiques pour le ressort, forces visqueuses pour
@@ -1600,11 +1719,11 @@ toutes les autres forces externes appliquées au système
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/motion_equation.png}
-\caption{\label{fig:motion_equation}L'équation du mouvement décrit
-l'évolution spatial d'un objet au cours du temps sous l'action de
-plusieurs forces qui lui sont appliquées. Le terme inertiel peut être
-omis dans le cas d'un objet évoluant dans un système très visqueux pour
-des nombres de Reynolds très bas.}
+\caption[L'équation du mouvement]{\label{fig:motion_equation}L'équation
+du mouvement décrit l'évolution spatial d'un objet au cours du temps
+sous l'action de plusieurs forces qui lui sont appliquées. Le terme
+inertiel peut être omis dans le cas d'un objet évoluant dans un système
+très visqueux pour des nombres de Reynolds très bas.}
 \end{figure}
 
 Il est possible d'approximer l'équation du mouvement en enlevant le
@@ -1622,7 +1741,10 @@ Où \(\rho\) est la densité du fluide, \(L\) la longueur caractéristique
 de l'objet, \(v\) sa vitesse et \(\eta\) sa viscosité. Quand
 \(Re << 1\), cela signifie que les forces dues à la masse sont
 négligeables par rapport aux forces visqueuses, ce qui est le cas dans
-un système subcellulaire (Figure~\ref{fig:motion_equation}).
+un système subcellulaire (Figure~\ref{fig:motion_equation}). Par exemple
+pour une protéine d'une taille de 6nm dans de l'eau (dont la viscosité
+vaut \(10^{-3}Pa.s\)), le nombre de Reynolds vaut environ 0.05. Et celui
+d'une bactérie de 2µm vaut approximativement \(\num{5e-5}\).
 
 On peut donc approximer l'équation du mouvement comme suit :
 
@@ -1647,18 +1769,17 @@ kinétochores l'un par rapport à l'autre et du paramètre de raideur
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/spindle_model.png}
-\caption{\label{fig:spindle_model}Le fuseau modélisé est composé de
-différents objets ayant des propriétés visco-élastique définies. On
-décrit aussi les forces appliquées sur les objets comme par exemple la
-force motrice qui tire sur un site d'attachement (en violet) quand un
-microtubule s'y attache (en bleu) (Gay et al.,
-\protect\hyperlink{ref-Gay2012a}{2012})}
+\caption[Modélisation mécanique du fuseau mitotique]{\label{fig:spindle_model}Le
+fuseau modélisé est composé de différents objets ayant des propriétés
+visco-élastique définies. On décrit aussi les forces appliquées sur les
+objets comme par exemple la force motrice qui tire sur un site
+d'attachement (en violet) quand un microtubule s'y attache (en bleu)
+(Gay et al., \protect\hyperlink{ref-Gay2012a}{2012})}
 \end{figure}
 
-Dans un système mécanique tel que celui-là, il est difficile de prédire
-la réponse du système aux forces appliquées. L'équation du mouvement
-assume donc qu'en chaque point de l'espace la somme des forces
-appliquées au système est nulle (parce que l'inertie est négligeable) :
+L'équation du mouvement assume donc qu'en chaque point de l'espace la
+somme des forces appliquées au système est nulle (parce que l'inertie
+est négligeable) :
 
 \[
 F - \gamma\frac{dx}{dt} - \kappa x = 0
@@ -1677,9 +1798,10 @@ trajectoires des kinétochores et des pôles
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/traj_model.png}
-\caption{\label{fig:traj_model}Une simulation numérique permet de
-résoudre l'équation du mouvement et ensuite accéder à l'évolution des
-positions de chaque objet au cours du temps.}
+\caption[Trajectoire des chromosomes \_in silico\_]{\label{fig:traj_model}Une
+simulation numérique permet de résoudre l'équation du mouvement et
+ensuite accéder à l'évolution des positions de chaque objet au cours du
+temps.}
 \end{figure}
 
 \subsection{L'assemblage du fuseau
@@ -1687,9 +1809,11 @@ mitotique}\label{lassemblage-du-fuseau-mitotique}
 
 Durant l'assemblage du fuseau mitotique, le fuseau en cours de
 formation, «~capture~» les chromosomes par l'intermédiaire des
-microtubules. Ce processus de capture est étudié et modélisé depuis
-longtemps, ce qui en fait un bon exemple d'utilisation de la
-modélisation mathématique dans l'étude d'un processus biologique.
+microtubules (Nicklas and Ward,
+\protect\hyperlink{ref-Nicklas1994}{1994}). Ce processus de capture est
+étudié et modélisé depuis longtemps, ce qui en fait un bon exemple
+d'utilisation de la modélisation mathématique dans l'étude d'un
+processus biologique.
 
 Le modèle le plus répandu décrivant l'assemblage du fuseau mitotique est
 celui appelé «~recherche et capture~» (Figure~\ref{fig:mogilner}).
@@ -1706,11 +1830,12 @@ chromosomes.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/mogilner.png}
-\caption{\label{fig:mogilner}Modèle numérique de l'assemblage du fuseau
-(Paul et al., \protect\hyperlink{ref-Paul2009}{2009}). \textbf{A}. Des
-chromosomes durant la phase «~recherche et capture~». Certains
-kinétochores sont attachés (en vert) et d'autres sont non attachés (en
-bleu). \textbf{B}. 4 types d'attachements possibles des chromosomes.}
+\caption[Modèle numérique de l'assemblage du fuseau]{\label{fig:mogilner}Modèle
+numérique de l'assemblage du fuseau (Paul et al.,
+\protect\hyperlink{ref-Paul2009}{2009}). \textbf{A}. Des chromosomes
+durant la phase «~recherche et capture~». Certains kinétochores sont
+attachés (en vert) et d'autres sont non attachés (en bleu). \textbf{B}.
+4 types d'attachements possibles des chromosomes.}
 \end{figure}
 
 Un modèle propose que l'un de ces biais puisse être la présence d'un
@@ -1724,12 +1849,13 @@ de capture (Wollman et al., \protect\hyperlink{ref-Wollman2005}{2005}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/assembly_time.png}
-\caption{\label{fig:assembly_time}Temps moyen de capture de tous les
-chromosomes en fonction du nombre de chromosomes total pour trois
-modèles différents \emph{in silico} : modèle non-biaisé (recherche
-aléatoire) avec 1000 MTs (triangles), modèle biaisé (gradient de RanGTP)
-avec 250 MTs (losanges), modèle biaisé avec 1000 MTs (cercles) (Wollman
-et al., \protect\hyperlink{ref-Wollman2005}{2005}).}
+\caption[Temps moyen de capture des chromosomes]{\label{fig:assembly_time}Temps
+moyen de capture de tous les chromosomes en fonction du nombre de
+chromosomes total pour trois modèles différents \emph{in silico} :
+modèle non-biaisé (recherche aléatoire) avec 1000 MTs (triangles),
+modèle biaisé (gradient de RanGTP) avec 250 MTs (losanges), modèle
+biaisé avec 1000 MTs (cercles) (Wollman et al.,
+\protect\hyperlink{ref-Wollman2005}{2005}).}
 \end{figure}
 
 Cependant ce modèle encore trop naïf n'explique pas la précision avec
@@ -1771,12 +1897,13 @@ comme déjà discuté en Section~\ref{sec:attachments-type}.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/spindle_assembly.png}
-\caption{\label{fig:spindle_assembly}Deux mécanismes expliquant la
-fidélité des attachements durant le processus de «~recherche et
-capture~». \textbf{A}. Mécanisme impliquant l'orientation du kinétochore
-frère en réponse à un attachement monotélique. \textbf{B}. Mécanisme
-évolutif qui «~sélectionne~» l'attachement amphitélique (box couleur
-saumon) avec le temps en explorant différents états d'attachement.}
+\caption[Deux mécanismes de l'assemblage du fuseau mitotique]{\label{fig:spindle_assembly}Deux
+mécanismes expliquant la fidélité des attachements durant le processus
+de «~recherche et capture~». \textbf{A}. Mécanisme impliquant
+l'orientation du kinétochore frère en réponse à un attachement
+monotélique. \textbf{B}. Mécanisme évolutif qui «~sélectionne~»
+l'attachement amphitélique (box couleur saumon) avec le temps en
+explorant différents états d'attachement.}
 \end{figure}
 
 \subsection{La dynamique des
@@ -1837,8 +1964,9 @@ de Hill est un modèle théorique car les protéines composant la région
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/hill_model.png}
-\caption{\label{fig:hill_model}Différents modèles de types d'attachement
-entre le microtubule et le kinétochore (Civelekoglu-Scholey and Cimini,
+\caption[Différents modèles de types d'attachement entre le microtubule et le kinétochore]{\label{fig:hill_model}Différents
+modèles de types d'attachement entre le microtubule et le kinétochore
+(Civelekoglu-Scholey and Cimini,
 \protect\hyperlink{ref-Civelekoglu-Scholey2014}{2014}). \textbf{A}.
 «~Hill sleeve model~» qui suppose l'existence d'un nombre fini de sites
 d'attachements arrangés en série. \textbf{B}. Une balance de force est
@@ -1877,7 +2005,7 @@ Par la suite, il fut proposé un nouveau modèle par Tournier et al.
 décrivant la correction des attachements mérotéliques durant l'anaphase
 chez la levure à fission (Courtheoux et al.,
 \protect\hyperlink{ref-Courtheoux2009}{2009}). Ce modèle de balance de
-force est construit sur des observations macroscopiques du fuseau en
+force est construit sur des observations microscopiques du fuseau en
 anaphase. De plus il montre de manière élégante comment un phénomène
 purement physique (augmentation de la tension au kinétochore) est
 capable de corriger un attachement mérotélique.
@@ -1885,10 +2013,10 @@ capable de corriger un attachement mérotélique.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/gay.png}
-\caption{\label{fig:gay}Modèle de ségrégation des chromosomes basé sur
-un attachement KT-MT stochastique (Gay et al.,
-\protect\hyperlink{ref-Gay2012a}{2012}). \textbf{A}. Schéma du fuseau
-mitotique de la levure à fission. \textbf{B}. Schéma du modèle
+\caption[Modèle de ségrégation des chromosomes]{\label{fig:gay}Modèle de
+ségrégation des chromosomes basé sur un attachement KT-MT stochastique
+(Gay et al., \protect\hyperlink{ref-Gay2012a}{2012}). \textbf{A}. Schéma
+du fuseau mitotique de la levure à fission. \textbf{B}. Schéma du modèle
 représentant la façon dont sont agencés les différents éléments
 mécaniques du modèle reproduisant un fuseau mitotique \emph{in vivo}.}
 \end{figure}
@@ -2007,46 +2135,48 @@ cellulaire}\label{la-levure-uxe0-fission-un-organisme-moduxe8le-pour-luxe9tude-d
 
 La levure \emph{Schizosaccharomyces pombe} (Figure~\ref{fig:pombe}) est
 une levure à division symétrique aussi appelée «~levure à fission~».
-Elle est de forme cylindrique de 3 à 4μm de diamètre et de 7 à 10μm de
+Elle est de forme cylindrique de 3 à 4µm de diamètre et de 7 à 10µm de
 longueur en fonction de l'étape du cycle cellulaire.
 
 Elle se développe sur les racines des arbres ainsi que dans les sols à
-proximité. On la retrouve aussi dans les vieux alcools. L'histoire
-raconte que la levure à fission aurait été découverte dans un tonneau de
+proximité. On la retrouve aussi dans les vieux alcools. La légende
+voudrait que la levure à fission ai été découverte dans un tonneau de
 bière périmée (\emph{pombe} signifiant «~dérivant de la bière~»).
 
-Depuis les années 50, les biologistes utilisent cette levure comme
+Depuis les années 60, les biologistes utilisent cette levure comme
 organisme modèle afin d'étudier le cycle cellulaire et notamment la
-mitose.
+mitose (MITCHISON, \protect\hyperlink{ref-MITCHISON1963}{1963}).
 
 Elle possède trois chromosomes et une phase haploïde dominante (avec une
 phase G2 très longue). La séquence de son génome a été publiée en 2002
 par un consortium dirigé par l'Institut Sanger. On estime que son génome
 contient environ 14 millions de paires de base codant pour
-\textasciitilde{}5000 protéines et \textasciitilde{}500 ARNs non-codant.
+\textasciitilde{}5000 protéines et \textasciitilde{}500 ARNs non-codant
+(Wood et al., \protect\hyperlink{ref-Wood2002a}{2002}).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/pombe.png}
-\caption{\label{fig:pombe}Morphologie de la levure à fission.
-\textbf{A}. Vue en microscopie électronique à balayage de \emph{S.
-pombe} (Morgan, \protect\hyperlink{ref-Morgan2007}{2007}). \textbf{B}.
-Vue en microscopie optique à champ large en fond clair. La barre
-correspond à 8 μm dans les deux vues.}
+\caption[Morphologie de la levure à fission]{\label{fig:pombe}Morphologie
+de la levure à fission. \textbf{A}. Vue en microscopie électronique à
+balayage de \emph{S. pombe} (Morgan,
+\protect\hyperlink{ref-Morgan2007}{2007}). \textbf{B}. Vue en
+microscopie optique à champ large en fond clair. La barre correspond à 8
+µm dans les deux vues.}
 \end{figure}
 
-Son cycle cellulaire classique est composé d'une phase G1 brève de
-20min, d'une phase G2 longue de 2h et d'une phase de division (la
-mitose) qui dure une vingtaine de minutes
+Son cycle cellulaire classique est composé d'une phase G1 brève de 20min
+suivi d'une phase S, d'une phase G2 longue de 2h et d'une phase de
+division (la mitose) qui dure une vingtaine de minutes
 (Figure~\ref{fig:pombe-cell-cycle}). En phase exponentielle de
 croissance, 80\% des cellules sont en G2 et 15-20\% en mitose.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/pombe_cell_cycle.png}
-\caption{\label{fig:pombe-cell-cycle}Schéma du cycle cellulaire de la
-levure à fission. La levure à fission possède une phase G2 très longue
-comparé à d'autres types cellulaire.}
+\caption[Schéma du cycle cellulaire de la levure à fission]{\label{fig:pombe-cell-cycle}Schéma
+du cycle cellulaire de la levure à fission. La levure à fission possède
+une phase G2 très longue comparé à d'autres types cellulaire.}
 \end{figure}
 
 Bien que les principaux mécanismes gouvernant la mitose soient conservés
@@ -2059,14 +2189,13 @@ c'est à dire que la division s'effectue dans le noyau.
 
 Les phases de la mitose sont classiques et composées de la sorte : la
 prométaphase qui dure 2.5min, où le fuseau va s'allonger jusqu'a
-atteindre \textasciitilde{}2.5μm; la métaphase où le fuseau reste stable
-grâce à un mécanisme de balance de force (Gay et al.,
-\protect\hyperlink{ref-Gay2012a}{2012}), 2.5-3μm; l'anaphase A dure
+atteindre \textasciitilde{}2.5µm; la métaphase où le fuseau reste stable
+grâce à un mécanisme de balance de force, 2.5-3µm; l'anaphase A dure
 moins de 20s, l'allongement du fuseau est rapide, de l'ordre de 0.5 à
-1μm.min\textsuperscript{\textsuperscript{-1}} (Fu et al.,
+1µm.min\textsuperscript{\textsuperscript{-1}} (Fu et al.,
 \protect\hyperlink{ref-Fu2009}{2009}); enfin l'anaphase B qui dure
 \textasciitilde{}10min où le fuseau va s'allonger jusqu'à atteindre la
-taille de 5-6μm avant de lancer la cytocinèse. La cytocinèse s'effectue
+taille de 5-6µm avant de lancer la cytocinèse. La cytocinèse s'effectue
 par la contraction de l'anneau d'actine recruté au niveau du cortex de
 la cellule.
 
@@ -2094,13 +2223,13 @@ au sein du fuseau mitotique (Figure~\ref{fig:lac}B).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/intro/lac.png}
-\caption{\label{fig:lac}Visualisation d'un seul chromosome en
-microscopie à fuorescence. \textbf{A}. Système LacO/LacI pour la
-visualisation d'une région spécifique d'un chromosome à l'aide d'un
-marqueur fluorescent de type GFP. \textbf{B}. Schéma et vue en
-microscopie à fluorescence d'une cellule de levure à fission marquée
-pour les deux pôles du fuseau et les deux kinétochores du chromosome
-II.}
+\caption[Visualisation d'un seul chromosome en microscopie à fuorescence]{\label{fig:lac}Visualisation
+d'un seul chromosome en microscopie à fuorescence. \textbf{A}. Système
+LacO/LacI pour la visualisation d'une région spécifique d'un chromosome
+à l'aide d'un marqueur fluorescent de type GFP. \textbf{B}. Schéma et
+vue en microscopie à fluorescence d'une cellule de levure à fission
+marquée pour les deux pôles du fuseau et les deux kinétochores du
+chromosome II.}
 \end{figure}
 
 \emph{Schizosaccharomyces pombe} est donc devenu une référence dans
@@ -2240,7 +2369,7 @@ donc à détecter chacun des spots qui correspond à un kinétochore ou à un
 des deux pôles du fuseau mitotique.
 
 La résolution de la vidéo-microscopie actuelle ainsi que la taille du
-fuseau mitotique de la levure à fission (entre 1 et 4μm) rend la
+fuseau mitotique de la levure à fission (entre 1 et 4µm) rend la
 différenciation entre les six kinétochores très difficile tout au long
 de la métaphase (Figure~\ref{fig:spindle_peaks}A).
 
@@ -2257,13 +2386,13 @@ chromosome visualisé (Figure~\ref{fig:spindle_peaks}B).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/spindle_peaks.png}
-\caption{\label{fig:spindle_peaks}Image en microscopie à fluorescence de
-deux fuseaux mitotiques. \textbf{A}. Cellule marqué en GFP pour les six
-kinétochores (Ndc80-GFP, en vert sur le schéma) et pour les pôles
-(Cdc11-GFP, en rouge sur le schéma). \textbf{B}. Cellule marqué en GFP
-pour le centromère du chromosome II (Cen2-GFP, en vert sur le schéma) et
-pour les pôles (Cdc11-GFP, en rouge sur le schéma). La barre d'échelle
-correspond à 1μm.}
+\caption[Image en microscopie à fluorescence de deux fuseaux mitotique]{\label{fig:spindle_peaks}Image
+en microscopie à fluorescence de deux fuseaux mitotiques. \textbf{A}.
+Cellule marqué en GFP pour les six kinétochores (Ndc80-GFP, en vert sur
+le schéma) et pour les pôles (Cdc11-GFP, en rouge sur le schéma).
+\textbf{B}. Cellule marqué en GFP pour le centromère du chromosome II
+(Cen2-GFP, en vert sur le schéma) et pour les pôles (Cdc11-GFP, en rouge
+sur le schéma). La barre d'échelle correspond à 1µm.}
 \end{figure}
 
 De l'information est donc perdue (la position des kinétochores des deux
@@ -2317,16 +2446,16 @@ et plus diffus sur la longueur du chromosome.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/gaussian.png}
-\caption{\label{fig:gaussian}Distribution des intensités gaussiennes en
-deux dimensions. \textbf{A}. Cette image a été générée \emph{in silico}
-par l'échantillonnage aléatoire d'une distribution gaussienne. Le
-surface plot (image de droite) contient une dimension supplémentaire en
-\(z\) dont la hauteur est proportionnelle à l'intensité des pixels dans
-l'image originale (image de gauche) . \textbf{B}. Cette image correspond
-à un blob de la sonde Cen2-GFP qui marque le centromère d'une des
-chromatides du chromosome II. \textbf{C}. Cette image correspond à un
-blob de la sonde Cdc11-GFP qui marque les deux pôles du fuseau
-mitotique.}
+\caption[Distribution des intensités gaussiennes en deux dimensions]{\label{fig:gaussian}Distribution
+des intensités gaussiennes en deux dimensions. \textbf{A}. Cette image a
+été générée \emph{in silico} par l'échantillonnage aléatoire d'une
+distribution gaussienne. Le surface plot (image de droite) contient une
+dimension supplémentaire en \(z\) dont la hauteur est proportionnelle à
+l'intensité des pixels dans l'image originale (image de gauche) .
+\textbf{B}. Cette image correspond à un blob de la sonde Cen2-GFP qui
+marque le centromère d'une des chromatides du chromosome II. \textbf{C}.
+Cette image correspond à un blob de la sonde Cdc11-GFP qui marque les
+deux pôles du fuseau mitotique.}
 \end{figure}
 
 Une implémentation existe dans le plugin TrackMate inclus dans Fiji
@@ -2335,7 +2464,7 @@ code est librement disponible.\footnote{\url{http://git.io/vC9zf}}
 
 Cette implémentation a été utilisée pour l'analyse des images de
 vidéo-microscopie durant ce travail. La précision de la détection a
-aussi été testée en détectant des faux films générés depuis des
+aussi été testée en détectant des blobs sur des films générés depuis des
 trajectoires simulées \emph{in silico}
 (Figure~\ref{fig:detection_precision}A). La distance entre la position
 réelle \emph{in silico} puis la position détectée a ensuite été comparée
@@ -2346,11 +2475,12 @@ détection est d'à peu près 34 nm.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/detection_precision.png}
-\caption{\label{fig:detection_precision}Précision de la détection des
-blobs. \textbf{A}. Superposition d'une trajectoire de chromosome et pôle
-simulée \emph{in silico} (en rouge) avec la trajectoire reconstruire par
-détection de blob (en vert). \textbf{B}. Distribution de la distance
-entre les blobs simulés et les blobs détectés.}
+\caption[Précision de la détection des blobs]{\label{fig:detection_precision}Précision
+de la détection des blobs. \textbf{A}. Superposition d'une trajectoire
+de chromosome et pôle simulée \emph{in silico} (en rouge) avec la
+trajectoire reconstruire par détection de blob (en vert). \textbf{B}.
+Distribution de la distance entre les blobs simulés et les blobs
+détectés.}
 \end{figure}
 
 Enfin un autre algorithme de détection de blob a aussi été testé durant
@@ -2362,22 +2492,22 @@ kinétochores de la levure à fission (Figure~\ref{fig:spindle_peaks}A).
 
 L'idée principale est d'appliquer un algorithme de détection de blob
 plusieurs fois. Entre chaque tour de détection, on soustrait les blobs
-détectés à l'image source et on re-détecte les blobs restant
-(Figure~\ref{fig:deflation}). L'algorithme s'arrête quand plus aucun
-blob n'est détecté dans l'image. Cela permet la détection des blobs
-d'intensité plus faible qui sont masqués par celui de plus forte
+détectés à l'image source (étape de déflation) et on re-détecte les
+blobs restant (Figure~\ref{fig:deflation}). L'algorithme s'arrête quand
+plus aucun blob n'est détecté dans l'image. Cela permet la détection des
+blobs d'intensité plus faible qui sont masqués par celui de plus forte
 intensité situé à proximité.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/deflation.png}
-\caption{\label{fig:deflation}Principe de l'algorithme de détection de
-blob par déflation. \textbf{A}. Le premier tour de fit gaussien détecte
-le blob le plus grand et le plus intense. \textbf{B}. Une fois le
-premier blob détecté soustrait de l'image source, le second tour de fit
-gaussien détecte le blob plus petit et moins intense. Les line plots
-situés à droite des schémas sont adaptés de Sergé et al.
-(\protect\hyperlink{ref-Serge2008}{2008}).}
+\caption[Principe de l'algorithme de détection de blob par déflation]{\label{fig:deflation}Principe
+de l'algorithme de détection de blob par déflation. \textbf{A}. Le
+premier tour de fit gaussien détecte le blob le plus grand et le plus
+intense. \textbf{B}. Une fois le premier blob détecté soustrait de
+l'image source, le second tour de fit gaussien détecte le blob plus
+petit et moins intense. Les line plots situés à droite des schémas sont
+adaptés de Sergé et al. (\protect\hyperlink{ref-Serge2008}{2008}).}
 \end{figure}
 
 Une implémentation en Python de cet algorithme est librement disponible
@@ -2402,13 +2532,14 @@ cas pour Cen2-GFP.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/compare.png}
-\caption{\label{fig:compare}Comparaison entre le LoG détection de
-TrackMate et l'implémentation par déflation basé sur l'algorithme de
-Sergé et al. Aucun des deux algorithmes n'arrivent à détecter les six
-kinétochores et les deux pôles. Par contre l'algorithme de TrackMate (à
-droite) détecte cinq kinétochores et les deux pôles. Alors que l'autre
-algorithme (à gauche) fait plus d'erreurs en détectant deux pôles au
-lieu de un (en haut) et en omettant un kinétochore au milieu.}
+\caption[Principe de l'algorithme de détection de blob par déflation]{\label{fig:compare}Comparaison
+entre le LoG détection de TrackMate et l'implémentation par déflation
+basé sur l'algorithme de Sergé et al. Aucun des deux algorithmes
+n'arrivent à détecter les six kinétochores et les deux pôles. Par contre
+l'algorithme de TrackMate (à droite) détecte cinq kinétochores et les
+deux pôles. Alors que l'autre algorithme (à gauche) fait plus d'erreurs
+en détectant deux pôles au lieu de un (en haut) et en omettant un
+kinétochore au milieu.}
 \end{figure}
 
 Une fois les blobs détectés pour chaque pas de temps, il faut encore
@@ -2427,10 +2558,10 @@ pas de temps (Figure~\ref{fig:whatistracking}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/whatistracking.png}
-\caption{\label{fig:whatistracking}Le tracking est l'étape de liaison
-des objets d'intérêts dans le temps. Sans cette étape il est impossible
-de savoir si un objet est le même qu'un autre dans deux temps
-différents.}
+\caption[Le tracking est l'étape de liaison des objets d'intérêts dans le temps]{\label{fig:whatistracking}Le
+tracking est l'étape de liaison des objets d'intérêts dans le temps.
+Sans cette étape il est impossible de savoir si un objet est le même
+qu'un autre dans deux temps différents.}
 \end{figure}
 
 Tout les algorithmes de tracking sont basés sur la même idée que d'un
@@ -2464,14 +2595,15 @@ coût contenant l'ensemble des solutions possibles au problème
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/jaqaman.png}
-\caption{\label{fig:jaqaman}Les deux matrices de coût du LAP tracker.
-\textbf{A}. Matrice de coût contentant l'ensemble des liens possibles
-entre deux blobs pour deux pas de temps successifs \(t\) et \(t+1\). Il
-existe donc autant de cette première matrice que de pas de temps dans la
-trajectoire. Le bloc en bas à droite (LRB) est un bloc auxiliaire requis
-pour satisfaire des contraintes topologiques de l'algorithme.
-\textbf{B}. Matrice de coût contrôlant la fermeture des trous, la fusion
-et la séparation des trajectoires. Adapté de Jaqaman et al.
+\caption[Les deux matrices de coût du LAP tracker]{\label{fig:jaqaman}Les
+deux matrices de coût du LAP tracker. \textbf{A}. Matrice de coût
+contentant l'ensemble des liens possibles entre deux blobs pour deux pas
+de temps successifs \(t\) et \(t+1\). Il existe donc autant de cette
+première matrice que de pas de temps dans la trajectoire. Le bloc en bas
+à droite (LRB) est un bloc auxiliaire requis pour satisfaire des
+contraintes topologiques de l'algorithme. \textbf{B}. Matrice de coût
+contrôlant la fermeture des trous, la fusion et la séparation des
+trajectoires. Adapté de Jaqaman et al.
 (\protect\hyperlink{ref-Jaqaman2008}{2008}).}
 \end{figure}
 
@@ -2524,9 +2656,9 @@ trajectoires (Figure~\ref{fig:ndc80-reconstruction}B).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/ndc80.png}
-\caption{\label{fig:ndc80-reconstruction}Reconstruction de la
-trajectoire avec six kinétochores. \textbf{A}. La reconstruction est
-basée sur une implémentation développée dans le cadre de cette étude
+\caption[Reconstruction de la trajectoire avec six kinétochores]{\label{fig:ndc80-reconstruction}Reconstruction
+de la trajectoire avec six kinétochores. \textbf{A}. La reconstruction
+est basée sur une implémentation développée dans le cadre de cette étude
 appelé \texttt{scikit-tracker}. \textbf{B}. Reconstruction avec le
 plugin Fiji nommé TrackMate.}
 \end{figure}
@@ -2537,6 +2669,15 @@ kinétochores ne sont jamais clairement visibles. Soit certains sont
 superposés à d'autres et donc ils apparaissent comme un unique blob,
 soit certains d'entre eux sortent du champ focal du microscope. Il est
 très compliqué de différencier entre les deux scénarios.
+
+Bien que cet algorithme soit puissant pour résoudre des problèmes
+complexes de reconstruction de trajectoires, son utilisation impliquent
+que l'étape de détection soit précise et que les différents blobs à
+reconstruire soit différenciable une grande partie du temps. La limite
+de résolution des microscopes traditionnelles ainsi que la taille du
+fuseau de la levure à fission ont rendu la reconstruction des trois
+chromosomes difficiles pour une étude fine de la dynamique des
+mouvements des chromosomes en mitose.
 
 Afin d'obtenir des trajectoires exactes de chromosomes tout au long de
 la mitose l'une des solutions est d'imager seulement les deux
@@ -2571,8 +2712,8 @@ L'algorithme utilisé est le suivant (Figure~\ref{fig:algo_cen2}) :
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/algo_cen2.png}
-\caption{\label{fig:algo_cen2}Algorithme de tracking pour un
-chromosome.}
+\caption[Algorithme de tracking pour un chromosome]{\label{fig:algo_cen2}Algorithme
+de tracking pour un chromosome.}
 \end{figure}
 
 Cette technique est très robuste (Figure~\ref{fig:cen2}). Cependant il
@@ -2583,8 +2724,8 @@ trajectoires.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/cen2.png}
-\caption{\label{fig:cen2}Reconstruction de la trajectoire du chromosome
-II et de ses deux pôles.}
+\caption[Reconstruction de la trajectoire du chromosome II et de ces deux pôles.]{\label{fig:cen2}Reconstruction
+de la trajectoire du chromosome II et de ses deux pôles.}
 \end{figure}
 
 \paragraph{Interface de correction manuelle des
@@ -2617,10 +2758,11 @@ raccorder, de les fusionner ou bien de les séparer.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/gui.png}
-\caption{\label{fig:gui}Interface graphique de correction manuelle des
-trajectoires. \textbf{A}. Le début de l'anaphase peut être modifier
-manuellement. \textbf{B}. Chaque trajectoire peut être modifié à l'aide
-d'une interface simple et intuitive.}
+\caption[Interface graphique de correction manuelle des trajectoires]{\label{fig:gui}Interface
+graphique de correction manuelle des trajectoires. \textbf{A}. Le début
+de l'anaphase peut être modifier manuellement. \textbf{B}. Chaque
+trajectoire peut être modifié à l'aide d'une interface simple et
+intuitive.}
 \end{figure}
 
 \subsubsection{Résumé du workflow de reconstruction des
@@ -2637,10 +2779,10 @@ pour chaque pas de temps.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/workflow.png}
-\caption{\label{fig:workflow}Workflow de reconstruction des
-trajectoires. Deux étapes nécessitent une intervention manuelle. Suite à
-la détection de blobs (peaks) et après la reconstruction automatique des
-trajectoires.}
+\caption[Workflow de reconstruction des trajectoires]{\label{fig:workflow}Workflow
+de reconstruction des trajectoires. Deux étapes nécessitent une
+intervention manuelle. Suite à la détection de blobs (peaks) et après la
+reconstruction automatique des trajectoires.}
 \end{figure}
 
 La constitution d'une base de donnée de trajectoires contenant
@@ -2669,13 +2811,14 @@ son kinétochore frère à un mouvement anti-poleward (AP)
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/coherence_schema.png}
-\caption{\label{fig:coherence_schema}Schéma de mouvement cohérent et
-incohérent des kinétochores frères. \textbf{A}. Les deux kinétochores
-frères sont dans des états poleward et anti-poleward, le mouvement est
-cohérent. \textbf{B} et \textbf{C}. Les deux kinétochores frères sont
-dans le même état poleward ou anti-poleward, le mouvement est
-incohérent. \textbf{D}. Dans certains cas il est impossible de
-déterminer précisément l'état de cohérence d'un chromosome.}
+\caption[Schéma de mouvement cohérent et incohérent des kinétochores frères.]{\label{fig:coherence_schema}Schéma
+de mouvement cohérent et incohérent des kinétochores frères. \textbf{A}.
+Les deux kinétochores frères sont dans des états poleward et
+anti-poleward, le mouvement est cohérent. \textbf{B} et \textbf{C}. Les
+deux kinétochores frères sont dans le même état poleward ou
+anti-poleward, le mouvement est incohérent. \textbf{D}. Dans certains
+cas il est impossible de déterminer précisément l'état de cohérence d'un
+chromosome.}
 \end{figure}
 
 La méthode (Armond et al., \protect\hyperlink{ref-Armond2015}{2015})
@@ -2713,10 +2856,10 @@ incohérent (Figure~\ref{fig:coherence_kymo}, voir le mouvement entre
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/coherence_kymo.png}
-\caption{\label{fig:coherence_kymo}Direction des kinétochores frères en
-metaphase. Trajectoires des pôles (rouge et vert) et des kinétochores
-frères (bleu et rose) en métaphase dans une cellule sauvage. Le pas de
-temps de l'acquisition est de 100ms.}
+\caption[Direction des kinétochores frères en metaphase.]{\label{fig:coherence_kymo}Direction
+des kinétochores frères en metaphase. Trajectoires des pôles (rouge et
+vert) et des kinétochores frères (bleu et rose) en métaphase dans une
+cellule sauvage. Le pas de temps de l'acquisition est de 100ms.}
 \end{figure}
 
 Si l'on compare les états de cohérence de plusieurs cellules dans
@@ -2730,15 +2873,16 @@ cellules sauvages.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/coherence_stats.png}
-\caption{\label{fig:coherence-stats}Temps passé dans les différents
-états de cohérence dans diverses conditions. WT désigne une cellule
-sauvage. \emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ} désigne différents
-mutants de la kinésine-8 qui possèdent tous le même phénotype (voir
-Section~\ref{sec:article} pour plus de détails). TBZ désigne une drogue,
-le thiabendazole qui inhibe les oscillations des chromosomes en
-métaphase. Le nombre de cellules utilisées pour cette analyse est n = 24
-pour WT, n = 18 pour \emph{klp6Δ}, n = 12 pour \emph{klp5Δ}, n = 26 pour
-\emph{klp56Δ}, n = 19 pour WT+TBZ, n = 14 pour \emph{klp6Δ}+TBZ.}
+\caption[Temps passé dans les différents états de cohérence dans différentes conditions]{\label{fig:coherence-stats}Temps
+passé dans les différents états de cohérence dans diverses conditions.
+WT désigne une cellule sauvage. \emph{klp6Δ}, \emph{klp5Δ} et
+\emph{klp56Δ} désigne différents mutants de la kinésine-8 qui possèdent
+tous le même phénotype (voir Section~\ref{sec:article} pour plus de
+détails). TBZ désigne une drogue, le thiabendazole qui inhibe les
+oscillations des chromosomes en métaphase. Le nombre de cellules
+utilisées pour cette analyse est n = 24 pour WT, n = 18 pour
+\emph{klp6Δ}, n = 12 pour \emph{klp5Δ}, n = 26 pour \emph{klp56Δ}, n =
+19 pour WT+TBZ, n = 14 pour \emph{klp6Δ}+TBZ.}
 \end{figure}
 
 Si l'on suppose que le mouvement P implique que les microtubules
@@ -2764,16 +2908,17 @@ force de traction sur le kinétochore.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/coherence_stretch.png}
-\caption{\label{fig:coherence_stretch}Distance inter-kinétochore en
-fonction de l'état de cohérence dans différentes conditions. La barre
-rouge des violin plots désigne la moyenne. WT désigne une cellule
-sauvage. \emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ} désigne différents
-mutants de la kinésine-8 qui possède tous le même phénotype (voir
-Section~\ref{sec:article} pour plus de détails). TBZ désigne une drogue,
-le thiabendazole qui inhibe les oscillations des chromosomes en
-métaphase. Le nombre de cellule utilisés pour cette analyse est n = 24
-pour WT, n = 18 pour \emph{klp6Δ}, n = 12 pour \emph{klp5Δ}, n = 26 pour
-\emph{klp56Δ}, n = 19 pour WT+TBZ, n = 14 pour \emph{klp6Δ}+TBZ.}
+\caption[Distance inter-kinétochore en fonction de l'état de cohérence dans différentes conditions]{\label{fig:coherence_stretch}Distance
+inter-kinétochore en fonction de l'état de cohérence dans différentes
+conditions. La barre rouge des violin plots désigne la moyenne. WT
+désigne une cellule sauvage. \emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ}
+désigne différents mutants de la kinésine-8 qui possède tous le même
+phénotype (voir Section~\ref{sec:article} pour plus de détails). TBZ
+désigne une drogue, le thiabendazole qui inhibe les oscillations des
+chromosomes en métaphase. Le nombre de cellule utilisés pour cette
+analyse est n = 24 pour WT, n = 18 pour \emph{klp6Δ}, n = 12 pour
+\emph{klp5Δ}, n = 26 pour \emph{klp56Δ}, n = 19 pour WT+TBZ, n = 14 pour
+\emph{klp6Δ}+TBZ.}
 \end{figure}
 
 Cette dernière observation nécessite d'être confirmée car la mesure de
@@ -2810,13 +2955,15 @@ Displacement~»}\label{analyse-du-mouvement-par-mean-square-displacement}
 gouvernant un
 mouvement}\label{la-msd-un-outil-pour-accuxe9der-aux-diffuxe9rents-phuxe9nomuxe8nes-gouvernant-un-mouvement}
 
+\label{sec:msd-tool}
+
 Les mouvements observés au niveau subcellulaire peuvent être dirigés par
 des processus différents qu'on peut diviser en trois familles :
 
 \begin{itemize}
 \item
   un mouvement purement diffusif (aussi appelé mouvement brownien)
-  gouverné par par l'ensemble des chocs de petites particules sur une
+  gouverné par l'ensemble des chocs de petites particules sur une
   particule plus grosse. Il en résulte un mouvement aléatoire dans
   toutes les dimensions de l'espace.
 \item
@@ -2863,7 +3010,7 @@ diffusion.
 \mbox{MSD}(\tau) = R_c^2(1-e^{-2dD\tau / R_c})
 \]
 
-Où \(R_c\) est la rayon dans lequel la particule est confinée, \(d\) est
+Où \(R_c\) est le rayon dans lequel la particule est confinée, \(d\) est
 le nombre de dimensions et \(D\) le coefficient de diffusion.
 
 \begin{itemize}
@@ -2894,8 +3041,8 @@ sous-diffusion.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/wiki_diffuse.png}
-\caption{\label{fig:wiki_diffuse}Exemple de MSD pour trois types de
-diffusion théoriques. Adapté de
+\caption[Exemple de MSD pour trois types de diffusion théoriques]{\label{fig:wiki_diffuse}Exemple
+de MSD pour trois types de diffusion théoriques. Adapté de
 https://commons.wikimedia.org/wiki/File\%3AMsd\_anomalous\_diffusion.svg}
 \end{figure}
 
@@ -2917,11 +3064,12 @@ dirigé.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/motions.png}
-\caption{\label{fig:motions}Exemple de MSD pour un mouvement dirigé et
-un mouvement brownien simulé. \textbf{A} et \textbf{B}. Évolution des
-positions d'une particule en deux dimensions dans le cas d'un mouvement
-respectivement brownien et dirigé simulé. \textbf{C} et \textbf{D}. MSD
-correspondant aux mouvements en \textbf{A} et \textbf{B}.}
+\caption[Exemple de MSD pour un mouvement dirigé et un mouvement brownien simulé]{\label{fig:motions}Exemple
+de MSD pour un mouvement dirigé et un mouvement brownien simulé.
+\textbf{A} et \textbf{B}. Évolution des positions d'une particule en
+deux dimensions dans le cas d'un mouvement respectivement brownien et
+dirigé simulé. \textbf{C} et \textbf{D}. MSD correspondant aux
+mouvements en \textbf{A} et \textbf{B}.}
 \end{figure}
 
 En fittant des mesures de mouvement de particules avec les équations
@@ -2931,10 +3079,10 @@ paramètres physiques gouvernant ces phénomènes tels que le coefficient
 de diffusion \(D\), la vitesse de la particule \(v\) ou encore le volume
 de confinement \(R_C\).
 
-Cette approche est appelée modélisation basé sur les données
+Cette approche est appelée modélisation basée sur les données
 («~data-driven modeling~» en anglais). Toute la difficulté est de
 trouver la bonne technique pour remonter aux équations à partir des
-données. Un article publiée par Monier et al. (Monnier et al.,
+données. Un article publiée par Monnier et al. (Monnier et al.,
 \protect\hyperlink{ref-Monnier2012}{2012}) propose une approche basée
 sur les statistiques bayésiennes afin de prédire pour différents types
 de mouvement le processus à l'origine ainsi que les paramètres associés.
@@ -2942,109 +3090,113 @@ de mouvement le processus à l'origine ainsi que les paramètres associés.
 \subsubsection{Mesure de la MSD appliquée au mouvement de
 Cen2-GFP}\label{mesure-de-la-msd-appliquuxe9e-au-mouvement-de-cen2-gfp}
 
-L'observation des MSD de différentes trajectoires de Cen2-GFP sous
-différentes conditions (Figure~\ref{fig:msds} et
-Figure~\ref{fig:msds-log} pour une visualisation en log-log) fait
-apparaître une sur-diffusion des trajectoires dans les cellules délétées
-pour la kinésine-8 (\emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ}) ce qui
-concorde avec une augmentation de l'amplitude (voir
-Section~\ref{sec:article}) ainsi qu'une perturbation de l'état de
-cohérence du mouvement des kinétochores frères.
+La MSD a été mesurée pour chaque trajectoires du chromosome 2 dans
+différentes conditions avec un pas de temps faible (\(dt=100ms\)) afin
+de pouvoir «~capter~» un éventail large de phénomènes. Les différentes
+conditions utilisées sont des cellules sauvages et délétées pour la
+kinésine-8 (\emph{klp6Δ}, \emph{klp5Δ} et \emph{klp56Δ}) ainsi que des
+cellules auxquelles il a été ajouté une drogue appelé le thiabendazole
+(TBZ) qui est connu pour déstabiliser les microtubules à de faibles
+doses (Umesono et al., \protect\hyperlink{ref-Umesono1983}{1983}).
 
-On peut aussi observer que les trajectoires avec TBZ sont très largement
-sous diffusives comparées aux trajectoires sans TBZ. Ceci confirme
-qu'une force nette plus faible est appliquée dans ces conditions dû à un
-attachement plus faible des kinétochores aux microtubules. Les
-kinétochores seront alors soumis à un confinement forcé du fait des
-moindres forces s'exerçant sur elles. Cette observation confirme que
-l'attachement est primordial dans la génération de la force au niveau du
-kinétochore.
+La première chose que l'on peut remarquer à l'observation des MSD
+(Figure~\ref{fig:msds} et Figure~\ref{fig:msds-log} pour une
+visualisation en log-log) est le comportement stéréotypé très changeant
+de chacunes des courbes sous différentes conditions.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/msds.png}
-\caption{\label{fig:msds}MSD pour différentes trajectoires de Cen2-GFP
-sous différentes conditions. La ligne bleu foncé représente la MSD
-moyenne pondérée par le nombre de pas de temps pour un délai donné.
-L'erreur en bleu clair représente l'erreur standard de la moyenne tandis
-que l'erreur en bleu très clair représente la déviation standard. Les
-MSD en gris correspondent aux MSD individuelles de chacune des
-trajectoires. Le nombre de trajectoires utilisées pour cette analyse est
-n = 26 pour WT, n = 25 pour \emph{klp6Δ}, n = 22 pour \emph{klp5Δ}, n =
-51 pour \emph{klp56Δ}, n = 23 pour WT+TBZ, n = 19 pour
-\emph{klp6Δ}+TBZ.}
+\caption[MSD pour différentes trajectoires de Cen2-GFP sous différentes conditions.]{\label{fig:msds}MSD
+pour différentes trajectoires de Cen2-GFP sous différentes conditions.
+La ligne bleu foncé représente la MSD moyenne pondérée par le nombre de
+pas de temps pour un délai donné. L'erreur en bleu clair représente
+l'erreur standard de la moyenne tandis que l'erreur en bleu très clair
+représente la déviation standard. Les MSD en gris correspondent aux MSD
+individuelles de chacune des trajectoires. Le nombre de trajectoires
+utilisé pour cette analyse est n = 26 pour WT, n = 25 pour \emph{klp6Δ},
+n = 22 pour \emph{klp5Δ}, n = 51 pour \emph{klp56Δ}, n = 23 pour WT+TBZ,
+n = 19 pour \emph{klp6Δ}+TBZ.}
 \end{figure}
 
-La visualisation en log-log (Figure~\ref{fig:msds-log}) permet de voir
-de manière plus précise ce qui se passe aux temps courts. Il est ainsi
-possible d'observer que toutes les MSD pourraient posséder trois temps
-caractéristiques (Figure~\ref{fig:msds-log-fit}) :
+L'une des premières caractérisation qu'il est possible de faire et de
+comparer les différentes pentes contenues dans chacune des MSD.
 
-\begin{itemize}
-\item
-  Un premier temps allant juqu'à 0.3s (en orange) pourrait traduire
-  l'effet des différents processus aléatoires sur le mouvement
-  (mouvement brownien, bruit blanc de la mesure, etc).
-\item
-  De 0.3s à 2s (en vert), la pente chute brusquement
-  (Figure~\ref{fig:msds-log-fit}), ce qui pourrait être la signature de
-  la mesure de Cen2-GFP qui bougerait de la même manière qu'une
-  particule confinée dû à son éloignement au point où s'exerce les
-  forces au niveau du kinétochore et à l'état faiblement rigide de la
-  chromatide.
-\item
-  De 2s à 40s (en bleu), la pente augmente
-  (Figure~\ref{fig:msds-log-fit}), ce qui pourrait traduire l'effet dû à
-  la force appliquée au niveau des kinétochores. Cette pente serait
-  alors caractéristique d'un mouvement dirigé.
-\end{itemize}
+Chacune des MSDs contient trois pentes et un comportement final
+caractéristique. Les deux premières pentes (orange et verte sur la
+Figure~\ref{fig:msds-log-fit}) jusqu'à 2s semblent être indépendantes
+des mutants et de la drogue utilisés. Au temps plus longs, on observe
+d'abord une pente (en bleu sur la Figure~\ref{fig:msds-log-fit}) jusqu'à
+40s où les mutants et la drogue on un effet important. La pente chez la
+souche sauvage vaut 1 alors que chez les mutants kinésine-8, elle est
+plus grande et vaut à peu près 1.25. Le TBZ a pour effet de diminuer la
+pente chez la souche sauvage est aussi chez le mutant de la kinésine-8
+(Figure~\ref{fig:msds-log-fit}).
+
+Enfin la souche sauvage a un plateau au-delà de 40s alors que celui-ci
+est absent chez les mutants kinésine-8 et chez les cellules filmées avec
+le TBZ.
+
+Bien qu'il soit difficile d'interpréter ces observations d'un point de
+vue biophysique, il est déjà possible de dire que la kinésine-8 et la
+dynamique des microtubules ont un effet sur le mouvement des chromosomes
+visible à la MSD.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/msds_log.png}
-\caption{\label{fig:msds-log}MSD en log-log pour différentes
-trajectoires de Cen2-GFP sous différentes conditions. L'erreur en bleu
-clair représente l'erreur standard de la moyenne tandis que l'erreur en
-bleu très clair représente la déviation standard. Les MSD en gris
-correspondent aux MSD individuelles de chacune des trajectoires. Le
-nombre de trajectoires utilisées pour cette analyse est n = 26 pour WT,
-n = 25 pour \emph{klp6Δ}, n = 22 pour \emph{klp5Δ}, n = 51 pour
-\emph{klp56Δ}, n = 23 pour WT+TBZ, n = 19 pour \emph{klp6Δ}+TBZ.}
+\caption[MSD en log-log pour différentes trajectoires de Cen2-GFP sous différentes conditions]{\label{fig:msds-log}MSD
+en log-log pour différentes trajectoires de Cen2-GFP sous différentes
+conditions. L'erreur en bleu clair représente l'erreur standard de la
+moyenne tandis que l'erreur en bleu très clair représente la déviation
+standard. Les MSD en gris correspondent aux MSD individuelles de chacune
+des trajectoires. Le nombre de trajectoires utilisées pour cette analyse
+est n = 26 pour WT, n = 25 pour \emph{klp6Δ}, n = 22 pour \emph{klp5Δ},
+n = 51 pour \emph{klp56Δ}, n = 23 pour WT+TBZ, n = 19 pour
+\emph{klp6Δ}+TBZ.}
 \end{figure}
 
-Il est d'ailleurs intéressant de remarquer que dans les MSD avec TBZ, la
-troisième pente (de 2s à 40s) est plus faible comparée aux MSD sans TBZ.
-Cela pourrait signifier que les kinétochores en présence de TBZ sont
-soumis des forces plus faibles probablement à cause de l'effet du TBZ
-sur la dynamique des microtubules. Cela souligne le rôle capital des
-microtubules dans la génération de la force au niveau des kinétochores.
-On note aussi que cette observation est confirmé par l'analyse des
-oscillations (Mary et al., \protect\hyperlink{ref-Mary2015}{2015}). Pour
-confirmer ce résultat il faudrait mesurer cette troisième pente en
-faisant varier les concentrations de TBZ et regarder si une corrélation
-existe.
+Les deux premières pentes au temps court pourrait être un effet de
+convolution de plusieurs phénomènes comme le bruit stochastique inhérent
+au système observé ainsi que le mouvement diffus de Cen2-GFP par rapport
+au kinétochore et à l'axe kinétochore-kinétochore où la tension est
+exercé. Pour confirmer cette hypothèse il faudrait comparer ces
+observations avec des MSDs de trajectoires d'une protéine du kinétochore
+comme Ndc80-GFP par exemple.
+
+L'augmentation de la pente au temps plus longs (de 2s à 40s) chez les
+mutants kinésine-8 pourrait être la signature des amplitudes
+d'oscillations plus importante (Mary et al.,
+\protect\hyperlink{ref-Mary2015}{2015}). Cette hypothèse semble être
+confirmé par la diminution de la pente observée chez les cellules en
+présence de TBZ.
+
+Enfin il est plus surprenant d'observer que seul les cellules sauvages
+possèdent un plateau au-delà de 40s alors que les trajectoires chez les
+cellules en présence de TBZ ne contiennent presque pas d'oscillations.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/imaging/msds_log_fit.png}
-\caption{\label{fig:msds-log-fit}Régression linéaire sur des MSD pour
-différentes trajectoires de Cen2-GFP sous différentes conditions. La
-régression linéaire a été faite en utilisant la fonction
-\texttt{scipy.stats.linregress} de la bibliothèque python
+\caption[Régression linéaire sur des MSD pour différentes trajectoires de Cen2-GFP sous différentes conditions]{\label{fig:msds-log-fit}Régression
+linéaire sur des MSD pour différentes trajectoires de Cen2-GFP sous
+différentes conditions. La régression linéaire a été faite en utilisant
+la fonction \texttt{scipy.stats.linregress} de la bibliothèque python
 \texttt{scipy}. Les temps choisis pour les trois différentes régressions
 sont : de 0.1s à 0.3s, de 0.3s à 2s et de 2s à 40s.}
 \end{figure}
 
-Des analyses plus précises sont nécessaires pour pouvoir conclure sur
-les différents types de phénomènes mis en jeu dans le mouvement des
-chromosomes. Il serait notamment intéressant de comparer le mouvement de
-Ndc80-GFP (situé au niveau du kinétochore) avec celui de Cen2-GFP.
+L'étape suivant ces premières observations serait d'abord de fitter ces
+courbes avec des modèles théoriques caractérisant ces mouvements (voir
+en Section~\ref{sec:msd-tool}). Cette étape peut être complexe en parti
+à cause de la combinaison des différents modèles qu'il est possible
+d'utiliser. Une approche possible pour cette analyse est l'utilisation
+des statistiques bayésiennes qui semble particulièrement adaptée dans ce
+cas là (Monnier et al., \protect\hyperlink{ref-Monnier2012}{2012}).
 
-Il pourrait être par la suite utile de modéliser à partir de ces
-différentes mesures les modèles de mouvement vus dans la section
-précédente. L'approche bayésienne semble être une approche intéressante
-dans ce type de problème (Monnier et al.,
-\protect\hyperlink{ref-Monnier2012}{2012}).
+Il peut aussi être utile de comparer ces données ainsi que les modèles
+théoriques avec des trajectoires simulées \emph{in silico} et d'observer
+si les effets au temps court (les deux premières pentes) sont présentes.
 
 \section{Modélisation bio-mécanique de la ségrégation des
 chromosomes}\label{moduxe9lisation-bio-muxe9canique-de-la-suxe9gruxe9gation-des-chromosomes}
@@ -3052,11 +3204,11 @@ chromosomes}\label{moduxe9lisation-bio-muxe9canique-de-la-suxe9gruxe9gation-des-
 La modélisation \emph{in silico} des trajectoires des chromosomes en
 mitose permet de mieux comprendre quels sont les mécanismes sous-jacents
 responsables de la régulation de ces mouvements. L'approche «~modèles de
-connaissance~», qui s'inspire de la mécanique du point, est utilisé et
-permet d'établir des hypothèses sur les mécanismes de congression des
-chromosomes en métaphase. Enfin d'autre hypothèses sont aussi envisagées
-afin de décrire les oscillations du mouvement des chromosomes observées
-\emph{in vivo}.
+connaissance~», qui s'inspire de la mécanique du point, permet d'établir
+des hypothèses sur les mécanismes de congression des chromosomes en
+métaphase. Enfin d'autre hypothèses sont aussi envisagées afin de
+décrire les oscillations du mouvement des chromosomes observées \emph{in
+vivo}.
 
 \subsection{\texorpdfstring{\texttt{kt\_simul} : l'implémentation
 numérique du modèle de ségrégation des
@@ -3079,27 +3231,27 @@ récupérer ou visualiser les données générées par la simulation. Pour un
 exemple d'utilisation voir l'annexe en Section~\ref{sec:ktsimul}.
 
 L'exécution d'un grand nombre de simulations peut prendre du temps,
-c'est pour cela qu'a été aussi ajouté à \texttt{kt\_simul}, des
-fonctions permettant la répartition de différentes simulations sur
-différents cœurs de la machine qui les exécute
-(Figure~\ref{fig:parallel}). La parallélisation permet une réduction
-drastique des temps de calcul sans avoir à requérir à un puissant
-cluster, souvent cher et difficile d'accès. Ainsi une station de travail
-classique, équipé de 16 cœurs Intel Xeon E5-2650 cadencé à 2GHz, est
-capable d'exécuter plus de 2000 simulations standards en une heure
-tandis que la version non parallélisée en exécute seulement 200.
+c'est pour cela que des fonctions permettant la répartition de
+différentes simulations sur différents cœurs de la machine qui les
+execute ont été rajoutées (Figure~\ref{fig:parallel}). La
+parallélisation permet une réduction drastique des temps de calcul sans
+avoir à requérir à un puissant cluster, souvent cher et difficile
+d'accès. Ainsi une station de travail classique, équipé de 16 cœurs
+Intel Xeon E5-2650 cadencé à 2GHz, est capable d'exécuter plus de 2000
+simulations standards en une heure tandis que la version non
+parallélisée en exécute seulement 200.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/modelling/parallel.png}
-\caption{\label{fig:parallel}Schéma décrivant le principe de la
-parallélisation en informatique. Différence de vitesse d'exécution
-théorique entre une implémentation parallélisée et une implémentation
-séquentielle. Un algorithme parallélisé (en bleu) utilise les différents
-cœurs de la machine pour exécuter plusieurs simulations en même temps.
-Donc une machine possédant deux cœurs exécute en théorie les quatre
-simulations deux fois plus vite qu'un algorithme non parallélisé (en
-rose).}
+\caption[Schéma décrivant le principe de la parallélisation en informatique]{\label{fig:parallel}Schéma
+décrivant le principe de la parallélisation en informatique. Différence
+de vitesse d'exécution théorique entre une implémentation parallélisée
+et une implémentation séquentielle. Un algorithme parallélisé (en bleu)
+utilise les différents cœurs de la machine pour exécuter plusieurs
+simulations en même temps. Une machine possédant deux cœurs exécute en
+théorie les quatre simulations deux fois plus vite qu'un algorithme non
+parallélisé (en rose).}
 \end{figure}
 
 \texttt{kt\_simul} permet donc de modifier le modèle facilement. Il a
@@ -3120,7 +3272,7 @@ Il a par ailleurs été montré \emph{in silico} qu'une force dépendante de
 la distance au pôle sur le kinétochore pouvait reproduire l'alignement
 des chromosomes \emph{in vivo} (Figure~\ref{fig:hyp1} et
 Figure~\ref{fig:ch-alignment}) en adaptant un modèle existant de la
-congression des chromosomes (Gay et al.,
+ségrégation des chromosomes (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}). Cette force dépendante de la
 longueur est gouvernée par un seul paramètre \(L_{dep}\) qui caractérise
 l'amplitude de la dépendance en longueur de cette force. Elle a été
@@ -3132,21 +3284,24 @@ l'article en Section~\ref{sec:article}, (Mary et al.,
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/modelling/hyp1.png}
-\caption{\label{fig:hyp1}Schémas et exemple de trajectoire \emph{in
-silico} du mécanisme d'alignement avec et sans force dépendante de la
-longueur.}
+\caption[Premier mécanisme expliquant l'alignement des chromosomes]{\label{fig:hyp1}Schémas
+et exemple de trajectoire \emph{in silico} du mécanisme d'alignement
+avec et sans force dépendante de la longueur. Les flèches correspondent
+aux forces appliquée sur les kinétochores en fonction de leur position
+le long du fuseau et leurs tailles illustrent la magnitude des forces.}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/modelling/ch_alignment.png}
-\caption{\label{fig:ch-alignment}Distribution de l'alignement relatif
-des chromosomes en anaphase \emph{in vivo} (dans les cellules WT, n=52
-et klp6Δ, n=63) et \emph{in silico} pour l'hypothèse 1 (avec, n=60 ou
-sans la force dépendante de la longueur, n=60) et \emph{in silico} pour
-l'hypothèse 2 (avec, n=60 ou sans la force dépendante de la longueur,
-n=60). Une distance proche de 0 signifie que le chromosome est
-positionnée au milieu du fuseau mitotique.}
+\caption[Distribution de l'alignement relatif des chromosomes en anaphase]{\label{fig:ch-alignment}Distribution
+de l'alignement relatif des chromosomes en anaphase \emph{in vivo} (dans
+les cellules WT, n=52 et klp6Δ, n=63) et \emph{in silico} pour
+l'hypothèse 1 (avec, n=60 ou sans la force dépendante de la longueur,
+n=60) et \emph{in silico} pour l'hypothèse 2 (avec, n=60 ou sans la
+force dépendante de la longueur, n=60). Une distance proche de 0
+signifie que le chromosome est positionnée au milieu du fuseau
+mitotique.}
 \end{figure}
 
 L'hypothèse 1, présentée dans ce travail (Section~\ref{sec:article}),
@@ -3179,7 +3334,7 @@ kinésine-8 reste largement hypothétique.
 La flexibilité de l'implémentation du modèle \texttt{kt\_simul} permet
 de proposer une hypothèse alternative moins phénoménologique.
 
-L'hypothèse 2 est basé sur l'observation faite que la kinésine-8 peut
+L'hypothèse 2 est basée sur l'observation faite que la kinésine-8 peut
 contrôler la taille des microtubules (Varga et al.,
 \protect\hyperlink{ref-Varga2006}{2006}). On peut donc supposer que la
 distribution des extrémités plus des microtubules au sein du fuseau
@@ -3243,19 +3398,13 @@ chromosomes en mitose (Figure~\ref{fig:ch-alignment}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/modelling/hyp2.png}
-\caption{\label{fig:hyp2}Schémas et exemple de trajectoire \emph{in
-silico} du mécanisme d'alignement avec et sans taux d'attachement
-dépendant de la longueur.}
+\caption[Second mécanisme expliquant l'alignement des chromosomes]{\label{fig:hyp2}Schémas
+et exemple de trajectoire \emph{in silico} du mécanisme d'alignement
+avec et sans taux d'attachement dépendant de la longueur. Les flèches
+correspondent aux forces appliquée sur les kinétochores en fonction de
+leur position le long du fuseau et leurs tailles illustrent la magnitude
+des forces.}
 \end{figure}
-
-Ni le modèle initial (Gay et al.,
-\protect\hyperlink{ref-Gay2012a}{2012}), ni les des deux hypothèses
-développées ici ne sont cependant suffisantes pour reproduire
-l'amplitude des oscillation des chromosomes observées de la prométaphase
-à la métaphase (Jaqaman et al.,
-\protect\hyperlink{ref-Jaqaman2010}{2010}; Skibbens et al.,
-\protect\hyperlink{ref-Skibbens1993}{1993}). Il semblerait donc qu'un
-autre mécanisme soit requis pour expliquer ce type de mouvement.
 
 Cependant, ni le modèle initial (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}) ou les modèles avancés ici ne
@@ -3291,10 +3440,10 @@ deux mécanismes de corrections).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/modelling/two_states.png}
-\caption{\label{fig:two_states}Modèle d'attachement à deux états. Le
-passage d'un état à l'autre se fait de manière stochastique et est
-régulé par deux mécanismes de corrections gouvernés par les deux
-paramètres \(\beta\) et \(d_\alpha\) (Gay et al.,
+\caption[Modèle d'attachement à deux états]{\label{fig:two_states}Modèle
+d'attachement à deux états. Le passage d'un état à l'autre est
+stochastique et régulé par deux mécanismes de corrections gouvernés par
+les deux paramètres \(\beta\) et \(d_\alpha\) (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}).}
 \end{figure}
 
@@ -3307,7 +3456,8 @@ oscillatoires représentatifs de ceux observés \emph{in vivo}.
 
 L'ajout d'un état permettrait au système de mieux «~imiter~» l'action
 des microtubules sur la dynamique des attachements sans réellement avoir
-à modéliser la dynamique des microtubules.
+à modéliser la dynamique des microtubules qui nécessiterait l'ajout de
+paramètres libres au modèle.
 
 Le concept que les microtubules peuvent «~pousser~» par polymérisation
 et «~tirer~» par dépolymérisation a été proposé dans les années 70 par
@@ -3343,25 +3493,25 @@ Le modèle à trois états propose d'intégrer ces observations
   dépolymérisation du microtubule.
 \item
   L'état «~attaché \& polymérisant~» (GA) correspond à un attachement
-  par un microtubule qui polymérise est donc sans production de force.
-  L'absence de force est motivé par la faible contribution des forces de
-  poussées au mouvement des chromosomes.
+  par un microtubule qui polymérise et donc sans production de force.
+  L'absence de force est en accord avec la faible contribution des
+  forces de poussées au mouvement des chromosomes.
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/results/modelling/three_states.png}
-\caption{\label{fig:three_states}Modèle d'attachement à trois états. Les
-trois états prennent en compte les différentes observations faites entre
-la génération de la force au niveau du kinétochore et la dynamique des
-microtubules.}
+\caption[Modèle d'attachement à trois états]{\label{fig:three_states}Modèle
+d'attachement à trois états. Les trois états prennent en compte les
+différentes observations faites entre la génération de la force au
+niveau du kinétochore et la dynamique des microtubules.}
 \end{figure}
 
 L'implémentation de ce modèle suppose donc que le passage de D à GA (et
-inversement) et de D à SA (et inversement) sont toujours dirigés par les
-deux mécanismes déjà décrits dans Gay et al.
-(\protect\hyperlink{ref-Gay2012a}{2012}) et dépendant des mécanismes de
-correction des attachements \(\beta\) et \(d_{\alpha}\).
+inversement) et de D à SA (et inversement) soient toujours controlés par
+les deux mécanismes de correction des attachements (\(\beta\) et
+\(d_{\alpha}\)) déjà décrits dans Gay et al.
+(\protect\hyperlink{ref-Gay2012a}{2012}).
 
 De plus, il est proposé que le passage de GA à SA soit gouverné par le
 taux de catastrophe, \(k_{catastrophe}\), (passage d'un état de
@@ -3370,7 +3520,7 @@ que le passage de SA à GA soit gouverné par le taux de rescue,
 \(k_{rescue}\), (passage d'un état de dépolymérisation à un état de
 polymérisation) du microtubule attaché (Figure~\ref{fig:three_states}).
 
-Cette implémentation du modèle d'attachements à trois états ajoute donc
+Cette implémentation du modèle d'attachement à trois états ajoute donc
 deux paramètres mais aucune synchronisation entre les kinétochores
 frères. On suppose donc que la présence d'oscillations serait une
 caractéristique émergente du système (théorie du «~kinétochore bête~»,
@@ -3381,8 +3531,8 @@ Un modèle plus complexe serait de moduler \(k_{rescue}\) et
 kinétochore, qui correspond à la vitesse de polymérisation et
 dépolymérisation du microtubule attaché.
 
-Ainsi il est introduit dans le système un mécanisme de communication
-entre les deux kinétochores frères et on suppose alors que les
+Ainsi, on introduirait dans le système un mécanisme de communication
+entre les deux kinétochores frères en supposant alors que les
 oscillations proviennent directement de la capacité des kinétochores à
 détecter l'état dans lequel ils sont (théorie du «~kinétochore
 intelligent~», voir Khodjakov et al.
@@ -3414,24 +3564,24 @@ Le modèle à trois états du «~kinétochore bête~» ajoute deux paramètres
 ajoutés doivent pouvoir être mesurable \emph{in vivo} (Harry,
 \protect\hyperlink{ref-Harry2014}{2014}), il a été décidé dans un
 premier temps de les traiter comme des paramètres libres contraint dans
-une rang de valeurs acceptable compris entre \(10^{-3} s^{-1}\) et
+une rang de valeurs acceptables comprises entre \(10^{-3} s^{-1}\) et
 \(1 s^{-1}\).
 
-Cependant, le nombre de paramètres libres ajouté par ce modèle a rendu
+Cependant, le nombre de paramètres libres ajoutés par ce modèle a rendu
 difficile son optimisation afin d'obtenir des simulations stables. Pour
-le moment aucun jeux de paramètre n'a encore permis de reproduire des
+le moment, aucun jeux de paramètres n'a encore permis de reproduire des
 trajectoires de chromosomes comportant des propriétés oscillatoires.
 
-Plusieurs tentatives d'optimisation ciblée avec un nombre de paramètre à
-tester plus faible ont été tentées mais sans succès.
+Plusieurs tentatives d'optimisation ciblée avec un nombre de paramètres
+à tester plus faible ont été tentées mais sans succès.
 
 Il est probable que ce modèle à trois états, bien que complexe, soit
-capable de reproduire une partie du mouvement des chromosomes observées
+capable de reproduire une partie du mouvement des chromosomes observé
 \emph{in vivo}. Cependant, il manque encore du travail sur
 l'implémentation numérique ainsi que sur l'optimisation des paramètres.
 
 Il est aussi possible que le modèle du «~kinétochore bête~» ne soit pas
-suffisant pour reproduire des trajectoires observées \emph{in vivo} et
+adapté pour reproduire les trajectoires observées \emph{in vivo} et
 qu'il soit nécessaire d'implémenter le modèle d'attachement à trois
 états possédant une modulation des taux d'attachements (théorie du
 «~kinétochore intelligent~»).
@@ -3444,17 +3594,18 @@ qu'il soit nécessaire d'implémenter le modèle d'attachement à trois
 cellulaire}\label{lapproche-multidisciplinaire-comme-muxe9thode-duxe9tude-en-biologie-cellulaire}
 
 L'explosion des données générées par la biologie dans les années 2000 a
-basculé cette discipline dans une nouvelle ère. Avant les chercheurs
+basculé cette discipline dans une nouvelle ère. Avant, les chercheurs
 manquaient de données sur lesquelles travailler ou dépensaient
-énormément de temps et d'argent à générer une quantité significative et
-exploitable dans le cadre d'une étude. Depuis l'ère \emph{big data}, les
-chercheurs ont eu presque du jour au lendemain un accès à une quantité
-de données considérable (notamment provenant de la génomique ou bien de
-la microscopie) que ni eux et ni les ordinateurs n'étaient capable de
-traiter. Bien sûr, il a fallu peu de temps avant que la communauté ne
-mettent au point de nouvelles techniques d'analyse, conçoivent de
-nouveaux logiciels de traitement de données et créent même de nouvelles
-disciplines scientifique tel que la bioinformatique.
+énormément de temps et d'argent à générer une quantité de données
+significatives et exploitables dans le cadre d'une étude. Depuis l'ère
+\emph{big data}, du jour au lendemain, les chercheurs ont eu un accès à
+une quantité de données considérable (notamment provenant de la
+génomique ou bien de la microscopie) que ni les scientifiques, ni les
+ordinateurs n'étaient capable de traiter. Bien sûr, il a fallu peu de
+temps avant que la communauté ne mettent au point de nouvelles
+techniques d'analyse, conçoivent de nouveaux logiciels de traitement de
+données et créent même de nouvelles disciplines scientifiques telles que
+la bioinformatique.
 
 De nos jours, en 2015, ce nouveau paradigme est intégré à tout les
 niveaux de la recherche. Par exemple l'essor de la bioinformatique a
@@ -3464,9 +3615,9 @@ difficile à reproduire \emph{in vivo} ou \emph{in vitro} dû aux échelles
 de temps géologique sur lesquels sont basées ces processus.
 
 L'interaction entre la physique et la biologie a quand à elle des
-racines plus anciennes. En effet de nombreux physiciens et les
-techniques dérives de la physique ont joué un rôle important dans la
-naissance de la biologie moléculaire. Par exemple l'un des deux
+racines plus anciennes. En effet, de nombreux physiciens et les
+techniques dérivées de la physique ont joué un rôle important dans la
+naissance de la biologie moléculaire. Par exemple, l'un des deux
 chercheurs qui découvrit la structure de l'ADN, Francis Crick, avait
 reçu une formation de physicien et travaillait dans un laboratoire de
 physique, le Cavendish Laboratory. C'est aussi un physicien théoricien
@@ -3476,7 +3627,7 @@ nucléotides en une séquence d'acides aminés.
 
 Bien que la dialogue soit parfois compliqué entre les deux disciplines,
 il est souvent facile de convaincre les deux partis de travailler sur
-les mêmes problématiques. Ce qui montre bien qu'une véritable volonté
+les mêmes problématiques. Cela montre bien qu'une véritable volonté
 d'interaction existe. Pour aller plus loin sur ces problématiques
 d'interaction entre physique et biologie, voir le livre de Claude Debru
 et al. intitulé «~Physique et biologie : une interdisciplinarité
@@ -3488,8 +3639,8 @@ disciplines discutées plus haut :
 \begin{itemize}
 \item
   La biologie en est la clé de voûte, étant à la base de la
-  problématique étudiée : la compréhension des mécanismes responsable de
-  la dynamique des chromosomes durant la mitose.
+  problématique étudiée : la compréhension des mécanismes responsables
+  de la dynamique des chromosomes durant la mitose.
 \item
   L'approche biophysique a permis à la fois d'appliquer des techniques
   d'analyses provenant de la physique (comme la MSD par exemple) afin de
@@ -3515,37 +3666,36 @@ mitose}\label{la-dynamique-des-chromosomes-en-mitose}
 
 La cellule met en place différent mécanismes afin d'assurer une
 ségrégation fidèle et efficace de ses chromosomes dupliqués. Plusieurs
-de ces mécanismes impliquent une forte régulation spatio-temporelle de
+de ces mécanismes impliquent une stricte régulation spatio-temporelle de
 la dynamique des chromosomes. Ce travail de thèse a pour objectif de
 comprendre de quelle façon les mécanismes d'alignement et de mouvement
 des chromosomes sont régulés et interagissent entre eux. Plusieurs
-hypothèse élaborées à l'aide d'observations faites \emph{in vivo} sont
-testées \emph{in silico} afin d'évaluer leur pertinences.
+hypothèses élaborées à l'aide d'observations obtenues \emph{in vivo}
+sont testées \emph{in silico} afin d'évaluer leur pertinence.
 
 \subsection{Le mécanisme de congression des
 chromosomes}\label{le-muxe9canisme-de-congression-des-chromosomes}
 
-L'alignement des chromosomes au milieu du fuseau mitotique est une
-observation faite dans une grande majorité des cellules eucaryotes.
-Cette régulation spatiale implique qu'au moins un des processus régulant
-la dynamique des chromosomes soit capable de «~détecter~» la position du
-chromosome le long du fuseau.
+L'alignement des chromosomes au centre du fuseau mitotique est conservé
+dans de nombreuses cellules eucaryotes. Cette régulation spatiale
+implique qu'au moins l'un de ces processus régulant la dynamique des
+chromosomes soit capable de «~détecter~» la position du chromosome le
+long du fuseau.
 
 Il a été montré chez les cellules humaines, que l'une des protéines
-permettant la congression, est l'homologue de la kinésine-8, appelé
-Kif18a (Stumpff et al., \protect\hyperlink{ref-Stumpff2008}{2008}). Le
-modèle explique que la grande processivité de la kinésine-8 (Gupta et
-al., \protect\hyperlink{ref-Gupta2006}{2006}; Varga et al.,
-\protect\hyperlink{ref-Varga2006}{2006}) lui permet de s'accumuler d'une
-manière dépendante de la longueur à l'extrémité plus des microtubules
-kinétochorien \emph{in vitro} (Varga et al.,
-\protect\hyperlink{ref-Varga2009}{2009}).
+permettant la congression des chromosomes, est l'homologue de la
+kinésine-8, appelé Kif18a (Stumpff et al.,
+\protect\hyperlink{ref-Stumpff2008}{2008}). Le modèle explique que le
+caractère hautement processif de la kinésine-8 (Gupta et al.,
+\protect\hyperlink{ref-Gupta2006}{2006}; Varga et al.,
+\protect\hyperlink{ref-Varga2006}{2006}) lui permet de s'accumuler à
+l'extrémité plus des microtubules d'une manière dépendante de leur
+longueur (Varga et al., \protect\hyperlink{ref-Varga2009}{2009}).
 
 La congression des chromosomes s'établirait donc en régulant la
-dynamique des chromosomes (Stumpff et al.,
-\protect\hyperlink{ref-Stumpff2008}{2008}) en fonction de la longueur
-des microtubules attachés et donc de la position le long du fuseau
-mitotique.
+dynamique des chromosomes en fonction de la longueur des microtubules
+attachés et donc de la position le long du fuseau mitotique (Stumpff et
+al., \protect\hyperlink{ref-Stumpff2008}{2008}).
 
 Ce travail de thèse montre que les homologues de la kinésine-8 chez la
 levure à fission, appelés Klp5 et Klp6, sont requis pour l'alignement
@@ -3553,30 +3703,31 @@ des chromosomes (Mary et al., \protect\hyperlink{ref-Mary2015}{2015}).
 La modèle proposé et validé \emph{in silico} est basé sur deux
 hypothèses.
 
-La première est que comme les autres homologues de la kinésine-8, Klp5
-et Klp6 s'accumulent de façon dépendante de la longueur le long des
-microtubules. Bien que cette hypothèse ai été observés dans des
-microtubules nucléaires en mitose chez la levure à fission (Mary et al.,
+La première est que Klp5 et Klp6, tout comme ses homologues, s'accumule
+à l'extémité du microtubule de façon dépendante de leur longueur. Bien
+que cette hypothèse ait été confirmée au niveau des microtubules
+nucléaires en mitose chez la levure à fission (Mary et al.,
 \protect\hyperlink{ref-Mary2015}{2015}), elle reste controversée car la
-haute processivité \emph{in vitro} de Klp5 et Klp6 n'a pas été observée
-(Erent et al., \protect\hyperlink{ref-Erent2012}{2012}; Grissom et al.,
-\protect\hyperlink{ref-Grissom2009}{2009}) comme chez les autres
-homologues de la kinésine-8; la cellule humaine et la levure à bourgeon
-(Stumpff et al., \protect\hyperlink{ref-Stumpff2011a}{2011}; Varga et
-al., \protect\hyperlink{ref-Varga2006}{2006}). Cela pourrait s'expliquer
-par le fait que Klp5 et Klp6 agissent en formant un hétérodimère
-(Unsworth et al., \protect\hyperlink{ref-Unsworth2008}{2008}) et que des
-modifications essentielles ou bien l'ajout de composants encore
-non-identifiés manqueraient durant les étapes d'expression et de
-purification \emph{in vitro} (Messin and Millar,
-\protect\hyperlink{ref-Messin2014}{2014}). De plus une étude \emph{in
-vivo} sur des microtubules cytoplasmiques a montré que Klp5 et Klp6
+haute processivité \emph{in vitro} de Klp5 et Klp6 n'a jamais été
+observée (Erent et al., \protect\hyperlink{ref-Erent2012}{2012}; Grissom
+et al., \protect\hyperlink{ref-Grissom2009}{2009}) contrairement à ses
+homologues humain ou de levure à bourgeon (Stumpff et al.,
+\protect\hyperlink{ref-Stumpff2011a}{2011}; Varga et al.,
+\protect\hyperlink{ref-Varga2006}{2006}). Cependant, cela pourrait
+s'expliquer par le fait que Klp5 et Klp6 agissent sous une forme d'un
+hétérodimère (Unsworth et al.,
+\protect\hyperlink{ref-Unsworth2008}{2008}) et que des modifications
+essentielles ou bien l'ajout de composants encore non-identifiés
+manqueraient durant les étapes d'expression et de purification \emph{in
+vitro} (Messin and Millar, \protect\hyperlink{ref-Messin2014}{2014}). En
+outré, nos résultats sont en accord avec une étude \emph{in vivo}
+effectuée sur des microtubules cytoplasmiques a montré que Klp5 et Klp6
 augmentent le taux de catastrophe des microtubules d'une manière
-dépendante de leurs longueurs (Tischer et al.,
+dépendante de leur longueur (Tischer et al.,
 \protect\hyperlink{ref-Tischer2009}{2009}).
 
 La seconde hypothèse est que l'augmentation de l'activité
-dépolymérisatrice des microtubules induit par Klp5 et Klp6 (Erent et
+dépolymérisatrice des microtubules induite par Klp5 et Klp6 (Erent et
 al., \protect\hyperlink{ref-Erent2012}{2012}) soit capable de moduler
 les forces de traction appliquées au kinétochore de telle sorte que la
 force appliquée sur un kinétochore éloigné de son pôle soit plus forte
@@ -3585,96 +3736,100 @@ hypothèse forte est basée sur l'idée que la force générée au kinétochore
 proviendrait en majorité par le couplage du complexe NDC80 et DAM1 aux
 microtubules en dépolymérisation.
 
-L'intégration de ces deux hypothèses dans un modèles mathématique de la
+L'intégration de ces deux hypothèses dans un modèle mathématique de la
 ségrégation des chromosomes (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}) permet la congression des
 chromosomes le long du fuseau mitotique (Mary et al.,
 \protect\hyperlink{ref-Mary2015}{2015}).
 
-Ce modèle gros grain est donc basé sur une hypothèse très forte du lien
-entre la force et la dépolymérisation du microtubule. De plus les
-mécanismes moléculaires générant cette forces ne sont pas intégrés dans
-le modèle.
+Ce modèle gros grain est donc basé sur une hypothèse très forte d'un
+lien entre la dépolymérisation du microtubule et la force appliquée au
+kinétochore. Les mécanismes moléculaires générant cette force ne sont
+pas intégrés dans le modèle.
 
-Il a donc été proposé durant ce travail un modèle alternatif (voir
-Section~\ref{sec:second-modele}) de la congression des chromosomes basé
-sur une nouvelle hypothèse. En effet les premières études \emph{in
-vitro} et in \emph{vivo} de l'homologue de la kinésine-8 chez la levure
-à bourgeon, Kip3p, proposent que la kinésine-8 de part sa processivité
-et son activité dépolymérisatrice est capable de contrôler la taille des
+Il a donc été proposé au cours de ce travail un modèle alternatif (voir
+Section~\ref{sec:second-modele}) de congression des chromosomes basé sur
+une nouvelle hypothèse. En effet les premières études \emph{in vitro} et
+in \emph{vivo} de l'homologue de la kinésine-8 chez la levure à
+bourgeon, Kip3p, proposent que la kinésine-8 de part sa processivité et
+son activité dépolymérisatrice est capable de contrôler la taille des
 microtubules (Gupta et al., \protect\hyperlink{ref-Gupta2006}{2006};
-Varga et al., \protect\hyperlink{ref-Varga2006}{2006}). Un résultat qui
-a aussi été observé dans une autre étude chez l'homologue humain de la
-kinésine-8, Kif18a (Weaver et al.,
-\protect\hyperlink{ref-Weaver2011}{2011}). De plus une étude a aussi
-montré qu'un autre homologue de la kinésine-8, Kif19a, est capable de
-réguler la longueur des cils cellulaires d'une manière dépendante de sa
+Varga et al., \protect\hyperlink{ref-Varga2006}{2006}). Ce même résultat
+a aussi été obtenu pour l'homologue humain de la kinésine-8, Kif18a
+(Weaver et al., \protect\hyperlink{ref-Weaver2011}{2011}). De plus, un
+autre homologue de la kinésine-8, Kif19a, est aussi capable de réguler
+la longueur des cils cellulaires d'une manière dépendante de sa
 concentration (Niwa et al., \protect\hyperlink{ref-Niwa2012}{2012}).
 
 L'ensemble de ces observations a servi à l'établissement d'un modèle
-mathématique décrivant le mécanisme moléculaire régulant la taille des
-microtubules. Cette étude montre que deux protéines antagonistes, la
-kinésine-8 et XMAP215, sont suffisantes pour réguler la dynamique des
-microtubules et influencer leurs tailles (Reese et al.,
+mathématique décrivant un mécanisme moléculaire qui régule la taille des
+microtubules (Reese et al., \protect\hyperlink{ref-Reese2014a}{2014}).
+Cette étude montre que deux protéines antagonistes, la kinésine-8 et
+XMAP215, sont suffisantes pour réguler la dynamique des microtubules et
+influencer leur taille (Reese et al.,
 \protect\hyperlink{ref-Reese2014a}{2014}).
 
-Cette hypothèse moins forte que celle de l'influence de la kinésine-8
-sur la génération de la force au kinétochore a été testé \emph{in
-silico} (voir Section~\ref{sec:second-modele}).
+Nous avons aussi testé \emph{in silico} l'hypothèse d'un contrôle direct
+de la taille des microtubules par la kinésine-8 (hypothèse 2) au lieu du
+contrôle par la kinésine-8 de la force exercée au kinetochore (hypothèse
+1) (voir Section~\ref{sec:second-modele}).
 
-En effet, l'intégration de cette hypothèse se fait par la modulation
+L'intégration de cette hypothèse s'est effectuée par la modulation
 spatiale du taux d'attachement des kinétochores. Cette distribution
-non-linéaire est censé reproduire la distribution des extrémités plus
-des microtubules. Dans le cas de la présence de la kinésine-8, la
-distribution est supposés être en forme de cloche tandis qu'en son
-absence la distribution est supposés linéaire.
+non-linéaire étant censé reproduire la distribution non-homogène des
+extrémités plus des microtubules au sein du fuseau. Lorsque la
+kinésine-8 est présente, la distribution des extrémités plus des
+microtubules est supposée être en forme de cloche tandis qu'en son
+absence la distribution est supposée être linéaire.
 
-De plus, cette distribution non uniforme des extrémités plus des
-microtubules pourrait avoir été observée chez la levure à fission à
-l'aide de reconstructions 3D du fuseau mitotique par cryo-microscopie
+En accord avec l'hypothèse 2, une distribution non uniforme des
+extrémités plus des microtubules a été observée chez la levure à fission
+à l'aide de reconstructions 3D du fuseau mitotique par cryo-microscopie
 électronique (voir notamment la Figure 12 de Ding et al.
 (\protect\hyperlink{ref-Ding1993a}{1993}) ainsi que la Figure 1 de Ward
 et al. (\protect\hyperlink{ref-Ward2014}{2014})). Ce résultat reste
-cependant encore à confirmer dû aux déformations du fuseau que peut
-engendrer ce type de technique.
+cependant à confirmer dû aux déformations du fuseau engendrées par ce
+type de technique.
 
-Une première tentative d'implémentation de l'hypothèse alternative était
-basée sur les distributions observées par microscopie électronique des
+Une première tentative d'implémentation de l'hypothèse 2 était basée sur
+les distributions observées par microscopie électronique des
 microtubules du fuseau mitotique (Ding et al.,
 \protect\hyperlink{ref-Ding1993a}{1993}; Ward et al.,
 \protect\hyperlink{ref-Ward2014}{2014}). Cependant, il a été impossible
-de reproduire des trajectoires de chromosomes similaires à celles
-observées \emph{in vivo}.
+de reproduire la congression des chromosomes en se calant sur ces
+observations de longueur de microtubules observes par microscopie
+électronique.
 
-La distribution en forme de cloche a donc été choisie de manière
-arbitraire et ses paramètres optimisées afin de reproduire l'alignement
+La distribution de longueur de microtubules en forme de cloche a donc
+été choisie de manière arbitraire et ses paramètres optimisés (nécessité
+d'ajout d'un paramètre libre au modèle) afin de reproduire l'alignement
 observé \emph{in vivo} (voir Section~\ref{sec:second-modele}).
 
-Les premiers résultats montrent que cette hypothèse alternative arrive à
-reproduire la congression des chromosomes de la même manière qu'avec la
-première hypothèse (Mary et al.,
-\protect\hyperlink{ref-Mary2015}{2015}).
+Les premiers résultats montrent que cette hypothèse 2 reproduit la
+congression des chromosomes de la même manière qu'avec la première
+hypothèse (Mary et al., \protect\hyperlink{ref-Mary2015}{2015}).
 
 Pour finir, on peut souligner que ce travail de thèse confirme le rôle
 crucial des kinésines dépolymérisatrices comme la kinésine-8 dans des
 processus cellulaires clés tel que la mitose. En effet, les kinésines
-dépolymérisatrice contrairement aux autres kinésines sont présentes dans
-toutes les cellules eucaryotes testées jusqu'à présent (Wickstead and
-Gull, \protect\hyperlink{ref-Wickstead2006}{2006}). Ceci montre que les
-kinésines, outre leurs rôles dans le transport des vésicules et des
-organites, ont une activité propre qui est l'origine de la régulation de
-mécanismes aussi complexe que la dynamique des microtubules. L'évolution
-a sélectionné ici un outil très puissant capable de moduler de manière
-spatio-temporelle la concentration d'éléments transportés ou directement
-des kinésines elles-mêmes à l'intérieur de la cellule.
+dépolymérisatrices contrairement aux autres kinésines sont présentes
+dans toutes les cellules eucaryotes testées jusqu'à présent (Wickstead
+and Gull, \protect\hyperlink{ref-Wickstead2006}{2006}). Ceci démontre
+ainsi que les kinésines, outre leurs rôles dans le transport des
+vésicules et des organites, possèdent une activité propre à l'origine de
+la régulation de mécanismes aussi complexes que la dynamique des
+microtubules. L'évolution a sélectionné ici un outil très puissant
+capable de moduler de manière spatio-temporelle la concentration
+d'éléments transportés ou directement des kinésines elles-mêmes à
+l'intérieur de la cellule.
 
 \subsection{La régulation du mouvement des
 chromosomes}\label{la-ruxe9gulation-du-mouvement-des-chromosomes}
 
 Le mouvement des chromosomes est l'un des phénomènes les plus
-remarquable de la division cellulaire. La génération et la régulation du
-mouvement d'objets aussi grand dans un espace aussi confiné est un
-challenge que la cellule a su relevée notamment par l'établissement du
+remarquables de la division cellulaire. La génération et la régulation
+du mouvement d'objets aussi grands dans un espace aussi confiné est un
+challenge que la cellule a su relever notamment par l'établissement du
 fuseau mitotique et de structures telle que le kinétochore.
 
 Dans une étude sur l'homologue de la kinésine-8 humaine, Stumpff et al.
@@ -3686,224 +3841,218 @@ l'atténuation des mouvements soit dépendant de la concentration de
 Kif18a (donc de la longueur dû à sa processivité sur le microtubule).
 
 Ce travail de thèse montre que l'amplitude des oscillations des
-chromosomes chez des cellules \emph{S. pombe} délétées pour la protéine
-Klp6 est plus important que dans des cellules sauvages (voir la Figure 2
-dans Mary et al. (\protect\hyperlink{ref-Mary2015}{2015})). De plus il
-est observé chez ces même cellules que Klp6 permet la congression des
-chromosomes, de la même manière que chez les cellules humaines avec
-Kif18a.
+chromosomes chez \emph{S. pombe} en l'absence de Klp6 est plus important
+que dans des cellules sauvages (voir la Figure 2 dans Mary et al.
+(\protect\hyperlink{ref-Mary2015}{2015})). De plus, Klp6 permet la
+congression des chromosomes, de la même manière que Kif18a chez
+l'humain.
 
-Cette observation va dans le sens que la kinésine-8 pourrait agir comme
-un régulateur du mouvement des chromosomes permettant leur congression
-et confirme donc le résultat de Stumpff et al. (Stumpff et al.,
+Cette observation suggère que la kinésine-8 pourrait agir comme un
+régulateur du mouvement des chromosomes et confirme donc le résultat de
+Stumpff et al. (Stumpff et al.,
 \protect\hyperlink{ref-Stumpff2012}{2012}).
 
-Cependant, ce travail a aussi montré que l'inhibition des oscillations
-des chromosomes a un effet seulement minime sur leur congression le long
-du fuseau mitotique. Un résultat non détaillé montre aussi qu'il existe
-un mutant chez la levure à fission (le mutant \emph{dam1Δ}) qui n'exhibe
-pas d'oscillations mais dont les chromosomes sont alignés en métaphase
-(voir l'annexe en Section~\ref{sec:dam1}). Ensemble ces deux résultats
-vont donc l'encontre de l'hypothèse proposé par Stumpf et al..
+Cependant, ce travail montre aussi que l'inhibition de l'oscillation des
+chromosomes n'a que peu ou pas d'effet sur leur congression au centre du
+fuseau mitotique. De la même façon, en l'absence de la protéine Dam1
+chez la levure à fission, l'oscillation des chromosomes est gravement
+réduite mais leur alignement en metaphase n'est pas affecté (voir
+l'annexe en Section~\ref{sec:dam1}). Ces deux résultats vont donc à
+l'encontre de l'hypothèse proposé par Stumpf et al.
 
 Plusieurs phénomènes peuvent expliquer ces résultats contradictoires.
 
 On note que l'hypothèse de Stumpff et al. est basé sur le rôle de deux
-kinésines sur le fuseau mitotique. La kinésine-8 comme déjà expliqué
-ainsi qu'une chromokinésine, appelé Kid qui générerait des forces de
-poussée sur le chromosome (Brouhard and Hunt,
-\protect\hyperlink{ref-Brouhard2005}{2005}; Cassimeris et al.,
-\protect\hyperlink{ref-Cassimeris1994}{1994}). Les chromokinésine ont
-aussi été décrite comme favorisant l'alignement des chromosomes
-(Funabiki and Murray, \protect\hyperlink{ref-Funabiki2000}{2000}). Or la
-levure à fission ne possède pas de chromokinésines et dès lors il est
-plus difficile de comparer les deux hypothèses de congression dans des
-fuseaux aussi différents.
+kinésines sur le fuseau mitotique, la kinésine-8, et une chromokinésine,
+appelée Kid générerait des forces de poussée sur le chromosome (Brouhard
+and Hunt, \protect\hyperlink{ref-Brouhard2005}{2005}; Cassimeris et al.,
+\protect\hyperlink{ref-Cassimeris1994}{1994}). Les chromokinésines ont
+aussi été décrites comme favorisant l'alignement des chromosomes chez le
+xénope (Funabiki and Murray,
+\protect\hyperlink{ref-Funabiki2000}{2000}). Or, la levure à fission ne
+possède pas de chromokinésines et dès lors il est difficile de comparer
+les deux hypothèses de congression dans des fuseaux aussi différents.
 
-Il est aussi possible que la congression chez \emph{S. pombe} ai lieu
+Il est aussi possible que la congression chez \emph{S. pombe} ait lieu
 très tôt en prométaphase et donc que Klp5 et Klp6 participent seulement
-au maintien des chromosomes au centre du fuseau. Ce qui expliquerait
-pourquoi l'inhibition des oscillations n'a que peu d'effet sur
-l'alignement en métaphase.
+à la stabilité de l'alignement des chromosomes au centre du fuseau. Ceci
+expliquerait pourquoi l'inhibition des oscillations n'a que peu d'effet
+sur l'alignement des chromosomes en métaphase.
 
-Ce centrage très tôt en prométaphase a déjà été décrit chez des cellules
-de mammifères (Kapoor et al., \protect\hyperlink{ref-Kapoor2006}{2006})
-et a montré que ce processus était dépendant de CENP-E (kinésine-7). Il
-est par ailleurs intéressant de noter que Grissom et al. ont proposé que
-la kinésine-8 chez la levure à fission pourrait partager des propriétés
-avec la kinésine-7 absente chez ce dernier (Grissom et al.,
-\protect\hyperlink{ref-Grissom2009}{2009}). Cela serait alors un exemple
-du principe stipulant qu'à travers un vaste ensemble phylogénique, le
-fuseau mitotique et ses composants préservent leurs fonctions mais pas
-nécessairement l'identité de leurs protéines (McIntosh et al.,
-\protect\hyperlink{ref-McIntosh2002b}{2002}).
+Ce phénomène de centrage précoce des chromosomes en prométaphase a déjà
+été décrit chez les mammifères (Kapoor et al.,
+\protect\hyperlink{ref-Kapoor2006}{2006}) et il semble que ce processus
+soit dépendant de la kinésine CENP-E (kinésine-7). La kinésine-7 n'est
+pas présente chez la levure à fission. Il est toutefois intéressant de
+noter que Grissom et al. ont observé que Klp5 et Klp6 sont capables de
+coupler le déplacement d'une charge (une micro-bille) à la
+dépolymérisation d'un microtubule \emph{in vitro}. Ils proposent que la
+kinésine-8 chez \emph{S. pombe} pourrait partager des propriétés avec la
+kinésine-7 (Grissom et al., \protect\hyperlink{ref-Grissom2009}{2009}).
+Cela serait alors un exemple du principe stipulant qu'à travers un vaste
+ensemble phylogénique, le fuseau mitotique et ses composants préservent
+leurs fonctions mais pas nécessairement l'identité de leurs protéines
+(McIntosh et al., \protect\hyperlink{ref-McIntosh2002b}{2002}).
 
 On souligne aussi que les deux modèles mathématiques de la congression
 des chromosomes proposés durant ce travail (Mary et al.
 (\protect\hyperlink{ref-Mary2015}{2015}) et
 Section~\ref{sec:second-modele}) reproduisent fidèlement l'alignement
-des chromosomes sans bien reproduire les oscillations observées \emph{in
-vivo}.
+des chromosomes sans reproduire totalement leurs oscillations observées
+\emph{in vivo}.
 
-Cependant, bien que les deux modèles de congression proposés ne
-reproduisent pas les oscillations, cela ne signifie pas que celles-ci ne
-jouent pas nécessairement un rôle dans la congression. Il serait donc
-intéressant de pouvoir reproduire les oscillations des chromosomes
-\emph{in silico} afin d'étudier plus finement leurs possibles impacts
+Cependant, même si les modèles de congression proposés ne reproduisent
+pas les oscillations, cela ne signifie pas pour autant que les
+mouvements oscillatoires ne jouent aucun rôle dans la congression. Il
+serait donc intéressant de pouvoir reproduire les oscillations des
+chromosomes \emph{in silico} afin d'étudier plus finement leur impact
 sur la congression.
 
-Mais le mécanisme de génération du mouvement reste encore mal compris et
-il est donc encore difficile de modéliser mathématiquement et de manière
-fidèle le mouvement des chromosomes dans un cadre général de la
-ségrégation des chromosomes (Gay et al.,
+Les mécanismes responsables des mouvements des chromosomes restent
+cependant encore mal compris et il est donc difficile de modéliser
+mathématiquement et de manière fidèle ces phénomènes dans le cadre
+général de la ségrégation des chromosomes (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}).
 
-Le modèle utilisé dans le cadre de ce travail (basé sur les travaux de
-Tournier et al.) ne fait aucune hypothèse sur le mécanisme moléculaire
-générant la force au kinétochore et suppose une relation force-vitesse
-linéaire.
+Le modèle mathématique utilisé dans le cadre de ce travail (basé sur les
+travaux de Tournier et al.) ne fait aucune hypothèse sur le mécanisme
+moléculaire générant la force au kinétochore et suppose une relation
+force-vitesse linéaire.
 
-L'un des challenges auquel a à faire la cellule dès lors qu'une force
-est générée au niveau des kinétochores frères et la régulation qu'exerce
-l'un des kinétochores par rapport à son frères. En effet l'état de
-cohérence entre les deux kinétochores doit être synchronisé afin de
-pouvoir générer un mouvement le plus efficace possible. TODO A
-REFORMULER
+L'un des futurs challenges est de comprendre comment une force générée
+au niveau de l'un des kinétochores se transmet à son kinetochore frère
+de manière coordonnée. La régularité et l'efficacité du mouvement d'un
+chromosome dépend en effet de l'état des deux kinétochores l'un par
+rapport à l'autre (cohérent ou incohérent).
 
-L'origine de cette synchronisation est encore inconnue bien QUE des
-études proposant des hypothèses de processus actifs basées sur la
-détection de la force et la présence d'une horloge moléculaire au niveau
-du microtubule existent (Armond et al.,
+L'origine de cette synchronisation est encore inconnue bien que des
+études proposent des hypothèses de processus actifs basés sur la
+détection de la force (Armond et al.,
 \protect\hyperlink{ref-Armond2015}{2015}; Burroughs et al.,
 \protect\hyperlink{ref-Burroughs2015}{2015}; Vladimirou et al.,
-\protect\hyperlink{ref-Vladimirou2013}{2013}). TODO A REFORUMLER ETRE
-CRITIQUE ILS NE PROPOSENT PAS DE MECANISME
+\protect\hyperlink{ref-Vladimirou2013}{2013}). En observant la distance
+entre les kinétochores au moment des changements de direction, Burroughs
+et al. ont montré que la détection de la tension au niveau du
+kinétochore ne pouvait pas, à elle seule, expliquer la régularité des
+mouvements observés (Burroughs et al.,
+\protect\hyperlink{ref-Burroughs2015}{2015}). Ils proposent un nouveau
+modèle dans lequel le changement de direction des kinétochores serait
+gouverné par une horloge moléculaire au niveau des microtubules. Alors
+que leurs données semblent supporter que le modèle traditionnel de la
+détection de la tension est insatisfaisant, ils n'émettent aucune
+hypothèse sur le mécanisme moléculaire et les acteurs impliqués dans
+l'horloge moléculaire qu'ils proposent.
 
 Une idée alternative est que l'instabilité directionnelle des
 chromosomes (Skibbens et al.,
 \protect\hyperlink{ref-Skibbens1993}{1993}) est une propriété inhérente
 des kinétochores et que le changement d'un état P-AP ou AP-P est
-indépendant de toutes influences extérieurs. Dès lors la synchronisation
-serait le résultat de l'émergence d'une dynamique gouvernée par
-l'instabilité dynamique des microtubules couplée au kinétochore. Ce
-modèle appelé «~dumb kinetochore model~» discuté par Khodjakov et al.
-(Khodjakov et al., \protect\hyperlink{ref-Khodjakov1999}{1999}) est
-soutenu par l'observation qu'une partie significative des kinétochores
-frères sont dans un état d'incohérence chez la levure à fission (voir
-l'annexe Section~\ref{sec:coherence}) et que 20\% des trajectoires de
-chromosome chez la cellule HeLa exhibent des mouvements «~hautement
+indépendant de toute influence extérieure. Dès lors, la synchronisation
+serait gouvernée par l'instabilité dynamique des microtubules couplée au
+kinétochore. Ce modèle appelé «~dumb kinetochore model~» discuté par
+Khodjakov et al. (Khodjakov et al.,
+\protect\hyperlink{ref-Khodjakov1999}{1999}) est soutenu par
+l'observation qu'une partie significative des kinétochores frères sont
+dans un état d'incohérence chez la levure à fission (voir l'annexe
+Section~\ref{sec:coherence}) et que 20\% des trajectoires de chromosome
+chez les cellules HeLa possèdent des mouvements «~hautement
 stochastiques~» (Burroughs et al.,
-\protect\hyperlink{ref-Burroughs2015}{2015}).
+\protect\hyperlink{ref-Burroughs2015}{2015}) (de manière suprenante,
+dans leur études sur l'instabilité directionnelle, les auteurs,
+Burroughs et al., n'ont pas inclus ces trajectoires dans leurs
+analyses).
 
 Il est possible de tester ces modèles de régulation des mouvements P et
 AP par deux approches différentes. La première serait de concevoir un
-modèle mathématique simple et TODO VIRER «~from scratch~» afin de
-comprendre les mécanismes fondamentaux capable de produire des
-mouvements oscillatoires. Une première tentative d'implémentation naïve
-est disponible dans les annexes en Section~\ref{sec:simu-oscillations}.
-Cet modèle est composé de trois paramètres : un taux d'attachement, un
-taux de détachement ainsi que le nombre de site d'attachements par
+modèle mathématique simple en partant de zéro afin de comprendre les
+mécanismes fondamentaux capable de produire des mouvements
+oscillatoires. Une première tentative d'implémentation naïve est
+disponible dans les annexes en Section~\ref{sec:simu-oscillations}. Ce
+modèle est composé de trois paramètres : un taux d'attachement, un taux
+de détachement ainsi que le nombre de sites d'attachements par
 kinétochore. Les premiers résultats semblent indiquer que ces trois
-paramètres ne sont pas suffisant pour obtenir un mouvement régulier et
-qu'il manque probablement des mécanismes plus complexes de régulation
-des attachements.
+paramètres ne sont pas suffisants pour obtenir un mouvement régulier
+suggérant que des mécanismes plus complexes de régulation des
+attachements sont nécessaires pour ces mouvements.
 
-Une autre possibilité serait de poursuivre l'implémentation du modèle
+Il serait donc intéressant de poursuivre l'implémentation du modèle
 d'attachement à trois états dans le modèle initial de ségrégation des
 chromosomes sur lequel est basé ce travail (Gay et al.,
 \protect\hyperlink{ref-Gay2012a}{2012}) (voir
 Section~\ref{sec:three-state}).
 
-Pour finir, on note que les études faites sur le mouvement et les
-oscillations des chromosomes ont presque toujours été faites sur des
-eucaryotes supèrieurs et rarement chez des organismes tel que la levure
-à fission.
+Une analyse détaillée des mesures de MSD des trajectoires des
+chromosomes en métaphase pourraient aussi apporter de précieux indices
+sur les propriétés biophysiques régulant ce type de mouvement. Cependant
+la probable convolution de plusieurs phénomènes aux même temps rend
+l'interprétation des résultats encore difficile.
 
-Pourtant il est intéressant de souligner que les mouvements observés
+Pour finir, on note que les études faites sur le mouvement et les
+oscillations des chromosomes ont presque toujours été conduits chez les
+eucaryotes supérieurs mais rarement chez des organismes modèles tels que
+la levure.
+
+Pourtant, il est intéressant de souligner que les mouvements observés
 chez les levures sont irréguliers (Mary et al.,
 \protect\hyperlink{ref-Mary2015}{2015}; Stephens et al.,
-\protect\hyperlink{ref-Stephens2013a}{2013}) comparés à ceux observés
-chez les cellules eucaryotes supèrieurs tel que les cellules humaines
-(Jaqaman et al., \protect\hyperlink{ref-Jaqaman2010}{2010}). Cependant,
-ces cellules peuvent aussi posséder des chromosomes exhibant des
-mouvements irréguliers (Burroughs et al.,
-\protect\hyperlink{ref-Burroughs2015}{2015}).
+\protect\hyperlink{ref-Stephens2013a}{2013}) mais que chez les
+eucaryotes supérieurs les mouvements observés sont parfois réguliers
+(Jaqaman et al., \protect\hyperlink{ref-Jaqaman2010}{2010}) et parfois
+irréguliers (Burroughs et al.,
+\protect\hyperlink{ref-Burroughs2015}{2015}) comme chez la levure.
 
 Dès lors il devient important de se poser la question de savoir non pas
-comment les chromosomes oscillent mais bien quel mécanisme peut
-expliquer une diversité aussi vaste de mouvement des chromosomes; aussi
-bien les oscillations régulières que les mouvements irréguliers.
+comment les chromosomes oscillent mais bien quels mécanismes régissent
+une telle diversité de mouvement des chromosomes; aussi bien en ce qui
+concerne les oscillations régulières que les mouvements irréguliers.
 
 Plusieurs différences pourraient expliquer le mouvement irrégulier
 observé chez les levures. Tout d'abord la taille du fuseau est beaucoup
-plus faible, tout comme le nombre de microtubules attachés. Les
-chromosomes seraient donc soumis à un éventail de forces plus
-restreintes et seraient donc plus sensible aux phénomènes stochastiques
-qui gouvernent la dynamique du fuseau à ces échelles.
+plus faible, tout comme le nombre de microtubules attachés au
+kinétochore. Les chromosomes seraient donc soumis à un éventail de
+forces plus restreintes et seraient donc à ces échelles plus sensibles
+aux phénomènes stochastiques qui gouvernent la dynamique du fuseau.
 
-Une autre hypothèse pourrait s'expliquer par la différence de structure
-des protéines composant les microtubules (la tubuline \(\alpha\) et
-\(\beta\)). En effet si on suppose que le mouvement est en partie dû à
-l'instabilité dynamique des microtubules alors leurs structures doivent
-jouer un rôle crucial dans la régulation de cette dynamique. Il faudrait
-mettre au point une étude \emph{in vitro} afin de comparer les
-différentes type de tubuline \(\alpha\) et \(\beta\) chez différents
-organismes ainsi qu'une analyse bioinformatique afin de comparer leurs
-différences de structures d'un point de vue phylogénique. TODO A VIRER ?
+Enfin la structure du fuseau de la levure à fission possède des
+différences notables avec les autres cellules. Sa mitose étant fermé,
+l'enveloppe nucléaire est toujours présente pendant l'étape de division
+et pourrait avoir un rôle sur la régulation des forces exercées. De plus
+la levure à fission ne possède pas de chromokinésines connues pour
+exercer une force de poussée allant contre le mouvement P des
+kinétochores (Funabiki and Murray,
+\protect\hyperlink{ref-Funabiki2000}{2000}; Stumpff et al.,
+\protect\hyperlink{ref-Stumpff2012}{2012}). Cette force pourrait
+participer à la régulation de l'équilibre entre le mouvement P et le
+mouvement AP.
 
-CHEZ POMBE TELOMERE STRUCTURE CHROMATIDE SOEUR PAS RESOLU PAS DE
-CHROMOKINESINE TELOMERE ACTEUR DE LA SEGREGATION MUTANT AVEC DEFAUT
-INTEGRER CA DANS LA DYNAMIQUE
-
-TODO: GUILLAUME DAUTRE IDEES (même les plus folles !!!) ???
+L'équipe a montré récemment (Reyes et al.,
+\protect\hyperlink{ref-Reyes2015}{2015}) que les télomères avaient un
+rôle important dans la ségrégation des chromosomes. Cependant leurs
+rôles sur la dynamique des chromosomes reste encore inconnu.
 
 \subsection{Vers un modèle global de la division
 cellulaire}\label{vers-un-moduxe8le-global-de-la-division-cellulaire}
 
 La modélisation mathématique n'est pas une fin en soi et ne peut en
-aucun cas servir de preuve formelle expliquant un mécanisme moléculaire.
-Elle est au même titre que des expériences \emph{in vivo} et \emph{in
-silico}, une façon alternative pour proposer une hypothèse expliquant un
-mécanisme.
+aucun cas servir de preuve formelle pour expliquer un mécanisme
+moléculaire. Elle représente simplement une méthode alternative pour
+proposer une hypothèse et expliquer un mécanisme, au même titre que des
+expériences conduites \emph{in vitro} ou bien \emph{in vivo}.
 
-Par exemple dans le cas de la congression, les deux modèles numériques
-de congression proposés ouvrent des pistes sur les possibles mécanismes
-moléculaire participant à la congression des chromosomes en métaphase.
+Par exemple dans le cadre de ce travail, les deux modèles numériques de
+congression proposés ouvrent des pistes sur les mécanismes moléculaires
+possibles qui participent à la congression des chromosomes en métaphase.
 
-Une autre force de la modélisation est sa facile généralisation à
+Une autre force de la modélisation est sa généralisation possible à
 d'autres modèles cellulaires en modifiant la géométrie ou bien des
 paramètres spécifiques. Ce travail de généralisation du modèle de
 ségrégation des chromosomes est en cours dans l'équipe avec la
-collaboration de Guillaume Gay ainsi que l'équipe de Jacques Pécréaux.
+collaboration de Guillaume Gay ainsi que l'équipe de Jacques Pécréaux
+(Rennes).
 
-Les buts de ce travail sont multiples.
-
-Tout d'abord afin de pouvoir généraliser à la cellule entière et à
-différents organismes, il faut modifier la géométrie pour l'instant en
-une dimension à une géométrie en trois dimensions.
-
-Par la suite l'idée serait de reproduire la ségrégation des chromosomes
-chez \emph{C. elegans} qui à la particularité de posséder des
-chromosomes holocentriques dont les centromères s'étendent sur toutes la
-longueur des bras des chromosomes. Le challenge ici sera donc de
-positionner correctement dans la géométrie du modèle l'ensemble des
-sites d'attachements le long des chromosomes. TODO TAS MIEUX ?
-
-Le but final est fusionner le modèle de ségrégation avec un modèle de
-positionnement du fuseau mitotique au sein du cytoplasme. En effet,
-l'orientation du fuseau est un processus actif soumis à des forces
-corticales (Pecreaux et al.,
-\protect\hyperlink{ref-Pecreaux2006a}{2006}).
-
-Ce modèle de division cellulaire pourra alors étudier le lien entre les
-forces positionnant le fuseau mitotique avec les forces générés à
-l'intérieur du fuseau au niveau des kinétochores. En effet il n'a encore
-jamais été montré si la ségrégation des chromosomes pouvait être
-influencé par ce type de processus.
-
-Pour finir la généralisation du modèle à deux organismes ouvre la voix
-vers une modélisation globale capable d'expliquer la diversité des
-mitoses observées chez différents organismes.
+La généralisation d'un modèle à deux organismes ouvrirait la voie vers
+une modélisation globale capable d'expliquer la diversité des mitoses
+observées chez différents organismes.
 
 \clearpage\null
 
@@ -3965,11 +4114,11 @@ kinétochore (Figure~\ref{fig:kt-simul-traj}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/trajectories.png}
-\caption{\label{fig:kt-simul-traj}Exemple de trajectoire générée par
-\texttt{kt\_simul}. En plus de l'évolution de la position (axe des
-ordonnées) en fonction du temps (axe des abscisses), on visualise aussi
-les états d'attachements de chaque kinétochore sur les panneaux
-supérieurs et inférieurs.}
+\caption[Exemple de trajectoire générée par `kt\_simul`]{\label{fig:kt-simul-traj}Exemple
+de trajectoire générée par \texttt{kt\_simul}. En plus de l'évolution de
+la position (axe des ordonnées) en fonction du temps (axe des
+abscisses), on visualise aussi les états d'attachements de chaque
+kinétochore sur les panneaux supérieurs et inférieurs.}
 \end{figure}
 
 Enfin on peut aussi visualiser la simulation à l'aide d'une interface
@@ -3987,11 +4136,11 @@ graphique dynamique (Figure~\ref{fig:kt-simul-gui}) et du code suivant :
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/gui.png}
-\caption{\label{fig:kt-simul-gui}Animation graphique d'une simulation.
-L'interface graphique permet de suivre la dynamique en temps réel à
-l'aide d'un «~slider~» en bas qui permet de changer le temps. Le panneau
-à droite permet d'avoir une vue détaillée de la position et de
-l'attachement de chaque site d'attachement.}
+\caption[Animation graphique d'une simulation]{\label{fig:kt-simul-gui}Animation
+graphique d'une simulation. L'interface graphique permet de suivre la
+dynamique en temps réel à l'aide d'un «~slider~» en bas qui permet de
+changer le temps. Le panneau à droite permet d'avoir une vue détaillée
+de la position et de l'attachement de chaque site d'attachement.}
 \end{figure}
 
 \cleardoublepage
@@ -4001,89 +4150,6 @@ l'attachement de chaque site d'attachement.}
 microtubule-kinétochore}\label{le-complexe-dam1-favorise-lattachement-microtubule-kinuxe9tochore}
 
 \label{sec:dam1}
-
-\subsection{Strucure de Dam1 et son rôle dans la régulation de
-l'attachement}\label{strucure-de-dam1-et-son-ruxf4le-dans-la-ruxe9gulation-de-lattachement}
-
-La protéine Dam1 a été pour la première fois identifié chez la levure à
-bourgeon comme une protéine crucial pour le maintien de l'intégrité
-structurelle du fuseau mitotique (Hofmann,
-\protect\hyperlink{ref-Hofmann1998}{1998})
-
-Par la suite, il a été montré que des complexes composés de DAM1
-pouvaient former des structures en anneaux \textbf{in vitro} (Westermann
-et al., \protect\hyperlink{ref-Westermann2005}{2005}) autour des
-microtubules (Figure~\ref{fig:dam1-struct}).
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{figures/annexes/dam1-struct.png}
-\caption{\label{fig:dam1-struct}Structure du complexe DAM1. \textbf{A}.
-Schéma de la strucute et du positionnement du complexe DAM1 lorsque il
-forme un anneau autour du microtubule. \textbf{B}. Exemple d'une image
-de microscopie éléctronique (EM) montrant une vue de l'extrémité finale
-d'un microtubule entourée d'un complexe DAM1 (Westermann et al.,
-\protect\hyperlink{ref-Westermann2006}{2006}). \textbf{C}. Complexe DAM1
-purifié et attaché à des microtubules stabilisés par du taxol et
-visualisé par EM (Westermann et al.,
-\protect\hyperlink{ref-Westermann2005}{2005}). \textbf{D}. Complexe DAM1
-incubé 48h dans une monocouche phospholipidique et visualisé par EM. Des
-anneaux auto-assemblés de complexe DAM1 sont visibles. Les barre
-d'echelles correspondent à 50nm.}
-\end{figure}
-
-Cependant c'est dans une autre étude que le rôle essentiel du complexe
-DAM1 dans l'attachement kinétochore-microtubule fut décrit (Westermann
-et al., \protect\hyperlink{ref-Westermann2006}{2006}). En effet les
-auteurs ont montré (Figure~\ref{fig:dam1-struct}) par vidéo-microscopie
-à fluorescence que des anneaux de DAM1 peuvent se déplacer vers
-l'extrémité plus d'un microtubule sur plusieurs micromètre sans se
-détacher. Ils proposent alors que la protéine Dam1 joue un rôle
-important dans l'attachement kinétochore-microtubule et agit comme un
-système capable de convertir l'énergie mécanique générée par un
-microtubule en une force appliquée sur le kinétochore afin de générer un
-mouvement.
-
-Des oligomères de Dam1 de plus petite tailles sans structure en anneau
-ont aussi été identifiées \textbf{in vitro} chez la levure à bourgeon
-(Gestaut et al., \protect\hyperlink{ref-Gestaut2008}{2008}). Ces
-assemblages appelés «~patchs~» sont cependant capable de diffusés le
-long du microtubule ainsi que de suivre son extrémité pendant sa
-dépolymérisation (Gestaut et al.,
-\protect\hyperlink{ref-Gestaut2008}{2008}).
-
-La protéine Dam1 est conservé chez la levure à fission et se localiste
-de la même façon que son homologue de la levure à bourgeon au niveau des
-kinétochores et des microtubules nucléaires. Cependant une étude
-\emph{in vivo} a montré par microscopie quantitative que en moyenne
-seulement 7-8 copies de Dam1 étaient présent au kinétochore (Gao et al.,
-\protect\hyperlink{ref-Gao2010}{2010}). Les auteurs proposent donc Dam1
-est capable de modifier la dynamique des microtubules kinétochoriens
-sans structure en anneaux mais plutôt à travers des «~patchs~» de petite
-tailles.
-
-Une autre étude montre aussi que Dam1 est capable de former des patchs
-\textbf{in vitro} lorsque sa concentration est très faible de l'ordre de
-500pM (Tien et al., \protect\hyperlink{ref-Tien2010}{2010}).
-
-Bien que Dam1 soit absent chez les eucaryotes supérieurs comme la
-cellule humaine, une autre protéine, Ska1, a été décrite comme pouvant
-jouer un rôle similaire à Dam1 (Schmidt et al.,
-\protect\hyperlink{ref-Schmidt2012}{2012}). Différentes études ont été
-en mesure de montrer que que les complexes Ska1 et NDC80 forment un
-système intégré capable de coupler le mouvement des chromosomes à la
-dépolymérisation des microtubules (Daum et al.,
-\protect\hyperlink{ref-Daum2009}{2009}; Gaitanos et al.,
-\protect\hyperlink{ref-Gaitanos2009}{2009}; Hanisch et al.,
-\protect\hyperlink{ref-Hanisch2006}{2006}; Raaijmakers et al.,
-\protect\hyperlink{ref-Raaijmakers2009}{2009}; Schmidt et al.,
-\protect\hyperlink{ref-Schmidt2012}{2012}; Theis et al.,
-\protect\hyperlink{ref-Theis2009}{2009}; Welburn et al.,
-\protect\hyperlink{ref-Welburn2009}{2009}).
-
-\subsection{La congression et les oscillations des chromosomes sont deux
-mécanismes indépendants chez la levure à
-fission}\label{la-congression-et-les-oscillations-des-chromosomes-sont-deux-muxe9canismes-induxe9pendants-chez-la-levure-uxe0-fission}
 
 Bien que le mutant \emph{dam1Δ} chez la levure à bourgeon soit non
 viable, celui de la levure à fission est viable. Il montre cependant des
@@ -4102,11 +4168,11 @@ la souche sauvage (Figure~\ref{fig:dam1-traj}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/dam1-traj.png}
-\caption{\label{fig:dam1-traj}Trajectoire du chromosome II dans la
-levure à fission sans Dam1. \textbf{A}. Kymographe de la trajectoire des
-deux pôles du fuseau mitotique et des deux kinétochores du chromosome II
-durant la métaphase et l'anaphase. \textbf{B}. La trajectoire
-reconstruite du kymographe en \textbf{A}.}
+\caption[Trajectoire du chromosome II dans la levure à fission sans Dam1]{\label{fig:dam1-traj}Trajectoire
+du chromosome II dans la levure à fission sans Dam1. \textbf{A}.
+Kymographe de la trajectoire des deux pôles du fuseau mitotique et des
+deux kinétochores du chromosome II durant la métaphase et l'anaphase.
+\textbf{B}. La trajectoire reconstruite du kymographe en \textbf{A}.}
 \end{figure}
 
 On note aussi que bien les chromosomes n'oscillent pas, ils sont centrés
@@ -4231,9 +4297,9 @@ On peut ensuite visualiser la trajectoire obtenue
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/simu_oscill_trajectory.png}
-\caption{\label{fig:simu-oscill-trajectory}Exemple de trajectoire
-générée par le modèle naïf du mouvement d'un chromosome. Les paramètres
-utilisés pour cette simulation sont \texttt{n\_a\ =\ 10},
+\caption[Exemple de trajectoire générée par le modèle naïf du mouvement d'un chromosome]{\label{fig:simu-oscill-trajectory}Exemple
+de trajectoire générée par le modèle naïf du mouvement d'un chromosome.
+Les paramètres utilisés pour cette simulation sont \texttt{n\_a\ =\ 10},
 \texttt{k\_a\ =\ 0.2} et \texttt{k\_d\ =\ 0.5}.}
 \end{figure}
 
@@ -4264,13 +4330,13 @@ indétectable (Figure~\ref{fig:simu-oscill-sinus}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/simu_oscill_sinus.png}
-\caption{\label{fig:simu-oscill-sinus}Autocorrélation et transformée de
-Fourier d'un signal sinusoïdal bruité. Le signal généré avec la fonction
-\texttt{sinus} possède une période de 100s. Le signal orange en
-\textbf{A} correspond au signal sinusoïdal (en bleu) auquel a été ajouté
-un bruit blanc. \textbf{B}. Autocorrélation du signal orange en
-\textbf{A}. \textbf{C}. Transformée de Fourier du signal orange en
-\textbf{A}.}
+\caption[Autocorrélation et transformée de Fourier d'un signal sinusoïdal bruité]{\label{fig:simu-oscill-sinus}Autocorrélation
+et transformée de Fourier d'un signal sinusoïdal bruité. Le signal
+généré avec la fonction \texttt{sinus} possède une période de 100s. Le
+signal orange en \textbf{A} correspond au signal sinusoïdal (en bleu)
+auquel a été ajouté un bruit blanc. \textbf{B}. Autocorrélation du
+signal orange en \textbf{A}. \textbf{C}. Transformée de Fourier du
+signal orange en \textbf{A}.}
 \end{figure}
 
 \subsection{Optimisation des
@@ -4303,12 +4369,12 @@ Fourier associées.
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/annexes/simu_oscill_all.png}
-\caption{\label{fig:simu-oscill-all}Quelques exemples de trajectoires
-avec différents paramètre du modèle naïf du mouvement d'un chromosome.
-Les trois paramètres des simulations sont affichés en haut de chaque
-trajectoires. Les points rouges correspondent aux 4 premiers minimum
-locaux pour l'autocorrélation et aux quatre premiers maximum locaux pour
-la transformée de Fourier.}
+\caption[Quelques exemples de trajectoires avec différents paramètre du modèle naïf du mouvement d'un chromosome]{\label{fig:simu-oscill-all}Quelques
+exemples de trajectoires avec différents paramètre du modèle naïf du
+mouvement d'un chromosome. Les trois paramètres des simulations sont
+affichés en haut de chaque trajectoires. Les points rouges correspondent
+aux 4 premiers minimum locaux pour l'autocorrélation et aux quatre
+premiers maximum locaux pour la transformée de Fourier.}
 \end{figure}
 
 \clearpage\null
@@ -4346,6 +4412,11 @@ kinetochores during metaphase chromosome motion. Journal of Cell Science
 Auckland, P., and McAinsh, a.D. (2015). Building an integrated model of
 chromosome congression. Journal of Cell Science \emph{128}, 3363--3374.
 
+\hypertarget{ref-Black2008}{}
+Black, B.E., and Bassett, E.A. (2008). The histone variant CENP-A and
+centromere specification. Current Opinion in Cell Biology \emph{20},
+91--100.
+
 \hypertarget{ref-Boettcher2013}{}
 Boettcher, B., and Barral, Y. (2013). The cell biology of open and
 closed mitosis. Nucleus (Austin, Tex.) \emph{4}, 160--165.
@@ -4368,13 +4439,23 @@ National Academy of Sciences of the United States of America \emph{106},
 21173--21178.
 
 \hypertarget{ref-Burroughs2015}{}
-Burroughs, N.J., Harry, E.F., and McAinsh, A.D. (2015). Super-resolution
-kinetochore tracking reveals the mechanisms of human sister kinetochore
-directional switching. ELife \emph{4}, 1--5.
+Burroughs, N.J., Harry, E.F., and Mcainsh, A.D. (2015). directional
+switching Super-resolution kinetochore tracking reveals the mechanisms
+of human sister kinetochore directional switching. ELife \emph{4}, 1--5.
 
 \hypertarget{ref-Campas2006}{}
 Campàs, O., and Sens, P. (2006). Chromosome oscillations in mitosis.
 Physical Review Letters \emph{97}.
+
+\hypertarget{ref-Campbell2013a}{}
+Campbell, C.S., and Desai, A. (2013). Tension sensing by Aurora B kinase
+is independent of survivin-based centromere localization. Nature
+\emph{497}, 118--121.
+
+\hypertarget{ref-Carmena2012a}{}
+Carmena, M., Wheelock, M., Funabiki, H., and Earnshaw, W.C. (2012). The
+chromosomal passenger complex (CPC): from easy rider to the godfather of
+mitosis. Nature Reviews. Molecular Cell Biology \emph{13}, 789--803.
 
 \hypertarget{ref-Cassimeris1994}{}
 Cassimeris, L., Rieder, C., and Salmon, E. (1994). Microtubule assembly
@@ -4518,6 +4599,17 @@ Wordeman, L., Asbury, C.L., and Davis, T.N. (2008). Phosphoregulation
 and depolymerization-driven movement of the Dam1 complex do not require
 ring formation. Nature Cell Biology \emph{10}, 407--414.
 
+\hypertarget{ref-Goldstein2000}{}
+Goldstein, L.S., and Yang, Z. (2000). Microtubule-based transport
+systems in neurons: the roles of kinesins and dyneins. Annual Review of
+Neuroscience \emph{23}, 39--71.
+
+\hypertarget{ref-Gonen2012a}{}
+Gonen, S., Akiyoshi, B., Iadanza, M.G., Shi, D., Duggan, N., Biggins,
+S., and Gonen, T. (2012). The structure of purified kinetochores reveals
+multiple microtubule-attachment sites. Nature Structural \& Molecular
+Biology \emph{19}, 925--929.
+
 \hypertarget{ref-Goshima2005}{}
 Goshima, G., Wollman, R., Stuurman, N., Scholey, J.M., and Vale, R.D.
 (2005). Length control of the metaphase spindle. Current Biology
@@ -4543,12 +4635,16 @@ and Ska2. The EMBO Journal \emph{25}, 5504--5515.
 
 \hypertarget{ref-Harry2014}{}
 Harry, E. (2014). Metaphase chromosome dynamics investigated by high
-resolution tracking and data-driven modelling.
+resolution tracking and data-driven modelling. PhD thesis.
 
 \hypertarget{ref-Hill1985}{}
 Hill, T.L. (1985). Theoretical problems related to the attachment of
 microtubules to kinetochores. Proceedings of the National Academy of
 Sciences of the United States of America \emph{82}, 4404--4408.
+
+\hypertarget{ref-Hirokawa1998}{}
+Hirokawa, N. (1998). Kinesin and Dynein Superfamily Proteins and the
+Mechanism of Organelle Transport. Science \emph{279}, 519--526.
 
 \hypertarget{ref-Hochegger2013}{}
 Hochegger, H., Hégarat, N., and Pereira-Leal, J.B. (2013). Aurora at the
@@ -4653,6 +4749,11 @@ Khodjakov, A., La Terra, S., and Chang, F. (2004). Laser microsurgery in
 fission yeast; role of the mitotic spindle midzone in anaphase B.
 Current Biology : CB \emph{14}, 1330--1340.
 
+\hypertarget{ref-King1995}{}
+King, K.L., and Cidlowski, J.A. (1995). Cell cycle and apoptosis: common
+pathways to life and death. Journal of Cellular Biochemistry \emph{58},
+175--180.
+
 \hypertarget{ref-Kirschner1986}{}
 Kirschner, M., and Mitchison, T. (1986). Beyond self-assembly: from
 microtubules to morphogenesis. Cell \emph{45}, 329--342.
@@ -4677,6 +4778,11 @@ to cancer: aneuploidy and the mitotic checkpoint. Nature Reviews. Cancer
 Lampson, M.A., Renduchitala, K., Khodjakov, A., and Kapoor, T.M. (2004).
 Correcting improper chromosome-spindle attachments during cell division.
 Nature Cell Biology \emph{6}, 232--237.
+
+\hypertarget{ref-Lansky2015}{}
+Lansky, Z., Braun, M., Lüdecke, A., Schlierf, M., Wolde, P.R. ten,
+Janson, M.E., and Diez, S. (2015). Diffusible Crosslinkers Generate
+Directed Forces in Microtubule Networks. Cell 1--10.
 
 \hypertarget{ref-Lara-Gonzalez2012}{}
 Lara-Gonzalez, P., Westhorpe, F.G., and Taylor, S.S. (2012). The spindle
@@ -4703,6 +4809,11 @@ Mary, H., Fouchard, J., Gay, G., Reyes, C., Gauthier, T., Gruget, C.,
 Pecreaux, J., Tournier, S., and Gachet, Y. (2015). Fission yeast
 kinesin-8 controls chromosome congression independently of oscillations.
 Journal of Cell Science \emph{128}, 3720--3730.
+
+\hypertarget{ref-Mata1997}{}
+Mata, J., and Nurse, P. (1997). tea1 and the Microtubular Cytoskeleton
+Are Important for Generating Global Spatial Order within the Fission
+Yeast Cell. Cell \emph{89}, 939--949.
 
 \hypertarget{ref-Mayr2007}{}
 Mayr, M.I., Hümmer, S., Bormann, J., Grüner, T., Adio, S., Woehlke, G.,
@@ -4752,6 +4863,11 @@ kinesin-8 motors through the cell cycle. Systems and Synthetic Biology
 Miranda, J.J.L., De Wulf, P., Sorger, P.K., and Harrison, S.C. (2005).
 The yeast DASH complex forms closed rings on microtubules. Nature
 Structural \& Molecular Biology \emph{12}, 138--143.
+
+\hypertarget{ref-MITCHISON1963}{}
+MITCHISON, J.M. (1963). PATTERNS OF SYNTHESIS OF RNA AND OTHER CELL
+COMPONENTS DURING THE CELL CYCLE OF SCHIZOSACCHAROMYCES POMBE. Journal
+of Cellular Physiology \emph{62}, SUPPL1:1--13.
 
 \hypertarget{ref-Mitchison1989}{}
 Mitchison, T. (1989). Polewards microtubule flux in the mitotic spindle:
@@ -4803,6 +4919,11 @@ flexible cytoskeletal fibers. New Journal of Physics \emph{9}.
 Nicklas, R.B. (1983). Measurements of the force produced by the mitotic
 spindle in anaphase. Journal of Cell Biology \emph{97}, 542--548.
 
+\hypertarget{ref-Nicklas1994}{}
+Nicklas, R.B., and Ward, S.C. (1994). Elements of error correction in
+mitosis: Microtubule capture, release, and tension. Journal of Cell
+Biology \emph{126}, 1241--1253.
+
 \hypertarget{ref-Nicklas1982}{}
 Nicklas, R.B., Kubai, D.F., and Hays, T.S. (1982). Spindle microtubules
 and their mechanical associations after micromanipulation in anaphase.
@@ -4842,18 +4963,16 @@ Oliveira, R. a, Hamilton, R.S., Pauli, A., Davis, I., and Nasmyth, K.
 (2010). Cohesin cleavage and Cdk inhibition trigger formation of
 daughter nuclei. Nature Cell Biology \emph{12}, 185--192.
 
+\hypertarget{ref-Pasteur}{}
+Pasteur, L. (1862). Oeuvres de Pasteur. Tome 2 / réunies par Pasteur
+Vallery-Radot,...
+
 \hypertarget{ref-Paul2009}{}
 Paul, R., Wollman, R., Silkworth, W.T., Nardi, I.K., Cimini, D., and
 Mogilner, A. (2009). Computer simulations predict that chromosome
 movements and rotations accelerate mitotic spindle assembly without
 compromising accuracy. Proceedings of the National Academy of Sciences
 of the United States of America \emph{106}, 15708--15713.
-
-\hypertarget{ref-Pecreaux2006a}{}
-Pecreaux, J., Röper, J.-C., Kruse, K., Jülicher, F., Hyman, A.A., Grill,
-S.W., and Howard, J. (2006). Spindle oscillations during asymmetric cell
-division require a threshold number of active cortical force generators.
-Current Biology : CB \emph{16}, 2111--2122.
 
 \hypertarget{ref-Peskin1993}{}
 Peskin, C.S., Odell, G.M., and Oster, G.F. (1993). Cellular motions and
@@ -4885,6 +5004,18 @@ attachment. Journal of Cell Science \emph{122}, 2436--2445.
 Reese, L., Melbinger, A., and Frey, E. (2014). Molecular Mechanisms for
 Microtubule Length Regulation by Kinesin-8 and XMAP215 Proteins.
 Interface Focus \emph{4}, 1--21.
+
+\hypertarget{ref-Reyes2015}{}
+Reyes, C., Serrurier, C., Gauthier, T., Gachet, Y., and Tournier, S.
+(2015). Aurora B prevents chromosome arm separation defects by promoting
+telomere dispersion and disjunction. The Journal of Cell Biology
+\emph{208}, 713--727.
+
+\hypertarget{ref-Mcintosh2013}{}
+Richard McIntosh, J., O'Toole, E., Zhudenkov, K., Morphew, M., Schwartz,
+C., Ataullakhanov, F.I., and Grishchuk, E.L. (2013). Conserved and
+divergent features of kinetochores and spindle microtubule ends from
+five species. Journal of Cell Biology \emph{200}, 459--474.
 
 \hypertarget{ref-Rieder1994}{}
 Rieder, C.L. (1994). Anaphase onset in vertebrate somatic cells is
@@ -4930,11 +5061,6 @@ membranes. Nature Methods \emph{5}, 687--694.
 Shtylla, B., and Keener, J.P. (2011). A Mathematical Model for Force
 Generation at the Kinetochore-Microtubule Interface. SIAM Journal on
 Applied Mathematics \emph{71}, 1821--1848.
-
-\hypertarget{ref-Sivakumar2015}{}
-Sivakumar, S., and Gorbsky, G.J. (2015). Spatiotemporal regulation of
-the anaphase-promoting complex in mitosis. Nature Publishing Group
-\emph{16}, 82--94.
 
 \hypertarget{ref-Skibbens1993}{}
 Skibbens, R.V., Skeen, V.P., and Salmon, E.D. (1993). Directional
@@ -5007,6 +5133,13 @@ attached, polymerizing microtubules. Molecular Biology of \ldots{}.
 Tischer, C., Brunner, D., and Dogterom, M. (2009). Force- and
 kinesin-8-dependent effects in the spatial regulation of fission yeast
 microtubule dynamics. Molecular Systems Biology \emph{5}, 250.
+
+\hypertarget{ref-Umesono1983}{}
+Umesono, K., Toda, T., Hayashi, S., and Yanagida, M. (1983). Cell
+division cycle genes nda2 and nda3 of the fission yeast
+Schizosaccharomyces pombe control microtubular organization and
+sensitivity to anti-mitotic benzimidazole compounds. Journal of
+Molecular Biology \emph{168}, 271--284.
 
 \hypertarget{ref-Unsworth2008}{}
 Unsworth, A., Masuda, H., Dhut, S., and Toda, T. (2008). Fission yeast
@@ -5127,6 +5260,12 @@ and Mogilner, A. (2005). Efficient chromosome capture requires a bias in
 the 'search-and-capture' process during mitotic-spindle assembly.
 Current Biology : CB \emph{15}, 828--832.
 
+\hypertarget{ref-Wood2002a}{}
+Wood, V., Gwilliam, R., Rajandream, M.-a., Lyne, M., Lyne, R., Stewart,
+a, Sgouros, J., Peat, N., Hayles, J., Baker, S., et al. (2002). The
+genome sequence of Schizosaccharomyces pombe. Nature \emph{415},
+871--880.
+
 \hypertarget{ref-Yamamoto2003}{}
 Yamamoto, A., and Hiraoka, Y. (2003). Monopolar spindle attachment of
 sister chromatids is ensured by two distinct mechanisms at the first
@@ -5143,5 +5282,10 @@ Zaytsev, A.V., Sundin, L.J.R., DeLuca, K.F., Grishchuk, E.L., and
 DeLuca, J.G. (2014). Accurate phosphoregulation of
 kinetochore-microtubule affinity requires unconstrained molecular
 interactions. Journal of Cell Biology \emph{206}, 45--59.
+
+\hypertarget{ref-Zheng1995}{}
+Zheng, Y., Wong, M., Alberts, B., and Mitchison, T. (1995). Nucleation
+of microtubule assembly by a gamma-tubulin-containing ring complex.
+Nature.
 
 \end{document}
