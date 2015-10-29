@@ -137,16 +137,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="4"
-     inkscape:cx="387.09639"
-     inkscape:cy="171.04368"
+     inkscape:zoom="2"
+     inkscape:cx="200.64746"
+     inkscape:cy="146.12121"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:showpageshadow="false"
      borderlayer="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1003"
+     inkscape:window-width="1600"
+     inkscape:window-height="1123"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1"
@@ -783,17 +783,6 @@
        id="path5230"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ff512b;fill-opacity:1;fill-rule:evenodd;stroke:#c61500;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        transform="scale(-1,1)" />
-    <text
-       sodipodi:linespacing="100%"
-       id="text5232"
-       y="358.46347"
-       x="91.107071"
-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.70742989px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
-       xml:space="preserve"><tspan
-         y="358.46347"
-         x="91.107071"
-         id="tspan5234"
-         sodipodi:role="line">Cdc20</tspan></text>
     <path
        d="m 136.67511,-346.02335 a 30.8641,30.8641 0 0 1 -30.8641,30.8641 l 0,-30.8641 z"
        sodipodi:end="1.5707963"
@@ -804,7 +793,7 @@
        sodipodi:cx="105.81101"
        sodipodi:type="arc"
        id="path5236"
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ff512b;fill-opacity:1;fill-rule:evenodd;stroke:#c61500;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#fa8072;fill-opacity:1;fill-rule:evenodd;stroke:#c61500;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        transform="scale(1,-1)" />
     <path
        transform="scale(-1,-1)"
@@ -821,31 +810,14 @@
     <text
        sodipodi:linespacing="100%"
        id="text5240"
-       y="339.88226"
-       x="120.90069"
+       y="358.45923"
+       x="91.516937"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.70742989px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
        xml:space="preserve"><tspan
-         y="339.88226"
-         x="120.90069"
+         y="358.45923"
+         x="91.516937"
          id="tspan5242"
          sodipodi:role="line">Bub3</tspan></text>
-    <text
-       xml:space="preserve"
-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.70742989px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
-       x="91.544571"
-       y="339.88226"
-       id="text5244"
-       sodipodi:linespacing="100%"><tspan
-         sodipodi:role="line"
-         id="tspan5246"
-         x="91.544571"
-         y="339.88226">Mad2</tspan></text>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.74148595;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#StopL)"
-       d="m 143.58309,345.67157 90.25697,0"
-       id="path5880"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
     <g
        id="g4414"
        transform="translate(9.5087001,0)">
@@ -873,24 +845,28 @@
     <text
        xml:space="preserve"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.70742989px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
-       x="160.16541"
-       y="320.69363"
+       x="152.16541"
+       y="328.44363"
        id="text4656-2-0"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="160.16541"
-         y="320.69363"
+         x="152.16541"
+         y="328.44363"
          id="tspan5208-2"><tspan
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:arial;-inkscape-font-specification:'arial Bold'"
    id="tspan8148">2.</tspan> MCC bloque</tspan><tspan
          sodipodi:role="line"
-         x="160.16541"
-         y="329.40106"
+         x="152.16541"
+         y="337.15106"
          id="tspan6028">l'activation de</tspan><tspan
          sodipodi:role="line"
-         x="160.16541"
-         y="338.10849"
-         id="tspan6030">l'APC/C.</tspan></text>
+         x="152.16541"
+         y="345.85849"
+         id="tspan6030">l'APC/C en</tspan><tspan
+         sodipodi:role="line"
+         x="152.16541"
+         y="354.56592"
+         id="tspan4390">séquestrant Cdc20</tspan></text>
     <path
        sodipodi:nodetypes="cc"
        id="path6062"
@@ -1757,5 +1733,27 @@
        id="path4389"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text5232"
+       y="339.92053"
+       x="119.91174"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.70742989px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
+       xml:space="preserve"><tspan
+         y="339.92053"
+         x="119.91174"
+         id="tspan5234"
+         sodipodi:role="line">Cdc20</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.70742989px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
+       x="91.544571"
+       y="339.88226"
+       id="text5244"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5246"
+         x="91.544571"
+         y="339.88226">Mad2</tspan></text>
   </g>
 </svg>

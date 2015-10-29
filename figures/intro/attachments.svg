@@ -9,8 +9,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="113.36628mm"
-   height="84.681297mm"
+   width="114.20438mm"
+   height="84.176781mm"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r"
@@ -114,18 +114,18 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-323.46494"
-     inkscape:cy="-2.9308039"
+     inkscape:cx="-14.033105"
+     inkscape:cy="371.17749"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showborder="true"
      inkscape:showpageshadow="false"
-     fit-margin-top="5"
-     fit-margin-left="5"
-     fit-margin-right="5"
-     fit-margin-bottom="5"
-     inkscape:window-width="1911"
+     fit-margin-top="3"
+     fit-margin-left="3"
+     fit-margin-right="3"
+     fit-margin-bottom="3"
+     inkscape:window-width="1598"
      inkscape:window-height="905"
      inkscape:window-x="0"
      inkscape:window-y="123"
@@ -151,7 +151,7 @@
      inkscape:label="Main"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(678.55955,62.458699)"
+     transform="translate(671.47294,55.372085)"
      style="stroke-linecap:square;stroke-linejoin:round">
     <flowRoot
        xml:space="preserve"
@@ -168,7 +168,7 @@
          id="flowPara6286"
          style="stroke-linecap:square;stroke-linejoin:round" /></flowRoot>    <g
        id="g4952"
-       transform="matrix(0.32808487,0,0,0.32808487,-761.42445,-102.38869)"
+       transform="matrix(0.343441,0,0,0.343441,-766.1322,-105.08686)"
        style="stroke-linecap:square;stroke-linejoin:round">
       <rect
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
@@ -315,7 +315,7 @@
     </g>
     <g
        id="g4468"
-       transform="matrix(0.32808487,0,0,0.32808487,-1019.8114,-490.3917)"
+       transform="matrix(0.343441,0,0,0.343441,-1036.613,-511.25048)"
        style="stroke-linecap:square;stroke-linejoin:round">
       <rect
          y="1739.505"
@@ -441,67 +441,67 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
-       x="-660.65558"
-       y="-35.348171"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+       x="-660.64679"
+       y="-34.908482"
        id="text4377"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4379"
-         x="-660.65558"
-         y="-35.348171"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Amphitelic</tspan></text>
+         x="-660.64679"
+         y="-34.908482"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Amphitelic</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
-       x="-661.81702"
-       y="63.33675"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+       x="-661.86261"
+       y="68.395424"
        id="text4377-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4379-8"
-         x="-661.81702"
-         y="63.33675"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Monotelic</tspan></text>
+         x="-661.86261"
+         y="68.395424"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Monotelic</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
-       x="-422.9364"
-       y="5.6805258"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+       x="-411.80109"
+       y="42.935871"
        id="text4377-50"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4379-7"
-         x="-422.9364"
-         y="5.6805258"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Syntelic</tspan></text>
+         x="-411.80109"
+         y="42.935871"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Syntelic</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
-       x="-661.81702"
-       y="158.71925"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+       x="-661.86261"
+       y="168.24234"
        id="text4377-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4379-3"
-         x="-661.81702"
-         y="158.71925"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Merotelic</tspan></text>
+         x="-661.86261"
+         y="168.24234"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Merotelic</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
-       x="-423.52115"
-       y="123.40892"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+       x="-412.41321"
+       y="166.17459"
        id="text4377-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4379-0"
-         x="-423.52115"
-         y="123.40892"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.12339497px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Unattached</tspan></text>
+         x="-412.41321"
+         y="166.17459"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.73764038px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">Unattached</tspan></text>
     <g
        id="g4931"
-       transform="matrix(0.32808487,0,0,0.32808487,-1328.0667,-479.37129)"
+       transform="matrix(0.343441,0,0,0.343441,-1359.2963,-464.81897)"
        style="stroke-linecap:square;stroke-linejoin:round">
       <rect
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
@@ -646,7 +646,7 @@
     </g>
     <g
        id="g4520"
-       transform="matrix(0.32808487,0,0,0.32808487,-746.67548,-443.87385)"
+       transform="matrix(0.343441,0,0,0.343441,-750.6929,-462.55535)"
        style="stroke-linecap:square;stroke-linejoin:round">
       <rect
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
@@ -789,7 +789,7 @@
     </g>
     <g
        id="g4573"
-       transform="matrix(0.32808487,0,0,0.32808487,-652.86302,-627.05721)"
+       transform="matrix(0.343441,0,0,0.343441,-652.48951,-619.41738)"
        style="stroke-linecap:square;stroke-linejoin:round">
       <g
          style="stroke-linecap:square;stroke-linejoin:round"
@@ -891,6 +891,74 @@
            rx="14.285714"
            ry="11.071428" />
       </g>
+    </g>
+    <g
+       id="g4313"
+       transform="matrix(1.0468054,0,0,1.0468054,34.669581,20.039408)"
+       style="stroke-linecap:square;stroke-linejoin:round">
+      <rect
+         y="-50.256592"
+         x="-409.27383"
+         height="11.785713"
+         width="6.0243697"
+         id="rect4266"
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#0099ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4268"
+         d="m -415.35302,-30.171476 18.18274,0"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         ry="4.1010609"
+         rx="5.5071387"
+         cy="-15.979216"
+         cx="-406.26166"
+         style="fill:#00bf00;fill-opacity:1;stroke:#000000;stroke-width:0.37788385;stroke-linecap:square;stroke-linejoin:round;stroke-opacity:1"
+         id="path4214-0-9" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4377-50-3"
+         y="-40.843227"
+         x="-382.83371"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round"
+           y="-40.843227"
+           x="-382.83371"
+           id="tspan4379-7-7"
+           sodipodi:role="line">kinetochore</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+         x="-382.82883"
+         y="-26.650969"
+         id="text4303"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4305"
+           x="-382.82883"
+           y="-26.650969"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round">microtubule</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4307"
+         y="-12.458708"
+         x="-382.53098"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:arial;-inkscape-font-specification:arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:square;stroke-linejoin:round"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;stroke-linecap:square;stroke-linejoin:round"
+           y="-12.458708"
+           x="-382.53098"
+           id="tspan4309"
+           sodipodi:role="line">attachment site</tspan></text>
+      <rect
+         y="-56.605915"
+         x="-421.74844"
+         height="50.806198"
+         width="113.18891"
+         id="rect4311"
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
     </g>
   </g>
 </svg>

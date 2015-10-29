@@ -14,9 +14,19 @@
 % Set figure legends and captions to be smaller sized sans serif font
 \usepackage[font={footnotesize,sf}]{caption}
 
-\usepackage{siunitx}
 \usepackage{float}
 \usepackage[final]{pdfpages}
+
+\usepackage{siunitx}
+% Note that the sign must be
+%  µ
+%  MICRO SIGN
+%  Unicode: U+00B5, UTF-8: C2 B5
+% and \emph{not}
+%  μ
+%  GREEK SMALL LETTER MU
+%  Unicode: U+03BC, UTF-8: CE BC
+\sisetup{math-micro=\text{µ},text-micro=µ}
 
 % Adjust spacing between lines to 1.5
 \usepackage{setspace}
