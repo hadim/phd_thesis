@@ -5,11 +5,11 @@
 
 Je tiens tout d'abord à exprimer tous mes remerciements à l’ensemble des membres de mon jury : Emmanuelle Fabre, Benoit Arcangioli, Andrea Parmeggiani ains que Kerstin Bystricky. Merci d'avoir pris le temps de vous intéresser à mon travail de thèse et d'avoir accepté de l'évaluer.
 
-Je remercie Sylvie et Yannick d'avoir cru en moi pour m'accepter en thèse il y a maintenant un peu plus de trois ans, alors même qu'ils cherchaient un ingénieur ! Merci de m'avoir initier au vaste monde de la recherche notamment à travers votre expérience et votre patience.
+Je remercie Sylvie et Yannick d'avoir cru en moi pour m'accepter en thèse il y a maintenant un peu plus de trois ans, alors même qu'ils cherchaient un ingénieur ! Merci de m'avoir initié au vaste monde de la recherche notamment à travers votre expérience et votre patience.
 
-Un grand merci à toi Guillaume pour m'avoir transmis tes connaissances toujours avec plaisir, passion et ton infatiguable patience. Merci à toi Jonathan pour ta vision des choses et de t'être plonger dans ce sujet à mes cotés avec tant de curiosité. Enfin un grand merci à vous deux pour vos qualités humaines.
+Un grand merci à toi Guillaume pour m'avoir transmis tes connaissances toujours avec plaisir, passion et ton infatiguable patience. Merci à toi Jonathan pour ta vision des choses et de t'être plongé dans ce sujet à mes cotés avec tant de curiosité. Enfin un grand merci à vous deux pour vos qualités humaines.
 
-Une mention spéciale à Céline ainsi que tout les membres présents et passés de l'équipe. Céline et Tiphaine, merci pour votre dédication à m'avoir enseigner toutes les astuces relatives à l'étude de la levure, mais aussi et surtout votre bonne humeur autour de la paillasse du labo. Simon et Tong, je vous souhaite plein de bonnes choses pour la suite.
+Une mention spéciale à Céline ainsi que tout les membres présents et passés de l'équipe. Céline et Tiphaine, merci pour votre dédication à m'avoir enseigné toutes les astuces relatives à l'étude de la levure, mais aussi et surtout votre bonne humeur autour de la paillasse du labo. Simon et Tong, je vous souhaite plein de bonnes choses pour la suite.
 
 Je remercie aussi Andreas Merdes ainsi que Florence Larminat pour avoir suivi mon travail de thèse pendant deux ans. Nos discussions et vos commentaires ont toujours été d'une aide précieuse.
 
