@@ -116,18 +116,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="241.9058"
-     inkscape:cy="196.39255"
+     inkscape:zoom="0.99999999"
+     inkscape:cx="279.63254"
+     inkscape:cy="102.57304"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:showpageshadow="false"
      borderlayer="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1003"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-width="1280"
+     inkscape:window-height="997"
+     inkscape:window-x="1600"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      fit-margin-top="5"
      fit-margin-left="5"
@@ -291,7 +291,7 @@
          sodipodi:role="line"
          id="tspan15866-9"
          x="101.29006"
-         y="279.45435">Centromére</tspan></text>
+         y="279.45435">Centromere</tspan></text>
     <text
        xml:space="preserve"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:100%;font-family:Arial;-inkscape-font-specification:Arial;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#4761e7;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-linecap:square;stroke-linejoin:round;marker:none;enable-background:accumulate"
@@ -304,7 +304,7 @@
          sodipodi:role="line"
          x="198.91505"
          y="264.28516"
-         id="tspan15876-8">KT-Microtutuble</tspan></text>
+         id="tspan15876-8">KT-Microtubule</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.61435318px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 177.24165,162.17686 4.64597,26.12082"
@@ -582,7 +582,7 @@
          x="146.20334"
          id="tspan17889-3-9"
          sodipodi:role="line"
-         style="font-size:12.5px;fill:#ab37c8;stroke-linecap:square;stroke-linejoin:round">Kinétochore</tspan></text>
+         style="font-size:12.5px;fill:#ab37c8;stroke-linecap:square;stroke-linejoin:round">Kinetochore</tspan></text>
     <g
        style="stroke-linecap:square;stroke-linejoin:round"
        id="g5174"
@@ -872,7 +872,7 @@
          x="160.82047"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:arial;-inkscape-font-specification:arial;fill:#000000;fill-opacity:1;stroke-linecap:square;stroke-linejoin:round"
          id="tspan5260"
-         sodipodi:role="line">Microtutuble</tspan></text>
+         sodipodi:role="line">Microtubule</tspan></text>
     <text
        xml:space="preserve"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
@@ -884,7 +884,7 @@
          id="tspan5264"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:arial;-inkscape-font-specification:arial;fill:#000000;fill-opacity:1;stroke-linecap:square;stroke-linejoin:round"
          x="397.20923"
-         y="56.033264">Centromère</tspan></text>
+         y="56.033264">Centromere</tspan></text>
     <text
        xml:space="preserve"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.12794304px;line-height:100%;font-family:arial;-inkscape-font-specification:arial;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
